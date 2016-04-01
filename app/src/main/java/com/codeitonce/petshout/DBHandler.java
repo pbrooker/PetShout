@@ -124,6 +124,32 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
+    public void addPet()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+    }
+
+    public void addPost()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+    }
+
+    public void deletePost()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //db.delete(TABLE_PETS, POSTS_ID + " = ?", new String[] {String.valueOf(post.getId())} );
+    }
+
+    public void deletePet()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+       // db.delete(TABLE_PETS, PETS_ID + " = ?", new String[] {String.valueOf(pet.getId())} );
+
+        db.close();
+    }
+
     private static String convertToHex(byte[] data) throws java.io.IOException
     {
 
@@ -162,5 +188,8 @@ public class DBHandler extends SQLiteOpenHelper
 
         //result.setText("SHA-1 hash generated is: " + " " + SHAHash);
     }
+
+
+
 
 }
