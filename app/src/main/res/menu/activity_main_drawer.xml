@@ -5,51 +5,51 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Home"/>
+            android:title="@string/nav_home"/>
         <item
             android:id="@+id/nav_found_pet"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Found a Pet"/>
+            android:title="@string/nav_found_pet"/>
         <item
             android:id="@+id/nav_browse"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Browse Lost Pets"/>
+            android:title="@string/nav_browse"/>
         <item
             android:id="@+id/nav_steps"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Lost or Found a Pet?"/>
+            android:title="@string/nav_steps"/>
         <item
             android:id="@+id/nav_edit_pp"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Edit Pet Profile"/>
+            android:title="@string/nav_edit_pp"/>
         <item
             android:id="@+id/nav_create_lpp"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Create Lost Pet Profile"/>
+            android:title="@string/nav_create_lpp"/>
         <item
             android:id="@+id/nav_claim_pet"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Claim Lost Pet"/>
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/nav_claim_pet"/>
         <item
             android:id="@+id/nav_edit_account"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Edit Account"/>
+            android:title="@string/nav_edit_account"/>
         <item
             android:id="@+id/nav_edit_lpp"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Edit Lost Pet Profile"/>
+            android:title="@string/nav_edit_lpp"/>
     </group>
 
-    <item android:title="Admin">
+    <item android:title="@string/admin_title">
         <menu>
             <item
                 android:id="@+id/nav_login"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Login"/>
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/nav_login"/>
             <item
                 android:id="@+id/nav_register"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Register"/>
+                android:title="@string/nav_register"/>
         </menu>
     </item>
 
