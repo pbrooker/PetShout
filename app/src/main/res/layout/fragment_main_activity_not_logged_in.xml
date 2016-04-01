@@ -59,13 +59,16 @@
                 style="@style/buttonMainScreen"
                 android:text="@string/register_button"
                 android:id="@+id/registerButton"
-                />
+                android:backgroundTint="#5a4e3f"
+                android:textColor="#ffffff"/>
 
             <Button
                 style="@style/buttonMainScreen"
                 android:text="@string/login_button"
                 android:id="@+id/loginButton"
-                />
+                android:backgroundTint="#5a4e3f"
+                android:textColor="#ffffff"/>
+
 
         </LinearLayout>
 
