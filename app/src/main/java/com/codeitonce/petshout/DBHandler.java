@@ -1,8 +1,16 @@
 package com.codeitonce.petshout;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.content.Context;
+import android.util.Base64;
+import android.util.Log;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by Paul on 4/1/2016.
@@ -65,6 +73,10 @@ public class DBHandler extends SQLiteOpenHelper
     private static final String POSTS_LAST_UPDATED = "LAST_UPDATED";
 
 
+    private String SHAHash;
+    public static int NO_OPTIONS=0;
+
+
     public DBHandler (Context c)
     {
         super(c, DATABASE_NAME, null, DATABASE_VERSION);
@@ -85,13 +97,70 @@ public class DBHandler extends SQLiteOpenHelper
         PETS_SPECIIES + " VARCHAR," + PETS_ADDINFO + " VARCHAR," + PETS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + TABLE_POSTS + "(" + POSTS_ID + " INTEGER PRIMARY KEY" + POSTS_DATE + " TIMESTAMP," + POSTS_LOCATION + " VARCHAR," +
-        POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_EMAIL + " VARCHAR," + POSTS_BREED + " VARCHAR," +
-        POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," + POSTS_ADDINFO + " VARCHAR," + POSTS_LAST_UPDATED + " TIMESTAMP)");
+                POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_EMAIL + " VARCHAR," + POSTS_BREED + " VARCHAR," +
+                POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," + POSTS_ADDINFO + " VARCHAR," + POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
+        String drop = "DROP TABLE IF EXISTS ";
+        //Drop older table if exists
+        db.execSQL(drop + TABLE_USERS);
+        db.execSQL(drop + TABLE_PETS);
+        db.execSQL(drop + TABLE_POSTS);
+
+        //Create tables again
+        onCreate(db);
 
     }
+
+    public void addUser()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        //values.put(USERS_LNAME, );
+        //values.put(USERS_PASSWORD, )
+
+    }
+
+    private static String convertToHex(byte[] data) throws java.io.IOException
+    {
+
+
+        StringBuffer sb = new StringBuffer();
+        String hex=null;
+
+        hex= Base64.encodeToString(data, 0, data.length, NO_OPTIONS);
+
+        sb.append(hex);
+
+        return sb.toString();
+    }
+    public void computeSHAHash(String password)
+    {
+        MessageDigest mdSha1 = null;
+        try
+        {
+            mdSha1 = MessageDigest.getInstance("SHA-1");
+        } catch (NoSuchAlgorithmException e1) {
+            Log.e("myapp", "Error initializing SHA1 message digest");
+        }
+        try {
+            mdSha1.update(password.getBytes("ASCII"));
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        byte[] data = mdSha1.digest();
+        try {
+            SHAHash=convertToHex(data);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        //result.setText("SHA-1 hash generated is: " + " " + SHAHash);
+    }
+
 }
