@@ -5,4 +5,19 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_found_pet">Found a Pet</string>
+    <string name="nav_browse">Browse Lost Pets</string>
+    <string name="nav_steps">Lost or Found a Pet?</string>
+    <string name="nav_edit_pp">Edit Pet Profile</string>
+    <string name="nav_create_lpp">Create Lost Pet Profile</string>
+    <string name="nav_claim_pet">Claim Lost Pet</string>
+    <string name="nav_edit_account">Edit Account</string>
+    <string name="nav_edit_lpp">Edit Lost Pet Profile</string>
+    <string name="admin_title">Admin</string>
+    <string name="nav_login">Login</string>
+    <string name="nav_register">Register</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
