@@ -3,33 +3,53 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import"/>
+            android:title="Home"/>
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_found_pet"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery"/>
+            android:title="Found a Pet"/>
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_browse"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow"/>
+            android:title="Browse Lost Pets"/>
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_steps"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools"/>
+            android:title="Lost or Found a Pet?"/>
+        <item
+            android:id="@+id/nav_edit_pp"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Edit Pet Profile"/>
+        <item
+            android:id="@+id/nav_create_lpp"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Create Lost Pet Profile"/>
+        <item
+            android:id="@+id/nav_claim_pet"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Claim Lost Pet"/>
+        <item
+            android:id="@+id/nav_edit_account"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Edit Account"/>
+        <item
+            android:id="@+id/nav_edit_lpp"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Edit Lost Pet Profile"/>
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Admin">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_login"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share"/>
+                android:title="Login"/>
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_register"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send"/>
+                android:title="Register"/>
         </menu>
     </item>
 
