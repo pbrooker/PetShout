@@ -19,83 +19,84 @@
     <string name="nav_register">Register</string>
 
     <!-- Strings for what to do if I lost my pet -->
-    <String name="lost_a_pet">Lost a Pet?</String>
-    <String name="lost_first_paragraph">Losing a pet is a traumatic experience for you, your family
+    <string name="lost_a_pet">Lost a Pet?</string>
+    <string name="lost_first_paragraph">Losing a pet is a traumatic experience for you, your family
         and your pet. The following are some tips for finding your lost pet.
-    </String>
-    <String name="search_your_neighborhood">Walk or drive through your neighbourhood as often as you
+    </string>
+    <string name="search_your_neighborhood">Walk or drive through your neighbourhood as often as you
         can. Ask neighbors and anyone who works in the area. Have a picture
         and let people know to be on the lookout.
-    </String>
-    <String name="add_to_registry">If your pet has a permanent ID, register the information in any
+    </string>
+    <string name="add_to_registry">If your pet has a permanent ID, register the information in any
         local pet registries (SPCA database if available). Use any online resources available.
-    </String>
-    <String name="put_up_posters">Place posters around the area your pet was lost. Use eye catching
+    </string>
+    <string name="put_up_posters">Place posters around the area your pet was lost. Use eye catching
         colors to help gain attention, make sure to include contact information.
-    </String>
-    <String name="visit_animal_shelters">Go to local animal shelters at least once a day, with a
+    </string>
+    <string name="visit_animal_shelters">Go to local animal shelters at least once a day, with a
         photo of your pet. Visiting is better than phoning as often shelter workers are very busy,
         and can't respond to phone calls.
-    </String>
-    <String name="check_animal_control">Check with your local Animal Control.</String>
-    <String name="check_animal_hospitals">If your pet was injured, it is possible it may have been
+    </string>
+    <string name="check_animal_control">Check with your local Animal Control.</string>
+    <string name="check_animal_hospitals">If your pet was injured, it is possible it may have been
         taken to a local Animal Hospital or Vet.
-    </String>
-    <String name="persistence_is_key">Keep searching even if hope seems slim. Pets have been
+    </string>
+    <string name="persistence_is_key">Keep searching even if hope seems slim. Pets have been
         reunited with their guardians long after the have gone missing.
-    </String>
-    <String name="prevention">If your pet does not have a permanent form of ID, get one now before
+    </string>
+    <string name="prevention">If your pet does not have a permanent form of ID, get one now before
         it is too late!
-    </String>
+    </string>
 
     <!-- Strings for what to do if you have found a pet -->
-    <String name="found_a_pet">Found a Pet?</String>
-    <String name="found_first_paragraph">Being lost can be a very stressful event for both a pet and
+    <string name="found_a_pet">Found a Pet?</string>
+    <string name="found_first_paragraph">Being lost can be a very stressful event for both a pet and
         their guardians. If you have found an animal that you feel has been lost,
         trying to find the animal's home before the local SPCA or Animal Control is called. Most
         pets are found within the neighborhood where they are lost, and guardians are more than
         likely already searching for them.
-    </String>
-    <String name="found_paragraph_two">If you must bring the animal to a local Animal Shelter, keep
+    </string>
+    <string name="found_paragraph_two">If you must bring the animal to a local Animal Shelter, keep
         in mind that moving the animal from the neighbourhood reduces the chances that the pet will
         be
         reunited with his/her guardian. The shelter is a very traumatic experience for the animal,
         so if you are able, take some time to find the guardian on your own.
-    </String>
-    <String name="look_for_id">Look for identification</String>
-    <String name="collar_or_id">Collar or ID tag</String>
-    <String name="collar_paragraph">Is there a collar with a tag? If so, is there a phone number, or
+    </string>
+    <string name="look_for_id">Look for identification</string>
+    <string name="collar_or_id">Collar or ID tag</string>
+    <string name="collar_paragraph">Is there a collar with a tag? If so, is there a phone number, or
         an address. Is there a municipal ID tag? A municipal tag can be used to locate the guardian
         through the local animal control office or SPCA.
-    </String>
-    <String name="ear_tattoo">Ear Tattoo</String>
-    <String name="ear_tattoo_paragraph">If the animal you found has an ear tattoo, it is possible
+    </string>
+    <string name="ear_tattoo">Ear Tattoo</string>
+    <string name="ear_tattoo_paragraph">If the animal you found has an ear tattoo, it is possible
         that it could be used to help track down the guardian of the animal. Check with your local
         veterinary office
         to see if it is possible. Some animals may have tattoos on other areas of their body, such
         as their abdomen or inside leg. These are breeder tattoos and usually can only be traced to
         the original
         breeder.
-    </String>
-    <String name="microchip">Microchip</String>
-    <String name="microchip_paragraph">Many pets have microchips, but the only way to know for sure
+    </string>
+    <string name="microchip">Microchip</string>
+    <string name="microchip_paragraph">Many pets have microchips, but the only way to know for sure
         is to take the animal to a local veterinary clinic, Animal Control service or SPCA shelter.
-    </String>
-    <String name="animals_with_no_id">Animals with no ID</String>
-    <String name="animals_with_no_id_paragraph">Use the internet. There are many sites dedicated to
+    </string>
+    <string name="animals_with_no_id">Animals with no ID</string>
+    <string name="animals_with_no_id_paragraph">Use the internet. There are many sites dedicated to
         helping reunite lost pets with with their guardians. Put up found pet posters with a
         description and
         talk to people in the neighbourhood. Contact your local SPCA shelter or Animal Control to
         report the animal and let them know if you are willing to hold the animal until the guardian
         is located.
-    </String>
-    <String name="contact_vet">Contact local veterinary clinics, many of them keep lost and found
+    </string>
+    <string name="contact_vet">Contact local veterinary clinics, many of them keep lost and found
         records. Check the local classifieds. Don't forget, if the guardian is located, please
         remember to contact groups
         you have previously contacted to update them.
-    </String>
+    </string>
 
     <string name="register_button">Register</string>
     <string name="login_button">Login</string>
+    <string name="content_description_cat_dog">cat and dog in profile</string>
 
 </resources>
