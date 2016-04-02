@@ -35,7 +35,7 @@
     </string>
     <string name="visit_animal_shelters">Go to local animal shelters at least once a day, with a
         photo of your pet. Visiting is better than phoning as often shelter workers are very busy,
-        and can't respond to phone calls.
+        and can\'t respond to phone calls.
     </string>
     <string name="check_animal_control">Check with your local Animal Control.</string>
     <string name="check_animal_hospitals">If your pet was injured, it is possible it may have been
@@ -52,7 +52,7 @@
     <string name="found_a_pet">Found a Pet?</string>
     <string name="found_first_paragraph">Being lost can be a very stressful event for both a pet and
         their guardians. If you have found an animal that you feel has been lost,
-        trying to find the animal's home before the local SPCA or Animal Control is called. Most
+        trying to find the animal\'s home before the local SPCA or Animal Control is called. Most
         pets are found within the neighborhood where they are lost, and guardians are more than
         likely already searching for them.
     </string>
@@ -90,7 +90,7 @@
         is located.
     </string>
     <string name="contact_vet">Contact local veterinary clinics, many of them keep lost and found
-        records. Check the local classifieds. Don't forget, if the guardian is located, please
+        records. Check the local classifieds. Don\'t forget, if the guardian is located, please
         remember to contact groups
         you have previously contacted to update them.
     </string>
