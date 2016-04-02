@@ -97,5 +97,6 @@
 
     <string name="register_button">Register</string>
     <string name="login_button">Login</string>
+    <string name="cat_and_dog_profile">cat and dog profile picture</string>
 
 </resources>
