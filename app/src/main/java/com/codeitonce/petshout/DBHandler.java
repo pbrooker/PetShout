@@ -60,6 +60,7 @@ public class DBHandler extends SQLiteOpenHelper
     private static final String POSTS_DATE = "POST_DATE";
     private static final String POSTS_LOCATION = "POST_LOCATION";
     private static final String POSTS_IMAGE = "POST_IMAGE";
+    private static final String POSTS_LOST_FOUND = "POST_LOST_FOUND";
     private static final String POSTS_GENDER = "POST_GENDER";
     private static final String POSTS_SPECIES = "POST_SPECIES";
     private static final String POSTS_EMAIL = "POST_EMAIL";
@@ -94,8 +95,8 @@ public class DBHandler extends SQLiteOpenHelper
         PETS_SPECIIES + " VARCHAR," + PETS_ADDINFO + " VARCHAR," + PETS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + TABLE_POSTS + "(" + POSTS_ID + " INTEGER PRIMARY KEY" + POSTS_DATE + " TIMESTAMP," + POSTS_LOCATION + " VARCHAR," +
-                POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_EMAIL + " VARCHAR," + POSTS_BREED + " VARCHAR," +
-                POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," + POSTS_ADDINFO + " VARCHAR," + POSTS_LAST_UPDATED + " TIMESTAMP)");
+                POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_EMAIL + " VARCHAR," + POSTS_LOST_FOUND + " CHAR," + POSTS_BREED
+                + " VARCHAR," + POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," + POSTS_ADDINFO + " VARCHAR," + POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
 
     @Override
