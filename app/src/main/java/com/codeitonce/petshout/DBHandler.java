@@ -5,10 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
-import android.util.Log;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -63,6 +60,7 @@ public class DBHandler extends SQLiteOpenHelper
     private static final String POSTS_DATE = "POST_DATE";
     private static final String POSTS_LOCATION = "POST_LOCATION";
     private static final String POSTS_IMAGE = "POST_IMAGE";
+    private static final String POSTS_LOST_FOUND = "POST_LOST_FOUND";
     private static final String POSTS_GENDER = "POST_GENDER";
     private static final String POSTS_SPECIES = "POST_SPECIES";
     private static final String POSTS_EMAIL = "POST_EMAIL";
@@ -97,8 +95,8 @@ public class DBHandler extends SQLiteOpenHelper
         PETS_SPECIIES + " VARCHAR," + PETS_ADDINFO + " VARCHAR," + PETS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + TABLE_POSTS + "(" + POSTS_ID + " INTEGER PRIMARY KEY" + POSTS_DATE + " TIMESTAMP," + POSTS_LOCATION + " VARCHAR," +
-                POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_EMAIL + " VARCHAR," + POSTS_BREED + " VARCHAR," +
-                POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," + POSTS_ADDINFO + " VARCHAR," + POSTS_LAST_UPDATED + " TIMESTAMP)");
+                POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_EMAIL + " VARCHAR," + POSTS_LOST_FOUND + " CHAR," + POSTS_BREED
+                + " VARCHAR," + POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," + POSTS_ADDINFO + " VARCHAR," + POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
 
     @Override
@@ -124,6 +122,32 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
+    public void addPet()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+    }
+
+    public void addPost()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+    }
+
+    public void deletePost()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //db.delete(TABLE_PETS, POSTS_ID + " = ?", new String[] {String.valueOf(post.getId())} );
+    }
+
+    public void deletePet()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+       // db.delete(TABLE_PETS, PETS_ID + " = ?", new String[] {String.valueOf(pet.getId())} );
+
+        db.close();
+    }
+
     private static String convertToHex(byte[] data) throws java.io.IOException
     {
 
@@ -137,30 +161,36 @@ public class DBHandler extends SQLiteOpenHelper
 
         return sb.toString();
     }
-    public void computeSHAHash(String password)
+    public void computeMD5Hash(String password)
     {
-        MessageDigest mdSha1 = null;
-        try
+
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(password.getBytes());
+            byte messageDigest[] = digest.digest();
+
+            StringBuffer MD5Hash = new StringBuffer();
+            for (int i = 0; i < messageDigest.length; i++)
+            {
+                String h = Integer.toHexString(0xFF & messageDigest[i]);
+                while (h.length() < 2)
+                    h = "0" + h;
+                MD5Hash.append(h);
+            }
+
+            //result.setText("MD5 hash generated is: " + " " + MD5Hash);
+
+        }
+        catch (NoSuchAlgorithmException e)
         {
-            mdSha1 = MessageDigest.getInstance("SHA-1");
-        } catch (NoSuchAlgorithmException e1) {
-            Log.e("myapp", "Error initializing SHA1 message digest");
-        }
-        try {
-            mdSha1.update(password.getBytes("ASCII"));
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        byte[] data = mdSha1.digest();
-        try {
-            SHAHash=convertToHex(data);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
-        //result.setText("SHA-1 hash generated is: " + " " + SHAHash);
+
     }
+
+
+
 
 }

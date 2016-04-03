@@ -19,16 +19,7 @@
     <string name="nav_register">Register</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="register_button">Register</string>
     <string name="login_button">Login</string>
-    <string name="first_name_input">First Name</string>
-    <string name="last_name_input">Last Name</string>
-    <string name="city_input">City</string>
-    <string name="postal_code_input">Postal Code</string>
-    <string name="email_address_input">Email</string>
-    <string name="phone_number_input">Phone</string>
-    <string name="password_input">Password</string>
-    <string name="confirm_password_input">Password</string>
-    <string name="confirm_password_text">Confirm Password</string>
 </resources>
