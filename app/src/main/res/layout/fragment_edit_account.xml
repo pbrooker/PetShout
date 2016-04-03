@@ -1,0 +1,281 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.codeitonce.petshout.EditAccountFragment"
+                android:background="#21190e">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollViewRegistration"
+        android:layout_marginTop="20dp">
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1">
+            >
+
+            <!-- TODO: Update blank fragment layout -->
+
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="5dp"
+                    android:layout_column="0"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:background="#5a4e3f"
+                    android:textColor="#ffffff"
+                    android:inputType="textPersonName"
+                    android:text="@string/first_name_input"
+                    android:ems="10"
+                    android:id="@+id/firstNameInput"
+                    android:layout_column="0"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="5dp"
+
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:background="#5a4e3f"
+                    android:textColor="#ffffff"
+                    android:inputType="textPersonName"
+                    android:text="@string/last_name_input"
+                    android:ems="10"
+                    android:id="@+id/lastNameInput"
+                    android:layout_column="1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="5dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@string/city_input"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="5dp"
+                    android:layout_column="0"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@string/postal_code_input"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="5dp"
+                    android:layout_column="1"
+                    />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:background="#5a4e3f"
+                    android:textColor="#ffffff"
+                    android:text="@string/city_input"
+                    android:id="@+id/cityInput"
+                    android:layout_column="0"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="5dp"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:background="#5a4e3f"
+                    android:textColor="#ffffff"
+                    android:inputType="textPostalAddress"
+                    android:ems="10"
+                    android:text="@string/postal_code_input"
+                    android:id="@+id/postalCode"
+                    android:layout_column="1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@string/email_address_input"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="5dp"
+                    android:layout_column="0"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@string/phone_number_input"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="5dp"
+                    android:layout_column="1"
+                    />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:background="#5a4e3f"
+                    android:textColor="#ffffff"
+                    android:inputType="textEmailAddress"
+                    android:text="@string/email_address_input"
+                    android:ems="10"
+                    android:id="@+id/emailAddressInput"
+                    android:layout_column="0"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="5dp"/>
+
+
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:background="#5a4e3f"
+                    android:textColor="#ffffff"
+                    android:inputType="phone"
+                    android:text="@string/phone_number_input"
+                    android:ems="10"
+                    android:id="@+id/phoneNumberInput"
+                    android:layout_column="1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            </TableRow>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_span="2"
+                android:gravity="center"
+                android:paddingTop="16dp">
+
+                <Button
+                    style="@style/buttonMainScreen"
+                    android:text="@string/update_button"
+                    android:id="@+id/updateButton"
+                    android:textColor="#21190e"
+                    android:background="#e89e1a"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+
+
+
+        </TableLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp"
+        android:padding="30dp">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/petProfile"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:text="Delete Pet Profile"
+            android:id="@+id/deletePetProfile"
+            android:layout_gravity="bottom"
+            android:textColor="#21190e"
+            android:background="#e89e1a"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

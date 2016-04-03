@@ -2,6 +2,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="app_name">Pet Shout</string>
+
+
     <string name="action_settings">Settings</string>
     <string name="nav_home">Home</string>
     <string name="nav_found_pet">Found a Pet</string>
@@ -17,7 +20,7 @@
     <string name="nav_register">Register</string>
 
 
-    <!-- strings for Regsitration Gragment -->
+    <!-- strings for Registration Fragment -->
     <string name="first_name_input">First Name</string>
     <string name="last_name_input">Last Name</string>
     <string name="city_input">City</string>
@@ -108,4 +111,9 @@
     <string name="register_button">Register</string>
     <string name="login_button">Login</string>
     <string name="cat_and_dog_profile">cat and dog profile picture</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="update_button">Update</string>
+    <string name="name">Name</string>
 </resources>

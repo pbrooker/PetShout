@@ -1,0 +1,59 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.codeitonce.petshout.MainActivityLoggedInFragment"
+             android:background="#21190e">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_gravity="center_horizontal"
+        android:baselineAligned="false"
+        android:clickable="true"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/imageButton"
+            android:src="@drawable/lost_pet_button"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_gravity="center_horizontal"
+        android:baselineAligned="false"
+        android:clickable="true"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/imageButton2"
+            android:src="@drawable/found_pet_button"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        >
+
+
+
+    </TableRow>
+
+</TableLayout>
