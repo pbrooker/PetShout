@@ -16,6 +16,18 @@
     <string name="nav_login">Login</string>
     <string name="nav_register">Register</string>
 
+
+    <!-- strings for Regsitration Gragment -->
+    <string name="first_name_input">First Name</string>
+    <string name="last_name_input">Last Name</string>
+    <string name="city_input">City</string>
+    <string name="postal_code_input">Postal Code</string>
+    <string name="email_address_input">Email</string>
+    <string name="phone_number_input">Phone Number</string>
+    <string name="password_input">Password</string>
+    <string name="confirm_password_text">Confirm Password</string>
+    <string name="confirm_password_input">Password</string>
+
     <!-- strings for what to do if I lost my pet -->
     <string name="lost_a_pet">Lost a Pet?</string>
     <string name="lost_first_paragraph">Losing a pet is a traumatic experience for you, your family
