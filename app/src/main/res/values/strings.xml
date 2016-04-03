@@ -127,4 +127,6 @@
     <string name="post_lost_pet_button">Post Lost Pet</string>
     <string name="browse_lost_pets_button">Browse Lost Pets</string>
     <string name="claim_lost_pet_button">Claim Lost Pet</string>
+    <string name="login_header">Login</string>
+    <string name="or_text">or</string>
 </resources>
