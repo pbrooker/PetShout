@@ -1,0 +1,293 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.codeitonce.petshout.RegistrationFragment"
+    android:background="#21190e">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollViewRegistration">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <!-- TODO: Update blank fragment layout -->
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/first_name_input"
+                android:textColor="#ffffff"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#5a4e3f"
+                android:textColor="#ffffff"
+                android:inputType="textPersonName"
+                android:text="@string/first_name_input"
+                android:ems="10"
+                android:id="@+id/firstNameInput"
+                android:layout_column="0"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/last_name_input"
+                android:textColor="#ffffff"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#5a4e3f"
+                android:textColor="#ffffff"
+                android:inputType="textPersonName"
+                android:text="@string/last_name_input"
+                android:ems="10"
+                android:id="@+id/lastNameInput"
+                android:layout_column="0"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/city_input"
+                android:textColor="#ffffff"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#5a4e3f"
+                android:textColor="#ffffff"
+                android:text="@string/city_input"
+                android:id="@+id/cityInput"
+                android:layout_column="0"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"/>
+
+
+        </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/postal_code_input"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="5dp"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#5a4e3f"
+                    android:textColor="#ffffff"
+                    android:inputType="textPostalAddress"
+                    android:ems="10"
+                    android:text="@string/postal_code_input"
+                    android:id="@+id/postalCode"
+                    android:layout_column="0"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="5dp"/>
+            </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_address_input"
+                android:textColor="#ffffff"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#5a4e3f"
+                android:textColor="#ffffff"
+                android:inputType="textEmailAddress"
+                android:text="@string/email_address_input"
+                android:ems="10"
+                android:id="@+id/emailAddressInput"
+                android:layout_column="0"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_number_input"
+                android:textColor="#ffffff"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#5a4e3f"
+                android:textColor="#ffffff"
+                android:inputType="phone"
+                android:text="@string/phone_number_input"
+                android:ems="10"
+                android:id="@+id/phoneNumberInput"
+                android:layout_column="0"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password_input"
+                android:textColor="#ffffff"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#5a4e3f"
+                android:textColor="#ffffff"
+                android:inputType="textPassword"
+                android:text="@string/password_input"
+                android:ems="10"
+                android:id="@+id/passwordInput"
+                android:layout_column="0"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/confirm_password_text"
+                android:textColor="#ffffff"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#5a4e3f"
+                android:textColor="#ffffff"
+                android:inputType="textPassword"
+                android:text="@string/confirm_password_input"
+                android:ems="10"
+                android:id="@+id/confirmPasswordInput"
+                android:layout_column="0"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"/>
+        </TableRow>
+
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_span="2"
+            android:gravity="center"
+            android:paddingTop="16dp">
+
+            <Button
+                style="@style/buttonMainScreen"
+                android:text="@string/register_button"
+                android:id="@+id/registerButton"
+                android:textColor="#21190e"
+                android:background="#e89e1a"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+
+
+    </TableLayout>
+    </ScrollView>
+
+</LinearLayout>
+
+
+
