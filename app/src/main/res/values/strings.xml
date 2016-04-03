@@ -116,4 +116,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="update_button">Update</string>
     <string name="name">Name</string>
+    <string name="edit_account_title">Edit Account</string>
+    <string name="register_account_header">Register</string>
+    <string name="main_welcome_header">Welcome to Pet Shout</string>
+    <string name="welcome_account_header">Welcome</string>
+    <string name="account_home_welcome_text">Please chose an option from the side menu or choose below.</string>
+    <string name="edit_pet_profile_button">Edit Pet Profile</string>
+    <string name="delete_pet_profile_button">Delete Pet Profile</string>
+    <string name="add_pet_profile_button">Add Pet Profile</string>
+    <string name="post_lost_pet_button">Post Lost Pet</string>
+    <string name="browse_lost_pets_button">Browse Lost Pets</string>
+    <string name="claim_lost_pet_button">Claim Lost Pet</string>
 </resources>

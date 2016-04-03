@@ -8,7 +8,7 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TableRow
+       <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="8dp"
@@ -56,14 +56,14 @@
         <LinearLayout android:gravity="center_horizontal">
 
             <Button
-                style="@style/buttonMainScreen"
+                style="@style/ActionButton"
                 android:text="@string/register_button"
                 android:id="@+id/registerButton"
                 android:textColor="#21190e"
                 android:background="#e89e1a"/>
 
             <Button
-                style="@style/buttonMainScreen"
+                style="@style/ActionButton"
                 android:text="@string/login_button"
                 android:id="@+id/loginButton"
                 android:textColor="#21190e"

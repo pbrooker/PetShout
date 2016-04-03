@@ -5,6 +5,17 @@
              tools:context="com.codeitonce.petshout.MainActivityLoggedInFragment"
              android:background="#21190e">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/main_welcome_header"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:paddingLeft="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
     <!-- TODO: Update blank fragment layout -->
     <TableRow
         android:layout_width="match_parent"
