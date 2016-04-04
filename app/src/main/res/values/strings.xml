@@ -148,4 +148,14 @@
     <string name="region_area">region and area</string>
     <string name="contact_information_person_found_pet">Contact info for person that found pet revealed after claim pet pushed</string>
     <string name="this_is_my_pet_button">This is my pet</string>
+    <string name="report_found_pet_header">Report a Found Pet</string>
+    <string name="email_title">Email</string>
+    <string name="phone_title">Phone</string>
+    <string name="breed_title">Breed</string>
+    <string name="image_button_text">Add Image</string>
+    <string name="location_header">Location</string>
+    <string name="female_text">Female</string>
+    <string name="male_text">Male</string>
+    <string name="gender_header">Gender</string>
+    <string name="select_species_title">Select Species</string>
 </resources>
