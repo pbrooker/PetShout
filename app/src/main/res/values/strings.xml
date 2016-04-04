@@ -129,4 +129,8 @@
     <string name="claim_lost_pet_button">Claim Lost Pet</string>
     <string name="login_header">Login</string>
     <string name="or_text">or</string>
+    <string name="browse_lost_and_found_pets_header">Browse Lost and Found Pets</string>
+    <string name="gender_radio_title">Gender</string>
+    <string name="keywords_input">Keywords</string>
+    <string name="search_button">Search</string>
 </resources>
