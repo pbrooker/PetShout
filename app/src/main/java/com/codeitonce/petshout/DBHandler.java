@@ -125,6 +125,8 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(USERS_PHONE, user.getPhoneNumber());
         values.put(USERS_PASSWORD, user.getPassword());
 
+        db.insert(TABLE_USERS, null, values);
+
 
     }
 
