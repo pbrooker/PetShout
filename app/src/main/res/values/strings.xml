@@ -140,4 +140,12 @@
     <string name="create_lost_pet_post_header">Create Lost Pet Post for</string>
     <string name="update_lost_pet_post">Update Lost Pet Post for </string>
     <string name="update_disclaimer">By clicking Update you acknowledge that you are publishing your contact information, which may result in you receiving unwanted messages.</string>
+    <string name="claim_lost_pet_header">Claim Lost Pet</string>
+    <string name="claim_pet_button">This is my pet!</string>
+    <string name="pet_description">Pet Description</string>
+    <string name="additional_information">Additional Information</string>
+    <string name="pet_found_in">Pet found in</string>
+    <string name="region_area">region and area</string>
+    <string name="contact_information_person_found_pet">Contact info for person that found pet revealed after claim pet pushed</string>
+    <string name="this_is_my_pet_button">This is my pet</string>
 </resources>
