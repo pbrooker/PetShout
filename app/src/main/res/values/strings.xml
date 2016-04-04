@@ -136,4 +136,6 @@
     <string name="update_lost_pet_post_header">Update Lost Pet Post for</string>
     <string name="existing_pet_post_text_to_update">Existing Text to Update</string>
     <string name="update_disclaimer">By clicking Update you acknowledge that you are, and agree to publishing your contact information, which may result in receiving unwanted messages.</string>
+    <string name="submit_button">Submit</string>
+    <string name="submit_disclaimer">By clicking Submit you acknowledge that you are publishing your contact information, which may result in you receiving unwanted messages.</string>
 </resources>
