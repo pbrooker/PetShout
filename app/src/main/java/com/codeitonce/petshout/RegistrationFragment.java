@@ -1,6 +1,7 @@
 package com.codeitonce.petshout;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -76,11 +77,13 @@ public class RegistrationFragment extends Fragment {
                 if(pass1.equals(pass2))
                 {
                     mPasswordMessage.setVisibility(View.VISIBLE);
+                    mPasswordMessage.setTextColor(Color.GREEN);
                     mPasswordMessage.setText(R.string.passwords_matched);
                 }
                 else
                 {
                     mPasswordMessage.setVisibility(View.INVISIBLE);
+                    mPasswordMessage.setTextColor(Color.RED);
                     mPasswordMessage.setText(R.string.passwords_not_matched);
 
                 }
