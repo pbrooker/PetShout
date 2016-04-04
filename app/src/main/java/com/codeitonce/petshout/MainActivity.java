@@ -2,6 +2,7 @@ package com.codeitonce.petshout;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -82,8 +83,14 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+
         if (id == R.id.nav_home)
         {
+            AccountHomeFragment fragment;
+            fragment = new AccountHomeFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         } else if (id == R.id.nav_found_pet)
         {
@@ -114,6 +121,11 @@ public class MainActivity extends AppCompatActivity
 
         }else if (id == R.id.nav_register)
         {
+            RegistrationFragment fragment;
+            fragment = new RegistrationFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         }
 
