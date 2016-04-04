@@ -283,22 +283,37 @@
             android:layout_height="match_parent"
             android:layout_span="2"
             android:gravity="center"
-            android:paddingTop="16dp">
+            android:paddingTop="16dp"
+            android:visibility="invisible">
 
-            <Button
-                style="@style/ActionButton"
-                android:text="@string/register_button"
-                android:id="@+id/registerButton"
-                android:textColor="#21190e"
-                android:background="#e89e1a"
-                android:layout_gravity="center"
-                />
-        </LinearLayout>
+            </LinearLayout>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/password_confirmation_TextView"
+                    android:textAlignment="center"
+                    android:layout_span="2"
+                    android:textColor="#ffffff"/>
+            </TableRow>
 
 
-
-    </TableLayout>
+        </TableLayout>
     </ScrollView>
+
+    <Button
+        style="@style/ActionButton"
+        android:text="@string/register_button"
+        android:id="@+id/registerButton"
+        android:textColor="#21190e"
+        android:background="#e89e1a"
+        android:layout_gravity="center"
+        android:layout_below="@+id/scrollViewRegistration"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
 

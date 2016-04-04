@@ -85,16 +85,16 @@ public class DBHandler extends SQLiteOpenHelper
     {
         String createTable = "CREATE TABLE IF NOT EXISTS ";
 
-        db.execSQL(createTable + TABLE_USERS + "(" + USERS_ID + " INTEGER PRIMARY KEY," + USERS_FNAME + " VARCHAR," + USERS_LNAME + " VARCHAR," +
+        db.execSQL(createTable + TABLE_USERS + "(" + USERS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USERS_FNAME + " VARCHAR," + USERS_LNAME + " VARCHAR," +
         USERS_PASSWORD + " BINARY," + USERS_PHONE + " INTEGER," + USERS_EMAIL + " VARCHAR," + USERS_CITY + " VARCHAR, " + USERS_POSTAL_CODE + " VARCHAR," +
         USERS_STATUS + " CHAR," + USERS_PET_ID + " INTEGER," + USERS_POST_ID + " INTEGER," + USERS_DATE_CREATED + " TIMESTAMP," + USERS_DATE_EXPIRES +
                 " DATE," + USERS_LAST_UPDATED + " TIMESTAMP)");
 
-        db.execSQL(createTable + TABLE_PETS + "(" + PETS_ID + " INTEGER PRIMARY KEY," + PETS_NAME + " VARCHAR," + PETS_AGE + " INTEGER," +
+        db.execSQL(createTable + TABLE_PETS + "(" + PETS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + PETS_NAME + " VARCHAR," + PETS_AGE + " INTEGER," +
         PETS_GENDER + " CHAR," + PETS_NEUTERED + " BOOLEAN," + PETS_BREED + " VARCHAR," + PETS_IMAGE + " LONGBLOB," + PETS_DESCRIPTION + " VARCHAR," +
         PETS_SPECIIES + " VARCHAR," + PETS_ADDINFO + " VARCHAR," + PETS_LAST_UPDATED + " TIMESTAMP)");
 
-        db.execSQL(createTable + TABLE_POSTS + "(" + POSTS_ID + " INTEGER PRIMARY KEY" + POSTS_DATE + " TIMESTAMP," + POSTS_LOCATION + " VARCHAR," +
+        db.execSQL(createTable + TABLE_POSTS + "(" + POSTS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + POSTS_DATE + " TIMESTAMP," + POSTS_LOCATION + " VARCHAR," +
                 POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_EMAIL + " VARCHAR," + POSTS_LOST_FOUND + " CHAR," + POSTS_BREED
                 + " VARCHAR," + POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," + POSTS_ADDINFO + " VARCHAR," + POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
@@ -113,12 +113,18 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
-    public void addUser()
+    public void addUser(User user)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        //values.put(USERS_LNAME, );
-        //values.put(USERS_PASSWORD, )
+        values.put(USERS_LNAME, user.getlName());
+        values.put(USERS_FNAME, user.getfName());
+        values.put(USERS_CITY, user.getCity());
+        values.put(USERS_EMAIL, user.getEmail());
+        values.put(USERS_POSTAL_CODE, user.getPostalCode());
+        values.put(USERS_PHONE, user.getPhoneNumber());
+        values.put(USERS_PASSWORD, user.getPassword());
+
 
     }
 
