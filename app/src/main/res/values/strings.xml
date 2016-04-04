@@ -142,4 +142,26 @@
     <string name="create_lost_pet_post_header">Create Lost Pet Post for</string>
     <string name="update_lost_pet_post">Update Lost Pet Post for </string>
     <string name="update_disclaimer">By clicking Update you acknowledge that you are publishing your contact information, which may result in you receiving unwanted messages.</string>
+    <string name="claim_lost_pet_header">Claim Lost Pet</string>
+    <string name="claim_pet_button">This is my pet!</string>
+    <string name="pet_description">Pet Description</string>
+    <string name="additional_information">Additional Information</string>
+    <string name="pet_found_in">Pet found in</string>
+    <string name="region_area">region and area</string>
+    <string name="contact_information_person_found_pet">Contact info for person that found pet revealed after claim pet pushed</string>
+    <string name="this_is_my_pet_button">This is my pet</string>
+    <string name="report_found_pet_header">Report a Found Pet</string>
+    <string name="email_title">Email</string>
+    <string name="phone_title">Phone</string>
+    <string name="breed_title">Breed</string>
+    <string name="image_button_text">Add Image</string>
+    <string name="location_header">Location</string>
+    <string name="female_text">Female</string>
+    <string name="male_text">Male</string>
+    <string name="gender_header">Gender</string>
+    <string name="select_species_title">Select Species</string>
+    <string name="pet_profile_header">Pet Profile</string>
+    <string name="age_header">Age</string>
+    <string name="spayed_neutered">Spayed/Neutered</string>
+    <string name="description_coloring">Description and Coloring</string>
 </resources>
