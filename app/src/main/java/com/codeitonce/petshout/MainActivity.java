@@ -94,30 +94,75 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_found_pet)
         {
+            ReportFoundPetFragment fragment;
+            fragment = new ReportFoundPetFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         } else if (id == R.id.nav_browse)
         {
+            BrowsePetsFragment fragment;
+            fragment = new BrowsePetsFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         } else if (id == R.id.nav_steps)
         {
+            LostFoundPetFragment fragment;
+            fragment = new LostFoundPetFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         } else if (id == R.id.nav_edit_pp)
         {
+            EditPetProfileFragment fragment;
+            fragment = new EditPetProfileFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         } else if (id == R.id.nav_create_lpp)
         {
+            CreateLostPetPostFragment fragment;
+            fragment = new CreateLostPetPostFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         }else if (id == R.id.nav_claim_pet)
         {
+            ClaimLostPetFragment fragment;
+            fragment = new ClaimLostPetFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         }else if (id == R.id.nav_edit_account)
         {
+            EditAccountFragment fragment;
+            fragment = new EditAccountFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         }else if (id == R.id.nav_edit_lpp)
         {
+            EditLostPetPostFragment fragment;
+            fragment = new EditLostPetPostFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         }else if (id == R.id.nav_login)
         {
+            LoginFragment fragment;
+            fragment = new LoginFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         }else if (id == R.id.nav_register)
         {
