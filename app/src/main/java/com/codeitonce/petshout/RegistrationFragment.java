@@ -80,9 +80,9 @@ public class RegistrationFragment extends Fragment {
                     mPasswordMessage.setTextColor(Color.GREEN);
                     mPasswordMessage.setText(R.string.passwords_matched);
                 }
-                else
+                else 
                 {
-                    mPasswordMessage.setVisibility(View.INVISIBLE);
+                    mPasswordMessage.setVisibility(View.VISIBLE);
                     mPasswordMessage.setTextColor(Color.RED);
                     mPasswordMessage.setText(R.string.passwords_not_matched);
 
