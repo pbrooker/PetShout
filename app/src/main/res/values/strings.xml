@@ -133,4 +133,7 @@
     <string name="gender_radio_title">Gender</string>
     <string name="keywords_input">Keywords</string>
     <string name="search_button">Search</string>
+    <string name="update_lost_pet_post_header">Update Lost Pet Post for</string>
+    <string name="existing_pet_post_text_to_update">Existing Text to Update</string>
+    <string name="update_disclaimer">By clicking Update you acknowledge that you are, and agree to publishing your contact information, which may result in receiving unwanted messages.</string>
 </resources>
