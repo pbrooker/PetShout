@@ -158,4 +158,8 @@
     <string name="male_text">Male</string>
     <string name="gender_header">Gender</string>
     <string name="select_species_title">Select Species</string>
+    <string name="pet_profile_header">Pet Profile</string>
+    <string name="age_header">Age</string>
+    <string name="spayed_neutered">Spayed/Neutered</string>
+    <string name="description_coloring">Description and Coloring</string>
 </resources>
