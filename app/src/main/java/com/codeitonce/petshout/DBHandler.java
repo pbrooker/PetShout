@@ -45,7 +45,7 @@ public class DBHandler extends SQLiteOpenHelper
     //Pets table columns
     private static final String PETS_ID = "PET_ID";
     private static final String PETS_NAME = "PET_NAME";
-    private static final String PETS_SPECIIES = "PET_SPECIES";
+    private static final String PETS_SPECIES = "PET_SPECIES";
     private static final String PETS_IMAGE = "PET_IMAGE";
     private static final String PETS_NEUTERED = "PET_NEUTERED";
     private static final String PETS_GENDER = "PET_GENDER";
@@ -92,7 +92,7 @@ public class DBHandler extends SQLiteOpenHelper
 
         db.execSQL(createTable + TABLE_PETS + "(" + PETS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + PETS_NAME + " VARCHAR," + PETS_AGE + " INTEGER," +
         PETS_GENDER + " CHAR," + PETS_NEUTERED + " BOOLEAN," + PETS_BREED + " VARCHAR," + PETS_IMAGE + " LONGBLOB," + PETS_DESCRIPTION + " VARCHAR," +
-        PETS_SPECIIES + " VARCHAR," + PETS_ADDINFO + " VARCHAR," + PETS_LAST_UPDATED + " TIMESTAMP)");
+        PETS_SPECIES + " VARCHAR," + PETS_ADDINFO + " VARCHAR," + PETS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + TABLE_POSTS + "(" + POSTS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + POSTS_DATE + " TIMESTAMP," + POSTS_LOCATION + " VARCHAR," +
                 POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_EMAIL + " VARCHAR," + POSTS_LOST_FOUND + " CHAR," + POSTS_BREED
