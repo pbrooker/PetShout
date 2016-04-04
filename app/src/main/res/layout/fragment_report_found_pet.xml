@@ -66,6 +66,7 @@
                     android:inputType="textEmailAddress"
                     android:ems="10"
                     android:background="#5a4e3f"
+                    android:hint="@string/email_address_input"
                     android:layout_span="2"
                     android:id="@+id/emailAddressInput"/>
             </TableRow>
@@ -99,6 +100,7 @@
                     android:inputType="phone"
                     android:background="#5a4e3f"
                     android:layout_span="2"
+                    android:hint="@string/phone_number_input"
                     android:ems="10"
                     android:id="@+id/phoneNumberInput"
                     />
@@ -147,7 +149,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/breedInput"
-                    android:text="@string/breed_title"
+                    android:hint="@string/breed_title"
                     android:textColor="#ffffff"
                     android:background="#5a4e3f"
                     />
@@ -227,7 +229,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/locationInput"
                     android:textColor="#ffffff"
-                    android:text="@string/location_header"
+                    android:hint="@string/location_header"
                     android:background="#5a4e3f"
                     android:layout_column="1"/>
             </TableRow>

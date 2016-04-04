@@ -63,9 +63,10 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText2"
+                    android:id="@+id/petDescription"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
+                    android:hint="@string/pet_description"
                     android:layout_span="2"
                     android:layout_marginBottom="10dp"/>
             </TableRow>
@@ -79,7 +80,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText3"
+                    android:hint="@string/additional_information"
+                    android:id="@+id/additionalInformation"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
                     android:layout_span="2"

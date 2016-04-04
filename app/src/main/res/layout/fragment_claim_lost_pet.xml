@@ -55,7 +55,7 @@
                 android:ems="10"
                 android:textColor="#ffffff"
                 android:background="#5a4e3f"
-                android:text="@string/pet_description"
+                android:hint="@string/pet_description"
                 android:id="@+id/petDescription"
                 />
         </TableRow>
@@ -67,14 +67,14 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pet_found_in"
+                android:hint="@string/pet_found_in"
                 android:textColor="#ffffff"
                 />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/region_area"
+                android:hint="@string/region_area"
                 android:textColor="#ffffff"
                 android:id="@+id/area"/>
         </TableRow>
