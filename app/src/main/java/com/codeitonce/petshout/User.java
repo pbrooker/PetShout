@@ -13,10 +13,16 @@ public class User
     private String phoneNumber;
     private String password;
 
-
     public User()
     {
 
+    }
+
+
+    public User(String email, String phoneNumber)
+    {
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
 

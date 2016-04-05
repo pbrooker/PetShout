@@ -66,14 +66,19 @@ public class LoginFragment extends Fragment {
             {
                 for(int x = 0; x < mUserArrayList.size(); x++)
                 {
-                    if(mEmailAddress.getText().toString().equals(mUserArrayList.get(x).getEmail()))
+                    try
                     {
-                        mCurrentUser = mUserArrayList.get(x);
+                        if (mEmailAddress.getText().toString().equals(mUserArrayList.get(x).getEmail()))
+                        {
+                            mCurrentUser = mUserArrayList.get(x);
+                        }
                     }
-                    else
+                    catch(NullPointerException n)
                     {
                         mCurrentUser = new User();
+                        //Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
                     }
+
                 }
             }
         });
@@ -83,8 +88,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                try
-                {
+
                     if (mPassword.getText().toString().equals(mCurrentUser.getPassword()))
                     {
                         MainActivityLoggedInFragment fragment;
@@ -92,15 +96,12 @@ public class LoginFragment extends Fragment {
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.mainFrame, fragment);
                         ft.commit();
-                    } else
+                    }
+                    else
                     {
                         Toast.makeText(getActivity(), R.string.incorrect_login, Toast.LENGTH_SHORT).show();
                     }
-                }
-                catch (NullPointerException n)
-                {
-                    Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
 
