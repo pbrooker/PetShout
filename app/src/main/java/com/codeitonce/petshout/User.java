@@ -14,6 +14,10 @@ public class User
     private String password;
 
 
+    public User()
+    {
+
+    }
 
 
     public User(String fName, String lName, String city, String postalCode, String email, String phoneNumber, String password)

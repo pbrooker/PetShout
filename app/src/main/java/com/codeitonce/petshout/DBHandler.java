@@ -2,12 +2,14 @@ package com.codeitonce.petshout;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 /**
  * Created by Paul on 4/1/2016.
@@ -84,17 +86,17 @@ public class DBHandler extends SQLiteOpenHelper
         String createTable = "CREATE TABLE IF NOT EXISTS ";
 
         db.execSQL(createTable + TABLE_USERS + "(" + USERS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USERS_FNAME + " VARCHAR," + USERS_LNAME + " VARCHAR," +
-        USERS_PASSWORD + " BINARY," + USERS_PHONE + " INTEGER," + USERS_EMAIL + " VARCHAR," + USERS_CITY + " VARCHAR, " + USERS_POSTAL_CODE + " VARCHAR," +
-        USERS_STATUS + " CHAR," + USERS_PET_ID + " INTEGER," + USERS_POST_ID + " INTEGER," + USERS_DATE_CREATED + " TIMESTAMP," + USERS_DATE_EXPIRES +
+                USERS_PASSWORD + " BINARY," + USERS_PHONE + " INTEGER," + USERS_EMAIL + " VARCHAR," + USERS_CITY + " VARCHAR, " + USERS_POSTAL_CODE + " VARCHAR," +
+                USERS_STATUS + " CHAR," + USERS_PET_ID + " INTEGER," + USERS_POST_ID + " INTEGER," + USERS_DATE_CREATED + " TIMESTAMP," + USERS_DATE_EXPIRES +
                 " DATE," + USERS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + TABLE_PETS + "(" + PETS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + PETS_NAME + " VARCHAR," + PETS_AGE + " INTEGER," +
-        PETS_GENDER + " CHAR," + PETS_NEUTERED + " BOOLEAN," + PETS_BREED + " VARCHAR," + PETS_IMAGE + " LONGBLOB," + PETS_DESCRIPTION + " VARCHAR," +
-        PETS_SPECIES + " VARCHAR," + PETS_ADDINFO + " VARCHAR," + PETS_LAST_UPDATED + " TIMESTAMP)");
+                PETS_GENDER + " CHAR," + PETS_NEUTERED + " BOOLEAN," + PETS_BREED + " VARCHAR," + PETS_IMAGE + " LONGBLOB," + PETS_DESCRIPTION + " VARCHAR," +
+                PETS_SPECIES + " VARCHAR," + PETS_ADDINFO + " VARCHAR," + PETS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + TABLE_POSTS + "(" + POSTS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + POSTS_DATE + " TIMESTAMP," + POSTS_LOCATION + " VARCHAR," +
                 POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_LOST_FOUND + " CHAR," + POSTS_BREED
-                + " VARCHAR," + POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," +  POSTS_LAST_UPDATED + " TIMESTAMP)");
+                + " VARCHAR," + POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," + POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
 
     @Override
@@ -128,6 +130,33 @@ public class DBHandler extends SQLiteOpenHelper
         db.close();
 
 
+    }
+
+    public ArrayList<User> getUsersArray()
+    {
+        ArrayList<User> list = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor curUser = db.rawQuery("SELECT * FROM " + TABLE_USERS, null);
+        if(curUser != null && curUser.moveToFirst())
+        {
+            while (curUser.isAfterLast() == false)
+            {
+                list = new ArrayList<>();
+                User user = new User();
+                user.setfName(curUser.getString((curUser.getColumnIndex(USERS_FNAME))));
+                user.setlName(curUser.getString(curUser.getColumnIndex(USERS_LNAME)));
+                user.setCity(curUser.getString(curUser.getColumnIndex(USERS_CITY)));
+                user.setEmail(curUser.getString(curUser.getColumnIndex(USERS_EMAIL)));
+                user.setPassword(curUser.getString(curUser.getColumnIndex(USERS_PASSWORD)));
+                user.setPostalCode(curUser.getString(curUser.getColumnIndex(USERS_POSTAL_CODE)));
+                user.setPhoneNumber(curUser.getString(curUser.getColumnIndex(USERS_PHONE)));
+                list.add(user);
+                curUser.moveToNext();
+            }
+        }
+        curUser.close();
+        db.close();
+        return list;
     }
 
     public void addPet(Pet pet)
