@@ -165,4 +165,17 @@
     <string name="spayed_neutered">Spayed/Neutered</string>
     <string name="description_coloring">Description and Coloring</string>
 
+
+    <!-- Species array list strings-->
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+    <string name="bird">Bird</string>
+    <string name="rat">Rat</string>
+    <string name="hedgehog">HedgeHog</string>
+    <string name="pig">Pig</string>
+    <string name="horse">Horse</string>
+    <string name="reptile">Reptile</string>
+    <string name="guinea_pig">Guinea Pig</string>
+    <string name="rabbit">Rabbit</string>
+    <string name="other">Other</string>
 </resources>

@@ -63,11 +63,9 @@ public class DBHandler extends SQLiteOpenHelper
     private static final String POSTS_LOST_FOUND = "POST_LOST_FOUND";
     private static final String POSTS_GENDER = "POST_GENDER";
     private static final String POSTS_SPECIES = "POST_SPECIES";
-    private static final String POSTS_EMAIL = "POST_EMAIL";
     private static final String POSTS_BREED = "POST_BREED";
     private static final String POSTS_DESCRIPTION = "POST_DESCRIPTION";
     private static final String POSTS_EXPIRES = "POST_EXPIRES";
-    private static final String POSTS_ADDINFO = "POST_ADDINFO";
     private static final String POSTS_LAST_UPDATED = "LAST_UPDATED";
 
 
@@ -95,8 +93,8 @@ public class DBHandler extends SQLiteOpenHelper
         PETS_SPECIES + " VARCHAR," + PETS_ADDINFO + " VARCHAR," + PETS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + TABLE_POSTS + "(" + POSTS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + POSTS_DATE + " TIMESTAMP," + POSTS_LOCATION + " VARCHAR," +
-                POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_EMAIL + " VARCHAR," + POSTS_LOST_FOUND + " CHAR," + POSTS_BREED
-                + " VARCHAR," + POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," + POSTS_ADDINFO + " VARCHAR," + POSTS_LAST_UPDATED + " TIMESTAMP)");
+                POSTS_IMAGE + " LONGBLOB," + POSTS_GENDER + " CHAR," + POSTS_SPECIES + " VARCHAR," + POSTS_LOST_FOUND + " CHAR," + POSTS_BREED
+                + " VARCHAR," + POSTS_DESCRIPTION + " VARCHAR," + POSTS_EXPIRES + " DATE," +  POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
 
     @Override
@@ -151,10 +149,21 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
-    public void addPost()
+    public void addPost(Post post)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        ContentValues userValues = new ContentValues();
+        values.put(POSTS_LOCATION, post.getPostLocation());
+        values.put(POSTS_LOST_FOUND, "F" );
+        values.put(POSTS_GENDER, post.getPostGender());
+        values.put(POSTS_SPECIES, post.getPostSpecies());
+        values.put(POSTS_BREED, post.getPostBreed());
+        values.put(POSTS_DESCRIPTION, post.getPostDescription());
+        userValues.put(USERS_EMAIL, post.getPostEmail());
+        userValues.put(USERS_PHONE, post.getPostPhoneNumber());
+
+
     }
 
     public void deletePost()

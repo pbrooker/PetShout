@@ -3,7 +3,8 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.CreateLostPetPostFragment"
-             android:background="#21190e">
+             android:background="#21190e"
+                android:gravity="center_vertical|center_horizontal">
 
     <!-- TODO: Update blank fragment layout -->
 
