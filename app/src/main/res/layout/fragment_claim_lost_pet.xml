@@ -78,9 +78,8 @@
                 />
         </TableRow>
 
-        <TableRow android:gravity="center_horizontal"
+        <TableRow
                   android:layout_marginTop="5dp"
-                  android:layout_gravity="center_horizontal"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent">
 
@@ -90,7 +89,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/area_pet_found_in_title"
                 android:textColor="#ffffff"
-                android:layout_gravity="center_horizontal"/>
+                />
         </TableRow>
 
         <TableRow
