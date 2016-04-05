@@ -70,6 +70,10 @@ public class LoginFragment extends Fragment {
                     {
                         mCurrentUser = mUserArrayList.get(x);
                     }
+                    else
+                    {
+                        mCurrentUser = new User();
+                    }
                 }
             }
         });
