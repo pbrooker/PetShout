@@ -41,14 +41,14 @@ public class ReportFoundPetFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_report_found_pet, container, false);
 
-        mEmail = (EditText) view.findViewById(R.id.emailAddressInput);
-        mPhoneNumber = (EditText) view.findViewById(R.id.phoneNumberInput);
-        mBreed = (EditText) view.findViewById(R.id.breedInput);
-        mLocation = (EditText) view.findViewById(R.id.locationInput);
-        mSpecies = (Spinner) view.findViewById(R.id.speciesSpinner);
+        mEmail = (EditText) view.findViewById(R.id.email_address_input);
+        mPhoneNumber = (EditText) view.findViewById(R.id.phone_number_input);
+        mBreed = (EditText) view.findViewById(R.id.breed_input);
+        mLocation = (EditText) view.findViewById(R.id.location_input);
+        mSpecies = (Spinner) view.findViewById(R.id.species_spinner);
         mGender = (RadioGroup) view.findViewById(R.id.gender_group);
-        mAddImage = (Button) view.findViewById(R.id.imageButton);
-        mSubmit = (Button) view.findViewById(R.id.submitButton);
+        mAddImage = (Button) view.findViewById(R.id.image_button);
+        mSubmit = (Button) view.findViewById(R.id.submit_button);
 
 
 

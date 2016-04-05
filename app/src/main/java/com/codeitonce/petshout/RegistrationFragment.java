@@ -52,7 +52,7 @@ public class RegistrationFragment extends Fragment {
         mPassword = (EditText) v.findViewById(R.id.password_input);
         mConfirmPassword = (EditText) v.findViewById(R.id.confirm_password_input);
         mRegister = (Button) v.findViewById(R.id.register_button);
-        mPasswordMessage = (TextView) v.findViewById(R.id.password_confirmation_TextView);
+        mPasswordMessage = (TextView) v.findViewById(R.id.password_confirmation_text_view);
 
 
         mConfirmPassword.addTextChangedListener(new TextWatcher()
