@@ -181,4 +181,5 @@
     <string name="guinea_pig">Guinea Pig</string>
     <string name="rabbit">Rabbit</string>
     <string name="other">Other</string>
+    <string name="previously_chosen_pet_profile">Previously Chosen Pet Profile</string>
 </resources>

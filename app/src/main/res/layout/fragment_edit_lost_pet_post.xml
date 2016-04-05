@@ -7,19 +7,33 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cat_dog_profile"
+        android:src="@drawable/catanddog"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/cat_and_dog_profile"
+        android:padding="10dp"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/cat_dog_profile"
         android:id="@+id/scroll_view">
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="10dp">
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -46,6 +60,19 @@
 
             <TableRow
                 android:layout_width="match_parent"
+                android:layout_marginTop="5dp">>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/previously_chosen_pet_profile"
+                    android:textColor="#ffffff"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <Spinner
@@ -57,61 +84,104 @@
             </TableRow>
 
             <TableRow
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp">>
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/pet_description"
+                android:textColor="#ffffff"
+                />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/pet_description"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
-                    android:hint="@string/pet_description"
-                    android:layout_span="2"
-                    android:layout_marginBottom="10dp"/>
-            </TableRow>
+        </TableRow>
+
+        <TableRow android:gravity="center_horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_marginTop="5dp">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="#5a4e3f"
+                android:textColor="#ffffff"
+                android:hint="@string/pet_description"
+                android:id="@+id/pet_description"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="5dp"/>
+        </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:ems="10"
-                    android:hint="@string/additional_information"
-                    android:id="@+id/additional_information"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
-                    android:layout_span="2"
-                    android:layout_marginBottom="10dp"/>
-            </TableRow>
-
-            <TableRow
+            android:layout_marginTop="5dp">>
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/additional_information"
+                android:textColor="#ffffff"
+                />
 
+        </TableRow>
+
+        <TableRow android:gravity="center_horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_marginTop="5dp">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="#5a4e3f"
+                android:textColor="#ffffff"
+                android:hint="@string/additional_information"
+                android:id="@+id/additional_information"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="5dp"/>
+        </TableRow>
+
+            <TableRow android:gravity="center_horizontal"
+                      android:layout_marginTop="5dp">
                 <LinearLayout
-                    android:layout_span="2">
-                <Button
-                    style="@style/ActionButton"
-                    android:text="@string/update_button"
-                    android:id="@+id/update_button"
-                    android:textColor="#21190e"
-                    android:background="#e89e1a"
-                    android:layout_gravity="center"
-                    />
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_span="2"
+                    android:gravity="center"
+                    android:paddingTop="16dp">
 
-                <Button
-                    style="@style/ActionButton"
-                    android:text="@string/delete_pet_profile_button"
-                    android:id="@+id/delete_button"
-                    android:textColor="#21190e"
-                    android:background="#e89e1a"
-                    android:layout_gravity="center"
-                    />
+                    <Button
+                        style="@style/ActionButton"
+                        android:text="@string/update_button"
+                        android:id="@+id/update_button"
+                        android:textColor="#21190e"
+                        android:background="#e89e1a"
+                        />
                 </LinearLayout>
+
+            </TableRow>
+            <TableRow android:gravity="center_horizontal"
+                      android:layout_marginTop="5dp">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_span="2"
+                    android:gravity="center"
+                    android:paddingTop="16dp">
+
+                    <Button
+                        style="@style/ActionButton"
+                        android:text="@string/delete_pet_profile_button"
+                        android:id="@+id/delete_pet_profile_button"
+                        android:textColor="#21190e"
+                        android:background="#e89e1a"
+                        />
+                </LinearLayout>
+
             </TableRow>
 
             <TableRow
