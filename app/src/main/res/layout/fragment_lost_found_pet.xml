@@ -165,7 +165,8 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/found_a_pet"
                     android:textStyle="bold"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/colorAccent"
+                    android:paddingTop="10dp"
                     android:paddingLeft="6dp"/>
             </TableRow>
 
