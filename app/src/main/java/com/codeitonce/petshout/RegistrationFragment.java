@@ -43,15 +43,15 @@ public class RegistrationFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_registration, container, false);
-        mFirstName = (EditText) v.findViewById(R.id.firstNameInput);
-        mLastName = (EditText) v.findViewById(R.id.lastNameInput);
-        mCity = (EditText) v.findViewById(R.id.cityInput);
-        mPostalCode = (EditText) v.findViewById(R.id.postalCode);
-        mEmail = (EditText) v.findViewById(R.id.emailAddressInput);
-        mPhoneNumber = (EditText) v.findViewById(R.id.phoneNumberInput);
-        mPassword = (EditText) v.findViewById(R.id.passwordInput);
-        mConfirmPassword = (EditText) v.findViewById(R.id.confirmPasswordInput);
-        mRegister = (Button) v.findViewById(R.id.registerButton);
+        mFirstName = (EditText) v.findViewById(R.id.first_name_input);
+        mLastName = (EditText) v.findViewById(R.id.last_name_input);
+        mCity = (EditText) v.findViewById(R.id.city_input);
+        mPostalCode = (EditText) v.findViewById(R.id.postal_code);
+        mEmail = (EditText) v.findViewById(R.id.email_address_input);
+        mPhoneNumber = (EditText) v.findViewById(R.id.phone_number_input);
+        mPassword = (EditText) v.findViewById(R.id.password_input);
+        mConfirmPassword = (EditText) v.findViewById(R.id.confirm_password_input);
+        mRegister = (Button) v.findViewById(R.id.register_button);
         mPasswordMessage = (TextView) v.findViewById(R.id.password_confirmation_TextView);
 
 

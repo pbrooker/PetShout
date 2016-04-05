@@ -8,10 +8,13 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/welcome_account_header"
@@ -20,11 +23,13 @@
         android:paddingLeft="6dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:layout_column="0"
+        android:id="@+id/welcome"
+
         />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/name"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -33,17 +38,19 @@
             android:paddingLeft="6dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:layout_column="1"
+
             />
     </LinearLayout>
 
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollViewRegistration"
-        android:layout_marginTop="16dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll_view_registration"
+        android:layout_marginTop="16dp"
+        android:paddingTop="30dp"
+        >
 
         <TableLayout
             android:layout_width="fill_parent"
@@ -62,16 +69,17 @@
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/edit_pet_profile_button"
-                    android:id="@+id/editPetProfile"
+                    android:id="@+id/edit_pet_profile"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     android:layout_gravity="center"
-                    />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
                 <Spinner
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/registeredPetsSpinner"
+                    android:layout_height="match_parent"
+                    android:id="@+id/registered_pets_spinner"
                     android:layout_gravity="center|left"
                     android:layout_weight="1"
                     android:layout_marginRight="5dp">
@@ -80,22 +88,23 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/add_pet_profile_button"
-                    android:id="@+id/addPetProfile"
+                    android:id="@+id/add_pet_profile"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     android:layout_gravity="center"
-                    />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
                 <Spinner
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/managePostsSpinner"
+                    android:layout_height="match_parent"
+                    android:id="@+id/manage_posts_spinner"
                     android:layout_gravity="center|left"
                     android:layout_weight="1"
                     android:layout_marginRight="5dp">
@@ -104,50 +113,54 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/post_lost_pet_button"
-                    android:id="@+id/postLostPetProfile"
+                    android:id="@+id/post_lost_pet_profile"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     android:layout_gravity="center"
-                    />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/browse_lost_pets_button"
-                    android:id="@+id/browseLostPetProfile"
+                    android:id="@+id/browse_lost_pet_profile"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     android:layout_gravity="center|left"
-                    />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
 
             </TableRow>
             <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/edit_account_title"
-                    android:id="@+id/editAccount"
+                    android:id="@+id/edit_account"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     android:layout_gravity="center"
-                    />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/claim_lost_pet_button"
-                    android:id="@+id/claimLostPet"
+                    android:id="@+id/claim_lost_pet"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     android:layout_gravity="center|left"
-                    />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </TableRow>
 
 

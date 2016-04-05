@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:id="@+id/imageButton"
+            android:id="@+id/image_button"
             android:src="@drawable/lost_pet_button"
             />
 
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:id="@+id/imageButton2"
+            android:id="@+id/image_button_two"
             android:src="@drawable/found_pet_button"
             />
     </TableRow>
@@ -58,14 +58,14 @@
             <Button
                 style="@style/ActionButton"
                 android:text="@string/register_button"
-                android:id="@+id/registerButton"
+                android:id="@+id/register_button"
                 android:textColor="#21190e"
                 android:background="#e89e1a"/>
 
             <Button
                 style="@style/ActionButton"
                 android:text="@string/login_button"
-                android:id="@+id/loginButton"
+                android:id="@+id/login_button"
                 android:textColor="#21190e"
                 android:background="#e89e1a"/>
 

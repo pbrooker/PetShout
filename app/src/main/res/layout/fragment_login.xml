@@ -17,19 +17,19 @@
         android:paddingLeft="6dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:id="@+id/loginText"/>
+        android:id="@+id/login_text"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/login_button"
-        android:id="@+id/textView"
+        android:id="@+id/text_view"
         android:textColor="#ffffff"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:layout_below="@id/loginText"/>
+        android:layout_below="@id/login_text"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,9 +39,9 @@
         android:inputType="textEmailAddress"
         android:hint="@string/email_address_input"
         android:ems="10"
-        android:id="@+id/emailAddressInput"
+        android:id="@+id/email_address_input"
         android:paddingLeft="5dp"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/text_view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
 
@@ -53,18 +53,18 @@
         android:inputType="textPassword"
         android:hint="@string/password_input"
         android:ems="10"
-        android:id="@+id/passwordInput"
+        android:id="@+id/password_input"
         android:paddingLeft="5dp"
-        android:layout_below="@+id/emailAddressInput"
-        android:layout_alignLeft="@+id/emailAddressInput"
-        android:layout_alignStart="@+id/emailAddressInput"
+        android:layout_below="@+id/email_address_input"
+        android:layout_alignLeft="@+id/email_address_input"
+        android:layout_alignStart="@+id/email_address_input"
         android:layout_marginTop="30dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:id="@+id/submitButton"
+        android:id="@+id/submit_button"
         android:textColor="#21190e"
         android:background="#e89e1a"
         android:layout_centerVertical="true"
@@ -76,21 +76,21 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/or_text"
-        android:id="@+id/orText"
+        android:id="@+id/or_text"
         android:textColor="#ffffff"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
-        android:layout_below="@+id/submitButton"
+        android:layout_below="@+id/submit_button"
         android:layout_centerHorizontal="true"
         />
 
     <Button
         style="@style/ActionButton"
         android:text="@string/register_button"
-        android:id="@+id/registerButton"
+        android:id="@+id/register_button"
         android:textColor="#21190e"
         android:background="#e89e1a"
-        android:layout_below="@+id/orText"
+        android:layout_below="@+id/or_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
 

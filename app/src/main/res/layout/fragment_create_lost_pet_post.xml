@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView2">
+        android:id="@+id/scroll_view">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/petDescription"
+                    android:id="@+id/pet_description"
                     android:hint="@string/pet_description"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/additionalInformation"
+                    android:id="@+id/additional_information"
                     android:hint="@string/additional_information"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
@@ -96,7 +96,7 @@
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/submit_button"
-                    android:id="@+id/submitButton"
+                    android:id="@+id/submit_button"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     android:layout_gravity="center"
@@ -112,7 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/submit_disclaimer"
-                    android:id="@+id/textView2"
+                    android:id="@+id/text_view"
                     android:layout_span="2"
                     android:textColor="#ffffff"
                     android:layout_marginTop="10dp"/>

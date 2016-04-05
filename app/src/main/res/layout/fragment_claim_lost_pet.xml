@@ -56,7 +56,7 @@
                 android:textColor="#ffffff"
                 android:background="#5a4e3f"
                 android:hint="@string/pet_description"
-                android:id="@+id/petDescription"
+                android:id="@+id/pet_description"
                 />
         </TableRow>
 
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/contact_information_person_found_pet"
-                android:id="@+id/contactInformation"
+                android:id="@+id/contact_information"
                 android:textColor="#ffffff"
                 android:layout_span="2"/>
         </TableRow>
@@ -99,7 +99,7 @@
             <Button
                 style="@style/ActionButton"
                 android:text="@string/this_is_my_pet_button"
-                android:id="@+id/claimLostPet"
+                android:id="@+id/claim_lost_pet"
                 android:textColor="#21190e"
                 android:background="#e89e1a"
                 android:layout_gravity="center"

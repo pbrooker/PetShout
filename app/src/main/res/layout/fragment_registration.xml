@@ -11,7 +11,7 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollViewRegistration"
+        android:id="@+id/scroll_view_registration"
         >
 
         <TableLayout
@@ -54,7 +54,7 @@
                 android:inputType="textPersonName"
                 android:hint="@string/first_name_input"
                 android:ems="10"
-                android:id="@+id/firstNameInput"
+                android:id="@+id/first_name_input"
                 android:layout_column="0"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
@@ -85,7 +85,7 @@
                 android:inputType="textPersonName"
                 android:hint="@string/last_name_input"
                 android:ems="10"
-                android:id="@+id/lastNameInput"
+                android:id="@+id/last_name_input"
                 android:layout_column="0"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -114,7 +114,7 @@
                 android:background="#5a4e3f"
                 android:textColor="#ffffff"
                 android:hint="@string/city_input"
-                android:id="@+id/cityInput"
+                android:id="@+id/city_input"
                 android:layout_column="0"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -144,7 +144,7 @@
                     android:inputType="textPostalAddress"
                     android:ems="10"
                     android:hint="@string/postal_code_input"
-                    android:id="@+id/postalCode"
+                    android:id="@+id/postal_code"
                     android:layout_column="0"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
@@ -175,7 +175,7 @@
                 android:inputType="textEmailAddress"
                 android:hint="@string/email_address_input"
                 android:ems="10"
-                android:id="@+id/emailAddressInput"
+                android:id="@+id/email_address_input"
                 android:layout_column="0"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -206,7 +206,7 @@
                 android:inputType="phone"
                 android:hint="@string/phone_number_input"
                 android:ems="10"
-                android:id="@+id/phoneNumberInput"
+                android:id="@+id/phone_number_input"
                 android:layout_column="0"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -237,7 +237,7 @@
                 android:inputType="textPassword"
                 android:hint="@string/password_input"
                 android:ems="10"
-                android:id="@+id/passwordInput"
+                android:id="@+id/password_input"
                 android:layout_column="0"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -268,7 +268,7 @@
                 android:inputType="textPassword"
                 android:hint="@string/confirm_password_input"
                 android:ems="10"
-                android:id="@+id/confirmPasswordInput"
+                android:id="@+id/confirm_password_input"
                 android:layout_column="0"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -295,7 +295,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/password_confirmation_TextView"
+                    android:id="@+id/password_confirmation_text_view"
                     android:textAlignment="center"
                     android:layout_span="2"
                     android:textColor="#ffffff"/>
@@ -308,11 +308,11 @@
     <Button
         style="@style/ActionButton"
         android:text="@string/register_button"
-        android:id="@+id/registerButton"
+        android:id="@+id/register_button"
         android:textColor="#21190e"
         android:background="#e89e1a"
         android:layout_gravity="center"
-        android:layout_below="@+id/scrollViewRegistration"
+        android:layout_below="@+id/scroll_view_registration"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

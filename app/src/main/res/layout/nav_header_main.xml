@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:id="@+id/logoButton"
+        android:id="@+id/logo_button"
         android:src="@drawable/petshoutlogo"
         android:background="#00ffffff"
         android:clickable="true"

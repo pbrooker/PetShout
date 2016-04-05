@@ -8,9 +8,9 @@
     <!-- TODO: Update blank fragment layout -->
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView2">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll_view">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/petDescription"
+                    android:id="@+id/pet_description"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
                     android:hint="@string/pet_description"
@@ -81,7 +81,7 @@
                     android:inputType="textMultiLine"
                     android:ems="10"
                     android:hint="@string/additional_information"
-                    android:id="@+id/additionalInformation"
+                    android:id="@+id/additional_information"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
                     android:layout_span="2"
@@ -89,7 +89,7 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <LinearLayout
@@ -97,7 +97,7 @@
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/update_button"
-                    android:id="@+id/updateButton"
+                    android:id="@+id/update_button"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     android:layout_gravity="center"
@@ -106,7 +106,7 @@
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/delete_pet_profile_button"
-                    android:id="@+id/deleteButton"
+                    android:id="@+id/delete_button"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     android:layout_gravity="center"
@@ -122,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/update_disclaimer"
-                    android:id="@+id/textView2"
+                    android:id="@+id/text_view"
                     android:layout_span="2"
                     android:textColor="#ffffff"
                     android:layout_marginTop="10dp"/>

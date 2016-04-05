@@ -66,7 +66,7 @@
                         android:text="@string/first_name_input"
                         android:ems="10"
                         android:textColor="#ffffff"
-                        android:id="@+id/firstNameInput"/>
+                        android:id="@+id/first_name_input"/>
                 </TableRow>
                 <TableRow>
 
@@ -81,7 +81,7 @@
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/speciesSpinner"
+                        android:id="@+id/species_spinner"
                         />
                 </TableRow>
             </TableLayout>
@@ -114,7 +114,7 @@
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/breedInput"
+                        android:id="@+id/breed_input"
                         android:hint="@string/breed_title"
                         android:textColor="#ffffff"
                         android:background="#5a4e3f"
@@ -133,7 +133,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/male_text"
-                            android:id="@+id/maleRadio"
+                            android:id="@+id/male_radio"
                             android:textColor="#ffffff"
                             />
 
@@ -141,7 +141,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/female_text"
-                            android:id="@+id/femaleRadio"
+                            android:id="@+id/female_radio"
                             android:textColor="#ffffff"/>
 
 
@@ -242,7 +242,7 @@
                 android:background="#5a4e3f"
                 android:layout_span="2"
                 android:layout_column="0"
-                android:id="@+id/additionalInformation"/>
+                android:id="@+id/additional_information"/>
 
         </TableRow>
 
@@ -259,7 +259,7 @@
             <Button
                 style="@style/ActionButton"
                 android:text="@string/submit_button"
-                android:id="@+id/submitButton"
+                android:id="@+id/submit_button"
                 android:textColor="#21190e"
                 android:background="#e89e1a"
                 android:layout_gravity="center_horizontal"

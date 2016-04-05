@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView">
+        android:id="@+id/scroll_view">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 <Spinner
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/registeredPetsSpinner"
+                    android:id="@+id/registered_pets_spinner"
                     android:layout_weight="0"
                     android:layout_column="0"
                     >
@@ -58,7 +58,7 @@
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
                     android:hint="@string/city_input"
-                    android:id="@+id/cityInput"
+                    android:id="@+id/city_input"
                     android:layout_column="1"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
@@ -72,14 +72,14 @@
                 <Spinner
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/speciesSpinner"
+                    android:id="@+id/species_spinner"
                     android:layout_column="0"/>
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/gender_radio_title"
-                    android:id="@+id/genderRadioButton"
+                    android:id="@+id/gender_radio_button"
                     android:layout_column="1"/>
             </TableRow>
 
@@ -94,7 +94,7 @@
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
                     android:hint="@string/keywords_input"
-                    android:id="@+id/keywordInput"
+                    android:id="@+id/keyword_input"
                     android:inputType="textMultiLine"
                     android:layout_span="2"
                     android:ems="10"/>
@@ -112,7 +112,7 @@
                 <Button
                     style="@style/ActionButton"
                     android:text="@string/search_button"
-                    android:id="@+id/searchButton"
+                    android:id="@+id/search_button"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
                     />
@@ -125,7 +125,7 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/petImage"
+                    android:id="@+id/pet_image"
                     android:src="@drawable/catanddog"
                     android:background="#00ffffff"
                     android:layout_column="0"
@@ -138,7 +138,7 @@
                     android:ems="10"
                     android:hint="@string/pet_description"
                     android:textColor="#ffffff"
-                    android:id="@+id/petDescription"
+                    android:id="@+id/pet_description"
                     android:layout_column="1"/>
             </TableRow>
 
