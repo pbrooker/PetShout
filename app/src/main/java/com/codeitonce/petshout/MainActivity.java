@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-
+        populateDatabase();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
 
         //Leave DBHandler commented out until ready to actively use database
         //DBHandler dbHandler = new DBHandler(this);
-        populateDatabase();
+
     }
 
     @Override

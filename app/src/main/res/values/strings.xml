@@ -184,4 +184,6 @@
     <string name="previously_chosen_pet_profile">Previously Chosen Pet Profile</string>
 
     <string name="incorrect_login">Email or Password is incorrect</string>
+    <string name="reg_successful">Registration Successful</string>
+    <string name="complete_all_fields">Please complete all fields</string>
 </resources>

@@ -83,17 +83,23 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                if(mPassword.getText().toString().equals(mCurrentUser.getPassword()))
+                try
                 {
-                    MainActivityLoggedInFragment fragment;
-                    fragment = new MainActivityLoggedInFragment();
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.mainFrame, fragment);
-                    ft.commit();
+                    if (mPassword.getText().toString().equals(mCurrentUser.getPassword()))
+                    {
+                        MainActivityLoggedInFragment fragment;
+                        fragment = new MainActivityLoggedInFragment();
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.mainFrame, fragment);
+                        ft.commit();
+                    } else
+                    {
+                        Toast.makeText(getActivity(), R.string.incorrect_login, Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else
+                catch (NullPointerException n)
                 {
-                    Toast.makeText(getActivity(), R.string.incorrect_login, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
                 }
             }
         });

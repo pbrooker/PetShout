@@ -98,12 +98,19 @@ public class RegistrationFragment extends Fragment {
             public void onClick(View v)
             {
 
-                DBHandler db = new DBHandler(getActivity());
-                db.addUser(new User(mFirstName.getText().toString(), mLastName.getText().toString(),
-                        mCity.getText().toString(), mPostalCode.getText().toString(), mEmail.getText().toString(),
-                        mPhoneNumber.getText().toString(), mPassword.getText().toString() ));
+                try
+                {
 
-                Toast.makeText(getActivity(), "Registration Successful", Toast.LENGTH_SHORT).show();
+                    DBHandler db = new DBHandler(getActivity());
+                    db.addUser(new User(mFirstName.getText().toString(), mLastName.getText().toString(),
+                            mCity.getText().toString(), mPostalCode.getText().toString(), mEmail.getText().toString(),
+                            mPhoneNumber.getText().toString(), mPassword.getText().toString()));
+                } catch (NullPointerException n)
+                {
+                    Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
+                }
+
+                Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
 
                 LoginFragment fragment;
                 fragment = new LoginFragment();
