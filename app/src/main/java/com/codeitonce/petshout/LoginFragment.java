@@ -93,7 +93,7 @@ public class LoginFragment extends Fragment {
                 }
                 else
                 {
-                    Toast.makeText(getActivity(), "Email or Password Incorrect", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.incorrect_login, Toast.LENGTH_SHORT).show();
                 }
             }
         });
