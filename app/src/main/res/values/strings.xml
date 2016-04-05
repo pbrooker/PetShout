@@ -168,4 +168,17 @@
     <string name="area_pet_found_in_title">Area Pet Foun In</string>
     <string name="select_pet_profile_title">Select Pet Profile</string>
 
+
+    <!-- Species array list strings-->
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+    <string name="bird">Bird</string>
+    <string name="rat">Rat</string>
+    <string name="hedgehog">HedgeHog</string>
+    <string name="pig">Pig</string>
+    <string name="horse">Horse</string>
+    <string name="reptile">Reptile</string>
+    <string name="guinea_pig">Guinea Pig</string>
+    <string name="rabbit">Rabbit</string>
+    <string name="other">Other</string>
 </resources>
