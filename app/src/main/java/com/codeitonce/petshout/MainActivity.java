@@ -87,13 +87,13 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home)
         {
-            AccountHomeFragment fragment;
-            fragment = new AccountHomeFragment();
+            MainActivityNotLoggedInFragment fragment;
+            fragment = new MainActivityNotLoggedInFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.mainFrame, fragment);
             ft.commit();
 
-        } else if (id == R.id.nav_found_pet)
+        }else if (id == R.id.nav_found_pet)
         {
             ReportFoundPetFragment fragment;
             fragment = new ReportFoundPetFragment();
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity
                 "Dieppe", "E1J4H3","Alexasmith@gmail.com",
                 "506-444-1234", "password"));
         db.addUser(new User("Janet", "Harrison",
-                "Riverview", "E2B3H5","janetH@gmail.com",
+                "Riverview", "E2B3H5", "janetH@gmail.com",
                 "506-333-1234", "password"));
 
 
