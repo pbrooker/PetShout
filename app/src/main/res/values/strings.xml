@@ -165,5 +165,6 @@
     <string name="spayed_neutered">Spayed/Neutered</string>
     <string name="description_coloring">Description and Coloring</string>
     <string name="lost_found_both_title">Lost, Found, or Both?</string>
+    <string name="area_pet_found_in_title">Area Pet Foun In</string>
 
 </resources>
