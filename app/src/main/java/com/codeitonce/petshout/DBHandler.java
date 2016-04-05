@@ -132,10 +132,23 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
-    public void addPet()
+    public void addPet(Pet pet)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(PETS_NAME, pet.getPetName());
+        values.put(PETS_AGE, pet.getPetAge());
+        values.put(PETS_SPECIES, pet.getPetSpecies());
+        values.put(PETS_BREED, pet.getPetSpecies());
+        values.put(PETS_GENDER, pet.getPetGender());
+        values.put(PETS_DESCRIPTION, pet.getPetDescription());
+        values.put(PETS_ADDINFO, pet.getAddInfo());
+
+        db.insert(TABLE_PETS, null, values);
+
+        db.close();
+
+
     }
 
     public void addPost()

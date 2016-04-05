@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity
 
         //Leave DBHandler commented out until ready to actively use database
         //DBHandler dbHandler = new DBHandler(this);
+        populateDatabase();
     }
 
     @Override
@@ -177,5 +178,21 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void populateDatabase() //temporary method to populate local database
+    {
+        DBHandler db = new DBHandler(getApplicationContext());
+        db.addUser(new User("Fred", "Jones",
+                "Moncton", "E1X4Y5","jones.fred@hotmail.com",
+                "506-555-1234", "password"));
+        db.addUser(new User("Alex", "Smith",
+                "Dieppe", "E1J4H3","Alexasmith@gmail.com",
+                "506-444-1234", "password"));
+        db.addUser(new User("Janet", "Harrison",
+                "Riverview", "E2B3H5","janetH@gmail.com",
+                "506-333-1234", "password"));
+
+
     }
 }
