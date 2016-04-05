@@ -182,4 +182,5 @@
     <string name="rabbit">Rabbit</string>
     <string name="other">Other</string>
     <string name="previously_chosen_pet_profile">Previously Chosen Pet Profile</string>
+    <string name="pet_name_input">Pet Name</string>
 </resources>
