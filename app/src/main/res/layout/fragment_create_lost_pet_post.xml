@@ -27,7 +27,7 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="10dp">
+            >
 
             <TableRow
                 android:layout_width="match_parent"
@@ -123,7 +123,8 @@
                     android:textColor="#ffffff"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="50"
-                    />
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"/>
             </TableRow>
 
             <TableRow android:gravity="center_horizontal"
@@ -162,7 +163,8 @@
                     android:textColor="#ffffff"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="50"
-                    />
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"/>
             </TableRow>
 
             <TableRow
