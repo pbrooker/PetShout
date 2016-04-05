@@ -48,9 +48,7 @@
                     android:layout_span="2"
                     android:gravity="center_horizontal"/>
             </TableRow>
-            <TableRow android:gravity="center_horizontal"
-                      android:layout_marginTop="5dp"
-                      android:layout_gravity="center_horizontal"
+            <TableRow android:layout_marginTop="5dp"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent">
 
@@ -60,13 +58,12 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/lost_found_both_title"
                     android:textColor="#ffffff"
-                    android:layout_gravity="center_horizontal"/>
+                    />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal"
                 android:layout_marginTop="5dp">
 
 
@@ -80,7 +77,6 @@
             </TableRow>
 
             <TableRow
-                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_marginTop="5dp">>
                 <TextView
@@ -89,11 +85,11 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/city_input"
                     android:textColor="#ffffff"
-                    android:layout_gravity="center_horizontal"/>
+                    />
 
             </TableRow>
 
-            <TableRow android:gravity="center_horizontal"
+            <TableRow
                       android:layout_width="match_parent"
                       android:layout_marginTop="5dp">
 
@@ -111,7 +107,6 @@
             </TableRow>
 
             <TableRow
-                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_marginTop="5dp">>
                 <TextView
@@ -120,14 +115,13 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/select_species_title"
                     android:textColor="#ffffff"
-                    android:layout_gravity="center_horizontal"/>
+                    />
 
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal"
                 android:layout_marginTop="5dp">
 
                 <Spinner
@@ -136,7 +130,7 @@
                     android:id="@+id/species_spinner"
                     />
             </TableRow>
-            <TableRow android:gravity="center_horizontal"
+            <TableRow
                       android:layout_width="match_parent"
                       android:layout_marginTop="5dp">
                 <TextView
@@ -145,16 +139,14 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Gender"
                     android:textColor="#ffffff"
-                    android:layout_gravity="center_horizontal"/>
+                    />
 
             </TableRow>
             <TableRow
                 android:layout_marginTop="5dp"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <LinearLayout android:layout_gravity="center_horizontal">
+                <LinearLayout>
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -178,7 +170,6 @@
             </TableRow>
 
             <TableRow
-                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_marginTop="5dp">>
                 <TextView
@@ -187,14 +178,13 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/keywords_input"
                     android:textColor="#ffffff"
-                    android:layout_gravity="center_horizontal"/>
+                    />
 
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal"
                 android:layout_marginTop="5dp">
                 <EditText
                     android:layout_width="0dp"
