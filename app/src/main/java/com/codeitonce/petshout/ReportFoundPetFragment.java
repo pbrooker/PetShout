@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -32,6 +33,8 @@ public class ReportFoundPetFragment extends Fragment
     private Button mSubmit;
     private String species;
     private String gender = "";
+    private static final int SELECT_PHOTO = 0;
+
 
 
     public ReportFoundPetFragment() {
@@ -54,6 +57,7 @@ public class ReportFoundPetFragment extends Fragment
         mGender = (RadioGroup) view.findViewById(R.id.gender_group);
         mAddImage = (Button) view.findViewById(R.id.image_button);
         mSubmit = (Button) view.findViewById(R.id.submit_button);
+
         final RadioButton selection = (RadioButton) view.findViewById(mGender.getCheckedRadioButtonId());
 
 
@@ -89,7 +93,7 @@ public class ReportFoundPetFragment extends Fragment
                 DBHandler db = new DBHandler(getActivity());
                 db.addPost(new Post(mLocation.getText().toString(), "F", mBreed.getText().toString(),
                         gender, species, mEmail.getText().toString(), mBreed.getText().toString(),
-                        mPetDescription.getText().toString(),mPhoneNumber.getText().toString()));
+                        mPetDescription.getText().toString(), mPhoneNumber.getText().toString()));
             }
         });
 
@@ -148,9 +152,23 @@ public class ReportFoundPetFragment extends Fragment
             }
         });
 
+        mAddImage.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+               // ImageLoaderDialog imageLoaderDialog = new ImageLoaderDialog(imageLoader);
+                //imageLoaderDialog.show(getFragmentManager(), "imageLoaderDialog");
+
+            }
+        });
 
 
         return  view;
     }
+
+
+
+
 
 }
