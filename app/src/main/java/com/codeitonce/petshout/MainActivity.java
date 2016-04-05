@@ -93,6 +93,14 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.mainFrame, fragment);
             ft.commit();
 
+        }else if(id == R.id.nav_home_logged)
+        {
+            MainActivityLoggedInFragment fragment;
+            fragment = new MainActivityLoggedInFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
+
         }else if (id == R.id.nav_found_pet)
         {
             ReportFoundPetFragment fragment;
