@@ -7,9 +7,20 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ScrollView
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/cat_dog_profile"
+        android:src="@drawable/catanddog"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/cat_and_dog_profile"
+        android:padding="10dp"/>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cat_dog_profile"
         android:id="@+id/scroll_view">
 
         <TableLayout
@@ -21,7 +32,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -33,12 +45,29 @@
                     android:paddingLeft="6dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:layout_span="2"/>
+                    android:layout_span="2"
+                    android:gravity="center_horizontal"/>
+            </TableRow>
+            <TableRow android:gravity="center_horizontal"
+                      android:layout_marginTop="5dp"
+                      android:layout_gravity="center_horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/lost_found_both_title"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_horizontal"/>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp">
 
 
                 <Spinner
@@ -46,10 +75,27 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/registered_pets_spinner"
                     android:layout_weight="0"
-                    android:layout_column="0"
                     >
-
                 </Spinner>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp">>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/city_input"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_horizontal"/>
+
+            </TableRow>
+
+            <TableRow android:gravity="center_horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_marginTop="5dp">
 
                 <EditText
                     android:layout_width="0dp"
@@ -59,48 +105,113 @@
                     android:textColor="#ffffff"
                     android:hint="@string/city_input"
                     android:id="@+id/city_input"
-                    android:layout_column="1"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:paddingLeft="5dp"/>
             </TableRow>
 
             <TableRow
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_marginTop="5dp">>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/select_species_title"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_horizontal"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp">
 
                 <Spinner
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/species_spinner"
-                    android:layout_column="0"/>
-
-                <RadioButton
-                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow android:gravity="center_horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/gender_radio_title"
-                    android:id="@+id/gender_radio_button"
-                    android:layout_column="1"/>
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Gender"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_horizontal"/>
+
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout android:layout_gravity="center_horizontal">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/male_text"
+                        android:id="@+id/male_radio"
+                        android:textColor="#ffffff"
+                        android:buttonTint="#e89e1a"
+
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/female_text"
+                        android:id="@+id/female_radio"
+                        android:textColor="#ffffff"
+                        android:buttonTint="#e89e1a"
+
+                        />
+                </LinearLayout>
             </TableRow>
 
+            <TableRow
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp">>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/keywords_input"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_horizontal"/>
+
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp">
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
                     android:hint="@string/keywords_input"
-                    android:id="@+id/keyword_input"
                     android:inputType="textMultiLine"
-                    android:layout_span="2"
-                    android:ems="10"/>
+                    android:id="@+id/keyword_input"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"/>
             </TableRow>
 
-            <TableRow>
+            <TableRow android:gravity="center_horizontal"
+                      android:layout_marginTop="5dp">
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
@@ -119,7 +230,8 @@
                 </LinearLayout>
 
             </TableRow>
-            <TableRow>
+            <TableRow android:gravity="center_horizontal"
+                      android:layout_marginTop="5dp">
 
 
                 <ImageButton
