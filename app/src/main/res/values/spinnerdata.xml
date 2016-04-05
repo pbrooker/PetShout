@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_data">
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Bird</item>
+        <item>Rat</item>
+        <item>Hedgehog</item>
+        <item>Pig</item>
+        <item>Horse</item>
+        <item>Reptile</item>
+        <item>Guinea Pig</item>
+        <item>Rabbit</item>
+        <item>Other</item>
+    </string-array>
+</resources>

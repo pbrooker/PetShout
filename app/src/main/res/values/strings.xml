@@ -164,4 +164,5 @@
     <string name="age_header">Age</string>
     <string name="spayed_neutered">Spayed/Neutered</string>
     <string name="description_coloring">Description and Coloring</string>
+
 </resources>
