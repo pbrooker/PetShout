@@ -48,46 +48,47 @@ public class LoginFragment extends Fragment {
 
 
         mEmailAddress.addTextChangedListener(new TextWatcher()
-        {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
+         {
+             @Override
+             public void beforeTextChanged(CharSequence s, int start, int count, int after)
+             {
 
-            }
+             }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
+             @Override
+             public void onTextChanged(CharSequence s, int start, int before, int count)
+             {
 
-            }
+             }
 
-            @Override
-            public void afterTextChanged(Editable s)
-            {
-                for(int x = 0; x < mUserArrayList.size(); x++)
-                {
-                    try
-                    {
-                        if (mEmailAddress.getText().toString().equals(mUserArrayList.get(x).getEmail()))
-                        {
-                            mCurrentUser = mUserArrayList.get(x);
-                        }
-                    }
-                    catch(NullPointerException n)
-                    {
-                        mCurrentUser = new User();
-                        //Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
-                    }
+             @Override
+             public void afterTextChanged(Editable s)
+             {
+                 for (int x = 0; x < mUserArrayList.size(); x++)
+                 {
+                     if (mEmailAddress.getText().toString().equals(mUserArrayList.get(x).getEmail()))
+                     {
+                         mCurrentUser = mUserArrayList.get(x);
+                     } else if (mEmailAddress.getText().toString().trim().length() == 0)
+                     {
+                            mCurrentUser = new User();
+                         //Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
+                     }
 
-                }
-            }
-        });
+                 }
+
+             }
+         });
+
+
 
         mSubmit.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                try
+                {
 
                     if (mPassword.getText().toString().equals(mCurrentUser.getPassword()))
                     {
@@ -96,13 +97,18 @@ public class LoginFragment extends Fragment {
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.mainFrame, fragment);
                         ft.commit();
-                    }
-                    else
+                    } else if ((mEmailAddress.getText().toString().trim().length() == 0) || (mPassword.getText().toString().trim().length() == 0))
                     {
                         Toast.makeText(getActivity(), R.string.incorrect_login, Toast.LENGTH_SHORT).show();
                     }
 
+                }
+                catch (NullPointerException n)
+                {
+                    Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
+                }
             }
+
         });
 
 
@@ -123,5 +129,7 @@ public class LoginFragment extends Fragment {
 
         return view;
     }
+
+
 
 }
