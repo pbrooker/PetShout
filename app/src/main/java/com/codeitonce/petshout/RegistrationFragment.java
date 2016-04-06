@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,7 @@ public class RegistrationFragment extends Fragment {
     EditText mEmail;
     EditText mPhoneNumber;
     EditText mPassword;
+    TextView mEmailVerify;
     EditText mConfirmPassword;
     Button mRegister;
     TextView mPasswordMessage;
@@ -54,6 +57,64 @@ public class RegistrationFragment extends Fragment {
         mConfirmPassword = (EditText) v.findViewById(R.id.confirm_password_input);
         mRegister = (Button) v.findViewById(R.id.register_button);
         mPasswordMessage = (TextView) v.findViewById(R.id.password_confirmation_text_view);
+        mEmailVerify = (TextView) v.findViewById(R.id.email_verify_textview);
+
+        mEmail.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                String target = mEmail.getText().toString();
+
+                if(!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches())
+                {
+                    mEmailVerify.setVisibility(View.GONE);
+                }else
+                {
+                    mEmailVerify.setVisibility(View.VISIBLE);
+                    mEmailVerify.setTextColor(Color.RED);
+                    mEmailVerify.setText(R.string.email_verify);
+                }
+            }
+        });
+
+
+        mPassword.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                String pass = mPassword.getText().toString();
+                if(pass.length() < 8)
+                {
+                    Toast.makeText(getActivity(), R.string.pass_length, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
         mConfirmPassword.addTextChangedListener(new TextWatcher()
@@ -99,12 +160,8 @@ public class RegistrationFragment extends Fragment {
             {
 
 
-                if (!(isEmpty(mFirstName)) && !(isEmpty(mLastName)) && !(isEmpty(mCity)) && !(isEmpty(mPostalCode)) && !(isEmpty(mEmail)) && !(isEmpty(mPhoneNumber)) && !(isEmpty(mPassword)) )
+                if (!(isEmpty(mFirstName)) && !(isEmpty(mLastName)) && !(isEmpty(mCity)) && !(isEmpty(mPostalCode)) && (isEmail(mEmail.getText().toString())) && !(isEmpty(mPhoneNumber)) && !(isEmpty(mPassword)) )
                 {
-
-
-                    try
-                    {
 
                         DBHandler db = new DBHandler(getActivity());
                         db.addUser(new User(mFirstName.getText().toString(), mLastName.getText().toString(),
@@ -117,10 +174,7 @@ public class RegistrationFragment extends Fragment {
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.mainFrame, fragment);
                         ft.commit();
-                    } catch (NullPointerException n)
-                    {
-                        Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
-                    }
+
 
                 } else
                 {
@@ -137,6 +191,11 @@ public class RegistrationFragment extends Fragment {
 
     private boolean isEmpty(EditText etText) {
         return etText.getText().toString().trim().length() == 0;
+    }
+
+    private boolean isEmail(CharSequence target)
+    {
+        return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
 
