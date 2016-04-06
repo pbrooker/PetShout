@@ -187,7 +187,7 @@
     <string name="incorrect_login">Email or Password incorrect</string>
     <string name="complete_all_fields">Please complete all fields</string>
     <string name="reg_successful">Registration successful</string>
-    <string name="pass_length">Password must be at least 8 characters long</string>
+    <string name="pass_length">Password must be at least 8 characters and have at least 1 uppercase, 1 lowercase, and one of @#$%</string>
     <string name="email_verify">Please enter a valid email address</string>
     <string name="description_title">Description</string>
 </resources>

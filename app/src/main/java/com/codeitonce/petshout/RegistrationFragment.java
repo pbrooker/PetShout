@@ -26,20 +26,22 @@ import android.widget.Toast;
  */
 public class RegistrationFragment extends Fragment {
 
-    EditText mFirstName;
-    EditText mLastName;
-    EditText mCity;
-    EditText mPostalCode;
-    EditText mEmail;
-    EditText mPhoneNumber;
-    EditText mPassword;
-    TextView mEmailVerify;
-    EditText mConfirmPassword;
-    Button mRegister;
-    TextView mPasswordMessage;
-    ScrollView mScrollView;
-    TableRow mTableRow;
-    ImageView mLogo;
+    private EditText mFirstName;
+    private EditText mLastName;
+    private EditText mCity;
+    private EditText mPostalCode;
+    private EditText mEmail;
+    private EditText mPhoneNumber;
+    private EditText mPassword;
+    private TextView mEmailVerify;
+    private TextView mPasswordVerify;
+    private EditText mConfirmPassword;
+    private Button mRegister;
+    private TextView mPasswordMessage;
+    private ScrollView mScrollView;
+    private TableRow mTableRow;
+    private ImageView mLogo;
+    private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
 
 
     public RegistrationFragment() {
@@ -64,6 +66,7 @@ public class RegistrationFragment extends Fragment {
         mRegister = (Button) v.findViewById(R.id.register_button);
         mPasswordMessage = (TextView) v.findViewById(R.id.password_confirmation_text_view);
         mEmailVerify = (TextView) v.findViewById(R.id.email_verify_textview);
+        mPasswordVerify = (TextView) v.findViewById(R.id.password_verify_textview);
         mScrollView = (ScrollView) v.findViewById(R.id.scroll_view);
         mTableRow = (TableRow) v.findViewById(R.id.bottom_of_table);
         mLogo = (ImageView) v.findViewById(R.id.cat_dog_profile);
@@ -90,6 +93,7 @@ public class RegistrationFragment extends Fragment {
                 if(!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches())
                 {
                     mEmailVerify.setVisibility(View.GONE);
+                    mLogo.setVisibility(View.VISIBLE);
                 }else
                 {
                     mEmailVerify.setVisibility(View.VISIBLE);
@@ -120,9 +124,16 @@ public class RegistrationFragment extends Fragment {
             public void afterTextChanged(Editable s)
             {
                 String pass = mPassword.getText().toString();
-                if(pass.length() < 8)
+                if(!(pass.matches(PASSWORD_PATTERN)))
                 {
-                    Toast.makeText(getActivity(), R.string.pass_length, Toast.LENGTH_SHORT).show();
+                    mLogo.setVisibility(View.GONE);
+                    mPasswordVerify.setTextColor(Color.RED);
+                    mPasswordVerify.setVisibility(View.VISIBLE);
+                    mPasswordVerify.setText(R.string.pass_length);
+                }else
+                {
+                    mLogo.setVisibility(View.VISIBLE);
+                    mPasswordVerify.setVisibility(View.GONE);
                 }
             }
         });
@@ -171,7 +182,7 @@ public class RegistrationFragment extends Fragment {
             {
 
 
-                if (!(isEmpty(mFirstName)) && !(isEmpty(mLastName)) && !(isEmpty(mCity)) && !(isEmpty(mPostalCode)) && (isEmail(mEmail.getText().toString())) && !(isEmpty(mPhoneNumber)) && !(isEmpty(mPassword)) )
+                if (!(isEmpty(mFirstName)) && !(isEmpty(mLastName)) && !(isEmpty(mCity)) && !(isEmpty(mPostalCode)) && (isEmail(mEmail.getText().toString())) && !(isEmpty(mPhoneNumber)) && (mPassword.getText().toString().matches(PASSWORD_PATTERN)))
                 {
 
                         DBHandler db = new DBHandler(getActivity());
