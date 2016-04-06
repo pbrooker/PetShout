@@ -7,9 +7,21 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cat_dog_profile"
+        android:src="@drawable/catanddog"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/cat_and_dog_profile"
+        android:padding="10dp"
+        android:layout_marginTop="16dp"/>
+
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/cat_dog_profile"
         android:id="@+id/scroll_view"
         android:layout_margin="16dp">
 
