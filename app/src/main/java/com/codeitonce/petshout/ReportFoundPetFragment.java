@@ -1,6 +1,12 @@
 package com.codeitonce.petshout;
 
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,6 +20,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 
 /**
@@ -159,6 +167,9 @@ public class ReportFoundPetFragment extends Fragment
             {
                // ImageLoaderDialog imageLoaderDialog = new ImageLoaderDialog(imageLoader);
                 //imageLoaderDialog.show(getFragmentManager(), "imageLoaderDialog");
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, SELECT_PHOTO);
 
             }
         });
@@ -168,7 +179,56 @@ public class ReportFoundPetFragment extends Fragment
     }
 
 
+    private Bitmap decodeUri(Context c, Uri selectedImage) throws FileNotFoundException
+    {
+
+        // Decode image size
+        BitmapFactory.Options o = new BitmapFactory.Options();
+        o.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(c.getContentResolver().openInputStream(selectedImage), null, o);
+
+        // The new size we want to scale to
+        final int REQUIRED_SIZE = 140;
+
+        // Find the correct scale value. It should be the power of 2.
+        int width_tmp = o.outWidth, height_tmp = o.outHeight;
+        int scale = 1;
+        while (true) {
+            if (width_tmp / 2 < REQUIRED_SIZE
+                    || height_tmp / 2 < REQUIRED_SIZE) {
+                break;
+            }
+            width_tmp /= 2;
+            height_tmp /= 2;
+            scale *= 2;
+        }
+
+        // Decode with inSampleSize
+        BitmapFactory.Options o2 = new BitmapFactory.Options();
+        o2.inSampleSize = scale;
+        return BitmapFactory.decodeStream(c.getContentResolver().openInputStream(selectedImage), null, o2);
+
+    }
 
 
+    public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent, Context c) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+
+        switch(requestCode) {
+            case SELECT_PHOTO:
+                if(resultCode == Activity.RESULT_OK){
+                    Uri selectedImage = imageReturnedIntent.getData();
+                    InputStream imageStream = null;
+
+                    try
+                    {
+                        Bitmap yourSelectedImage = decodeUri(getActivity(), selectedImage);
+                    } catch (FileNotFoundException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+        }
+    }
 
 }
