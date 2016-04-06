@@ -3,20 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+
     tools:context="com.codeitonce.petshout.RegistrationFragment"
     android:background="#21190e">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cat_dog_profile"
-        android:src="@drawable/catanddog"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/cat_and_dog_profile"
-        android:padding="10dp"
-        android:layout_marginTop="16dp"/>
+
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -354,7 +347,20 @@
 
         </TableLayout>
     </ScrollView>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cat_dog_profile"
+        android:src="@drawable/catanddog"
 
+        android:contentDescription="@string/cat_and_dog_profile"
+        android:layout_marginTop="56dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/scroll_view"
+        android:layout_alignStart="@+id/scroll_view"
+        android:layout_marginLeft="49dp"
+        android:layout_marginStart="49dp"
+        />
 
 
 </RelativeLayout>
