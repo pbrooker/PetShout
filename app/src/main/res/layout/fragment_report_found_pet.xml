@@ -2,6 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:gravity="center_horizontal"
              tools:context="com.codeitonce.petshout.ReportFoundPetFragment"
              android:background="#21190e">
 
@@ -34,7 +35,9 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -43,76 +46,65 @@
                     android:text="@string/report_found_pet_header"
                     android:textStyle="bold"
                     android:textColor="@color/colorAccent"
-                    android:paddingLeft="6dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
                     android:layout_column="0"
-                    android:layout_span="2"/>
+                    android:layout_span="2"
+                    android:layout_gravity="center_horizontal"/>
             </TableRow>
 
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/email_title"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#ffffff"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
                     android:paddingLeft="5dp"
-                    android:layout_span="2"
-                    android:layout_column="0"
                     />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:ems="10"
                     android:background="#5a4e3f"
                     android:hint="@string/email_address_input"
-                    android:layout_span="2"
-                    android:id="@+id/email_address_input"/>
+                    android:id="@+id/email_address_input"
+                    android:layout_column="0"/>
             </TableRow>
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone_title"
-                    android:layout_span="2"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#ffffff"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
                     android:paddingLeft="5dp"
-
-                    android:layout_column="0"
                     />
-            </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:background="#5a4e3f"
-                    android:layout_span="2"
                     android:hint="@string/phone_number_input"
                     android:ems="10"
                     android:id="@+id/phone_number_input"
@@ -121,46 +113,54 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/select_species_title"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#ffffff"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
                     android:paddingLeft="5dp"
                     android:layout_column="0"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/breed_title"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:paddingLeft="5dp"
-                    android:layout_column="1"
-                    />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
                 <Spinner
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/species_spinner"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/breed_title"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"
+                    />
+
+
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/breed_input"
                     android:hint="@string/breed_title"
                     android:textColor="#ffffff"
@@ -170,32 +170,35 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/gender_header"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#ffffff"
-                    android:layout_column="0"
-                    android:layout_span="2"
-                    />
-            </TableRow>
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                    />
+
 
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/gender_group"
+                    android:orientation="horizontal"
                     android:textColor="#ffffff">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/male_text"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:id="@+id/male_radio"
                         android:textColor="#ffffff"
                         />
@@ -204,6 +207,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/female_text"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:id="@+id/female_radio"
                         android:textColor="#ffffff"/>
 
@@ -213,13 +217,25 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/pet_description"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"
+                    />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:ems="10"
                     android:hint="@string/pet_description"
                     android:textColor="#ffffff"
@@ -228,20 +244,37 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/location_header"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/text_view_three"
                     android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/location_input"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffffff"
+                    android:hint="@string/location_header"
+                    android:background="#5a4e3f"
                     android:layout_column="1"/>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
                 <Button
                     android:layout_width="wrap_content"
@@ -250,20 +283,19 @@
                     android:id="@+id/image_button"
                     android:textColor="#21190e"
                     android:background="#e89e1a"
-                    android:layout_gravity="center"
-                    android:layout_column="0"/>
+                    android:layout_gravity="center_horizontal"
+                    android:layout_column="0"
+                    android:layout_span="2"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/location_input"
-                    android:textColor="#ffffff"
-                    android:hint="@string/location_header"
-                    android:background="#5a4e3f"
-                    android:layout_column="1"/>
+
             </TableRow>
 
-            <TableRow android:gravity="center">
+            <TableRow android:gravity="center"
+                      android:layout_marginTop="5dp"
+                      android:layout_marginBottom="5dp">
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
