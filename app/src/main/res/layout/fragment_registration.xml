@@ -8,11 +8,23 @@
 
 
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cat_dog_profile"
+        android:src="@drawable/catanddog"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/cat_and_dog_profile"
+        android:padding="10dp"
+        android:layout_marginTop="16dp"/>
+
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scroll_view_registration"
-        >
+        android:layout_below="@+id/cat_dog_profile"
+        android:id="@+id/scroll_view"
+        android:layout_margin="16dp">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -286,6 +298,15 @@
             android:paddingTop="16dp"
             android:visibility="invisible">
 
+                <Button
+                    style="@style/ActionButton"
+                    android:text="@string/register_button"
+                    android:id="@+id/register_button"
+                    android:textColor="#21190e"
+                    android:background="#e89e1a"
+                    android:layout_gravity="center"
+                    android:layout_below="@+id/scroll_view_registration"
+                    android:layout_centerHorizontal="true"/>
             </LinearLayout>
 
             <TableRow
@@ -304,16 +325,6 @@
 
         </TableLayout>
     </ScrollView>
-
-    <Button
-        style="@style/ActionButton"
-        android:text="@string/register_button"
-        android:id="@+id/register_button"
-        android:textColor="#21190e"
-        android:background="#e89e1a"
-        android:layout_gravity="center"
-        android:layout_below="@+id/scroll_view_registration"
-        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
 
