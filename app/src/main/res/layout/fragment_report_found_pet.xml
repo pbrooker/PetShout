@@ -144,6 +144,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -220,11 +221,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/pet_description"
+                    android:text="@string/description_title"
                     android:textColor="#ffffff"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
@@ -239,7 +241,8 @@
                     android:ems="10"
                     android:hint="@string/pet_description"
                     android:textColor="#ffffff"
-                    android:id="@+id/pet_description"/>
+                    android:id="@+id/pet_description"
+                    android:background="#5a4e3f"/>
             </TableRow>
 
             <TableRow
@@ -270,24 +273,16 @@
                     android:layout_column="1"/>
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <TableRow android:gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp">
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/ActionButton"
                     android:text="@string/image_button_text"
                     android:id="@+id/image_button"
-                    android:textColor="#21190e"
-                    android:background="#e89e1a"
                     android:layout_gravity="center_horizontal"
-                    android:layout_column="0"
                     android:layout_span="2"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
                     />
 
 
@@ -296,24 +291,15 @@
             <TableRow android:gravity="center"
                       android:layout_marginTop="5dp"
                       android:layout_marginBottom="5dp">
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="16dp"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:layout_span="2">
+
 
                     <Button
                         style="@style/ActionButton"
                         android:text="@string/submit_button"
                         android:id="@+id/submit_button"
-                        android:textColor="#21190e"
-                        android:background="#e89e1a"
                         android:layout_gravity="center_horizontal"
+                        android:layout_span="2"
                         />
-                </LinearLayout>
             </TableRow>
 
 
