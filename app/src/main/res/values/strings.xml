@@ -186,4 +186,5 @@
 
     <string name="incorrect_login">Email or Password incorrect</string>
     <string name="complete_all_fields">Please complete all fields</string>
+    <string name="reg_successful">Registration successful</string>
 </resources>
