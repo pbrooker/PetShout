@@ -3,7 +3,8 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.BrowsePetsFragment"
-             android:background="#22190e">
+             android:background="#22190e"
+    >
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -15,13 +16,15 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/cat_and_dog_profile"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:layout_marginTop="16dp"/>
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cat_dog_profile"
-        android:id="@+id/scroll_view">
+        android:id="@+id/scroll_view"
+        android:layout_margin="16dp">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -33,19 +36,18 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/browse_lost_and_found_pets_header"
                     android:textStyle="bold"
                     android:textColor="@color/colorAccent"
-                    android:paddingLeft="6dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:layout_span="2"
                     android:gravity="center_horizontal"/>
             </TableRow>
             <TableRow android:layout_marginTop="5dp"

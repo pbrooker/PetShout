@@ -13,7 +13,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/cat_and_dog_profile"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:layout_marginTop="16dp"/>
 
 
 
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/scroll_view_registration"
         android:layout_below="@+id/cat_dog_profile"
-        >
+        android:layout_margin="16dp">
 
        <TableLayout
             android:layout_width="fill_parent"
