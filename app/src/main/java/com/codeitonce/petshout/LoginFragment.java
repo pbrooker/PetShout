@@ -72,7 +72,6 @@ public class LoginFragment extends Fragment {
                      } else if (mEmailAddress.getText().toString().trim().length() == 0)
                      {
                             mCurrentUser = new User();
-                         //Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
                      }
 
                  }

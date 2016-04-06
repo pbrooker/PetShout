@@ -98,36 +98,45 @@ public class RegistrationFragment extends Fragment {
             public void onClick(View v)
             {
 
-                try
+
+                if (!(isEmpty(mFirstName)) && !(isEmpty(mLastName)) && !(isEmpty(mCity)) && !(isEmpty(mPostalCode)) && !(isEmpty(mEmail)) && !(isEmpty(mPhoneNumber)) && !(isEmpty(mPassword)) )
                 {
 
-                    DBHandler db = new DBHandler(getActivity());
-                    db.addUser(new User(mFirstName.getText().toString(), mLastName.getText().toString(),
-                            mCity.getText().toString(), mPostalCode.getText().toString(), mEmail.getText().toString(),
-                            mPhoneNumber.getText().toString(), mPassword.getText().toString()));
 
-                    Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
-                    LoginFragment fragment;
-                    fragment = new LoginFragment();
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.mainFrame, fragment);
-                    ft.commit();
-                }
-                catch (NullPointerException n)
+                    try
+                    {
+
+                        DBHandler db = new DBHandler(getActivity());
+                        db.addUser(new User(mFirstName.getText().toString(), mLastName.getText().toString(),
+                                mCity.getText().toString(), mPostalCode.getText().toString(), mEmail.getText().toString(),
+                                mPhoneNumber.getText().toString(), mPassword.getText().toString()));
+
+                        Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
+                        LoginFragment fragment;
+                        fragment = new LoginFragment();
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.mainFrame, fragment);
+                        ft.commit();
+                    } catch (NullPointerException n)
+                    {
+                        Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
+                    }
+
+                } else
                 {
                     Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
                 }
-
-
-
-
-
-
             }
 
         });
 
+
+
         return v;
+    }
+
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
     }
 
 
