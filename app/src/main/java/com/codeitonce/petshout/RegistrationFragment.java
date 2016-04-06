@@ -14,6 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +37,9 @@ public class RegistrationFragment extends Fragment {
     EditText mConfirmPassword;
     Button mRegister;
     TextView mPasswordMessage;
+    ScrollView mScrollView;
+    TableRow mTableRow;
+    ImageView mLogo;
 
 
     public RegistrationFragment() {
@@ -58,6 +64,9 @@ public class RegistrationFragment extends Fragment {
         mRegister = (Button) v.findViewById(R.id.register_button);
         mPasswordMessage = (TextView) v.findViewById(R.id.password_confirmation_text_view);
         mEmailVerify = (TextView) v.findViewById(R.id.email_verify_textview);
+        mScrollView = (ScrollView) v.findViewById(R.id.scroll_view);
+        mTableRow = (TableRow) v.findViewById(R.id.bottom_of_table);
+        mLogo = (ImageView) v.findViewById(R.id.cat_dog_profile);
 
         mEmail.addTextChangedListener(new TextWatcher()
         {
@@ -86,6 +95,8 @@ public class RegistrationFragment extends Fragment {
                     mEmailVerify.setVisibility(View.VISIBLE);
                     mEmailVerify.setTextColor(Color.RED);
                     mEmailVerify.setText(R.string.email_verify);
+                    mScrollView.scrollTo(0, mTableRow.getScrollY());
+                    mLogo.setVisibility(View.GONE);
                 }
             }
         });
