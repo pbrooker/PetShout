@@ -86,7 +86,7 @@ public class DBHandler extends SQLiteOpenHelper
         String createTable = "CREATE TABLE IF NOT EXISTS ";
 
         db.execSQL(createTable + TABLE_USERS + "(" + USERS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USERS_FNAME + " VARCHAR," + USERS_LNAME + " VARCHAR," +
-                USERS_PASSWORD + " BINARY," + USERS_PHONE + " INTEGER," + USERS_EMAIL + " VARCHAR," + USERS_CITY + " VARCHAR, " + USERS_POSTAL_CODE + " VARCHAR," +
+                USERS_PASSWORD + " BINARY," + USERS_PHONE + " INTEGER," + USERS_EMAIL + " VARCHAR NOT NULL," + USERS_CITY + " VARCHAR, " + USERS_POSTAL_CODE + " VARCHAR," +
                 USERS_STATUS + " CHAR," + USERS_PET_ID + " INTEGER," + USERS_POST_ID + " INTEGER," + USERS_DATE_CREATED + " TIMESTAMP," + USERS_DATE_EXPIRES +
                 " DATE," + USERS_LAST_UPDATED + " TIMESTAMP)");
 
@@ -115,19 +115,20 @@ public class DBHandler extends SQLiteOpenHelper
 
     public void addUser(User user)
     {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(USERS_LNAME, user.getlName());
-        values.put(USERS_FNAME, user.getfName());
-        values.put(USERS_CITY, user.getCity());
-        values.put(USERS_EMAIL, user.getEmail());
-        values.put(USERS_POSTAL_CODE, user.getPostalCode());
-        values.put(USERS_PHONE, user.getPhoneNumber());
-        values.put(USERS_PASSWORD, user.getPassword());
 
-        db.insert(TABLE_USERS, null, values);
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(USERS_LNAME, user.getlName());
+            values.put(USERS_FNAME, user.getfName());
+            values.put(USERS_CITY, user.getCity());
+            values.put(USERS_EMAIL, user.getEmail());
+            values.put(USERS_POSTAL_CODE, user.getPostalCode());
+            values.put(USERS_PHONE, user.getPhoneNumber());
+            values.put(USERS_PASSWORD, user.getPassword());
 
-        db.close();
+            db.insert(TABLE_USERS, null, values);
+
+            db.close();
 
 
     }
@@ -142,14 +143,13 @@ public class DBHandler extends SQLiteOpenHelper
             while (curUser.isAfterLast() == false)
             {
                 list = new ArrayList<>();
-                User user = new User();
+                User user = new User(curUser.getString(curUser.getColumnIndex(USERS_EMAIL)),curUser.getString(curUser.getColumnIndex(USERS_PHONE)));
                 user.setfName(curUser.getString((curUser.getColumnIndex(USERS_FNAME))));
                 user.setlName(curUser.getString(curUser.getColumnIndex(USERS_LNAME)));
                 user.setCity(curUser.getString(curUser.getColumnIndex(USERS_CITY)));
-                user.setEmail(curUser.getString(curUser.getColumnIndex(USERS_EMAIL)));
                 user.setPassword(curUser.getString(curUser.getColumnIndex(USERS_PASSWORD)));
                 user.setPostalCode(curUser.getString(curUser.getColumnIndex(USERS_POSTAL_CODE)));
-                user.setPhoneNumber(curUser.getString(curUser.getColumnIndex(USERS_PHONE)));
+
                 list.add(user);
                 curUser.moveToNext();
             }
