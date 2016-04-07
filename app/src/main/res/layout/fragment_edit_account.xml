@@ -3,7 +3,8 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.EditAccountFragment"
-                android:background="#21190e">
+             android:gravity="center_horizontal"
+             android:background="#21190e">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -16,20 +17,19 @@
         android:padding="10dp"
         android:layout_marginTop="16dp"/>
 
-
-
-    <!-- TODO: Update blank fragment layout -->
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scroll_view_registration"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/cat_dog_profile"
+        android:id="@+id/scroll_view"
         android:layout_margin="16dp">
 
-       <TableLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:stretchColumns="0,1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             >
 
 
@@ -37,8 +37,6 @@
 
 
            <TableRow android:layout_width="match_parent"
-                     android:layout_gravity="center_horizontal"
-                     android:gravity="center_horizontal"
                      android:layout_marginTop="5dp">
                <TextView
                    android:layout_width="match_parent"
@@ -48,52 +46,61 @@
                    android:textStyle="bold"
                    android:textColor="@color/colorAccent"
                    android:paddingLeft="6dp"
-                   android:layout_gravity="center_horizontal"/>
+                   />
            </TableRow>
 
            <TableRow
-
                android:layout_width="match_parent"
-               android:layout_marginTop="5dp">>
+               android:layout_marginTop="10dp"
+               android:layout_marginBottom="10dp">
+
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="0dp"
                    android:layout_height="wrap_content"
+                   android:layout_weight="1"
                    android:textAppearance="?android:attr/textAppearanceMedium"
-                   android:text="@string/name"
+                   android:text="@string/first_name_input"
                    android:textColor="#ffffff"
                    android:layout_marginLeft="10dp"/>
+
+               <EditText
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:background="#5a4e3f"
+                   android:textColor="#ffffff"
+                   android:inputType="textPersonName"
+                   android:hint="@string/first_name_input"
+                   android:ems="10"
+                   android:id="@+id/first_name_input"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:paddingLeft="5dp"
+
+                   />
 
            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
-                <EditText
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:background="#5a4e3f"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/last_name_input"
                     android:textColor="#ffffff"
-                    android:inputType="textPersonName"
-                    android:hint="@string/first_name_input"
-                    android:ems="10"
-                    android:id="@+id/first_name_input"
-                    android:layout_column="0"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:paddingLeft="5dp"
+                    android:layout_marginLeft="10dp"/>
 
-                    />
 
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
+                    android:layout_weight="1"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
                     android:inputType="textPersonName"
@@ -112,14 +119,13 @@
            <TableRow
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:layout_gravity="center_horizontal"
-               android:gravity="center_horizontal"
-               android:layout_marginTop="5dp">
+               android:layout_marginTop="10dp"
+               android:layout_marginBottom="10dp">
 
                <TextView
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
-                   android:layout_weight="50"
+                   android:layout_weight="1"
                    android:text="@string/city_input"
                    android:textColor="#ffffff"
                    android:layout_marginTop="5dp"
@@ -127,21 +133,18 @@
                    android:layout_marginLeft="10dp"
                    android:textAppearance="?android:attr/textAppearanceMedium"
                    android:paddingLeft="5dp"
-                   android:layout_column="0"
                    />
 
-               <TextView
+               <EditText
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
-                   android:layout_weight="50"
-                   android:text="@string/postal_code_input"
+                   android:layout_weight="1"
+                   android:background="#5a4e3f"
                    android:textColor="#ffffff"
+                   android:hint="@string/city_input"
+                   android:id="@+id/city_input"
                    android:layout_marginTop="5dp"
                    android:layout_marginBottom="5dp"
-                   android:textAppearance="?android:attr/textAppearanceMedium"
-                   android:layout_marginLeft="5dp"
-                   android:paddingLeft="5dp"
-                   android:layout_column="1"
                    />
 
 
@@ -149,35 +152,32 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
-                <EditText
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:background="#5a4e3f"
+                    android:layout_weight="1"
+                    android:text="@string/postal_code_input"
                     android:textColor="#ffffff"
-                    android:hint="@string/city_input"
-                    android:id="@+id/city_input"
-                    android:layout_column="0"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:paddingLeft="5dp"/>
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="5dp"
+                    />
 
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
+                    android:layout_weight="1"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
                     android:inputType="textPostalAddress"
                     android:ems="10"
                     android:hint="@string/postal_code_input"
                     android:id="@+id/postal_code"
-                    android:layout_column="1"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="5dp"
@@ -188,14 +188,13 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
+                    android:layout_weight="1"
                     android:text="@string/email_address_input"
                     android:textColor="#ffffff"
                     android:layout_marginTop="5dp"
@@ -203,13 +202,34 @@
                     android:layout_marginLeft="10dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:paddingLeft="5dp"
-                    android:layout_column="0"
                     />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#5a4e3f"
+                    android:textColor="#ffffff"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/email_address_input"
+                    android:ems="10"
+                    android:id="@+id/email_address_input"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
+                    android:layout_weight="1"
                     android:text="@string/phone_number_input"
                     android:textColor="#ffffff"
                     android:layout_marginTop="5dp"
@@ -217,48 +237,18 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginLeft="5dp"
                     android:paddingLeft="5dp"
-                    android:layout_column="1"
                     />
 
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="5dp">
-
-                <EditText
+               <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
-                    android:inputType="textEmailAddress"
-                    android:hint="@string/email_address_input"
-                    android:ems="10"
-                    android:id="@+id/email_address_input"
-                    android:layout_column="0"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:paddingLeft="5dp"/>
-
-
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
+                    android:layout_weight="1"
                     android:background="#5a4e3f"
                     android:textColor="#ffffff"
                     android:inputType="phone"
                     android:hint="@string/phone_number_input"
                     android:ems="10"
                     android:id="@+id/phone_number_input"
-                    android:layout_column="1"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="5dp"
@@ -266,19 +256,12 @@
                     android:layout_marginRight="5dp"/>
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="5dp">
-
-            </TableRow>
 
            <TableRow android:layout_width="match_parent"
                      android:layout_gravity="center_horizontal"
                      android:gravity="center_horizontal"
-                     android:layout_marginTop="5dp">
+                     android:layout_marginTop="10dp"
+                     android:layout_marginBottom="10dp">
                <Button
                    style="@style/ActionButton"
                    android:text="@string/update_button"
@@ -286,27 +269,25 @@
                    android:textColor="#21190e"
                    android:background="#e89e1a"
                    android:layout_gravity="center"
+                   android:layout_span="2"
                    />
            </TableRow>
 
            <TableRow
 
                android:layout_width="match_parent"
-               android:layout_marginTop="5dp">>
+               android:layout_marginTop="10dp"
+               android:layout_marginBottom="10dp">
+
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="0dp"
                    android:layout_height="wrap_content"
+                   android:layout_weight="1"
                    android:textAppearance="?android:attr/textAppearanceMedium"
                    android:text="@string/select_pet_profile_title"
                    android:textColor="#ffffff"
                    android:layout_marginLeft="10dp"/>
 
-           </TableRow>
-
-           <TableRow android:layout_width="match_parent"
-                     android:layout_gravity="center_horizontal"
-                     android:gravity="center_horizontal"
-                     android:layout_marginTop="5dp">
                <Spinner
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
@@ -320,7 +301,8 @@
            <TableRow android:layout_width="match_parent"
                      android:layout_gravity="center_horizontal"
                      android:gravity="center_horizontal"
-                     android:layout_marginTop="5dp">
+                     android:layout_marginTop="10dp"
+                     android:layout_marginBottom="10dp">
                <Button
                    style="@style/ActionButton"
                    android:text="@string/delete_pet_profile_button"
@@ -328,6 +310,7 @@
                    android:textColor="#21190e"
                    android:background="#e89e1a"
                    android:layout_gravity="center"
+                   android:layout_span="2"
                    />
            </TableRow>
         </TableLayout>
