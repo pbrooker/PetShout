@@ -11,9 +11,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.backendless.Backendless;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
+    private static final String APP_ID = "11E491EB-2E65-9D2C-FFA6-2E1D6EDBBF00";
+    private static final String APP_KEY = "87E6562F-D4A3-9104-FF19-D8706D843F00";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,6 +26,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        String appVersion = "v1";
+        Backendless.initApp(getApplicationContext(), APP_ID, APP_KEY, appVersion);
 
 
         populateDatabase();
@@ -37,7 +43,28 @@ public class MainActivity extends AppCompatActivity
         //Leave DBHandler commented out until ready to actively use database
         //DBHandler dbHandler = new DBHandler(this);
 
+        // ******************* For testing backendless setup ****************************** //
+
+//        BackendlessUser user = new BackendlessUser();
+//        user.setEmail("pdbrooker@hotmail.com");
+//        user.setPassword("asdf#Asdf1");
+
+//        Backendless.UserService.register(user, new BackendlessCallback<BackendlessUser>()
+//        {
+//            @Override
+//            public void handleResponse(BackendlessUser backendlessUser)
+//            {
+//                Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
+//            }
+//
+//        });
+
+        // *********************  End testing setup ********************************** //
+
+
     }
+
+
 
     @Override
     public void onBackPressed()
