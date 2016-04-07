@@ -16,8 +16,7 @@ import com.backendless.Backendless;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
-    private static final String APP_ID = "11E491EB-2E65-9D2C-FFA6-2E1D6EDBBF00";
-    private static final String APP_KEY = "87E6562F-D4A3-9104-FF19-D8706D843F00";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         String appVersion = "v1";
-        Backendless.initApp(getApplicationContext(), APP_ID, APP_KEY, appVersion);
+        Backendless.initApp(getApplicationContext(), Constents.APP_ID, Constents.APP_KEY, appVersion);
 
 
         populateDatabase();
