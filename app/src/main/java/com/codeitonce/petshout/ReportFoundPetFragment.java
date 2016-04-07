@@ -21,7 +21,6 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 
 /**
@@ -41,6 +40,7 @@ public class ReportFoundPetFragment extends Fragment
     private Button mSubmit;
     private String species;
     private String gender = "";
+    private String imagePath;
     private static final int SELECT_PHOTO = 0;
 
 
@@ -206,7 +206,10 @@ public class ReportFoundPetFragment extends Fragment
         // Decode with inSampleSize
         BitmapFactory.Options o2 = new BitmapFactory.Options();
         o2.inSampleSize = scale;
-        return BitmapFactory.decodeStream(c.getContentResolver().openInputStream(selectedImage), null, o2);
+        Bitmap resizedImage = BitmapFactory.decodeStream(c.getContentResolver().openInputStream(selectedImage), null, o2);
+
+
+        return resizedImage;
 
     }
 
@@ -218,7 +221,8 @@ public class ReportFoundPetFragment extends Fragment
             case SELECT_PHOTO:
                 if(resultCode == Activity.RESULT_OK){
                     Uri selectedImage = imageReturnedIntent.getData();
-                    InputStream imageStream = null;
+                    imagePath = selectedImage.getPath().toString();
+                    //InputStream imageStream = null;
 
                     try
                     {
