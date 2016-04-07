@@ -15,12 +15,6 @@ public class DBHandler extends SQLiteOpenHelper
 {
 
 
-
-
-    private String SHAHash;
-    public static int NO_OPTIONS=0;
-
-
     public DBHandler (Context c)
     {
         super(c, Constents.DATABASE_NAME, null, Constents.DATABASE_VERSION);
@@ -31,16 +25,16 @@ public class DBHandler extends SQLiteOpenHelper
     {
         String createTable = "CREATE TABLE IF NOT EXISTS ";
 
-        db.execSQL(createTable + Constents.TABLE_USERS + "(" + Constents.USERS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + Constents.USERS_FNAME + " VARCHAR," + Constents.USERS_LNAME + " VARCHAR," +
-                Constents.USERS_PASSWORD + " BINARY," + Constents.USERS_PHONE + " INTEGER," + Constents.USERS_EMAIL + " VARCHAR NOT NULL," + Constents.USERS_CITY + " VARCHAR, " + Constents.USERS_POSTAL_CODE + " VARCHAR," +
+        db.execSQL(createTable + Constents.TABLE_USERS + "(" + Constents.USERS_ID + " VARCHAR PRIMARY KEY," + Constents.USERS_FNAME + " VARCHAR," + Constents.USERS_LNAME + " VARCHAR," +
+                Constents.USERS_PASSWORD + " BINARY," + Constents.USERS_PHONE + " INTEGER," + Constents.USERS_EMAIL + " VARCHAR NOT NULL," + Constents.USERS_CITY + " VARCHAR, " +
                 Constents.USERS_STATUS + " CHAR," + Constents.USERS_PET_ID + " INTEGER," + Constents.USERS_POST_ID + " INTEGER," + Constents.USERS_DATE_CREATED + " TIMESTAMP," + Constents.USERS_DATE_EXPIRES +
-                " DATE," + Constents.USERS_LAST_UPDATED + " TIMESTAMP)");
+                " DATE," + Constents.USERS_LAST_UPDATED + " TIMESTAMP," + Constents.USERS_POSTAL_CODE + " VARCHAR)");
 
-        db.execSQL(createTable + Constents.TABLE_PETS + "(" + Constents.PETS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + Constents.PETS_NAME + " VARCHAR," + Constents.PETS_AGE + " INTEGER," +
+        db.execSQL(createTable + Constents.TABLE_PETS + "(" + Constents.PETS_ID + " VARCHAR PRIMARY KEY," + Constents.PETS_NAME + " VARCHAR," + Constents.PETS_AGE + " INTEGER," +
                 Constents.PETS_GENDER + " CHAR," + Constents.PETS_NEUTERED + " BOOLEAN," + Constents.PETS_BREED + " VARCHAR," + Constents.PETS_IMAGE + " LONGBLOB," + Constents.PETS_DESCRIPTION + " VARCHAR," +
                 Constents.PETS_SPECIES + " VARCHAR," + Constents.PETS_ADDINFO + " VARCHAR," + Constents.PETS_LAST_UPDATED + " TIMESTAMP)");
 
-        db.execSQL(createTable + Constents.TABLE_POSTS + "(" + Constents.POSTS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + Constents.POSTS_DATE + " TIMESTAMP," + Constents.POSTS_LOCATION + " VARCHAR," +
+        db.execSQL(createTable + Constents.TABLE_POSTS + "(" + Constents.POSTS_ID + " VARCHAR PRIMARY KEY," + Constents.POSTS_DATE + " TIMESTAMP," + Constents.POSTS_LOCATION + " VARCHAR," +
                 Constents.POSTS_IMAGE + " LONGBLOB," + Constents.POSTS_GENDER + " CHAR," + Constents.POSTS_SPECIES + " VARCHAR," + Constents.POSTS_LOST_FOUND + " CHAR," + Constents.POSTS_BREED
                 + " VARCHAR," + Constents.POSTS_DESCRIPTION + " VARCHAR," + Constents.POSTS_EXPIRES + " DATE," + Constents.POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
@@ -62,20 +56,19 @@ public class DBHandler extends SQLiteOpenHelper
     public void addUser(User user)
     {
 
-            SQLiteDatabase db = this.getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put(Constents.USERS_LNAME, user.getlName());
-            values.put(Constents.USERS_FNAME, user.getfName());
-            values.put(Constents.USERS_CITY, user.getCity());
-            values.put(Constents.USERS_EMAIL, user.getEmail());
-            values.put(Constents.USERS_POSTAL_CODE, user.getPostalCode());
-            values.put(Constents.USERS_PHONE, user.getPhoneNumber());
-            values.put(Constents.USERS_PASSWORD, user.getPassword());
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Constents.USERS_LNAME, user.getlName());
+        values.put(Constents.USERS_FNAME, user.getfName());
+        values.put(Constents.USERS_CITY, user.getCity());
+        values.put(Constents.USERS_EMAIL, user.getEmail());
+        values.put(Constents.USERS_POSTAL_CODE, user.getPostalCode());
+        values.put(Constents.USERS_PHONE, user.getPhoneNumber());
+        values.put(Constents.USERS_PASSWORD, user.getPassword());
 
-            db.insert(Constents.TABLE_USERS, null, values);
+        db.insert(Constents.TABLE_USERS, null, values);
 
-            db.close();
-
+        db.close();
 
     }
 

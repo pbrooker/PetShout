@@ -25,11 +25,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        String appVersion = "v1";
-        Backendless.initApp(getApplicationContext(), Constents.APP_ID, Constents.APP_KEY, appVersion);
+        Backendless.initApp(getApplicationContext(), Constents.APP_ID, Constents.APP_KEY, Constents.APP_VERSION);
 
 
-        populateDatabase();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -214,19 +212,4 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void populateDatabase() //temporary method to populate local database
-    {
-        DBHandler db = new DBHandler(getApplicationContext());
-        db.addUser(new User("Fred", "Jones",
-                "Moncton", "E1X4Y5","jones.fred@hotmail.com",
-                "506-555-1234", "password"));
-        db.addUser(new User("Alex", "Smith",
-                "Dieppe", "E1J4H3","Alexasmith@gmail.com",
-                "506-444-1234", "password"));
-        db.addUser(new User("Janet", "Harrison",
-                "Riverview", "E2B3H5", "janetH@gmail.com",
-                "506-333-1234", "password"));
-
-
-    }
 }

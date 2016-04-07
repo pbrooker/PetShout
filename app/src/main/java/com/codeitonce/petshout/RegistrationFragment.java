@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,12 @@ import android.widget.ScrollView;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.BackendlessCallback;
+
+import java.util.UUID;
 
 
 /**
@@ -41,7 +48,14 @@ public class RegistrationFragment extends Fragment {
     private ScrollView mScrollView;
     private TableRow mTableRow;
     private ImageView mLogo;
-    private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
+    private UUID mID;
+//    private String counterName = "UserIdCounter";
+//    Long counterValue = Backendless.Counters.incrementAndGet( counterName );
+//
+//
+//    IAtomic<Integer>  userCounter = Backendless.Counters.of(counterName, Integer.class)
+
+
 
 
     public RegistrationFragment() {
@@ -124,7 +138,7 @@ public class RegistrationFragment extends Fragment {
             public void afterTextChanged(Editable s)
             {
                 String pass = mPassword.getText().toString();
-                if(!(pass.matches(PASSWORD_PATTERN)))
+                if(!(pass.matches(Constents.PASSWORD_PATTERN)))
                 {
                     mLogo.setVisibility(View.GONE);
                     mPasswordVerify.setTextColor(Color.RED);
@@ -182,20 +196,45 @@ public class RegistrationFragment extends Fragment {
             {
 
 
-                if (!(isEmpty(mFirstName)) && !(isEmpty(mLastName)) && !(isEmpty(mCity)) && !(isEmpty(mPostalCode)) && (isEmail(mEmail.getText().toString())) && !(isEmpty(mPhoneNumber)) && (mPassword.getText().toString().matches(PASSWORD_PATTERN)))
+                if (!(isEmpty(mFirstName)) && !(isEmpty(mLastName)) && !(isEmpty(mCity)) && !(isEmpty(mPostalCode)) &&
+                        (isEmail(mEmail.getText().toString())) && !(isEmpty(mPhoneNumber)) && (mPassword.getText().toString()
+                        .matches(Constents.PASSWORD_PATTERN)))
                 {
+                    mID = UUID.randomUUID();
+                    DBHandler db = new DBHandler(getActivity());
+                    db.addUser(new User(mID ,mFirstName.getText().toString(), mLastName.getText().toString(),
+                            mCity.getText().toString(), mPostalCode.getText().toString(), mEmail.getText().toString(),
+                            mPhoneNumber.getText().toString(), mPassword.getText().toString()));
 
-                        DBHandler db = new DBHandler(getActivity());
-                        db.addUser(new User(mFirstName.getText().toString(), mLastName.getText().toString(),
-                                mCity.getText().toString(), mPostalCode.getText().toString(), mEmail.getText().toString(),
-                                mPhoneNumber.getText().toString(), mPassword.getText().toString()));
+                    Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
 
-                        Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
-                        LoginFragment fragment;
-                        fragment = new LoginFragment();
-                        FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        ft.replace(R.id.mainFrame, fragment);
-                        ft.commit();
+                    BackendlessUser bkUser = new BackendlessUser();
+                    bkUser.setEmail(mEmail.getText().toString());
+                    bkUser.setPassword(mPassword.getText().toString());
+                    bkUser.setProperty(Constents.USERS_FNAME, mFirstName.getText().toString());
+                    bkUser.setProperty(Constents.USERS_LNAME, mLastName.getText().toString());
+                    bkUser.setProperty(Constents.USERS_ID, mID.toString());
+                    bkUser.setProperty(Constents.USERS_CITY, mCity.getText().toString());
+                    bkUser.setProperty(Constents.USERS_PHONE, mPhoneNumber.getText().toString());
+                    bkUser.setProperty(Constents.USERS_POSTAL_CODE, mPostalCode.getText().toString());
+
+
+                    Backendless.UserService.register(bkUser, new BackendlessCallback<BackendlessUser>()
+                    {
+                        @Override
+                        public void handleResponse(BackendlessUser backendlessUser)
+                        {
+                            Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
+                            LoginFragment fragment;
+                            fragment = new LoginFragment();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.replace(R.id.mainFrame, fragment);
+                            ft.commit();
+                        }
+
+                    });
+
+
 
 
                 } else

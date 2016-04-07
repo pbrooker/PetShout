@@ -7,6 +7,7 @@ public class Constents
 {
     public static final String APP_ID = "11E491EB-2E65-9D2C-FFA6-2E1D6EDBBF00";
     public static final String APP_KEY = "87E6562F-D4A3-9104-FF19-D8706D843F00";
+    public static final String APP_VERSION = "v1";
 
 
     //Database Version
@@ -28,7 +29,7 @@ public class Constents
     public static final String USERS_PHONE = "USER_PHONE";
     public static final String USERS_EMAIL = "USER_EMAIL";
     public static final String USERS_CITY = "USER_CITY";
-    public static final String USERS_POSTAL_CODE = "USER_POSTAL_CODED";
+    public static final String USERS_POSTAL_CODE = "USER_POSTALCODE";
     public static final String USERS_STATUS = "USER_STATUS";
     public static final String USERS_PET_ID = "PET_ID";
     public static final String USERS_POST_ID = "POST_ID";
@@ -61,4 +62,7 @@ public class Constents
     public static final String POSTS_DESCRIPTION = "POST_DESCRIPTION";
     public static final String POSTS_EXPIRES = "POST_EXPIRES";
     public static final String POSTS_LAST_UPDATED = "LAST_UPDATED";
+
+
+    public static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
 }
