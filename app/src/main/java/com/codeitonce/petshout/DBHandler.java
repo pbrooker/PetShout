@@ -6,7 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.backendless.Backendless;
+import com.backendless.BackendlessCollection;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by Paul on 4/1/2016.
@@ -15,7 +22,7 @@ public class DBHandler extends SQLiteOpenHelper
 {
 
 
-    public DBHandler (Context c)
+    public DBHandler(Context c)
     {
         super(c, Constents.DATABASE_NAME, null, Constents.DATABASE_VERSION);
     }
@@ -72,7 +79,7 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
-    public void  addUserSmall(User user, Post post)
+    public void addUserSmall(User user, Post post)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -91,12 +98,14 @@ public class DBHandler extends SQLiteOpenHelper
         ArrayList<User> list = null;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor curUser = db.rawQuery("SELECT * FROM " + Constents.TABLE_USERS, null);
-        if(curUser != null && curUser.moveToFirst())
+        if (curUser != null && curUser.moveToFirst())
         {
             while (curUser.isAfterLast() == false)
             {
                 list = new ArrayList<>();
-                User user = new User(curUser.getString(curUser.getColumnIndex(Constents.USERS_EMAIL)),curUser.getString(curUser.getColumnIndex(Constents.USERS_PHONE)));
+                User user = new User(curUser.getString(curUser.getColumnIndex(Constents.USERS_EMAIL)),
+                        curUser.getString(curUser.getColumnIndex(Constents.USERS_PHONE)),
+                        curUser.getString(curUser.getColumnIndex(Constents.USERS_ID)));
                 user.setfName(curUser.getString((curUser.getColumnIndex(Constents.USERS_FNAME))));
                 user.setlName(curUser.getString(curUser.getColumnIndex(Constents.USERS_LNAME)));
                 user.setCity(curUser.getString(curUser.getColumnIndex(Constents.USERS_CITY)));
@@ -137,11 +146,12 @@ public class DBHandler extends SQLiteOpenHelper
         ContentValues values = new ContentValues();
 
         values.put(Constents.POSTS_LOCATION, post.getPostLocation());
-        values.put(Constents.POSTS_LOST_FOUND, "F" );
+        values.put(Constents.POSTS_LOST_FOUND, "F");
         values.put(Constents.POSTS_GENDER, post.getPostGender());
         values.put(Constents.POSTS_SPECIES, post.getPostSpecies());
         values.put(Constents.POSTS_BREED, post.getPostBreed());
         values.put(Constents.POSTS_DESCRIPTION, post.getPostDescription());
+        values.put(Constents.POSTS_ID, post.getPostId());
 
         db.insert(Constents.TABLE_POSTS, null, values);
         db.close();
@@ -157,10 +167,72 @@ public class DBHandler extends SQLiteOpenHelper
     public void deletePet()
     {
         SQLiteDatabase db = this.getWritableDatabase();
-       // db.delete(TABLE_PETS, PETS_ID + " = ?", new String[] {String.valueOf(pet.getId())} );
+        // db.delete(TABLE_PETS, PETS_ID + " = ?", new String[] {String.valueOf(pet.getId())} );
 
         db.close();
     }
+
+    public ArrayList<Post> getPosts()
+    {
+
+        final ArrayList<Post> mPostArray = new ArrayList<>();
+
+
+        final CountDownLatch latch = new CountDownLatch(1);
+        AsyncCallback<BackendlessCollection<Post>> callback = new AsyncCallback<BackendlessCollection<Post>>()
+        {
+            @Override
+            public void handleResponse(BackendlessCollection<Post> posts)
+            {
+
+                Iterator<Post> iterator = posts.getCurrentPage().iterator();
+
+                while (iterator.hasNext())
+                {
+                    Post post = iterator.next();
+                    mPostArray.add(post);
+
+                }
+
+                latch.countDown();
+            }
+
+            @Override
+            public void handleFault(BackendlessFault backendlessFault)
+            {
+
+            }
+        };
+
+        Backendless.Data.of(Post.class).find(callback);
+        try
+        {
+            latch.await();
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+
+
+        return mPostArray;
+    }
+
+    public void populatePosts()
+    {
+
+
+        ArrayList<Post> apiArray = getPosts();
+
+        for (int i = 0; i < apiArray.size(); i++)
+        {
+            Post post = apiArray.get(i);
+            addPost(post);
+        }
+
+
+    }
+
+
 
 
 }
