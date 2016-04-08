@@ -385,7 +385,4 @@ public class ReportFoundPetFragment extends Fragment
         });
     }
 
-    //public void saveAsync(AsyncCallback<Post>)
-
-
 }
