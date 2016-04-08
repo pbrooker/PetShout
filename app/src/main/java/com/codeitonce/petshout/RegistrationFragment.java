@@ -234,9 +234,6 @@ public class RegistrationFragment extends Fragment {
 
                     });
 
-
-
-
                 } else
                 {
                     Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();

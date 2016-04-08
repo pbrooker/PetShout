@@ -5,47 +5,50 @@ package com.codeitonce.petshout;
  */
 public class Post
 {
-    private String postLocation;
-    private String postLostFound;
+    private String post_location;
+    private String post_lostfound;
     private String postGender;
     private String postSpecies;
     private String postEmail;
     private String postPhoneNumber;
     private String postBreed;
     private String postDescription;
-    private String postAddInfo;
+    private String postImagePath;
+    private String postId;
 
 
-    public Post(String postLocation, String postLostFound, String postGender, String postSpecies, String postEmail, String postBreed, String postDescription, String postAddInfo, String postPhoneNumber)
+    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies, String postEmail, String postBreed, String postDescription, String postImagePath, String postPhoneNumber, String postId)
     {
-        this.postLocation = postLocation;
-        this.postLostFound = postLostFound;
+        this.post_location = postLocation;
+        this.post_lostfound = post_lostfound;
         this.postGender = postGender;
         this.postSpecies = postSpecies;
         this.postEmail = postEmail;
         this.postBreed = postBreed;
         this.postDescription = postDescription;
+        this.postImagePath = postImagePath;
         this.postPhoneNumber = postPhoneNumber;
+        this.postId = postId;
     }
 
     public String getPostLocation()
     {
-        return postLocation;
+        return post_location;
     }
 
     public void setPostLocation(String postLocation)
     {
-        this.postLocation = postLocation;
+        this.post_location = postLocation;
     }
 
-    public String getPostLostFound()
+    public String getPost_lostfound()
     {
-        return postLostFound;
+        return post_lostfound;
     }
 
-    public void setPostLostFound(String postLostFound)
+    public void setPost_lostfound(String post_lostfound)
     {
-        this.postLostFound = postLostFound;
+        this.post_lostfound = post_lostfound;
     }
 
     public String getPostGender()
@@ -100,12 +103,12 @@ public class Post
 
     public String getPostAddInfo()
     {
-        return postAddInfo;
+        return postImagePath;
     }
 
     public void setPostAddInfo(String postAddInfo)
     {
-        this.postAddInfo = postAddInfo;
+        this.postImagePath = postAddInfo;
     }
 
     public String getPostPhoneNumber()
@@ -116,5 +119,15 @@ public class Post
     public void setPostPhoneNumber(String postPhoneNumber)
     {
         this.postPhoneNumber = postPhoneNumber;
+    }
+
+    public String getPostImagePath()
+    {
+        return postImagePath;
+    }
+
+    public String getPostId()
+    {
+        return postId;
     }
 }

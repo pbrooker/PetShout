@@ -35,7 +35,7 @@ public class DBHandler extends SQLiteOpenHelper
                 Constents.PETS_SPECIES + " VARCHAR," + Constents.PETS_ADDINFO + " VARCHAR," + Constents.PETS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + Constents.TABLE_POSTS + "(" + Constents.POSTS_ID + " VARCHAR PRIMARY KEY," + Constents.POSTS_DATE + " TIMESTAMP," + Constents.POSTS_LOCATION + " VARCHAR," +
-                Constents.POSTS_IMAGE + " LONGBLOB," + Constents.POSTS_GENDER + " CHAR," + Constents.POSTS_SPECIES + " VARCHAR," + Constents.POSTS_LOST_FOUND + " CHAR," + Constents.POSTS_BREED
+                Constents.POSTS_IMAGEPATH + " LONGBLOB," + Constents.POSTS_GENDER + " CHAR," + Constents.POSTS_SPECIES + " VARCHAR," + Constents.POSTS_LOST_FOUND + " CHAR," + Constents.POSTS_BREED
                 + " VARCHAR," + Constents.POSTS_DESCRIPTION + " VARCHAR," + Constents.POSTS_EXPIRES + " DATE," + Constents.POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
 

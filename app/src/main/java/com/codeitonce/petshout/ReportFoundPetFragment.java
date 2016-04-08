@@ -8,7 +8,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +23,19 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+import com.backendless.files.BackendlessFile;
+
+
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.UUID;
 
 
 /**
@@ -41,6 +56,13 @@ public class ReportFoundPetFragment extends Fragment
     private String species;
     private String gender = "";
     private String imagePath;
+    private Bitmap resizedImage;
+    private Uri selectedImage;
+    private File img;
+    private String photoID;
+    private String filePath;
+    private File petShoutPictures;
+    private static String remoteURL;
     private static final int SELECT_PHOTO = 0;
 
 
@@ -98,10 +120,38 @@ public class ReportFoundPetFragment extends Fragment
 
                 }
 
-                DBHandler db = new DBHandler(getActivity());
-                db.addPost(new Post(mLocation.getText().toString(), "F", mBreed.getText().toString(),
-                        gender, species, mEmail.getText().toString(), mBreed.getText().toString(),
-                        mPetDescription.getText().toString(), mPhoneNumber.getText().toString()));
+
+                if(!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (isEmail(mEmail.getText().toString())) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription))))
+                {
+
+                    String mID = UUID.randomUUID().toString();
+
+                    DBHandler db = new DBHandler(getActivity());
+                    db.addPost(new Post(mLocation.getText().toString(), "F", gender, species, mEmail.getText().toString(), mBreed.getText().toString(),
+                            mPetDescription.getText().toString(), filePath + photoID, mPhoneNumber.getText().toString(), mID));
+
+                    Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
+
+                    try
+                    {
+                        uploadAsync(img, filePath);
+                        //Log.i("Image URL" , remoteURL.toString());
+                    } catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+
+
+
+                } else
+                {
+                    Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
+
             }
         });
 
@@ -165,7 +215,7 @@ public class ReportFoundPetFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-               // ImageLoaderDialog imageLoaderDialog = new ImageLoaderDialog(imageLoader);
+                // ImageLoaderDialog imageLoaderDialog = new ImageLoaderDialog(imageLoader);
                 //imageLoaderDialog.show(getFragmentManager(), "imageLoaderDialog");
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
@@ -173,6 +223,8 @@ public class ReportFoundPetFragment extends Fragment
 
             }
         });
+
+
 
 
         return  view;
@@ -206,7 +258,33 @@ public class ReportFoundPetFragment extends Fragment
         // Decode with inSampleSize
         BitmapFactory.Options o2 = new BitmapFactory.Options();
         o2.inSampleSize = scale;
-        Bitmap resizedImage = BitmapFactory.decodeStream(c.getContentResolver().openInputStream(selectedImage), null, o2);
+         resizedImage = BitmapFactory.decodeStream(c.getContentResolver().openInputStream(selectedImage), null, o2);
+        photoID = UUID.randomUUID().toString()+ ".jpg";
+
+        String MEDIA_MOUNTED = "mounted";
+        String diskState = Environment.getExternalStorageState();
+
+        if (diskState.equals(MEDIA_MOUNTED) )
+        {
+            petShoutPictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        }
+
+        img = new File(petShoutPictures, photoID);
+        FileOutputStream out = null;
+        try
+        {
+            out = new FileOutputStream(img);
+            resizedImage.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.close();
+
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        filePath = petShoutPictures.getPath();
+        Log.i("File Path", petShoutPictures.getPath().toString());
 
 
         return resizedImage;
@@ -214,14 +292,15 @@ public class ReportFoundPetFragment extends Fragment
     }
 
 
-    public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent, Context c) {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
 
         switch(requestCode) {
             case SELECT_PHOTO:
                 if(resultCode == Activity.RESULT_OK){
                     Uri selectedImage = imageReturnedIntent.getData();
-                    imagePath = selectedImage.getPath().toString();
+
                     //InputStream imageStream = null;
 
                     try
@@ -231,8 +310,61 @@ public class ReportFoundPetFragment extends Fragment
                     {
                         e.printStackTrace();
                     }
+
                 }
         }
     }
+
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
+    }
+
+    private boolean isEmail(CharSequence target)
+    {
+        return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches();
+    }
+
+    private boolean isRadioButtonChecked(RadioGroup radioGroup)
+    {
+        boolean isChecked;
+
+        if (radioGroup.getCheckedRadioButtonId() == -1)
+        {
+            Toast.makeText(getActivity(), "Please select a gender", Toast.LENGTH_SHORT).show();
+            isChecked = false;
+           //no radio buttons are checked
+            return isChecked;
+        }
+        else
+        {
+
+            isChecked = true;
+            return isChecked;
+            // one of the radio buttons is checked
+        }
+
+    }
+
+    private static void uploadAsync(File pic, String filePath ) throws Exception
+    {
+
+        Backendless.Files.upload(pic, filePath, new AsyncCallback<BackendlessFile>()
+        {
+            @Override
+            public void handleResponse(BackendlessFile response)
+            {
+                remoteURL = response.getFileURL().toString();
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault)
+            {
+                Log.i("Server  error - ",  fault.getMessage());
+            }
+        });
+    }
+
+    //public void saveAsync(AsyncCallback<Post>)
+
 
 }
