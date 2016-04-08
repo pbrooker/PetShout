@@ -9,25 +9,21 @@ public class Post
     private String post_lostfound;
     private String postGender;
     private String postSpecies;
-    private String postEmail;
-    private String postPhoneNumber;
     private String postBreed;
     private String postDescription;
     private String postImagePath;
     private String postId;
 
 
-    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies, String postEmail, String postBreed, String postDescription, String postImagePath, String postPhoneNumber, String postId)
+    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed, String postDescription, String postImagePath, String postId)
     {
         this.post_location = postLocation;
         this.post_lostfound = post_lostfound;
         this.postGender = postGender;
         this.postSpecies = postSpecies;
-        this.postEmail = postEmail;
         this.postBreed = postBreed;
         this.postDescription = postDescription;
         this.postImagePath = postImagePath;
-        this.postPhoneNumber = postPhoneNumber;
         this.postId = postId;
     }
 
@@ -71,15 +67,7 @@ public class Post
         this.postSpecies = postSpecies;
     }
 
-    public String getPostEmail()
-    {
-        return postEmail;
-    }
 
-    public void setPostEmail(String postEmail)
-    {
-        this.postEmail = postEmail;
-    }
 
     public String getPostBreed()
     {
@@ -111,15 +99,6 @@ public class Post
         this.postImagePath = postAddInfo;
     }
 
-    public String getPostPhoneNumber()
-    {
-        return postPhoneNumber;
-    }
-
-    public void setPostPhoneNumber(String postPhoneNumber)
-    {
-        this.postPhoneNumber = postPhoneNumber;
-    }
 
     public String getPostImagePath()
     {

@@ -25,7 +25,7 @@
         app:menu="@menu/activity_main_drawer"
         android:backgroundTint="#372c1e"
         app:itemTextColor="@color/colorAccent"
-        app:itemIconColor="@color/colorAccent"
+
 
         />
 

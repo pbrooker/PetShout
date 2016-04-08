@@ -26,7 +26,7 @@ public class DBHandler extends SQLiteOpenHelper
         String createTable = "CREATE TABLE IF NOT EXISTS ";
 
         db.execSQL(createTable + Constents.TABLE_USERS + "(" + Constents.USERS_ID + " VARCHAR PRIMARY KEY," + Constents.USERS_FNAME + " VARCHAR," + Constents.USERS_LNAME + " VARCHAR," +
-                Constents.USERS_PASSWORD + " BINARY," + Constents.USERS_PHONE + " INTEGER," + Constents.USERS_EMAIL + " VARCHAR NOT NULL," + Constents.USERS_CITY + " VARCHAR, " +
+                Constents.USERS_PASSWORD + " BINARY," + Constents.USERS_PHONE + " INTEGER," + Constents.USERS_EMAIL + " VARCHAR," + Constents.USERS_CITY + " VARCHAR, " +
                 Constents.USERS_STATUS + " CHAR," + Constents.USERS_PET_ID + " INTEGER," + Constents.USERS_POST_ID + " INTEGER," + Constents.USERS_DATE_CREATED + " TIMESTAMP," + Constents.USERS_DATE_EXPIRES +
                 " DATE," + Constents.USERS_LAST_UPDATED + " TIMESTAMP," + Constents.USERS_POSTAL_CODE + " VARCHAR)");
 
@@ -70,6 +70,19 @@ public class DBHandler extends SQLiteOpenHelper
 
         db.close();
 
+    }
+
+    public void  addUserSmall(User user, Post post)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Constents.USERS_POSTAL_CODE, user.getPostalCode());
+        values.put(Constents.USERS_PHONE, user.getPhoneNumber());
+        values.put(Constents.USERS_POST_ID, post.getPostId());
+
+        db.insert(Constents.TABLE_USERS, null, values);
+
+        db.close();
     }
 
     public ArrayList<User> getUsersArray()
@@ -121,16 +134,16 @@ public class DBHandler extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        ContentValues userValues = new ContentValues();
+
         values.put(Constents.POSTS_LOCATION, post.getPostLocation());
         values.put(Constents.POSTS_LOST_FOUND, "F" );
         values.put(Constents.POSTS_GENDER, post.getPostGender());
         values.put(Constents.POSTS_SPECIES, post.getPostSpecies());
         values.put(Constents.POSTS_BREED, post.getPostBreed());
         values.put(Constents.POSTS_DESCRIPTION, post.getPostDescription());
-        userValues.put(Constents.USERS_EMAIL, post.getPostEmail());
-        userValues.put(Constents.USERS_PHONE, post.getPostPhoneNumber());
 
+        db.insert(Constents.TABLE_POSTS, null, values);
+        db.close();
 
     }
 

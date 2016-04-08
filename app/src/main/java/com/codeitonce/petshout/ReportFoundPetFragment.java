@@ -26,10 +26,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
+import com.backendless.async.callback.BackendlessCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
-
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -127,8 +128,12 @@ public class ReportFoundPetFragment extends Fragment
                     String mID = UUID.randomUUID().toString();
 
                     DBHandler db = new DBHandler(getActivity());
-                    db.addPost(new Post(mLocation.getText().toString(), "F", gender, species, mEmail.getText().toString(), mBreed.getText().toString(),
-                            mPetDescription.getText().toString(), filePath + photoID, mPhoneNumber.getText().toString(), mID));
+                    Post post = new Post(mLocation.getText().toString(), "F", gender, species,  mBreed.getText().toString(),
+                            mPetDescription.getText().toString(), filePath + photoID,  mID);
+
+                    db.addPost(post);
+
+                    db.addUserSmall(new User(mEmail.getText().toString(), mPhoneNumber.getText().toString()), post);
 
                     Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
 
@@ -141,16 +146,31 @@ public class ReportFoundPetFragment extends Fragment
                         e.printStackTrace();
                     }
 
+                    try
+                    {
+                        BackendlessUser bkUser = new BackendlessUser();
+                        bkUser.setEmail(mEmail.getText().toString());
+                        bkUser.setPassword("Reset#me1");
+                        bkUser.setProperty(Constents.USERS_PHONE, mPhoneNumber.getText().toString());
+                        bkUser.setProperty(Constents.TABLE_POSTS, post);
 
+                        Backendless.UserService.register(bkUser, new BackendlessCallback<BackendlessUser>()
+                        {
+                            @Override
+                            public void handleResponse(BackendlessUser backendlessUser)
+                            {
+                                Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
+                            }
+                        });
+                    }catch(Exception e)
+                    {
+                        Toast.makeText(getActivity(), "Post failed - please try again", Toast.LENGTH_SHORT).show();
+                    }
 
                 } else
                 {
                     Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
                 }
-
-
-
-
 
             }
         });
