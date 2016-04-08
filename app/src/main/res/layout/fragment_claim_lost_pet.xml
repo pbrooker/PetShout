@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/claim_lost_pet_header"
+                android:text="@string/pet_details_header"
                 android:textStyle="bold"
                 android:textColor="@color/colorAccent"
                 />
