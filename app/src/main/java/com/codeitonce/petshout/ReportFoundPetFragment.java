@@ -29,6 +29,7 @@ import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.async.callback.BackendlessCallback;
+import com.backendless.exceptions.BackendlessException;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
 
@@ -155,14 +156,25 @@ public class ReportFoundPetFragment extends Fragment
                         bkUser.setProperty(Constents.USERS_PHONE, mPhoneNumber.getText().toString());
                         bkUser.setProperty(Constents.TABLE_POSTS, post);
 
-                        Backendless.UserService.register(bkUser, new BackendlessCallback<BackendlessUser>()
+                        try
                         {
-                            @Override
-                            public void handleResponse(BackendlessUser backendlessUser)
+
+                            Backendless.UserService.register(bkUser, new BackendlessCallback<BackendlessUser>()
                             {
-                                Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
-                            }
-                        });
+                                @Override
+                                public void handleResponse(BackendlessUser backendlessUser)
+                                {
+                                    Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
+
+                                }
+
+
+                            });
+                        }
+                        catch(BackendlessException e)
+                        {
+                            Toast.makeText(getActivity(), "Error - user already exists, please login", Toast.LENGTH_SHORT).show();
+                        }
                     }catch(Exception e)
                     {
                         Toast.makeText(getActivity(), "Post failed - please try again", Toast.LENGTH_SHORT).show();
