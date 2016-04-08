@@ -3,7 +3,8 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.LoginFragment"
-             android:background="#22190e">>
+             android:background="#22190e"
+             android:gravity="center_horizontal">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -49,12 +50,11 @@
         android:layout_marginTop="30dp"/>
 
     <Button
+        style="@style/ActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/submit_button"
-        android:textColor="#21190e"
-        android:background="#e89e1a"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
@@ -76,8 +76,6 @@
         style="@style/ActionButton"
         android:text="@string/register_button"
         android:id="@+id/register_button"
-        android:textColor="#21190e"
-        android:background="#e89e1a"
         android:layout_below="@+id/or_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>

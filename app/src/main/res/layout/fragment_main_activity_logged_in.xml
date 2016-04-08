@@ -3,7 +3,8 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.MainActivityLoggedInFragment"
-             android:background="#21190e">
+             android:background="#21190e"
+             android:gravity="center_horizontal">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,7 +15,8 @@
         android:textColor="@color/colorAccent"
         android:paddingLeft="6dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal"/>
 
     <!-- TODO: Update blank fragment layout -->
     <TableRow
@@ -25,7 +27,8 @@
         android:layout_gravity="center_horizontal"
         android:baselineAligned="false"
         android:clickable="true"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp">
 
         <ImageButton
             android:layout_width="match_parent"
@@ -33,7 +36,7 @@
 
             android:id="@+id/image_button"
             android:src="@drawable/lost_pet_button"
-            />
+            android:background="#00ffffff"/>
 
     </TableRow>
 
@@ -45,25 +48,15 @@
         android:layout_gravity="center_horizontal"
         android:baselineAligned="false"
         android:clickable="true"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp">
 
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:id="@+id/image_button_two"
+            android:id="@+id/found_pet_button"
             android:src="@drawable/found_pet_button"
-            />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        >
-
-
+            android:background="#00ffffff"/>
 
     </TableRow>
 
