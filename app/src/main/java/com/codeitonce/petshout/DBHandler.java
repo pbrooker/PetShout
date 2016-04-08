@@ -13,7 +13,6 @@ import com.backendless.exceptions.BackendlessFault;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by Paul on 4/1/2016.
@@ -178,7 +177,7 @@ public class DBHandler extends SQLiteOpenHelper
         final ArrayList<Post> mPostArray = new ArrayList<>();
 
 
-        final CountDownLatch latch = new CountDownLatch(1);
+        //final CountDownLatch latch = new CountDownLatch(1);
         AsyncCallback<BackendlessCollection<Post>> callback = new AsyncCallback<BackendlessCollection<Post>>()
         {
             @Override
@@ -194,7 +193,7 @@ public class DBHandler extends SQLiteOpenHelper
 
                 }
 
-                latch.countDown();
+                //latch.countDown();
             }
 
             @Override
@@ -205,13 +204,13 @@ public class DBHandler extends SQLiteOpenHelper
         };
 
         Backendless.Data.of(Post.class).find(callback);
-        try
-        {
-            latch.await();
-        } catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
+//        try
+//        {
+//            latch.await();
+//        } catch (InterruptedException e)
+//        {
+//            e.printStackTrace();
+//        }
 
 
         return mPostArray;
