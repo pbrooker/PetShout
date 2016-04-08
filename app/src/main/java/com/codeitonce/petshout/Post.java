@@ -15,6 +15,12 @@ public class Post
     private String postId;
 
 
+    public Post()
+    {
+        //empty constructor for filling array
+    }
+
+
     public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed, String postDescription, String postImagePath, String postId)
     {
         this.post_location = postLocation;
