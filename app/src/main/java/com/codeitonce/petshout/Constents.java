@@ -41,7 +41,7 @@ public class Constents
     public static final String PETS_ID = "PET_ID";
     public static final String PETS_NAME = "PET_NAME";
     public static final String PETS_SPECIES = "PET_SPECIES";
-    public static final String PETS_IMAGE = "PET_IMAGE";
+    public static final String PETS_IMAGEPATH = "PET_IMAGEPATH";
     public static final String PETS_NEUTERED = "PET_NEUTERED";
     public static final String PETS_GENDER = "PET_GENDER";
     public static final String PETS_BREED = "PET_BREED";

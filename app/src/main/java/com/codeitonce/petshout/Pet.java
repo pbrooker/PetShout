@@ -13,10 +13,16 @@ public class Pet
     private int petAge;
     private String petDescription;
     private String addInfo;
+    private String imagePath;
+
+    public Pet()
+    {
+        //empty constructor for populating PetArray
+    }
 
 
 
-    public Pet(String petName, String petSpecies, boolean petNeutered, String petGender, String petBreed, int petAge, String petDescription, String addInfo)
+    public Pet(String petName, String petSpecies, boolean petNeutered, String petGender, String petBreed, int petAge, String petDescription, String addInfo, String imagePath)
     {
         this.petName = petName;
         this.petSpecies = petSpecies;
@@ -26,6 +32,7 @@ public class Pet
         this.petAge = petAge;
         this.petDescription = petDescription;
         this.addInfo = addInfo;
+        this.imagePath = imagePath;
     }
 
     public String getPetName()
@@ -106,5 +113,15 @@ public class Pet
     public void setAddInfo(String addInfo)
     {
         this.addInfo = addInfo;
+    }
+
+    public String getImagePath()
+    {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath)
+    {
+        this.imagePath = imagePath;
     }
 }

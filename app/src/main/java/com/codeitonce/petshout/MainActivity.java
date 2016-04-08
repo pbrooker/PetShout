@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity
 
         DBHandler dbHandler = new DBHandler(getApplicationContext());
         dbHandler.populatePosts();
+        dbHandler.populatePets();
+        dbHandler.populateUsers();
 
         //Leave DBHandler commented out until ready to actively use database
         //DBHandler dbHandler = new DBHandler(this);
