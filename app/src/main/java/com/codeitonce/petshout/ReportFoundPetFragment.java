@@ -126,6 +126,7 @@ public class ReportFoundPetFragment extends Fragment
                 {
 
                     String mID = UUID.randomUUID().toString();
+                    String mUserID = UUID.randomUUID().toString();
 
                     DBHandler db = new DBHandler(getActivity());
                     Post post = new Post(mLocation.getText().toString(), "F", gender, species,  mBreed.getText().toString(),
@@ -133,7 +134,7 @@ public class ReportFoundPetFragment extends Fragment
 
                     db.addPost(post);
 
-                    db.addUserSmall(new User(mEmail.getText().toString(), mPhoneNumber.getText().toString()), post);
+                    db.addUserSmall(new User(mEmail.getText().toString(), mPhoneNumber.getText().toString(), mUserID), post);
 
                     Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
 

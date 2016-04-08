@@ -1,7 +1,5 @@
 package com.codeitonce.petshout;
 
-import java.util.UUID;
-
 /**
  * Created by Paul on 4/4/2016.
  */
@@ -14,7 +12,8 @@ public class User
     private String email;
     private String phoneNumber;
     private String password;
-    private UUID mID;
+    private String userID;
+
 
     public User()
     {
@@ -22,16 +21,17 @@ public class User
     }
 
 
-    public User(String email, String phoneNumber)
+    public User(String email, String phoneNumber, String userID)
     {
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.userID = userID;
     }
 
 
-    public User(UUID id, String fName, String lName, String city, String postalCode, String email, String phoneNumber, String password)
+    public User(String id, String fName, String lName, String city, String postalCode, String email, String phoneNumber, String password)
     {
-        this.mID = id;
+        this.userID = id;
         this.fName = fName;
         this.lName = lName;
         this.city = city;

@@ -79,6 +79,7 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.USERS_POSTAL_CODE, user.getPostalCode());
         values.put(Constents.USERS_PHONE, user.getPhoneNumber());
         values.put(Constents.USERS_POST_ID, post.getPostId());
+        values.put(Constents.USERS_ID, user.getPassword());
 
         db.insert(Constents.TABLE_USERS, null, values);
 

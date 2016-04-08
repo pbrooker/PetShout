@@ -48,7 +48,7 @@ public class RegistrationFragment extends Fragment {
     private ScrollView mScrollView;
     private TableRow mTableRow;
     private ImageView mLogo;
-    private UUID mID;
+    private String mID;
 //    private String counterName = "UserIdCounter";
 //    Long counterValue = Backendless.Counters.incrementAndGet( counterName );
 //
@@ -200,7 +200,7 @@ public class RegistrationFragment extends Fragment {
                         (isEmail(mEmail.getText().toString())) && !(isEmpty(mPhoneNumber)) && (mPassword.getText().toString()
                         .matches(Constents.PASSWORD_PATTERN)))
                 {
-                    mID = UUID.randomUUID();
+                    mID = UUID.randomUUID().toString();
                     DBHandler db = new DBHandler(getActivity());
                     db.addUser(new User(mID ,mFirstName.getText().toString(), mLastName.getText().toString(),
                             mCity.getText().toString(), mPostalCode.getText().toString(), mEmail.getText().toString(),
