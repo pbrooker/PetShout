@@ -12,11 +12,9 @@
         />
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cat_dog_profile"
+        style="@style/ScrollViewStyle"
         android:id="@+id/scroll_view"
-        android:layout_margin="16dp">
+        >
 
         <TableLayout
             android:layout_width="match_parent"
