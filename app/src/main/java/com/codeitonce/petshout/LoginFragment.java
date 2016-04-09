@@ -30,12 +30,19 @@ public class LoginFragment extends Fragment
     private ArrayList<Users> mUserArrayList;
     private Users mCurrentUser;
     private TextView mRestoreLogin;
+    private static final String SAVED_CURRENT_USER = "saved_current_user";
 
     public LoginFragment()
     {
         // Required empty public constructor
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        outState.putString(SAVED_CURRENT_USER, Backendless.UserService.loggedInUser());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,6 +75,7 @@ public class LoginFragment extends Fragment
                             {
                                 super.handleResponse(currentUser);
                                 Backendless.UserService.setCurrentUser(currentUser);
+
                                 MainActivityLoggedInFragment fragment;
                                 fragment = new MainActivityLoggedInFragment();
                                 FragmentTransaction ft = getFragmentManager().beginTransaction();

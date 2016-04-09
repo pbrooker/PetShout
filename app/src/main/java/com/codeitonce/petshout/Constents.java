@@ -65,4 +65,5 @@ public class Constents
 
 
     public static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
+    public static final int SELECT_PHOTO = 0;
 }

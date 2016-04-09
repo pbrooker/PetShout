@@ -9,7 +9,10 @@
     <ImageView
         style="@style/HeaderImage"
         android:id="@+id/cat_dog_profile"
-    />
+        android:clickable="true"
+
+        />
+   
 
     <ScrollView
         style="@style/ScrollViewStyle"

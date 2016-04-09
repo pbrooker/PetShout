@@ -64,7 +64,7 @@ public class ReportFoundPetFragment extends Fragment
     private String filePath;
     private File petShoutPictures;
     private static String remoteURL;
-    private static final int SELECT_PHOTO = 0;
+
 
 
 
@@ -257,7 +257,7 @@ public class ReportFoundPetFragment extends Fragment
                 //imageLoaderDialog.show(getFragmentManager(), "imageLoaderDialog");
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
-                startActivityForResult(photoPickerIntent, SELECT_PHOTO);
+                startActivityForResult(photoPickerIntent, Constents.SELECT_PHOTO);
 
             }
         });
@@ -332,7 +332,7 @@ public class ReportFoundPetFragment extends Fragment
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
 
         switch(requestCode) {
-            case SELECT_PHOTO:
+            case Constents.SELECT_PHOTO:
                 if(resultCode == Activity.RESULT_OK){
                     Uri selectedImage = imageReturnedIntent.getData();
 
