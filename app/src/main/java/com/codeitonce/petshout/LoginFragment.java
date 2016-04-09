@@ -76,6 +76,7 @@ public class LoginFragment extends Fragment
                                 super.handleResponse(currentUser);
                                 Backendless.UserService.setCurrentUser(currentUser);
 
+
                                 MainActivityLoggedInFragment fragment;
                                 fragment = new MainActivityLoggedInFragment();
                                 FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -107,8 +108,8 @@ public class LoginFragment extends Fragment
                     public void handleResponse(BackendlessUser backendlessUser)
                     {
                         super.handleResponse(backendlessUser);
-                        //startActivity( new Intent(getActivity(), LoginSuccessActivity.class ) );
-                        // finish();
+
+                        //Log.d("currentUser", Backendless.UserService.loggedInUser());
                         MainActivityLoggedInFragment fragment;
                         fragment = new MainActivityLoggedInFragment();
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
