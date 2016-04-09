@@ -33,17 +33,10 @@
                 android:layout_marginBottom="5dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    style="@style/PageTitle"
                     android:text="@string/claim_lost_pet_header"
                     android:textStyle="bold"
-                    android:textColor="@color/colorAccent"
-                    android:layout_column="0"
-                    android:layout_span="2"
-                    android:gravity="center_horizontal"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"/>
+                    />
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"

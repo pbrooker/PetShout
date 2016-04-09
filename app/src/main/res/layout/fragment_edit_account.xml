@@ -34,14 +34,8 @@
                      android:layout_marginBottom="16dp"
                >
                <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:textAppearance="?android:attr/textAppearanceLarge"
+                   style="@style/PageTitle"
                    android:text="@string/edit_account_title"
-                   android:textStyle="bold"
-                   android:textColor="@color/colorAccent"
-                   android:layout_span="2"
-                   android:layout_gravity="center_horizontal"
                    />
            </TableRow>
 

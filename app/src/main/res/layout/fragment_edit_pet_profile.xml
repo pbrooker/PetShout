@@ -37,16 +37,9 @@
             android:layout_marginBottom="16dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/pet_profile_header"
-                android:textStyle="bold"
-                android:textColor="@color/colorAccent"
-                android:paddingLeft="6dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:gravity="center_horizontal"
+                style="@style/PageTitle"
+                android:text="@string/edit_pet_profile_button"
+
                 />
         </TableRow>
 
