@@ -3,7 +3,7 @@ package com.codeitonce.petshout;
 /**
  * Created by Paul on 4/4/2016.
  */
-public class Pet
+public class Pets
 {
     private String petName;
     private String petSpecies;
@@ -14,15 +14,16 @@ public class Pet
     private String petDescription;
     private String addInfo;
     private String imagePath;
+    private String objectId;
 
-    public Pet()
+    public Pets()
     {
         //empty constructor for populating PetArray
     }
 
 
 
-    public Pet(String petName, String petSpecies, boolean petNeutered, String petGender, String petBreed, int petAge, String petDescription, String addInfo, String imagePath)
+    public Pets(String petName, String petSpecies, boolean petNeutered, String petGender, String petBreed, int petAge, String petDescription, String addInfo, String imagePath)
     {
         this.petName = petName;
         this.petSpecies = petSpecies;
@@ -123,5 +124,14 @@ public class Pet
     public void setImagePath(String imagePath)
     {
         this.imagePath = imagePath;
+    }
+    public String getObjectId()
+    {
+        return objectId;
+    }
+
+    public void setObjectId( String objectId )
+    {
+        this.objectId = objectId;
     }
 }

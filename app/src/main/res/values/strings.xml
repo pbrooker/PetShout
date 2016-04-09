@@ -33,44 +33,44 @@
 
     <!-- strings for what to do if I lost my pet -->
     <string name="lost_a_pet">Lost a Pet?</string>
-    <string name="lost_first_paragraph">Losing a pet is a traumatic experience for you, your family
-        and your pet. The following are some tips for finding your lost pet.
+    <string name="lost_first_paragraph">Losing a pets is a traumatic experience for you, your family
+        and your pets. The following are some tips for finding your lost pets.
     </string>
     <string name="search_your_neighborhood">Walk or drive through your neighbourhood as often as you
         can. Ask neighbors and anyone who works in the area. Have a picture
         and let people know to be on the lookout.
     </string>
-    <string name="add_to_registry">If your pet has a permanent ID, register the information in any
-        local pet registries (SPCA database if available). Use any online resources available.
+    <string name="add_to_registry">If your pets has a permanent ID, register the information in any
+        local pets registries (SPCA database if available). Use any online resources available.
     </string>
-    <string name="put_up_posters">Place posters around the area your pet was lost. Use eye catching
+    <string name="put_up_posters">Place posters around the area your pets was lost. Use eye catching
         colors to help gain attention, make sure to include contact information.
     </string>
     <string name="visit_animal_shelters">Go to local animal shelters at least once a day, with a
-        photo of your pet. Visiting is better than phoning as often shelter workers are very busy,
+        photo of your pets. Visiting is better than phoning as often shelter workers are very busy,
         and can\'t respond to phone calls.
     </string>
     <string name="check_animal_control">Check with your local Animal Control.</string>
-    <string name="check_animal_hospitals">If your pet was injured, it is possible it may have been
+    <string name="check_animal_hospitals">If your pets was injured, it is possible it may have been
         taken to a local Animal Hospital or Vet.
     </string>
     <string name="persistence_is_key">Keep searching even if hope seems slim. Pets have been
         reunited with their guardians long after the have gone missing.
     </string>
-    <string name="prevention">If your pet does not have a permanent form of ID, get one now before
+    <string name="prevention">If your pets does not have a permanent form of ID, get one now before
         it is too late!
     </string>
 
     <!-- strings for what to do if you have found a pet -->
     <string name="found_a_pet">Found a Pet?</string>
-    <string name="found_first_paragraph">Being lost can be a very stressful event for both a pet and
+    <string name="found_first_paragraph">Being lost can be a very stressful event for both a pets and
         their guardians. If you have found an animal that you feel has been lost,
         trying to find the animal\'s home before the local SPCA or Animal Control is called. Most
         pets are found within the neighborhood where they are lost, and guardians are more than
         likely already searching for them.
     </string>
     <string name="found_paragraph_two">If you must bring the animal to a local Animal Shelter, keep
-        in mind that moving the animal from the neighbourhood reduces the chances that the pet will
+        in mind that moving the animal from the neighbourhood reduces the chances that the pets will
         be
         reunited with his/her guardian. The shelter is a very traumatic experience for the animal,
         so if you are able, take some time to find the guardian on your own.
@@ -96,7 +96,7 @@
     </string>
     <string name="animals_with_no_id">Animals with no ID</string>
     <string name="animals_with_no_id_paragraph">Use the internet. There are many sites dedicated to
-        helping reunite lost pets with with their guardians. Put up found pet posters with a
+        helping reunite lost pets with with their guardians. Put up found pets posters with a
         description and
         talk to people in the neighbourhood. Contact your local SPCA shelter or Animal Control to
         report the animal and let them know if you are willing to hold the animal until the guardian
@@ -143,13 +143,13 @@
     <string name="update_lost_pet_post">Update Lost Pet Post for </string>
     <string name="update_disclaimer">By clicking Update you acknowledge that you are publishing your contact information, which may result in you receiving unwanted messages.</string>
     <string name="claim_lost_pet_header">Claim Lost Pet</string>
-    <string name="claim_pet_button">This is my pet!</string>
+    <string name="claim_pet_button">This is my pets!</string>
     <string name="pet_description">Pet Description</string>
     <string name="additional_information">Additional Information</string>
     <string name="pet_found_in">Pet found in</string>
     <string name="region_area">region and area</string>
-    <string name="contact_information_person_found_pet">Contact info for person that found pet revealed after claim pet pushed</string>
-    <string name="this_is_my_pet_button">This is my pet</string>
+    <string name="contact_information_person_found_pet">Contact info for person that found pets revealed after claim pets pushed</string>
+    <string name="this_is_my_pet_button">This is my pets</string>
     <string name="report_found_pet_header">Report a Found Pet</string>
     <string name="email_title">Email</string>
     <string name="phone_title">Phone</string>

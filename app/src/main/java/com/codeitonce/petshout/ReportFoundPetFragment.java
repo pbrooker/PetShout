@@ -135,7 +135,7 @@ public class ReportFoundPetFragment extends Fragment
 
                     db.addPost(post);
 
-                    db.addUserSmall(new User(mEmail.getText().toString(), mPhoneNumber.getText().toString(), mUserID), post);
+                    db.addUserSmall(new Users(mEmail.getText().toString(), mPhoneNumber.getText().toString(), mUserID), post);
 
                     Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
 

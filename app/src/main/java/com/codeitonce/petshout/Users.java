@@ -3,7 +3,7 @@ package com.codeitonce.petshout;
 /**
  * Created by Paul on 4/4/2016.
  */
-public class User
+public class Users
 {
     private String fName;
     private String lName;
@@ -13,15 +13,16 @@ public class User
     private String phoneNumber;
     private String password;
     private String userID;
+    private String objectId;
 
 
-    public User()
+    public Users()
     {
 
     }
 
 
-    public User(String email, String phoneNumber, String userID)
+    public Users(String email, String phoneNumber, String userID)
     {
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -29,7 +30,7 @@ public class User
     }
 
 
-    public User(String id, String fName, String lName, String city, String postalCode, String email, String phoneNumber, String password)
+    public Users(String id, String fName, String lName, String city, String postalCode, String email, String phoneNumber, String password)
     {
         this.userID = id;
         this.fName = fName;
@@ -109,5 +110,24 @@ public class User
     public void setPassword(String password)
     {
         this.password = password;
+    }
+
+    public String getUserID()
+    {
+        return userID;
+    }
+
+    public void setUserID(String userID)
+    {
+        this.userID = userID;
+    }
+    public String getObjectId()
+    {
+        return objectId;
+    }
+
+    public void setObjectId( String objectId )
+    {
+        this.objectId = objectId;
     }
 }

@@ -18,7 +18,7 @@ public class Constents
 
     //Table Names
     public static final String TABLE_USERS = "Users";
-    public static final String TABLE_PETS = "Pet";
+    public static final String TABLE_PETS = "Pets";
     public static final String TABLE_POSTS = "Post";
 
     //Users table columns

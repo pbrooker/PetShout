@@ -27,6 +27,11 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         Backendless.initApp(getApplicationContext(), Constents.APP_ID, Constents.APP_KEY, Constents.APP_VERSION);
 
+        //DBHandler dbHandler = new DBHandler(getApplicationContext());
+        //dbHandler.populatePosts();
+        //dbHandler.getPets();
+        //dbHandler.getUsers();
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -37,10 +42,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        DBHandler dbHandler = new DBHandler(getApplicationContext());
-        dbHandler.populatePosts();
-        dbHandler.populatePets();
-        dbHandler.populateUsers();
+
 
         //Leave DBHandler commented out until ready to actively use database
         //DBHandler dbHandler = new DBHandler(this);

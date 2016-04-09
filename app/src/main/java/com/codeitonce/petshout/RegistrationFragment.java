@@ -202,7 +202,7 @@ public class RegistrationFragment extends Fragment {
                 {
                     mID = UUID.randomUUID().toString();
                     DBHandler db = new DBHandler(getActivity());
-                    db.addUser(new User(mID ,mFirstName.getText().toString(), mLastName.getText().toString(),
+                    db.addUser(new Users(mID ,mFirstName.getText().toString(), mLastName.getText().toString(),
                             mCity.getText().toString(), mPostalCode.getText().toString(), mEmail.getText().toString(),
                             mPhoneNumber.getText().toString(), mPassword.getText().toString()));
 

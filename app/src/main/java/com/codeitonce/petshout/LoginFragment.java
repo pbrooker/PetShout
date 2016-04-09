@@ -25,8 +25,8 @@ public class LoginFragment extends Fragment {
     private EditText mPassword;
     private Button mSubmit;
     private Button mRegister;
-    private ArrayList<User> mUserArrayList;
-    private User mCurrentUser;
+    private ArrayList<Users> mUserArrayList;
+    private Users mCurrentUser;
 
 
     public LoginFragment() {
@@ -71,7 +71,7 @@ public class LoginFragment extends Fragment {
                          mCurrentUser = mUserArrayList.get(x);
                      } else if (mEmailAddress.getText().toString().trim().length() == 0)
                      {
-                            mCurrentUser = new User();
+                            mCurrentUser = new Users();
                      }
 
                  }

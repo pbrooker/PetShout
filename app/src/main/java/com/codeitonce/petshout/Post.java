@@ -13,6 +13,8 @@ public class Post
     private String postDescription;
     private String postImagePath;
     private String postId;
+    private String objectId;
+
 
 
     public Post()
@@ -95,16 +97,6 @@ public class Post
         this.postDescription = postDescription;
     }
 
-    public String getPostAddInfo()
-    {
-        return postImagePath;
-    }
-
-    public void setPostAddInfo(String postAddInfo)
-    {
-        this.postImagePath = postAddInfo;
-    }
-
 
     public String getPostImagePath()
     {
@@ -114,5 +106,35 @@ public class Post
     public String getPostId()
     {
         return postId;
+    }
+    public String getObjectId()
+    {
+        return objectId;
+    }
+
+    public void setObjectId( String objectId )
+    {
+        this.objectId = objectId;
+    }
+
+
+    public String getPost_location()
+    {
+        return post_location;
+    }
+
+    public void setPost_location(String post_location)
+    {
+        this.post_location = post_location;
+    }
+
+    public void setPostImagePath(String postImagePath)
+    {
+        this.postImagePath = postImagePath;
+    }
+
+    public void setPostId(String postId)
+    {
+        this.postId = postId;
     }
 }
