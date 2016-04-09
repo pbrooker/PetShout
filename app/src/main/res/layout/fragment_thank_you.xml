@@ -3,8 +3,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.ThankYouFragment"
-             android:background="#22190e"
-             android:gravity="center_horizontal">
+             style="@style/Layouts">
 
     <ImageView
         style="@style/HeaderImage"

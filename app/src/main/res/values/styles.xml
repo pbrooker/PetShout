@@ -9,6 +9,11 @@
         <item name="editTextBackground">@color/colorEditTextBackground</item>
     </style>
 
+    <style name="Layouts">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -75,7 +80,6 @@
         <item name="android:layout_marginTop">30dp</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-
     </style>
 
 
