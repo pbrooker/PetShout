@@ -28,7 +28,6 @@ import android.widget.Toast;
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
-import com.backendless.async.callback.BackendlessCallback;
 import com.backendless.exceptions.BackendlessException;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
@@ -131,13 +130,13 @@ public class ReportFoundPetFragment extends Fragment
 
                     DBHandler db = new DBHandler(getActivity());
                     Post post = new Post(mLocation.getText().toString(), "F", gender, species,  mBreed.getText().toString(),
-                            mPetDescription.getText().toString(), filePath + photoID,  mID);
+                            mPetDescription.getText().toString(), remoteURL,  mID);
 
                     db.addPost(post);
 
                     db.addUserSmall(new Users(mEmail.getText().toString(), mPhoneNumber.getText().toString(), mUserID), post);
 
-                    Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
+                    //oast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
 
                     try
                     {
@@ -161,12 +160,14 @@ public class ReportFoundPetFragment extends Fragment
                         try
                         {
 
-                            Backendless.UserService.register(bkUser, new BackendlessCallback<BackendlessUser>()
+                            Backendless.UserService.register(bkUser, new DefaultCallback<BackendlessUser>(getActivity())
                             {
                                 @Override
                                 public void handleResponse(BackendlessUser backendlessUser)
                                 {
+                                    super.handleResponse(backendlessUser);
                                     Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
+
 
                                 }
 
@@ -258,9 +259,6 @@ public class ReportFoundPetFragment extends Fragment
 
             }
         });
-
-
-
 
         return  view;
     }
@@ -389,6 +387,7 @@ public class ReportFoundPetFragment extends Fragment
             public void handleResponse(BackendlessFile response)
             {
                 remoteURL = response.getFileURL().toString();
+                Log.i("RemoteURL", remoteURL);
             }
 
             @Override
