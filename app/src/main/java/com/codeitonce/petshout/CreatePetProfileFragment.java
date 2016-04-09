@@ -65,6 +65,7 @@ public class CreatePetProfileFragment extends Fragment
     private static final String SAVED_CURRENT_USER = "saved_current_user";
     private String addInfo = "";
     private boolean isSpayed = false;
+    private Bitmap yourSelectedImage;
 
 
 
@@ -90,7 +91,7 @@ public class CreatePetProfileFragment extends Fragment
         mAdditionalInfo = (EditText) view.findViewById(R.id.additional_information);
         mSubmitButton = (Button) view.findViewById(R.id.submit_button);
         mSpecies = (Spinner) view.findViewById(R.id.species_spinner);
-        mImageView = (ImageView) view.findViewById(R.id.cat_dog_profile);
+        mImageView = (ImageView) view.findViewById(R.id.pet_image);
 
         if(savedInstanceState != null)
         {
@@ -146,6 +147,10 @@ public class CreatePetProfileFragment extends Fragment
                     Pets pet = new Pets(mName.getText().toString(), species, isSpayed, gender, mBreed.getText().toString(), mAge.getText().toString(),
                             mDescription.getText().toString(),
                             addInfo, remoteURL );
+
+                    db.addPet(pet);
+
+                    Log.i("currentUser", currentUser);
 
 
                     try
@@ -228,6 +233,7 @@ public class CreatePetProfileFragment extends Fragment
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, Constents.SELECT_PHOTO);
+
             }
         });
 
@@ -270,17 +276,19 @@ public class CreatePetProfileFragment extends Fragment
             case Constents.SELECT_PHOTO:
                 if (resultCode == Activity.RESULT_OK)
                 {
+                    try
+                {
+                    yourSelectedImage = decodeUri(getActivity(), selectedImage);
+                } catch (FileNotFoundException e)
+                {
+                    e.printStackTrace();
+                }
                     Uri selectedImage = imageReturnedIntent.getData();
+                    mImageView.setImageBitmap(yourSelectedImage);
 
                     //InputStream imageStream = null;
 
-                    try
-                    {
-                        Bitmap yourSelectedImage = decodeUri(getActivity(), selectedImage);
-                    } catch (FileNotFoundException e)
-                    {
-                        e.printStackTrace();
-                    }
+
 
                 }
         }
