@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity
 
         DBHandler dbHandler = new DBHandler(getApplicationContext());
         dbHandler.getPosts();
-        dbHandler.getPets();
+        //dbHandler.getPets();
         dbHandler.getUsers();
 
 
@@ -42,28 +42,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-
-        //Leave DBHandler commented out until ready to actively use database
-        //DBHandler dbHandler = new DBHandler(this);
-
-        // ******************* For testing backendless setup ****************************** //
-
-//        BackendlessUser user = new BackendlessUser();
-//        user.setEmail("pdbrooker@hotmail.com");
-//        user.setPassword("asdf#Asdf1");
-
-//        Backendless.UserService.register(user, new BackendlessCallback<BackendlessUser>()
-//        {
-//            @Override
-//            public void handleResponse(BackendlessUser backendlessUser)
-//            {
-//                Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
-//            }
-//
-//        });
-
-        // *********************  End testing setup ********************************** //
 
 
     }

@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,20 +31,16 @@ import java.util.UUID;
 public class BrowsePetsFragment extends Fragment
 {
 
-    private ArrayList<Post> mPostArrayList;
     private RecyclerView mRecyclerView;
     private PostAdapter mPostAdapter;
     private static File petShoutPictures;
     private static String path;
-    //private Bitmap bitmap;
 
 
 
-
-
-    public BrowsePetsFragment() {
-        // Required empty public constructor
-    }
+//    public BrowsePetsFragment() {
+//        // Required empty public constructor
+//    }
 
     private void updateUI()
     {
@@ -98,19 +93,17 @@ public class BrowsePetsFragment extends Fragment
         {
             String imageID = UUID.randomUUID().toString();
             String imagePath = post.getPostImagePath();
-            String destinationFile = imageID + ".jpg";
+            String destinationFile = imageID + ".bmp";
 
             try
             {
                 saveImage(imagePath, destinationFile);
+
             } catch (IOException e)
             {
                 e.printStackTrace();
             }
-
-
-            mPost = post;
-            mDescriptionTextView.setText(mPost.getPostDescription());
+            mDescriptionTextView.setText(post.getPostDescription());
             mImageView.setImageBitmap(getBitmap(path));
 
         }
@@ -130,8 +123,11 @@ public class BrowsePetsFragment extends Fragment
     {
         private List<Post> mPosts;
 
+
+
         public PostAdapter(List<Post> posts)
         {
+
             mPosts = posts;
         }
 
@@ -148,6 +144,8 @@ public class BrowsePetsFragment extends Fragment
         public void onBindViewHolder(PostHolder holder, int position)
         {
             Post post = mPosts.get(position);
+
+
             holder.bindPost(post);
 
         }

@@ -220,6 +220,12 @@ public class DBHandler extends SQLiteOpenHelper
                     Post post = iterator.next();
                     addPost(post);
                     mPostArray.add(post);
+                    for (int x = 0; x < mPostArray.size(); x++)
+                    {
+                        Post post1 = mPostArray.get(x);
+                        Log.i("PetInfo", post1.getObjectId().toString());
+                        Log.i("PetInfo", post1.getPostImagePath().toString());
+                    }
 
                 }
             }
@@ -257,6 +263,13 @@ public class DBHandler extends SQLiteOpenHelper
                     Pets pet = iterator.next();
                     addPet(pet);
                     mPetsArray.add(pet);
+
+                    for (int x = 0; x < mPetsArray.size(); x++)
+                    {
+                        Pets pet1 = mPetsArray.get(x);
+                        Log.i("PetInfo", pet1.getObjectId().toString());
+                        Log.i("PetInfo", pet1.getImagePath().toString());
+                    }
 
                 }
             }
