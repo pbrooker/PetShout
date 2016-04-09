@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity
         Backendless.initApp(getApplicationContext(), Constents.APP_ID, Constents.APP_KEY, Constents.APP_VERSION);
 
         DBHandler dbHandler = new DBHandler(getApplicationContext());
-        //dbHandler.populatePosts();
-        //dbHandler.getPets();
+        dbHandler.getPosts();
+        dbHandler.getPets();
         dbHandler.getUsers();
 
 

@@ -121,6 +121,34 @@ public class DBHandler extends SQLiteOpenHelper
         return list;
     }
 
+    public ArrayList<Post> getPostsArray()
+    {
+        ArrayList<Post> list = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor curPost = db.rawQuery("SELECT * FROM " + Constents.TABLE_POSTS, null);
+        if (curPost != null && curPost.moveToFirst())
+        {
+            while (curPost.isAfterLast() == false)
+            {
+                list = new ArrayList<>();
+
+                Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
+
+                list.add(post);
+                curPost.moveToNext();
+            }
+
+        }
+        curPost.close();
+        db.close();
+        return list;
+
+    }
+
     public void addPet(Pets pets)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -190,6 +218,7 @@ public class DBHandler extends SQLiteOpenHelper
                 while (iterator.hasNext())
                 {
                     Post post = iterator.next();
+                    addPost(post);
                     mPostArray.add(post);
 
                 }
@@ -205,24 +234,9 @@ public class DBHandler extends SQLiteOpenHelper
         Backendless.Data.of(Post.class).find(callback);
 
 
-
         return mPostArray;
     }
 
-    public void populatePosts()
-    {
-
-
-        ArrayList<Post> apiArray = getPosts();
-
-        for (int i = 0; i < apiArray.size(); i++)
-        {
-            Post post = apiArray.get(i);
-            addPost(post);
-        }
-
-
-    }
 
     public ArrayList<Pets> getPets()
     {
@@ -261,15 +275,13 @@ public class DBHandler extends SQLiteOpenHelper
     }
 
 
-
     public void getUsers()
     {
 
-       final ArrayList<Users> mUserArray = new ArrayList<>();
+        final ArrayList<Users> mUserArray = new ArrayList<>();
 
 
-
-        Backendless.Persistence.of(Users.class).find( new AsyncCallback<BackendlessCollection<Users>>()
+        Backendless.Persistence.of(Users.class).find(new AsyncCallback<BackendlessCollection<Users>>()
         {
             @Override
             public void handleResponse(BackendlessCollection<Users> users)
@@ -286,8 +298,8 @@ public class DBHandler extends SQLiteOpenHelper
                     for (int x = 0; x < mUserArray.size(); x++)
                     {
                         Users user1 = mUserArray.get(x);
-                        Log.i("UserInfo", user1.getUSER_ID().toString());
-                        Log.i("UserEmail", user1.getEmail().toString());
+                        //Log.i("UserInfo", user1.getUSER_ID().toString());
+                       // Log.i("UserEmail", user1.getEmail().toString());
                     }
                 }
             }
@@ -300,51 +312,8 @@ public class DBHandler extends SQLiteOpenHelper
             }
 
 
-
         });
 
-//        AsyncCallback<BackendlessCollection<Users>> callback = new AsyncCallback<BackendlessCollection<Users>>()
-//        {
-//            @Override
-//            public void handleResponse(BackendlessCollection<Users> users)
-//            {
-//
-//                Iterator<Users> iterator = users.getCurrentPage().iterator();
-//
-//                while (iterator.hasNext())
-//                {
-//                    Users user = iterator.next();
-//                    addUser(user);
-//                    Log.i("Usersinfo", user.getUserID().toString());
-//                    mUserArray.add(user);
-//
-//                }
-//            }
-//
-//            @Override
-//            public void handleFault(BackendlessFault backendlessFault)
-//            {
-//                Log.i("Users handler Fault", "Users were not proecessed");
-//            }
-//        };
-//
-//        Backendless.Data.of(Users.class).find(callback);
 
-
-        //return mUserArray;
     }
-
-//    public void populateUsers()
-//    {
-//
-//        ArrayList<Users> apiArray = getUsers();
-//
-//        for (int i = 0; i < apiArray.size(); i++)
-//        {
-//            Users user = apiArray.get(i);
-//            addUser(user);
-//        }
-//
-//    }
-
 }
