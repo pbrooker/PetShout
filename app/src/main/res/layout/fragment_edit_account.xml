@@ -51,13 +51,12 @@
                android:layout_marginBottom="16dp">
 
                <TextView
+                   style="@style/FormTitleText"
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
-                   android:textAppearance="?android:attr/textAppearanceMedium"
                    android:text="@string/first_name_input"
-                   android:textColor="#ffffff"
-                   android:layout_marginLeft="10dp"/>
+                   />
 
                <EditText
                    style="@style/EditTextFields"
@@ -77,13 +76,12 @@
                 android:layout_marginBottom="16dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/last_name_input"
-                    android:textColor="#ffffff"
-                    android:layout_marginLeft="10dp"/>
+                    />
 
 
                 <EditText
@@ -103,16 +101,11 @@
                android:layout_marginBottom="16dp">
 
                <TextView
+                   style="@style/FormTitleText"
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
                    android:text="@string/city_input"
-                   android:textColor="#ffffff"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginBottom="5dp"
-                   android:layout_marginLeft="10dp"
-                   android:textAppearance="?android:attr/textAppearanceMedium"
-                   android:paddingLeft="5dp"
                    />
 
                <EditText
@@ -132,16 +125,11 @@
                 android:layout_marginBottom="16dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/postal_code_input"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginLeft="5dp"
-                    android:paddingLeft="5dp"
                     />
 
                 <EditText
@@ -161,16 +149,11 @@
                 android:layout_marginBottom="16dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/email_address_input"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:paddingLeft="5dp"
                     />
 
                 <EditText
@@ -191,16 +174,11 @@
                 android:layout_marginBottom="16dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/phone_number_input"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginLeft="5dp"
-                    android:paddingLeft="5dp"
                     />
 
                <EditText
@@ -235,13 +213,12 @@
                android:layout_marginBottom="16dp">
 
                <TextView
+                   style="@style/FormTitleText"
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
-                   android:textAppearance="?android:attr/textAppearanceMedium"
                    android:text="@string/select_pet_profile_title"
-                   android:textColor="#ffffff"
-                   android:layout_marginLeft="10dp"/>
+                   />
 
                <Spinner
                    android:layout_width="0dp"

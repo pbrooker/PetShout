@@ -52,16 +52,15 @@
                 android:layout_marginBottom="5dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/email_title"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
+                    />
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -95,16 +94,12 @@
 
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/pet_description"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-
-                    />
+                   />
 
 
             </TableRow>
@@ -138,15 +133,11 @@
                 android:layout_marginBottom="5dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/breed_title"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-
                     />
 
 
@@ -170,15 +161,11 @@
                 android:layout_marginBottom="5dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/gender_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-
                     />
 
 
@@ -201,14 +188,11 @@
                 android:layout_marginBottom="5dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/description_title"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
                     />
 
                 <TextView
@@ -232,15 +216,12 @@
                 android:layout_marginBottom="5dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/location_header"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/text_view_three"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
                     />
 
                 <TextView

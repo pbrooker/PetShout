@@ -62,13 +62,12 @@
                       android:layout_marginBottom="16dp">
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Select Pet Profile"
                     android:layout_weight="1"
-                    android:textColor="#ffffff"
-                    android:layout_marginLeft="5dp"/>
+                    />
 
 
                 <Spinner

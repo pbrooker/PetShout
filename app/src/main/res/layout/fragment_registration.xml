@@ -44,15 +44,11 @@
             android:layout_height="match_parent">
 
             <TextView
+                style="@style/FormTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/first_name_input"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"
+
                 />
 
             <EditText
@@ -68,15 +64,11 @@
             android:layout_height="match_parent">
 
             <TextView
+                style="@style/FormTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/last_name_input"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"
+
                 />
 
             <EditText
@@ -92,15 +84,11 @@
             android:layout_height="match_parent">
 
             <TextView
+                style="@style/FormTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/city_input"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"
+
                 />
 
             <EditText
@@ -115,15 +103,11 @@
             <TableRow>
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/postal_code_input"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:paddingLeft="5dp"
+
                     />
 
                 <EditText
@@ -166,15 +150,11 @@
             android:layout_height="match_parent">
 
             <TextView
+                style="@style/FormTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/email_address_input"
-                android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                />
 
             <EditText
                 style="@style/EditTextFields"
@@ -192,15 +172,11 @@
            >
 
             <TextView
+                style="@style/FormTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/phone_number_input"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"
+
                 />
 
             <EditText
@@ -244,15 +220,11 @@
             >
 
             <TextView
+                style="@style/FormTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/password_input"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"
+
                 />
 
             <EditText
@@ -268,15 +240,11 @@
             android:layout_height="match_parent">
 
             <TextView
+                style="@style/FormTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/confirm_password_text"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"
+
                 />
 
             <EditText

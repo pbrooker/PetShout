@@ -237,8 +237,10 @@
                 <EditText
                     style="@style/EditTextFields"
                     android:inputType="textMultiLine"
+
                     android:hint="@string/description_coloring"
                     android:id="@+id/descipriptionColoring"
+                    android:paddingLeft="5dp"
                     />
             </TableRow>
 
@@ -256,11 +258,16 @@
                     />
 
                 <EditText
-                    style="@style/EditTextFields"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:inputType="textMultiLine"
+                    android:ems="10"
                     android:hint="@string/additional_information"
+                    android:textColor="#ffffff"
+                    android:background="#5a4e3f"
                     android:id="@+id/additional_information"
-                    />
+                    android:paddingLeft="5dp"/>
 
             </TableRow>
 
