@@ -197,4 +197,5 @@
     <string name="password_restore_toast">Please check your email for password recovery</string>
     <string name="thank_you_fragment_text">Thank you for creating a lost pet post</string>
     <string name="edit_lost_pet_post">Edit Lost Pet Post</string>
+    <string name="create_pet_profile">Create Pet Profile</string>
 </resources>
