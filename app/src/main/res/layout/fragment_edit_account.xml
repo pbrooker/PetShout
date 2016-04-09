@@ -60,19 +60,12 @@
                    android:layout_marginLeft="10dp"/>
 
                <EditText
+                   style="@style/EditTextFields"
                    android:layout_width="0dp"
-                   android:layout_height="wrap_content"
                    android:layout_weight="1"
-                   android:background="#5a4e3f"
-                   android:textColor="#ffffff"
                    android:inputType="textPersonName"
                    android:hint="@string/first_name_input"
-                   android:ems="10"
                    android:id="@+id/first_name_input"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginBottom="5dp"
-                   android:paddingLeft="5dp"
-
                    />
 
            </TableRow>
@@ -94,21 +87,12 @@
 
 
                 <EditText
+                    style="@style/EditTextFields"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
                     android:inputType="textPersonName"
                     android:hint="@string/last_name_input"
-                    android:ems="10"
                     android:id="@+id/last_name_input"
-                    android:layout_column="1"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:paddingLeft="5dp"
                     />
             </TableRow>
 
@@ -132,16 +116,11 @@
                    />
 
                <EditText
+                   style="@style/EditTextFields"
                    android:layout_width="0dp"
-                   android:layout_height="wrap_content"
                    android:layout_weight="1"
-                   android:background="#5a4e3f"
-                   android:textColor="#ffffff"
                    android:hint="@string/city_input"
                    android:id="@+id/city_input"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginBottom="5dp"
-                   android:paddingLeft="5dp"
                    />
 
 
@@ -166,20 +145,13 @@
                     />
 
                 <EditText
+                    style="@style/EditTextFields"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
                     android:inputType="textPostalAddress"
-                    android:ems="10"
                     android:hint="@string/postal_code_input"
                     android:id="@+id/postal_code"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:paddingLeft="5dp"
-                    android:layout_marginRight="5dp"/>
+                />
             </TableRow>
 
             <TableRow
@@ -202,18 +174,13 @@
                     />
 
                 <EditText
+                    style="@style/EditTextFields"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
                     android:inputType="textEmailAddress"
                     android:hint="@string/email_address_input"
-                    android:ems="10"
                     android:id="@+id/email_address_input"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingLeft="5dp"/>
+                    />
 
             </TableRow>
 
@@ -237,20 +204,13 @@
                     />
 
                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
+                   style="@style/EditTextFields"
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
                     android:inputType="phone"
                     android:hint="@string/phone_number_input"
-                    android:ems="10"
                     android:id="@+id/phone_number_input"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:paddingLeft="5dp"
-                    android:layout_marginRight="5dp"/>
+                    />
             </TableRow>
 
 

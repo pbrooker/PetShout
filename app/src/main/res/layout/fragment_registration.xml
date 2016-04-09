@@ -56,20 +56,11 @@
                 />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#5a4e3f"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
+                style="@style/EditTextFields"
                 android:inputType="textPersonName"
                 android:hint="@string/first_name_input"
-                android:ems="10"
                 android:id="@+id/first_name_input"
-                android:layout_column="0"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"/>
+                />
         </TableRow>
 
         <TableRow
@@ -89,20 +80,11 @@
                 />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#5a4e3f"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff"
+                style="@style/EditTextFields"
                 android:inputType="textPersonName"
                 android:hint="@string/last_name_input"
-                android:ems="10"
                 android:id="@+id/last_name_input"
-                android:layout_column="0"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"/>
+                />
         </TableRow>
 
         <TableRow
@@ -122,18 +104,11 @@
                 />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/EditTextFields"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:background="#5a4e3f"
-                android:textColor="#ffffff"
                 android:hint="@string/city_input"
                 android:id="@+id/city_input"
-                android:layout_column="0"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"/>
+                />
 
 
         </TableRow>
@@ -152,20 +127,11 @@
                     />
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
+                    style="@style/EditTextFields"
                     android:inputType="textPostalAddress"
-                    android:ems="10"
                     android:hint="@string/postal_code_input"
                     android:id="@+id/postal_code"
-                    android:layout_column="0"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:paddingLeft="5dp"/>
+                    />
             </TableRow>
             <TableRow android:layout_gravity="center_horizontal">
 
@@ -211,20 +177,11 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:background="#5a4e3f"
-                android:textColor="#ffffff"
+                style="@style/EditTextFields"
                 android:inputType="textEmailAddress"
                 android:hint="@string/email_address_input"
-                android:ems="10"
                 android:id="@+id/email_address_input"
-                android:layout_column="0"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"/>
+                />
 
         </TableRow>
 
@@ -247,20 +204,11 @@
                 />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:background="#5a4e3f"
-                android:textColor="#ffffff"
+                style="@style/EditTextFields"
                 android:inputType="phone"
                 android:hint="@string/phone_number_input"
-                android:ems="10"
                 android:id="@+id/phone_number_input"
-                android:layout_column="0"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"/>
+                />
 
         </TableRow>
             <TableRow android:layout_gravity="center_horizontal">
@@ -308,20 +256,11 @@
                 />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:background="#5a4e3f"
-                android:textColor="#ffffff"
+                style="@style/EditTextFields"
                 android:inputType="textPassword"
                 android:hint="@string/password_input"
-                android:ems="10"
                 android:id="@+id/password_input"
-                android:layout_column="0"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"/>
+                />
         </TableRow>
 
         <TableRow
@@ -341,20 +280,11 @@
                 />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:background="#5a4e3f"
-                android:textColor="#ffffff"
+                style="@style/EditTextFields"
                 android:inputType="textPassword"
                 android:hint="@string/confirm_password_input"
-                android:ems="10"
                 android:id="@+id/confirm_password_input"
-                android:layout_column="0"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="5dp"/>
+                />
         </TableRow>
 
 

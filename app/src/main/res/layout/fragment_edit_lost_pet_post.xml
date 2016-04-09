@@ -84,15 +84,13 @@
                               android:layout_marginBottom="5dp">
 
                         <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            style="@style/EditTextFields"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:inputType="textPersonName"
                             android:hint="@string/name"
-                            android:ems="10"
-                            android:textColor="#ffffff"
-                            android:background="#5a4e3f"
                             android:id="@+id/pet_name"
-                            android:paddingLeft="5dp"/>
+                            />
                     </TableRow>
                     <TableRow android:layout_marginTop="5dp"
                               android:layout_marginBottom="5dp">
@@ -137,16 +135,12 @@
 
 
                 <EditText
+                    style="@style/EditTextFields"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
                     android:hint="@string/breed_title"
                     android:id="@+id/breed_input"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingLeft="5dp"/>
+                    />
             </TableRow>
 
             <TableRow
@@ -207,16 +201,12 @@
 
 
                 <EditText
+                    style="@style/EditTextFields"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
                     android:hint="@string/age_header"
                     android:id="@+id/age_input"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingLeft="5dp"/>
+                    />
 
             </TableRow>
 
@@ -257,16 +247,12 @@
 
 
                 <EditText
+                    style="@style/EditTextFields"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:inputType="textMultiLine"
-                    android:ems="10"
                     android:hint="@string/description_coloring"
-                    android:textColor="#ffffff"
-                    android:background="#5a4e3f"
                     android:id="@+id/descipriptionColoring"
-                    android:paddingLeft="5dp"
                     />
             </TableRow>
 
@@ -284,16 +270,13 @@
                     />
 
                 <EditText
+                    style="@style/EditTextFields"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:inputType="textMultiLine"
-                    android:ems="10"
                     android:hint="@string/additional_information"
-                    android:textColor="#ffffff"
-                    android:background="#5a4e3f"
                     android:id="@+id/additional_information"
-                    android:paddingLeft="5dp"/>
+                    />
 
             </TableRow>
 
