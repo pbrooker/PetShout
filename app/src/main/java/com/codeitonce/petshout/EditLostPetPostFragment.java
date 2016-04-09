@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 
@@ -29,6 +30,11 @@ public class EditLostPetPostFragment extends Fragment
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_edit_lost_pet_post, container, false);
+
+        ArrayAdapter<CharSequence> mArrayAdapter;
+        mArrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.spinner_data, R.layout.spinner_item);
+
+        mSpecies.setAdapter(mArrayAdapter);
 
         mSpecies = (Spinner) view.findViewById(R.id.species_spinner);
 

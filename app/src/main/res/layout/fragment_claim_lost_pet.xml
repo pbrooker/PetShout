@@ -101,15 +101,17 @@
 
 
 
-                        <Spinner
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/species_spinner"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/pet_description"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+
+                    />
 
 
             </TableRow>
@@ -121,17 +123,7 @@
                 <!--android:layout_marginTop="5dp"-->
                 <!--android:layout_marginBottom="5dp">-->
 
-                <!--<TextView-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:text="@string/select_species_title"-->
-                    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
-                    <!--android:textColor="#ffffff"-->
-                    <!--android:layout_marginTop="5dp"-->
-                    <!--android:layout_marginBottom="5dp"-->
 
-                    <!--/>-->
 
                 <!--<Spinner-->
                     <!--android:layout_width="0dp"-->
