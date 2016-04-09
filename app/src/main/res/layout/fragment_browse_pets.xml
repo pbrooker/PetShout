@@ -244,6 +244,7 @@
                     android:hint="@string/pet_description"
                     android:textColor="#ffffff"
                     android:id="@+id/pet_description"
+                    android:paddingLeft="5dp"
                     />
             </TableRow>
 
