@@ -82,11 +82,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:id="@+id/pet_image"
-                    android:src="@drawable/catanddog"
+                    android:src="@drawable/default_pet_picture"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:padding="10dp"
-                />
+                    />
 
                 <TextView
                     style="@style/FormTitleText"
