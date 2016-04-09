@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
@@ -28,6 +29,7 @@ public class LoginFragment extends Fragment
     private Button mRegister;
     private ArrayList<Users> mUserArrayList;
     private Users mCurrentUser;
+    private TextView mRestoreLogin;
 
 
     public LoginFragment()
@@ -46,8 +48,9 @@ public class LoginFragment extends Fragment
         mPassword = (EditText) view.findViewById(R.id.password_input);
         mSubmit = (Button) view.findViewById(R.id.submit_button);
         mRegister = (Button) view.findViewById(R.id.register_button);
-        DBHandler dbHandler = new DBHandler(getActivity());
-        mUserArrayList = dbHandler.getUsersArray();
+        //DBHandler dbHandler = new DBHandler(getActivity());
+       // mUserArrayList = dbHandler.getUsersArray();
+        mRestoreLogin = (TextView) view.findViewById(R.id.restore_password_button);
 
 
         Backendless.UserService.isValidLogin(new DefaultCallback<Boolean>(getActivity())
@@ -129,6 +132,19 @@ public class LoginFragment extends Fragment
             }
 
 
+        });
+
+        mRestoreLogin.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                RestorePasswordFragment fragment;
+                fragment = new RestorePasswordFragment();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainFrame, fragment);
+                ft.commit();
+            }
         });
         return view;
     }
