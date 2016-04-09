@@ -2,7 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="layout.CreatePetProfileFragment"
+             tools:context=".CreatePetProfileFragment"
                 android:background="#21190e"
                 android:gravity="center_horizontal"
     >

@@ -1,4 +1,4 @@
-package layout;
+package com.codeitonce.petshout;
 
 
 import android.os.Bundle;
