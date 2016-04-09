@@ -7,15 +7,9 @@
     android:gravity="center_horizontal">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/HeaderImage"
         android:id="@+id/cat_dog_profile"
-        android:src="@drawable/catanddog"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/cat_and_dog_profile"
-        android:padding="10dp"
-        android:layout_marginTop="16dp"/>
+        />
 
     <ScrollView
         android:layout_width="wrap_content"
