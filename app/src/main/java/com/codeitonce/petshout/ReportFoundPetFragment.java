@@ -194,52 +194,52 @@ public class ReportFoundPetFragment extends Fragment
         });
 
         mSpecies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
-                int num = position;
-                species = "";
-
-                switch (num)
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
                 {
-                    case 0:
-                        species = getString(R.string.dog);
-                        break;
-                    case 1:
-                        species = getString(R.string.cat);
-                        break;
-                    case 2:
-                        species = getString(R.string.bird);
-                        break;
-                    case 3:
-                        species = getString(R.string.rat);
-                        break;
-                    case 4:
-                        species = getString(R.string.hedgehog);
-                        break;
-                    case 5:
-                        species = getString(R.string.pig);
-                        break;
-                    case 6:
-                        species = getString(R.string.horse);
-                        break;
-                    case 7:
-                        species = getString(R.string.reptile);
-                        break;
-                    case 8:
-                        species = getString(R.string.guinea_pig);
-                        break;
-                    case 9:
-                        species = getString(R.string.rabbit);
-                        break;
-                    case 10:
-                        species = getString(R.string.other);
-                        break;
+                    int num = position;
+                    species = "";
+
+                    switch (num)
+                    {
+                        case 0:
+                            species = getString(R.string.dog);
+                            break;
+                        case 1:
+                            species = getString(R.string.cat);
+                            break;
+                        case 2:
+                            species = getString(R.string.bird);
+                            break;
+                        case 3:
+                            species = getString(R.string.rat);
+                            break;
+                        case 4:
+                            species = getString(R.string.hedgehog);
+                            break;
+                        case 5:
+                            species = getString(R.string.pig);
+                            break;
+                        case 6:
+                            species = getString(R.string.horse);
+                            break;
+                        case 7:
+                            species = getString(R.string.reptile);
+                            break;
+                        case 8:
+                            species = getString(R.string.guinea_pig);
+                            break;
+                        case 9:
+                            species = getString(R.string.rabbit);
+                            break;
+                        case 10:
+                            species = getString(R.string.other);
+                            break;
+
+                    }
 
                 }
-
-            }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent)
