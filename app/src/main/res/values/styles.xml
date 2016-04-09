@@ -6,8 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="mainText">@color/mainText</item>
-        <item name="editTextBackground">@color/editTextBackground</item>
+        <item name="editTextBackground">@color/colorEditTextBackground</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -51,15 +50,15 @@
 
     <style name="EditTextFields">
         <item name="android:ems">10</item>
-        <item name="android:textColor">@color/mainText</item>
-        <item name="android:background">@color/editTextBackground</item>
+        <item name="android:textColor">@color/mainFontColor</item>
+        <item name="android:background">@color/colorEditTextBackground</item>
         <item name="android:paddingLeft">5dp</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">5dp</item>
     </style>
 
     <style name="FormTitleText">
-        <item name="android:textColor">@color/mainText</item>
+        <item name="android:textColor">@color/mainFontColor</item>
         <item name="android:paddingLeft">5dp</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">5dp</item>
@@ -70,8 +69,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ems">10</item>
-        <item name="android:textColor">@color/mainText</item>
-        <item name="android:background">@color/editTextBackground</item>
+        <item name="android:textColor">@color/mainFontColor</item>
+        <item name="android:background">@color/colorEditTextBackground</item>
         <item name="android:paddingLeft">5dp</item>
         <item name="android:layout_marginTop">30dp</item>
         <item name="android:layout_centerHorizontal">true</item>

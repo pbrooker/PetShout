@@ -3,6 +3,6 @@
     <color name="colorPrimary">#372c1e</color>
     <color name="colorPrimaryDark">#21190e</color>
     <color name="colorAccent">#e89e1a</color>
-    <color name="mainText">#ffffff</color>
-    <color name="editTextBackground">#5a4e3f</color>
+    <color name="mainFontColor">#ffffff</color>
+    <color name="colorEditTextBackground">#5a4e3f</color>
 </resources>

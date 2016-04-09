@@ -37,9 +37,16 @@
             android:layout_marginBottom="16dp">
 
             <TextView
-                style="@style/PageTitle"
-                android:text="@string/edit_pet_profile_button"
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/pet_profile_header"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:paddingLeft="6dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_horizontal"
                 />
         </TableRow>
 
@@ -181,11 +188,12 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp">
             <TextView
-                style="@style/FormTitleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/age_header"
+                android:textColor="#ffffff"
                 />
 
 
@@ -202,11 +210,12 @@
         <TableRow android:layout_marginTop="5dp"
                   android:layout_marginBottom="5dp">
             <TextView
-                style="@style/FormTitleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/spayed_neutered"
+                android:textColor="#ffffff"
                 />
             <CheckBox
                 android:layout_width="0dp"
@@ -225,11 +234,12 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp">
             <TextView
-                style="@style/FormTitleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/description_coloring"
+                android:textColor="#ffffff"
                 />
 
 
@@ -248,11 +258,12 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp">
             <TextView
-                style="@style/FormTitleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/additional_information"
+                android:textColor="#ffffff"
                 />
 
             <EditText
