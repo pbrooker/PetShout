@@ -3,15 +3,15 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.MainActivityLoggedInFragment"
-             style="@style/Layouts">
+             style="@style/Layouts"
+>
 
     <TextView
         style="@style/PageTitle"
         android:text="@string/main_welcome_header"
         android:layout_marginTop="16dp"
-        />
+    />
 
-    <!-- TODO: Update blank fragment layout -->
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,15 +21,16 @@
         android:baselineAligned="false"
         android:clickable="true"
         android:gravity="center_horizontal"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+    >
 
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:id="@+id/image_button"
             android:src="@drawable/lost_pet_button"
-            android:background="#00ffffff"/>
+            android:background="#00ffffff"
+        />
 
     </TableRow>
 
@@ -42,14 +43,16 @@
         android:baselineAligned="false"
         android:clickable="true"
         android:gravity="center_horizontal"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+    >
 
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/found_pet_button"
             android:src="@drawable/found_pet_button"
-            android:background="#00ffffff"/>
+            android:background="#00ffffff"
+        />
 
     </TableRow>
 

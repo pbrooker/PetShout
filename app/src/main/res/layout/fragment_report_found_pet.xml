@@ -3,45 +3,48 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.ReportFoundPetFragment"
-             style="@style/Layouts">
+             style="@style/Layouts"
+>
 
-    <!-- TODO: Update blank fragment layout -->
 
     <ImageView
         style="@style/HeaderImage"
         android:id="@+id/cat_dog_profile"
-        />
+    />
 
     <ScrollView
         style="@style/ScrollViewStyle"
         android:id="@+id/scroll_view"
-        >
+    >
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="0,1"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:paddingRight="10dp"
+        >
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+            >
 
                 <TextView
                     style="@style/PageTitle"
                     android:text="@string/report_found_pet_header"
-                    />
-            </TableRow>
+                />
 
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+           >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -49,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/email_title"
-                   />
+                />
 
                 <EditText
                     style="@style/EditTextFields"
@@ -60,14 +63,16 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:hint="@string/email_address_input"
                     android:id="@+id/email_address_input"
-                    />
+                />
+
             </TableRow>
 
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -75,9 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/password_input"
-
-                    />
-
+                />
 
                 <EditText
                     style="@style/EditTextFields"
@@ -88,14 +91,16 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:hint="@string/password_input"
                     android:id="@+id/password_input"
-                    />
+                />
+
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -103,9 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/select_species_title"
-
-
-                    />
+                />
 
                 <Spinner
                     android:layout_width="0dp"
@@ -115,8 +118,7 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    />
-
+                />
 
             </TableRow>
 
@@ -124,7 +126,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -132,10 +135,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/breed_title"
-
-                    />
-
-
+                />
 
                 <EditText
                     style="@style/EditTextFields"
@@ -145,14 +145,16 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/breed_input"
                     android:hint="@string/breed_title"
-                    />
+                />
+
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -161,8 +163,7 @@
                     android:layout_weight="1"
                     android:text="@string/gender_header"
 
-                    />
-
+                />
 
                 <RadioGroup
                     android:layout_width="0dp"
@@ -170,7 +171,8 @@
                     android:layout_weight="1"
                     android:id="@+id/gender_group"
                     android:orientation="horizontal"
-                    android:textColor="#ffffff">
+                    android:textColor="#ffffff"
+                >
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -180,7 +182,7 @@
                         android:id="@+id/male_radio"
                         android:buttonTint="#e89e1a"
                         android:textColor="#ffffff"
-                        />
+                    />
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -189,17 +191,19 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:id="@+id/female_radio"
                         android:buttonTint="#e89e1a"
-                        android:textColor="#ffffff"/>
-
+                        android:textColor="#ffffff"
+                    />
 
                 </RadioGroup>
+
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -207,8 +211,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/description_title"
-
-                    />
+                />
 
                 <EditText
                     style="@style/EditTextFields"
@@ -219,14 +222,16 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:hint="@string/pet_description"
                     android:id="@+id/pet_description"
-                    />
+                />
+
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -235,8 +240,7 @@
                     android:layout_weight="1"
                     android:text="@string/location_header"
                     android:id="@+id/text_view_three"
-
-                    />
+                />
 
                 <EditText
                     style="@style/EditTextFields"
@@ -246,12 +250,14 @@
                     android:id="@+id/location_input"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:hint="@string/location_header"
-                    />
+                />
+
             </TableRow>
 
             <TableRow android:gravity="center"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+            >
 
                 <Button
                     style="@style/ActionButton"
@@ -259,15 +265,14 @@
                     android:id="@+id/image_button"
                     android:layout_gravity="center_horizontal"
                     android:layout_span="2"
-                    />
-
+                />
 
             </TableRow>
 
             <TableRow android:gravity="center"
                       android:layout_marginTop="5dp"
-                      android:layout_marginBottom="5dp">
-
+                      android:layout_marginBottom="5dp"
+            >
 
                     <Button
                         style="@style/ActionButton"
@@ -275,15 +280,18 @@
                         android:id="@+id/submit_button"
                         android:layout_gravity="center_horizontal"
                         android:layout_span="2"
-                        />
+                    />
+
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+            >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -292,10 +300,13 @@
                     android:id="@+id/text_view"
                     android:layout_span="2"
                     android:textColor="#ffffff"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                />
+
             </TableRow>
 
-
         </TableLayout>
+
     </ScrollView>
+
 </RelativeLayout>

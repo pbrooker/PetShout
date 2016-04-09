@@ -3,43 +3,42 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.EditAccountFragment"
-             style="@style/Layouts">
+             style="@style/Layouts"
+>
 
     <ImageView
         style="@style/HeaderImage"
         android:id="@+id/cat_dog_profile"
-        />
+    />
 
     <ScrollView
         style="@style/ScrollViewStyle"
         android:id="@+id/scroll_view"
-        >
+    >
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="0,1"
-
-            >
-
-
-            <!-- TODO: Update blank fragment layout -->
-
+        >
 
            <TableRow android:layout_width="match_parent"
                      android:layout_marginTop="16dp"
                      android:layout_marginBottom="16dp"
-               >
+           >
+
                <TextView
                    style="@style/PageTitle"
                    android:text="@string/edit_account_title"
-                   />
+               />
+
            </TableRow>
 
            <TableRow
                android:layout_width="match_parent"
                android:layout_marginTop="16dp"
-               android:layout_marginBottom="16dp">
+               android:layout_marginBottom="16dp"
+           >
 
                <TextView
                    style="@style/FormTitleText"
@@ -47,7 +46,7 @@
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
                    android:text="@string/first_name_input"
-                   />
+               />
 
                <EditText
                    style="@style/EditTextFields"
@@ -56,7 +55,7 @@
                    android:inputType="textPersonName"
                    android:hint="@string/first_name_input"
                    android:id="@+id/first_name_input"
-                   />
+               />
 
            </TableRow>
 
@@ -64,7 +63,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/last_name_input"
-                    />
+                />
 
 
                 <EditText
@@ -82,14 +82,16 @@
                     android:inputType="textPersonName"
                     android:hint="@string/last_name_input"
                     android:id="@+id/last_name_input"
-                    />
+                />
+
             </TableRow>
 
            <TableRow
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_marginTop="16dp"
-               android:layout_marginBottom="16dp">
+               android:layout_marginBottom="16dp"
+           >
 
                <TextView
                    style="@style/FormTitleText"
@@ -97,7 +99,7 @@
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
                    android:text="@string/city_input"
-                   />
+               />
 
                <EditText
                    style="@style/EditTextFields"
@@ -105,15 +107,16 @@
                    android:layout_weight="1"
                    android:hint="@string/city_input"
                    android:id="@+id/city_input"
-                   />
-
+               />
 
            </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -121,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/postal_code_input"
-                    />
+                />
 
                 <EditText
                     style="@style/EditTextFields"
@@ -137,7 +140,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -145,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/email_address_input"
-                    />
+                />
 
                 <EditText
                     style="@style/EditTextFields"
@@ -154,7 +158,7 @@
                     android:inputType="textEmailAddress"
                     android:hint="@string/email_address_input"
                     android:id="@+id/email_address_input"
-                    />
+                />
 
             </TableRow>
 
@@ -162,7 +166,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+            >
 
                 <TextView
                     style="@style/FormTitleText"
@@ -170,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/phone_number_input"
-                    />
+                />
 
                <EditText
                    style="@style/EditTextFields"
@@ -179,29 +184,31 @@
                     android:inputType="phone"
                     android:hint="@string/phone_number_input"
                     android:id="@+id/phone_number_input"
-                    />
-            </TableRow>
+               />
 
+            </TableRow>
 
            <TableRow android:layout_width="match_parent"
                      android:layout_gravity="center_horizontal"
                      android:gravity="center_horizontal"
                      android:layout_marginTop="16dp"
-                     android:layout_marginBottom="16dp">
+                     android:layout_marginBottom="16dp"
+           >
                <Button
                    style="@style/ActionButton"
                    android:text="@string/update_button"
                    android:id="@+id/update_button"
                    android:layout_gravity="center"
                    android:layout_span="2"
-                   />
+               />
+
            </TableRow>
 
            <TableRow
-
                android:layout_width="match_parent"
                android:layout_marginTop="16dp"
-               android:layout_marginBottom="16dp">
+               android:layout_marginBottom="16dp"
+           >
 
                <TextView
                    style="@style/FormTitleText"
@@ -209,7 +216,7 @@
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
                    android:text="@string/select_pet_profile_title"
-                   />
+               />
 
                <Spinner
                    android:layout_width="0dp"
@@ -220,24 +227,28 @@
                    android:layout_marginTop="5dp"
                    android:layout_marginBottom="5dp"
                    android:paddingLeft="5dp"
-                   />
+               />
 
            </TableRow>
+
            <TableRow android:layout_width="match_parent"
                      android:layout_gravity="center_horizontal"
                      android:gravity="center_horizontal"
                      android:layout_marginTop="16dp"
-                     android:layout_marginBottom="16dp">
+                     android:layout_marginBottom="16dp"
+           >
+
                <Button
                    style="@style/ActionButton"
                    android:text="@string/delete_pet_profile_button"
                    android:id="@+id/delete_pet_profile_button"
                    android:layout_gravity="center"
                    android:layout_span="2"
-                   />
+               />
            </TableRow>
-        </TableLayout>
-    </ScrollView>
 
+        </TableLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

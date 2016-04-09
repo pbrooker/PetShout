@@ -12,16 +12,16 @@
               android:theme="@style/ThemeOverlay.AppCompat.Dark"
               android:backgroundTint="#21190e"
               android:gravity="center_vertical"
-              android:baselineAligned="false">
+              android:baselineAligned="false"
+>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:id="@+id/logo_button"
         android:src="@drawable/petshoutlogo"
         android:background="#00ffffff"
         android:clickable="true"
-        />
+    />
 
 </LinearLayout>

@@ -4,34 +4,33 @@
              android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.EditPetProfileFragment"
              style="@style/Layouts"
-    >
-
-    <!-- TODO: Update blank fragment layout -->
+>
 
     <ImageView
         style="@style/HeaderImage"
         android:id="@+id/cat_dog_profile"
-        />
+    />
 
     <ScrollView
         style="@style/ScrollViewStyle"
         android:id="@+id/scroll_view"
-       >
-
+    >
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:stretchColumns="0,1">
+        android:stretchColumns="0,1"
+    >
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+        >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,7 +43,8 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center_horizontal"
-                />
+            />
+
         </TableRow>
 
         <TableRow
@@ -52,7 +52,8 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+        >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -62,22 +63,27 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_column="0"
-                android:padding="10dp"/>
+                android:padding="10dp"
+            />
 
             <TableLayout>
-                <TableRow android:layout_marginTop="5dp"
-                          android:layout_marginBottom="5dp">
 
+                <TableRow android:layout_marginTop="5dp"
+                          android:layout_marginBottom="5dp"
+                >
 
                     <TextView
                         style="@style/FormTitleText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/name"
-                        />
+                    />
+
                 </TableRow>
+
                     <TableRow android:layout_marginTop="5dp"
-                              android:layout_marginBottom="5dp">
+                              android:layout_marginBottom="5dp"
+                    >
 
                     <EditText
                         style="@style/EditTextFields"
@@ -86,21 +92,26 @@
                         android:inputType="textPersonName"
                         android:hint="@string/name"
                         android:id="@+id/pet_name"
-                        />
-                </TableRow>
-                <TableRow android:layout_marginTop="5dp"
-                          android:layout_marginBottom="5dp">
+                    />
 
+                </TableRow>
+
+                <TableRow android:layout_marginTop="5dp"
+                          android:layout_marginBottom="5dp"
+                >
 
                     <TextView
                         style="@style/FormTitleText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/select_species_title"
-                        />
+                    />
+
                 </TableRow>
+
                     <TableRow android:layout_marginTop="5dp"
-                              android:layout_marginBottom="5dp">
+                              android:layout_marginBottom="5dp"
+                    >
 
                         <Spinner
                             android:layout_width="0dp"
@@ -111,23 +122,27 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
                             android:paddingLeft="5dp"
-                            />
+                        />
+
                 </TableRow>
+
             </TableLayout>
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+        >
+
             <TextView
                 style="@style/FormTitleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Breed"
-                />
-
+            />
 
             <EditText
                 style="@style/EditTextFields"
@@ -135,20 +150,23 @@
                 android:layout_weight="1"
                 android:hint="@string/breed_title"
                 android:id="@+id/breed_input"
-                />
+            />
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+        >
+
             <TextView
                 style="@style/FormTitleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Gender"
-                />
+            />
 
                 <RadioGroup
                     android:layout_width="0dp"
@@ -157,7 +175,8 @@
                     android:id="@+id/gender_group"
                     android:orientation="horizontal"
                     android:textColor="#ffffff"
-                    android:paddingLeft="5dp">
+                    android:paddingLeft="5dp"
+                >
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -167,7 +186,7 @@
                         android:id="@+id/male_radio"
                         android:buttonTint="#e89e1a"
                         android:textColor="#ffffff"
-                        />
+                    />
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -176,14 +195,18 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:id="@+id/female_radio"
                         android:buttonTint="#e89e1a"
-                        android:textColor="#ffffff"/>
+                        android:textColor="#ffffff"
+                    />
                 </RadioGroup>
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+        >
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -191,8 +214,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/age_header"
                 android:textColor="#ffffff"
-                />
-
+            />
 
             <EditText
                 style="@style/EditTextFields"
@@ -200,12 +222,14 @@
                 android:layout_weight="1"
                 android:hint="@string/age_header"
                 android:id="@+id/age_input"
-                />
+            />
 
         </TableRow>
 
         <TableRow android:layout_marginTop="5dp"
-                  android:layout_marginBottom="5dp">
+                  android:layout_marginBottom="5dp"
+        >
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -213,7 +237,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/spayed_neutered"
                 android:textColor="#ffffff"
-                />
+            />
+
             <CheckBox
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -222,14 +247,16 @@
                 android:textColor="#ffffff"
                 android:buttonTint="@color/colorAccent"
                 android:paddingLeft="5dp"
-                />
+            />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+        >
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -237,8 +264,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/description_coloring"
                 android:textColor="#ffffff"
-                />
-
+            />
 
             <EditText
                 style="@style/EditTextFields"
@@ -247,13 +273,16 @@
                 android:inputType="textMultiLine"
                 android:hint="@string/description_coloring"
                 android:id="@+id/descipriptionColoring"
-                />
+            />
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+        >
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -261,7 +290,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/additional_information"
                 android:textColor="#ffffff"
-                />
+            />
 
             <EditText
                 style="@style/EditTextFields"
@@ -270,13 +299,15 @@
                 android:inputType="textMultiLine"
                 android:hint="@string/additional_information"
                 android:id="@+id/additional_information"
-                />
+            />
 
         </TableRow>
 
         <TableRow android:gravity="center_horizontal"
                   android:layout_marginTop="5dp"
-                  android:layout_marginBottom="5dp">
+                  android:layout_marginBottom="5dp"
+        >
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -285,17 +316,22 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:layout_span="2"
-            android:layout_column="0">
+            android:layout_column="0"
+        >
 
             <Button
                 style="@style/ActionButton"
                 android:text="@string/submit_button"
                 android:id="@+id/submit_button"
                 android:layout_gravity="center_horizontal"
-                />
+            />
+
         </LinearLayout>
+
         </TableRow>
+
     </TableLayout>
+
     </ScrollView>
 
 </RelativeLayout>
