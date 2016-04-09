@@ -28,7 +28,6 @@
         android:backgroundTint="#372c1e"
         app:itemTextColor="@color/colorAccent"
         app:itemIconTint="@color/colorAccent"
-        
     />
 
 </android.support.v4.widget.DrawerLayout>
