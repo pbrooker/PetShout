@@ -10,7 +10,7 @@ public class Pets
     private boolean petNeutered;
     private String petGender;
     private String petBreed;
-    private int petAge;
+    private String petAge;
     private String petDescription;
     private String addInfo;
     private String imagePath;
@@ -23,7 +23,7 @@ public class Pets
 
 
 
-    public Pets(String petName, String petSpecies, boolean petNeutered, String petGender, String petBreed, int petAge, String petDescription, String addInfo, String imagePath)
+    public Pets(String petName, String petSpecies, boolean petNeutered, String petGender, String petBreed, String petAge, String petDescription, String addInfo, String imagePath)
     {
         this.petName = petName;
         this.petSpecies = petSpecies;
@@ -86,12 +86,12 @@ public class Pets
         this.petBreed = petBreed;
     }
 
-    public int getPetAge()
+    public String getPetAge()
     {
         return petAge;
     }
 
-    public void setPetAge(int petAge)
+    public void setPetAge(String petAge)
     {
         this.petAge = petAge;
     }

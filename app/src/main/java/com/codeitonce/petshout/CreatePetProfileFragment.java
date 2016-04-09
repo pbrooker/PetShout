@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -61,6 +62,10 @@ public class CreatePetProfileFragment extends Fragment
     private File petShoutPictures;
     private static String remoteURL;
     private String currentUser;
+    private static final String SAVED_CURRENT_USER = "saved_current_user";
+    private String addInfo = "";
+    private boolean isSpayed = false;
+
 
 
     public CreatePetProfileFragment()
@@ -89,7 +94,7 @@ public class CreatePetProfileFragment extends Fragment
 
         if(savedInstanceState != null)
         {
-
+            currentUser = savedInstanceState.getString(SAVED_CURRENT_USER);
         }
         ArrayAdapter<CharSequence> mArrayAdapter;
         mArrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.spinner_data, R.layout.spinner_item);
@@ -119,26 +124,46 @@ public class CreatePetProfileFragment extends Fragment
 
                 }
 
+                mSpayedNeutered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+                {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+                    {
+                        isSpayed = true;
+                    }
+                });
+
+                if(!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender))
+                {
+
+                    String mID = UUID.randomUUID().toString();
+                    if(!(isEmpty(mAdditionalInfo)))
+                    {
+                        addInfo = mAdditionalInfo.getText().toString();
+                    }
+
+                    DBHandler db = new DBHandler(getActivity());
+                    Pets pet = new Pets(mName.getText().toString(), species, isSpayed, gender, mBreed.getText().toString(), mAge.getText().toString(),
+                            mDescription.getText().toString(),
+                            addInfo, remoteURL );
+
+
+                    try
+                    {
+                        uploadAsync(img, filePath);
+                        //Log.i("Image URL" , remoteURL.toString());
+                    } catch (Exception e)
+                    {
+                        e.printStackTrace();
+                        Log.i("Image Status", "Not uploaded");
+                    }
+                }
+
 
             }
         });
 
-        if(!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender))
-        {
 
-            String mID = UUID.randomUUID().toString();
-            String mUserID;
-
-            try
-            {
-                uploadAsync(img, filePath);
-                //Log.i("Image URL" , remoteURL.toString());
-            } catch (Exception e)
-            {
-                e.printStackTrace();
-                Log.i("Image Status", "Not uploaded");
-            }
-        }
 
         mSpecies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
