@@ -65,12 +65,12 @@ public class DBHandler extends SQLiteOpenHelper
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Constents.USERS_LNAME, user.getlName());
-        values.put(Constents.USERS_FNAME, user.getfName());
-        values.put(Constents.USERS_CITY, user.getCity());
+        values.put(Constents.USERS_LNAME, user.getUSER_LNAME());
+        values.put(Constents.USERS_FNAME, user.getUSER_FNAME());
+        values.put(Constents.USERS_CITY, user.getUSER_CITY());
         values.put(Constents.USERS_EMAIL, user.getEmail());
-        values.put(Constents.USERS_POSTAL_CODE, user.getPostalCode());
-        values.put(Constents.USERS_PHONE, user.getPhoneNumber());
+        values.put(Constents.USERS_POSTAL_CODE, user.getUSER_POSTALCODE());
+        values.put(Constents.USERS_PHONE, user.getUSER_PHONE());
         values.put(Constents.USERS_PASSWORD, user.getPassword());
 
         db.insert(Constents.TABLE_USERS, null, values);
@@ -83,8 +83,8 @@ public class DBHandler extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Constents.USERS_POSTAL_CODE, user.getPostalCode());
-        values.put(Constents.USERS_PHONE, user.getPhoneNumber());
+        values.put(Constents.USERS_POSTAL_CODE, user.getUSER_POSTALCODE());
+        values.put(Constents.USERS_PHONE, user.getUSER_PHONE());
         values.put(Constents.USERS_POST_ID, post.getPostId());
         values.put(Constents.USERS_ID, user.getPassword());
 
@@ -106,11 +106,11 @@ public class DBHandler extends SQLiteOpenHelper
                 Users user = new Users(curUser.getString(curUser.getColumnIndex(Constents.USERS_EMAIL)),
                         curUser.getString(curUser.getColumnIndex(Constents.USERS_PHONE)),
                         curUser.getString(curUser.getColumnIndex(Constents.USERS_ID)));
-                user.setfName(curUser.getString((curUser.getColumnIndex(Constents.USERS_FNAME))));
-                user.setlName(curUser.getString(curUser.getColumnIndex(Constents.USERS_LNAME)));
-                user.setCity(curUser.getString(curUser.getColumnIndex(Constents.USERS_CITY)));
+                user.setUSER_FNAME(curUser.getString((curUser.getColumnIndex(Constents.USERS_FNAME))));
+                user.setUSER_LNAME(curUser.getString(curUser.getColumnIndex(Constents.USERS_LNAME)));
+                user.setUSER_CITY(curUser.getString(curUser.getColumnIndex(Constents.USERS_CITY)));
                 user.setPassword(curUser.getString(curUser.getColumnIndex(Constents.USERS_PASSWORD)));
-                user.setPostalCode(curUser.getString(curUser.getColumnIndex(Constents.USERS_POSTAL_CODE)));
+                user.setUSER_POSTALCODE(curUser.getString(curUser.getColumnIndex(Constents.USERS_POSTAL_CODE)));
 
                 list.add(user);
                 curUser.moveToNext();
@@ -265,7 +265,7 @@ public class DBHandler extends SQLiteOpenHelper
     public void getUsers()
     {
 
-       // final ArrayList<Users> mUserArray = new ArrayList<>();
+       final ArrayList<Users> mUserArray = new ArrayList<>();
 
 
 
@@ -280,8 +280,15 @@ public class DBHandler extends SQLiteOpenHelper
                 {
                     Users user = iterator.next();
                     addUser(user);
-                    Log.i("Usersinfo", user.getUserID().toString());
-                    //mUserArray.add(user);
+
+                    mUserArray.add(user);
+
+                    for (int x = 0; x < mUserArray.size(); x++)
+                    {
+                        Users user1 = mUserArray.get(x);
+                        Log.i("UserInfo", user1.getUSER_ID().toString());
+                        Log.i("UserEmail", user1.getEmail().toString());
+                    }
                 }
             }
 
@@ -291,6 +298,9 @@ public class DBHandler extends SQLiteOpenHelper
                 // an error has occurred, the error code can be retrieved with fault.getCode()
                 Log.i("Users handler Fault", "Users were not proecessed");
             }
+
+
+
         });
 
 //        AsyncCallback<BackendlessCollection<Users>> callback = new AsyncCallback<BackendlessCollection<Users>>()

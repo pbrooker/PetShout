@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         Backendless.initApp(getApplicationContext(), Constents.APP_ID, Constents.APP_KEY, Constents.APP_VERSION);
 
-        //DBHandler dbHandler = new DBHandler(getApplicationContext());
+        DBHandler dbHandler = new DBHandler(getApplicationContext());
         //dbHandler.populatePosts();
         //dbHandler.getPets();
-        //dbHandler.getUsers();
+        dbHandler.getUsers();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

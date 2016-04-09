@@ -5,14 +5,14 @@ package com.codeitonce.petshout;
  */
 public class Users
 {
-    private String fName;
-    private String lName;
-    private String city;
-    private String postalCode;
+    private String USER_FNAME;
+    private String USER_LNAME;
+    private String USER_CITY;
+    private String USER_POSTALCODE;
     private String email;
-    private String phoneNumber;
+    private String USER_PHONE;
     private String password;
-    private String userID;
+    private String USER_ID;
     private String objectId;
 
 
@@ -25,61 +25,61 @@ public class Users
     public Users(String email, String phoneNumber, String userID)
     {
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.userID = userID;
+        this.USER_PHONE = phoneNumber;
+        this.USER_ID = userID;
     }
 
 
     public Users(String id, String fName, String lName, String city, String postalCode, String email, String phoneNumber, String password)
     {
-        this.userID = id;
-        this.fName = fName;
-        this.lName = lName;
-        this.city = city;
-        this.postalCode = postalCode;
+        this.USER_ID = id;
+        this.USER_FNAME = fName;
+        this.USER_LNAME = lName;
+        this.USER_CITY = city;
+        this.USER_POSTALCODE = postalCode;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.USER_PHONE = phoneNumber;
         this.password = password;
     }
 
-    public String getfName()
+    public String getUSER_FNAME()
     {
-        return fName;
+        return USER_FNAME;
     }
 
-    public void setfName(String fName)
+    public void setUSER_FNAME(String USER_FNAME)
     {
-        this.fName = fName;
+        this.USER_FNAME = USER_FNAME;
     }
 
-    public String getlName()
+    public String getUSER_LNAME()
     {
-        return lName;
+        return USER_LNAME;
     }
 
-    public void setlName(String lName)
+    public void setUSER_LNAME(String USER_LNAME)
     {
-        this.lName = lName;
+        this.USER_LNAME = USER_LNAME;
     }
 
-    public String getCity()
+    public String getUSER_CITY()
     {
-        return city;
+        return USER_CITY;
     }
 
-    public void setCity(String city)
+    public void setUSER_CITY(String USER_CITY)
     {
-        this.city = city;
+        this.USER_CITY = USER_CITY;
     }
 
-    public String getPostalCode()
+    public String getUSER_POSTALCODE()
     {
-        return postalCode;
+        return USER_POSTALCODE;
     }
 
-    public void setPostalCode(String postalCode)
+    public void setUSER_POSTALCODE(String USER_POSTALCODE)
     {
-        this.postalCode = postalCode;
+        this.USER_POSTALCODE = USER_POSTALCODE;
     }
 
     public String getEmail()
@@ -92,14 +92,14 @@ public class Users
         this.email = email;
     }
 
-    public String getPhoneNumber()
+    public String getUSER_PHONE()
     {
-        return phoneNumber;
+        return USER_PHONE;
     }
 
-    public void setPhoneNumber(String phoneNumber)
+    public void setUSER_PHONE(String USER_PHONE)
     {
-        this.phoneNumber = phoneNumber;
+        this.USER_PHONE = USER_PHONE;
     }
 
     public String getPassword()
@@ -112,21 +112,22 @@ public class Users
         this.password = password;
     }
 
-    public String getUserID()
+    public String getUSER_ID()
     {
-        return userID;
+        return USER_ID;
     }
 
-    public void setUserID(String userID)
+    public void setUSER_ID(String USER_ID)
     {
-        this.userID = userID;
+        this.USER_ID = USER_ID;
     }
+
     public String getObjectId()
     {
         return objectId;
     }
 
-    public void setObjectId( String objectId )
+    public void setObjectId(String objectId)
     {
         this.objectId = objectId;
     }

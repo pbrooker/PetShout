@@ -108,7 +108,7 @@ public class ReportFoundPetFragment extends Fragment
             {
                 try
                 {
-                    switch (selection.getId())
+                    switch (mGender.getCheckedRadioButtonId())
                     {
                         case R.id.male_radio:
                             gender = "M";
@@ -146,6 +146,7 @@ public class ReportFoundPetFragment extends Fragment
                     } catch (Exception e)
                     {
                         e.printStackTrace();
+                        Log.i("Image Status", "Not uploaded");
                     }
 
                     try
@@ -154,6 +155,7 @@ public class ReportFoundPetFragment extends Fragment
                         bkUser.setEmail(mEmail.getText().toString());
                         bkUser.setPassword("Reset#me1");
                         bkUser.setProperty(Constents.USERS_PHONE, mPhoneNumber.getText().toString());
+                        bkUser.setProperty(Constents.USERS_ID, mUserID);
                         bkUser.setProperty(Constents.TABLE_POSTS, post);
 
                         try
