@@ -31,7 +31,6 @@ public class LoginFragment extends Fragment
     private Users mCurrentUser;
     private TextView mRestoreLogin;
 
-
     public LoginFragment()
     {
         // Required empty public constructor
@@ -48,8 +47,6 @@ public class LoginFragment extends Fragment
         mPassword = (EditText) view.findViewById(R.id.password_input);
         mSubmit = (Button) view.findViewById(R.id.submit_button);
         mRegister = (Button) view.findViewById(R.id.register_button);
-        //DBHandler dbHandler = new DBHandler(getActivity());
-       // mUserArrayList = dbHandler.getUsersArray();
         mRestoreLogin = (TextView) view.findViewById(R.id.restore_password_button);
 
 
@@ -76,8 +73,7 @@ public class LoginFragment extends Fragment
                                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                                 ft.replace(R.id.mainFrame, fragment);
                                 ft.commit();
-//                                        startActivity( new Intent( getBaseContext(), LoginSuccessActivity.class ) );
-//                                        finish();
+
                             }
                         });
                     }
@@ -86,7 +82,6 @@ public class LoginFragment extends Fragment
                 super.handleResponse(isValidLogin);
             }
         });
-
 
 
         mSubmit.setOnClickListener(new View.OnClickListener()
@@ -128,9 +123,7 @@ public class LoginFragment extends Fragment
                     }
                 });
 
-
             }
-
 
         });
 
