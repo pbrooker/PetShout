@@ -292,11 +292,12 @@
                <Spinner
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
-                   android:id="@+id/pet_profile"
-                   android:layout_gravity="bottom"
                    android:layout_weight="1"
-                   android:layout_marginBottom="20dp"
-                   android:layout_marginRight="5dp"/>
+                   android:id="@+id/species_spinner"
+                   android:textAppearance="?android:attr/textAppearanceMedium"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   />
 
            </TableRow>
            <TableRow android:layout_width="match_parent"

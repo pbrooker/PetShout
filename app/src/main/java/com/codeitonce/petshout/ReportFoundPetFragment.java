@@ -94,7 +94,9 @@ public class ReportFoundPetFragment extends Fragment
 
 
         ArrayAdapter<CharSequence> mArrayAdapter;
-        mArrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.spinner_data, android.R.layout.simple_spinner_item);
+        mArrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.spinner_data, R.layout.spinner_item);
+
+
 
         mSpecies.setAdapter(mArrayAdapter);
 

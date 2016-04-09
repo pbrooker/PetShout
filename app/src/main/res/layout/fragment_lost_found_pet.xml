@@ -160,7 +160,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -169,8 +170,8 @@
                     android:text="@string/found_a_pet"
                     android:textStyle="bold"
                     android:textColor="@color/colorAccent"
-                    android:paddingTop="10dp"
-                    android:paddingLeft="6dp"/>
+                    android:layout_gravity="center_horizontal"
+                    />
             </TableRow>
 
             <TableRow

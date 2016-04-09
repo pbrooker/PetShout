@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
+             android:layout_height="fill_parent"
              tools:context="com.codeitonce.petshout.LoginFragment"
              android:background="#22190e"
-             android:gravity="center_horizontal">
+             android:gravity="center_horizontal|center_vertical">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -47,7 +47,8 @@
         android:layout_below="@+id/email_address_input"
         android:layout_alignLeft="@+id/email_address_input"
         android:layout_alignStart="@+id/email_address_input"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"/>
 
     <Button
         style="@style/ActionButton"
@@ -55,9 +56,11 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/submit_button"
+        android:layout_below="@+id/password_input"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+
+        />
 
     <TextView
         android:layout_width="wrap_content"

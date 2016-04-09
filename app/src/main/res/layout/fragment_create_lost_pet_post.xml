@@ -80,65 +80,68 @@
 
                 <Spinner
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:id="@+id/spinner"
-                    android:layout_gravity="center_horizontal"/>
-            </TableRow>
-
-            <TableRow android:layout_marginTop="16dp"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginBottom="16dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:id="@+id/pet_profile_spinner"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/pet_description"
-                    android:textColor="#ffffff"
-                    android:layout_marginLeft="5dp"/>
-
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/pet_description"
-                    android:hint="@string/pet_description"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
             </TableRow>
 
-            <TableRow android:layout_marginTop="16dp"
-                      android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:layout_marginBottom="16dp">
+            <!--<TableRow android:layout_marginTop="16dp"-->
+                      <!--android:layout_width="match_parent"-->
+                      <!--android:layout_height="wrap_content"-->
+                      <!--android:layout_marginBottom="16dp">-->
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/additional_information"
-                    android:textColor="#ffffff"
-                    android:layout_marginLeft="5dp"/>
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                    <!--android:text="@string/pet_description"-->
+                    <!--android:textColor="#ffffff"-->
+                    <!--android:layout_marginLeft="5dp"/>-->
 
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/additional_information"
-                    android:inputType="textMultiLine"
-                    android:hint="@string/additional_information"
-                    android:background="#5a4e3f"
-                    android:textColor="#ffffff"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"/>
-            </TableRow>
+
+                <!--<EditText-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:id="@+id/pet_description"-->
+                    <!--android:hint="@string/pet_description"-->
+                    <!--android:background="#5a4e3f"-->
+                    <!--android:textColor="#ffffff"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:layout_marginLeft="5dp"/>-->
+            <!--</TableRow>-->
+
+            <!--<TableRow android:layout_marginTop="16dp"-->
+                      <!--android:layout_width="match_parent"-->
+                      <!--android:layout_height="match_parent"-->
+                      <!--android:layout_marginBottom="16dp">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                    <!--android:text="@string/additional_information"-->
+                    <!--android:textColor="#ffffff"-->
+                    <!--android:layout_marginLeft="5dp"/>-->
+
+                <!--<EditText-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:id="@+id/additional_information"-->
+                    <!--android:inputType="textMultiLine"-->
+                    <!--android:hint="@string/additional_information"-->
+                    <!--android:background="#5a4e3f"-->
+                    <!--android:textColor="#ffffff"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:layout_marginLeft="5dp"/>-->
+            <!--</TableRow>-->
 
             <TableRow
                 android:layout_width="match_parent"

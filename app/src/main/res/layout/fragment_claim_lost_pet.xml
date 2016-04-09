@@ -6,6 +6,8 @@
              tools:context="com.codeitonce.petshout.ClaimLostPetFragment"
              android:background="#21190e">
 
+    <!-- TODO: Update blank fragment layout -->
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,138 +20,272 @@
         android:layout_marginTop="16dp"/>
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/cat_dog_profile"
         android:id="@+id/scroll_view"
         android:layout_margin="16dp">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="0,1"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        >
-
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal">
+            android:stretchColumns="0,1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/pet_details_header"
-                android:textStyle="bold"
-                android:textColor="@color/colorAccent"
-                />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/cat_dog_image"
-                android:src="@drawable/catanddog"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-
-                android:contentDescription="@string/cat_and_dog_profile"
-                android:padding="10dp"/>
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="textMultiLine"
-                android:ems="10"
-                android:textColor="#ffffff"
-                android:hint="@string/pet_description"
-                android:id="@+id/pet_description"
-                />
-        </TableRow>
-
-        <TableRow
-                  android:layout_marginTop="16dp"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:layout_marginBottom="16dp">
-
-            <TextView
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/area_pet_found_in_title"
-                android:textColor="#ffffff"
-                />
-        </TableRow>
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/claim_lost_pet_header"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:layout_column="0"
+                    android:layout_span="2"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pet_found_in"
-                android:textColor="#ffffff"
-                />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/email_title"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/region_area"
-                android:textColor="#ffffff"
-                android:id="@+id/area"/>
-        </TableRow>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textEmailAddress"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:ems="10"
+                    android:background="#5a4e3f"
+                    android:hint="@string/email_address_input"
+                    android:id="@+id/email_address_input"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/contact_information_person_found_pet"
-                android:id="@+id/contact_information"
-                android:textColor="#ffffff"
-                android:layout_span="2"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/pet_image"
+                    android:src="@drawable/catanddog"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:padding="10dp"/>
 
 
-            <Button
-                style="@style/ActionButton"
-                android:text="@string/this_is_my_pet_button"
-                android:id="@+id/claim_lost_pet"
-                android:layout_gravity="center"
-                android:layout_below="@+id/scroll_view_registration"
-                android:layout_centerHorizontal="true"/>
 
-        </TableRow>
-    </TableLayout>
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/species_spinner"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            />
 
+
+            </TableRow>
+
+
+            <!--<TableRow-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_marginBottom="5dp">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="@string/select_species_title"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                    <!--android:textColor="#ffffff"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:layout_marginBottom="5dp"-->
+
+                    <!--/>-->
+
+                <!--<Spinner-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:id="@+id/species_spinner"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--/>-->
+
+
+            <!--</TableRow>-->
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/breed_title"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/breed_input"
+                    android:hint="@string/breed_title"
+                    android:textColor="#ffffff"
+                    android:background="#5a4e3f"
+                    android:paddingLeft="5dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/gender_header"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/gender"
+                    android:hint="@string/gender_header"
+                    android:textColor="#ffffff"
+                    android:background="#5a4e3f"
+                    android:paddingLeft="5dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/description_title"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textMultiLine"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:ems="10"
+                    android:hint="@string/pet_description"
+                    android:textColor="#ffffff"
+                    android:id="@+id/pet_description"
+                    android:background="#5a4e3f"
+                    android:paddingLeft="5dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/location_header"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/text_view_three"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/location_input"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffffff"
+                    android:hint="@string/location_header"
+                    android:background="#5a4e3f"
+                    android:layout_column="1"/>
+            </TableRow>
+
+            <TableRow android:gravity="center"
+                      android:layout_marginTop="5dp"
+                      android:layout_marginBottom="5dp">
+
+                <Button
+                    style="@style/ActionButton"
+                    android:text="@string/claim_lost_pet_button"
+                    android:id="@+id/claim_lost_pet"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_span="2"
+                    />
+
+            </TableRow>
+
+
+
+        </TableLayout>
     </ScrollView>
 
 </RelativeLayout>
