@@ -211,30 +211,30 @@
                     <!--/>-->
             <!--</TableRow>-->
 
-            <TableRow android:gravity="center_horizontal"
-                      android:layout_marginTop="16dp"
-                      android:layout_marginBottom="16dp"
-                      android:layout_width="match_parent">
+            <!--<TableRow android:gravity="center_horizontal"-->
+                      <!--android:layout_marginTop="16dp"-->
+                      <!--android:layout_marginBottom="16dp"-->
+                      <!--android:layout_width="match_parent">-->
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/pet_image"
-                    android:src="@drawable/catanddog"
-                    android:background="#00ffffff"/>
+                <!--<ImageButton-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:id="@+id/pet_image"-->
+                    <!--android:src="@drawable/catanddog"-->
+                    <!--android:background="#00ffffff"/>-->
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="textMultiLine"
-                    android:hint="@string/pet_description"
-                    android:textColor="#ffffff"
-                    android:id="@+id/pet_description"
-                    android:paddingLeft="5dp"
-                    />
-            </TableRow>
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="textMultiLine"-->
+                    <!--android:hint="@string/pet_description"-->
+                    <!--android:textColor="#ffffff"-->
+                    <!--android:id="@+id/pet_description"-->
+                    <!--android:paddingLeft="5dp"-->
+                    <!--/>-->
+            <!--</TableRow>-->
 
 
         </TableLayout>
