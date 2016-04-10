@@ -83,9 +83,9 @@ public class CreatePetProfileFragment extends Fragment
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        Bundle b = this.getArguments();
-        userID = b.getSerializable(Constents.SAVED_CURRENT_USER);
-        Log.i("currentUser", userID.toString());
+//        Bundle b = this.getArguments();
+//        userID = b.getSerializable(Constents.SAVED_CURRENT_USER);
+//        Log.i("currentUser", userID.toString());
     }
 
     @Override

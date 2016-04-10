@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
@@ -46,7 +47,7 @@ public class ReportFoundPetFragment extends Fragment
 {
 
     private EditText mEmail;
-    private EditText mPhoneNumber;
+    private EditText mPassword;
     private EditText mBreed;
     private EditText mLocation;
     private EditText mPetDescription;
@@ -80,7 +81,7 @@ public class ReportFoundPetFragment extends Fragment
         View view = inflater.inflate(R.layout.fragment_report_found_pet, container, false);
 
         mEmail = (EditText) view.findViewById(R.id.email_address_input);
-        mPhoneNumber = (EditText) view.findViewById(R.id.phone_number_input);
+        mPassword = (EditText) view.findViewById(R.id.password_input);
         mBreed = (EditText) view.findViewById(R.id.breed_input);
         mLocation = (EditText) view.findViewById(R.id.location_input);
         mPetDescription = (EditText) view.findViewById(R.id.pet_description);
@@ -123,7 +124,6 @@ public class ReportFoundPetFragment extends Fragment
 
                 }
 
-
                 if(!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (isEmail(mEmail.getText().toString())) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription))))
                 {
 
@@ -136,7 +136,7 @@ public class ReportFoundPetFragment extends Fragment
 
                     db.addPost(post);
 
-                    db.addUserSmall(new Users(mEmail.getText().toString(), mPhoneNumber.getText().toString(), mUserID), post);
+                    db.addUserSmall(new Users(mEmail.getText().toString(), mPassword.getText().toString(), mUserID), post);
 
 
                     try
@@ -154,7 +154,7 @@ public class ReportFoundPetFragment extends Fragment
                         BackendlessUser bkUser = new BackendlessUser();
                         bkUser.setEmail(mEmail.getText().toString());
                         bkUser.setPassword("Reset#me1");
-                        bkUser.setProperty(Constents.USERS_PHONE, mPhoneNumber.getText().toString());
+                        bkUser.setProperty(Constents.USERS_PASSWORD, mPassword.getText().toString());
                         bkUser.setProperty(Constents.USERS_ID, mUserID);
                         bkUser.setProperty(Constents.TABLE_POSTS, post);
 
@@ -167,7 +167,14 @@ public class ReportFoundPetFragment extends Fragment
                                 public void handleResponse(BackendlessUser backendlessUser)
                                 {
                                     super.handleResponse(backendlessUser);
-                                    Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
+                                    //Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
+
+                                    ThankYouFragment fragment;
+                                    fragment = new ThankYouFragment();
+                                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                    ft.replace(R.id.mainFrame, fragment);
+                                    ft.commit();
+
 
 
                                 }

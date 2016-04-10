@@ -84,7 +84,7 @@ public class DBHandler extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Constents.USERS_POSTAL_CODE, user.getUSER_POSTALCODE());
-        values.put(Constents.USERS_PHONE, user.getUSER_PHONE());
+        values.put(Constents.USERS_PASSWORD, user.getPassword());
         values.put(Constents.USERS_POST_ID, post.getPostId());
         values.put(Constents.USERS_ID, user.getPassword());
 
@@ -223,8 +223,8 @@ public class DBHandler extends SQLiteOpenHelper
                     for (int x = 0; x < mPostArray.size(); x++)
                     {
                         Post post1 = mPostArray.get(x);
-                        Log.i("PetInfo", post1.getObjectId().toString());
-                        Log.i("PetInfo", post1.getPostImagePath().toString());
+                        //Log.i("PetInfo", post1.getObjectId().toString());
+                        //Log.i("PetInfo", post1.getPostImagePath().toString());
                     }
 
                 }
