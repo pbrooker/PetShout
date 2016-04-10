@@ -101,7 +101,7 @@ public class ReportFoundPetFragment extends Fragment
 
         mSpecies.setAdapter(mArrayAdapter);
 
-        mArrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        //mArrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
         mSubmit.setOnClickListener(new View.OnClickListener()
         {
