@@ -66,4 +66,6 @@ public class Constents
 
     public static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
     public static final int SELECT_PHOTO = 0;
+    public static final String PREFS_LOGGED_IN = "LoggedInStatusFile";
+    public static final String SAVED_CURRENT_USER = "saved_current_user";
 }

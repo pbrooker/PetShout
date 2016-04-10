@@ -138,7 +138,6 @@ public class ReportFoundPetFragment extends Fragment
 
                     db.addUserSmall(new Users(mEmail.getText().toString(), mPhoneNumber.getText().toString(), mUserID), post);
 
-                    //oast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
 
                     try
                     {
@@ -248,13 +247,13 @@ public class ReportFoundPetFragment extends Fragment
             }
         });
 
+        //get image from gallery (take photo as option will be a future upgrade
         mAddImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                // ImageLoaderDialog imageLoaderDialog = new ImageLoaderDialog(imageLoader);
-                //imageLoaderDialog.show(getFragmentManager(), "imageLoaderDialog");
+
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, Constents.SELECT_PHOTO);

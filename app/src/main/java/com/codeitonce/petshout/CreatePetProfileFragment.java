@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,14 +27,17 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
+import com.backendless.persistence.local.UserTokenStorageFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.UUID;
 
 /**
@@ -61,11 +65,12 @@ public class CreatePetProfileFragment extends Fragment
     private String filePath;
     private File petShoutPictures;
     private static String remoteURL;
-    private String currentUser;
-    private static final String SAVED_CURRENT_USER = "saved_current_user";
+    private BackendlessUser currentUser;
     private String addInfo = "";
     private boolean isSpayed = false;
     private Bitmap yourSelectedImage;
+    private BackendlessUser user;
+    private Serializable userID;
 
 
 
@@ -74,9 +79,17 @@ public class CreatePetProfileFragment extends Fragment
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        Bundle b = this.getArguments();
+        userID = b.getSerializable(Constents.SAVED_CURRENT_USER);
+        Log.i("currentUser", userID.toString());
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
@@ -93,10 +106,9 @@ public class CreatePetProfileFragment extends Fragment
         mSpecies = (Spinner) view.findViewById(R.id.species_spinner);
         mImageView = (ImageView) view.findViewById(R.id.pet_image);
 
-        if(savedInstanceState != null)
-        {
-            currentUser = savedInstanceState.getString(SAVED_CURRENT_USER);
-        }
+
+
+
         ArrayAdapter<CharSequence> mArrayAdapter;
         mArrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.spinner_data, R.layout.spinner_item);
 
@@ -135,6 +147,7 @@ public class CreatePetProfileFragment extends Fragment
                     }
                 });
 
+                //check editable field status
                 if(!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender))
                 {
 
@@ -144,16 +157,66 @@ public class CreatePetProfileFragment extends Fragment
                         addInfo = mAdditionalInfo.getText().toString();
                     }
 
+                    //create local database entry
                     DBHandler db = new DBHandler(getActivity());
                     Pets pet = new Pets(mName.getText().toString(), species, isSpayed, gender, mBreed.getText().toString(), mAge.getText().toString(),
                             mDescription.getText().toString(),
-                            addInfo, remoteURL );
+                            addInfo, remoteURL, mID );
+
 
                     db.addPet(pet);
 
-                    Log.i("currentUser", currentUser);
+                    //get current login info or if not logged in, send to login
+                    String currentUserObjectId = Backendless.UserService.loggedInUser();
+                    Backendless.UserService.findById(userID.toString(), new AsyncCallback<BackendlessUser>()
+                    {
+                        @Override
+                        public void handleResponse(BackendlessUser response)
+                        {
+                            Backendless.UserService.setCurrentUser(response);
+                        }
 
+                        @Override
+                        public void handleFault(BackendlessFault fault)
+                        {
+                            LoginFragment fragment;
+                            fragment = new LoginFragment();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.replace(R.id.mainFrame, fragment);
+                            ft.commit();
+                        }
+                    });
 
+                    String userToken = UserTokenStorageFactory.instance().getStorage().get();
+
+                    if(userToken != null && !userToken.equals(""))
+                    {
+                        Backendless.UserService.isValidLogin(new AsyncCallback<Boolean>()
+                        {
+                            @Override
+                            public void handleResponse(Boolean response)
+                            {
+                                if (response)
+                                {
+                                    currentUser = Backendless.UserService.CurrentUser();
+                                }
+                            }
+
+                            @Override
+                            public void handleFault(BackendlessFault fault)
+                            {
+                                LoginFragment fragment;
+                                fragment = new LoginFragment();
+                                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                ft.replace(R.id.mainFrame, fragment);
+                                ft.commit();
+                            }
+                        });
+                    }
+
+                    String userEmail = currentUser.getEmail().toString();
+                    db.addUserPet(userEmail, mID);
+                    //upload image
                     try
                     {
                         uploadAsync(img, filePath);
@@ -163,11 +226,32 @@ public class CreatePetProfileFragment extends Fragment
                         e.printStackTrace();
                         Log.i("Image Status", "Not uploaded");
                     }
+                    currentUser.setProperty(Constents.USERS_PET_ID, mID);
+                    currentUser.setProperty(Constents.TABLE_PETS, pet);
+                    Backendless.UserService.update(user, new AsyncCallback<BackendlessUser>()
+                    {
+                        @Override
+                        public void handleResponse(BackendlessUser response)
+                        {
+                            Toast.makeText(getActivity(), "Pet profile successfully Added", Toast.LENGTH_SHORT).show();
+                            MainActivityLoggedInFragment fragment;
+                            fragment = new MainActivityLoggedInFragment();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.replace(R.id.mainFrame, fragment);
+                            ft.commit();
+                        }
+
+                        @Override
+                        public void handleFault(BackendlessFault fault)
+                        {
+                            Toast.makeText(getActivity(), "Pet profile was not added, please try again", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    }
                 }
 
-
-            }
-        });
+            });
 
 
         //populate spinner
@@ -241,6 +325,7 @@ public class CreatePetProfileFragment extends Fragment
         return view;
     }
 
+
     private boolean isRadioButtonChecked(RadioGroup radioGroup)
     {
         boolean isChecked;
@@ -280,6 +365,14 @@ public class CreatePetProfileFragment extends Fragment
 
                     Uri selectedImage = imageReturnedIntent.getData();
                     mImageView.setImageURI(selectedImage);
+
+                    try
+                    {
+                        Bitmap yourSelectedImage = decodeUri(getActivity(), selectedImage);
+                    } catch (FileNotFoundException e)
+                    {
+                        e.printStackTrace();
+                    }
 
                 }
         }

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         Backendless.initApp(getApplicationContext(), Constents.APP_ID, Constents.APP_KEY, Constents.APP_VERSION);
 
+
         DBHandler dbHandler = new DBHandler(getApplicationContext());
         dbHandler.getPosts();
         //dbHandler.getPets();
