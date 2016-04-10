@@ -334,9 +334,9 @@ public class DBHandler extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        String strFilter = Constents.USERS_EMAIL + "=" + email;
+        String filter = Constents.USERS_EMAIL+"="+ email;
         values.put(Constents.USERS_PET_ID, petId);
-        db.update(Constents.TABLE_USERS, values, strFilter, null);
+       // db.execSQL("UPDATE 'Constents.TABLE_USERS' SET 'Constents.USERS_PET_ID' = 'petId' WHERE 'Constents.USERS_EMAIL'='email' ");
 
     }
 }

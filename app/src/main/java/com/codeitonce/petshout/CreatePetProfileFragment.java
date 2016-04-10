@@ -32,6 +32,7 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
 import com.backendless.persistence.local.UserTokenStorageFactory;
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -68,9 +69,12 @@ public class CreatePetProfileFragment extends Fragment
     private BackendlessUser currentUser;
     private String addInfo = "";
     private boolean isSpayed = false;
+    private String mID = "";
     private Bitmap yourSelectedImage;
-    private BackendlessUser user;
-    private Serializable userID;
+    //private BackendlessUser user;
+   // private Serializable userID;
+    private String userEmail = "";
+    private String userObjectID;
 
 
 
@@ -86,6 +90,21 @@ public class CreatePetProfileFragment extends Fragment
 //        Bundle b = this.getArguments();
 //        userID = b.getSerializable(Constents.SAVED_CURRENT_USER);
 //        Log.i("currentUser", userID.toString());
+        String jsonMyObject = "";
+        Bundle extras = getActivity().getIntent().getExtras();
+        if(extras != null)
+        {
+            jsonMyObject = extras.getString("user");
+        }
+        else
+        {
+            Log.i("Message", "Error, json Object is null");
+        }
+        Users user = new Gson().fromJson(jsonMyObject, Users.class);
+        userEmail = user.getEmail();
+        userObjectID = user.getObjectId();
+        Log.i("current user", userObjectID.toString());
+        Log.i("user email", userEmail);
     }
 
     @Override
@@ -151,7 +170,7 @@ public class CreatePetProfileFragment extends Fragment
                 if(!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender))
                 {
 
-                    String mID = UUID.randomUUID().toString();
+                    mID = UUID.randomUUID().toString();
                     if(!(isEmpty(mAdditionalInfo)))
                     {
                         addInfo = mAdditionalInfo.getText().toString();
@@ -167,8 +186,8 @@ public class CreatePetProfileFragment extends Fragment
                     db.addPet(pet);
 
                     //get current login info or if not logged in, send to login
-                    String currentUserObjectId = Backendless.UserService.loggedInUser();
-                    Backendless.UserService.findById(userID.toString(), new AsyncCallback<BackendlessUser>()
+                    //String currentUserObjectId = Backendless.UserService.loggedInUser();
+                    Backendless.UserService.findById(userObjectID, new AsyncCallback<BackendlessUser>()
                     {
                         @Override
                         public void handleResponse(BackendlessUser response)
@@ -214,7 +233,7 @@ public class CreatePetProfileFragment extends Fragment
                         });
                     }
 
-                    String userEmail = currentUser.getEmail().toString();
+                    //String userEmail = currentUser.getEmail().toString();
                     db.addUserPet(userEmail, mID);
                     //upload image
                     try
@@ -226,9 +245,10 @@ public class CreatePetProfileFragment extends Fragment
                         e.printStackTrace();
                         Log.i("Image Status", "Not uploaded");
                     }
-                    currentUser.setProperty(Constents.USERS_PET_ID, mID);
-                    currentUser.setProperty(Constents.TABLE_PETS, pet);
-                    Backendless.UserService.update(user, new AsyncCallback<BackendlessUser>()
+                    //Log.i("CurrentUser" ,currentUser.getObjectId().toString());
+                    //currentUser.setProperty(Constents.USERS_PET_ID, mID);
+                    //currentUser.setProperty(Constents.TABLE_PETS, pet);
+                    Backendless.UserService.update(currentUser, new AsyncCallback<BackendlessUser>()
                     {
                         @Override
                         public void handleResponse(BackendlessUser response)

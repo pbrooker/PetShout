@@ -27,11 +27,8 @@ public class MainActivityLoggedInFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Bundle b = getArguments();
-        userID = b.getSerializable(Constents.SAVED_CURRENT_USER);
 
-        CreatePetProfileFragment nf = new CreatePetProfileFragment();
-        nf.setArguments(b);
+
 
         return inflater.inflate(R.layout.fragment_main_activity_logged_in, container, false);
     }

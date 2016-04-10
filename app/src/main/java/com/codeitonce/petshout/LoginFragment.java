@@ -1,6 +1,7 @@
 package com.codeitonce.petshout;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -14,7 +15,10 @@ import android.widget.TextView;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -28,9 +32,10 @@ public class LoginFragment extends Fragment
     private EditText mPassword;
     private Button mSubmit;
     private Button mRegister;
-    private ArrayList<Users> mUserArrayList;
-    private Users mCurrentUser;
+    private String currentUserId;
     private TextView mRestoreLogin;
+    private Users user;
+    private String userBackendlessID;
 
 
     public LoginFragment()
@@ -70,14 +75,52 @@ public class LoginFragment extends Fragment
                 String password = mPassword.getText().toString();
                 //boolean rememberLogin = rememberLoginBox.isChecked();
 
-                Backendless.UserService.login(identity, password, new DefaultCallback<BackendlessUser>(getActivity())
+                Backendless.UserService.isValidLogin(new DefaultCallback<Boolean>(getActivity())
                 {
-
-                    public void handleResponse(BackendlessUser backendlessUser)
+                    @Override
+                    public void handleResponse(Boolean isValidLogin)
                     {
+                        if (isValidLogin && Backendless.UserService.CurrentUser() == null)
+                        {
+                            currentUserId = Backendless.UserService.loggedInUser();
+
+                            if (!currentUserId.equals(""))
+                            {
+                                Backendless.UserService.findById(currentUserId, new DefaultCallback<BackendlessUser>(getActivity(), "Logging in...")
+                                {
+                                    @Override
+                                    public void handleResponse(BackendlessUser currentUser)
+                                    {
+                                        super.handleResponse(currentUser);
+                                        Backendless.UserService.setCurrentUser(currentUser);
+                                        userBackendlessID = currentUser.getObjectId();
+
+                                        MainActivityLoggedInFragment fragment;
+                                        fragment = new MainActivityLoggedInFragment();
+                                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                        ft.replace(R.id.mainFrame, fragment);
+                                        ft.commit();
+
+                                    }
+                                });
+                            }
+                        }
+
+                        super.handleResponse(isValidLogin);
+                    }
+                });
+
+                Backendless.UserService.login(identity, password, new DefaultCallback<BackendlessUser>(getActivity()) {
+
+                    public void handleResponse(BackendlessUser backendlessUser) {
                         super.handleResponse(backendlessUser);
 
-                        String UserID = backendlessUser.getObjectId().toString();
+
+                        user = new Users(backendlessUser.getUserId(), backendlessUser.getProperty(Constents.USERS_FNAME).toString(),
+                                backendlessUser.getProperty(Constents.USERS_LNAME).toString(), backendlessUser.getProperty(Constents.USERS_CITY).toString(),
+                                backendlessUser.getProperty(Constents.USERS_POSTAL_CODE).toString(),
+                                backendlessUser.getEmail(), backendlessUser.getProperty(Constents.USERS_PHONE).toString(), backendlessUser.getPassword());
+                        user.setObjectId(userBackendlessID);
 //
 //                        SharedPreferences myPreferences = getActivity().getSharedPreferences(Constents.PREFS_LOGGED_IN, 0);
 //                        SharedPreferences.Editor editor = myPreferences.edit();
@@ -85,13 +128,15 @@ public class LoginFragment extends Fragment
 //                        editor.putString(UserID, "userID");
 //                        editor.commit();
 
-                        Bundle args = new Bundle();
-                        args.putSerializable(Constents.SAVED_CURRENT_USER, UserID);
-                        Log.i("userInfo", UserID);
+                        //Bundle args = new Bundle();
+                        Intent args = new Intent(getActivity(), MainActivity.class);
+                        args.putExtra("user", new Gson().toJson(user));
+                        startActivity(args);
+
 
                         MainActivityLoggedInFragment fragment;
                         fragment = new MainActivityLoggedInFragment();
-                        fragment.setArguments(args);
+                        //fragment.setArguments(args);
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.mainFrame, fragment);
                         ft.commit();
@@ -99,11 +144,9 @@ public class LoginFragment extends Fragment
                 } //rememberLogin
                 );
 
-                mRegister.setOnClickListener(new View.OnClickListener()
-                {
+                mRegister.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
+                    public void onClick(View v) {
                         RegistrationFragment fragment;
                         fragment = new RegistrationFragment();
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -117,11 +160,9 @@ public class LoginFragment extends Fragment
         });
 
 
-        mRestoreLogin.setOnClickListener(new View.OnClickListener()
-        {
+        mRestoreLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 RestorePasswordFragment fragment;
                 fragment = new RestorePasswordFragment();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -130,40 +171,7 @@ public class LoginFragment extends Fragment
             }
         });
 
-        Backendless.UserService.isValidLogin(new DefaultCallback<Boolean>(getActivity())
-        {
-            @Override
-            public void handleResponse(Boolean isValidLogin)
-            {
-                if (isValidLogin && Backendless.UserService.CurrentUser() == null)
-                {
-                    String currentUserId = Backendless.UserService.loggedInUser();
 
-                    if (!currentUserId.equals(""))
-                    {
-                        Backendless.UserService.findById(currentUserId, new DefaultCallback<BackendlessUser>(getActivity(), "Logging in...")
-                        {
-                            @Override
-                            public void handleResponse(BackendlessUser currentUser)
-                            {
-                                super.handleResponse(currentUser);
-                                Backendless.UserService.setCurrentUser(currentUser);
-
-
-                                MainActivityLoggedInFragment fragment;
-                                fragment = new MainActivityLoggedInFragment();
-                                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                ft.replace(R.id.mainFrame, fragment);
-                                ft.commit();
-
-                            }
-                        });
-                    }
-                }
-
-                super.handleResponse(isValidLogin);
-            }
-        });
 
         return view;
     }
