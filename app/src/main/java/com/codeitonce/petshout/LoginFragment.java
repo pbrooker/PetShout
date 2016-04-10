@@ -116,11 +116,11 @@ public class LoginFragment extends Fragment
                         super.handleResponse(backendlessUser);
 
 
-                        user = new Users(backendlessUser.getUserId(), backendlessUser.getProperty(Constents.USERS_FNAME).toString(),
+                        user = new Users(backendlessUser.getObjectId(), backendlessUser.getProperty(Constents.USERS_FNAME).toString(),
                                 backendlessUser.getProperty(Constents.USERS_LNAME).toString(), backendlessUser.getProperty(Constents.USERS_CITY).toString(),
                                 backendlessUser.getProperty(Constents.USERS_POSTAL_CODE).toString(),
                                 backendlessUser.getEmail(), backendlessUser.getProperty(Constents.USERS_PHONE).toString(), backendlessUser.getPassword());
-                        user.setObjectId(userBackendlessID);
+
 //
 //                        SharedPreferences myPreferences = getActivity().getSharedPreferences(Constents.PREFS_LOGGED_IN, 0);
 //                        SharedPreferences.Editor editor = myPreferences.edit();

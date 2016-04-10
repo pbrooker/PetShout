@@ -102,7 +102,7 @@ public class CreatePetProfileFragment extends Fragment
         }
         Users user = new Gson().fromJson(jsonMyObject, Users.class);
         userEmail = user.getEmail();
-        userObjectID = user.getObjectId();
+        userObjectID = user.getUSER_ID();
         Log.i("current user", userObjectID.toString());
         Log.i("user email", userEmail);
     }
@@ -245,9 +245,9 @@ public class CreatePetProfileFragment extends Fragment
                         e.printStackTrace();
                         Log.i("Image Status", "Not uploaded");
                     }
-                    //Log.i("CurrentUser" ,currentUser.getObjectId().toString());
-                    //currentUser.setProperty(Constents.USERS_PET_ID, mID);
-                    //currentUser.setProperty(Constents.TABLE_PETS, pet);
+                    Log.i("CurrentUser" ,currentUser.getObjectId().toString());
+                    currentUser.setProperty(Constents.USERS_PET_ID, mID);
+                    currentUser.setProperty(Constents.TABLE_PETS, pet);
                     Backendless.UserService.update(currentUser, new AsyncCallback<BackendlessUser>()
                     {
                         @Override
@@ -383,8 +383,6 @@ public class CreatePetProfileFragment extends Fragment
                 if (resultCode == Activity.RESULT_OK)
                 {
 
-                    Uri selectedImage = imageReturnedIntent.getData();
-                    mImageView.setImageURI(selectedImage);
 
                     try
                     {
@@ -393,7 +391,8 @@ public class CreatePetProfileFragment extends Fragment
                     {
                         e.printStackTrace();
                     }
-
+                    Uri selectedImage = imageReturnedIntent.getData();
+                    mImageView.setImageURI(selectedImage);
                 }
         }
     }
