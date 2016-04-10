@@ -103,6 +103,7 @@ public class CreatePetProfileFragment extends Fragment
         mSpecies.setAdapter(mArrayAdapter);
 
 
+        //get selected gender
         mSubmitButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -169,7 +170,7 @@ public class CreatePetProfileFragment extends Fragment
         });
 
 
-
+        //populate spinner
         mSpecies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             @Override
@@ -276,19 +277,9 @@ public class CreatePetProfileFragment extends Fragment
             case Constents.SELECT_PHOTO:
                 if (resultCode == Activity.RESULT_OK)
                 {
-                    try
-                {
-                    yourSelectedImage = decodeUri(getActivity(), selectedImage);
-                } catch (FileNotFoundException e)
-                {
-                    e.printStackTrace();
-                }
+
                     Uri selectedImage = imageReturnedIntent.getData();
-                    mImageView.setImageBitmap(yourSelectedImage);
-
-                    //InputStream imageStream = null;
-
-
+                    mImageView.setImageURI(selectedImage);
 
                 }
         }
