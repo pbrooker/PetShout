@@ -267,8 +267,8 @@ public class DBHandler extends SQLiteOpenHelper
                     for (int x = 0; x < mPetsArray.size(); x++)
                     {
                         Pets pet1 = mPetsArray.get(x);
-                        Log.i("PetInfo", pet1.getObjectId().toString());
-                        Log.i("PetInfo", pet1.getImagePath().toString());
+                        //Log.i("PetInfo", pet1.getObjectId().toString());
+                       // Log.i("PetInfo", pet1.getImagePath().toString());
                     }
 
                 }
