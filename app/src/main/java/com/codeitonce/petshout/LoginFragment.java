@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,7 @@ import android.widget.TextView;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
-import com.backendless.async.callback.AsyncCallback;
 import com.google.gson.Gson;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 
 
 /**
@@ -36,6 +31,7 @@ public class LoginFragment extends Fragment
     private TextView mRestoreLogin;
     private Users user;
     private String userBackendlessID;
+
 
 
     public LoginFragment()
@@ -110,6 +106,7 @@ public class LoginFragment extends Fragment
                     }
                 });
 
+
                 Backendless.UserService.login(identity, password, new DefaultCallback<BackendlessUser>(getActivity()) {
 
                     public void handleResponse(BackendlessUser backendlessUser) {
@@ -121,16 +118,12 @@ public class LoginFragment extends Fragment
                                 backendlessUser.getProperty(Constents.USERS_POSTAL_CODE).toString(),
                                 backendlessUser.getEmail(), backendlessUser.getProperty(Constents.USERS_PHONE).toString(), backendlessUser.getPassword());
 
-//
-//                        SharedPreferences myPreferences = getActivity().getSharedPreferences(Constents.PREFS_LOGGED_IN, 0);
-//                        SharedPreferences.Editor editor = myPreferences.edit();
-//                        editor.putBoolean("isLoggedIn", true);
-//                        editor.putString(UserID, "userID");
-//                        editor.commit();
+
 
                         //Bundle args = new Bundle();
                         Intent args = new Intent(getActivity(), MainActivity.class);
                         args.putExtra("user", new Gson().toJson(user));
+                        args.putExtra("validUser", Backendless.UserService.isValidLogin());
                         startActivity(args);
 
 
@@ -175,6 +168,8 @@ public class LoginFragment extends Fragment
 
         return view;
     }
+
+
 }
 
 
