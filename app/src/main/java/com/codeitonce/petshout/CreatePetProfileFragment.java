@@ -31,14 +31,12 @@ import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
-import com.backendless.persistence.local.UserTokenStorageFactory;
 import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.UUID;
 
 /**
@@ -75,6 +73,7 @@ public class CreatePetProfileFragment extends Fragment
    // private Serializable userID;
     private String userEmail = "";
     private String userObjectID;
+    private Pets pet;
 
 
 
@@ -95,6 +94,7 @@ public class CreatePetProfileFragment extends Fragment
         if(extras != null)
         {
             jsonMyObject = extras.getString("user");
+
         }
         else
         {
@@ -105,6 +105,11 @@ public class CreatePetProfileFragment extends Fragment
         userObjectID = user.getUSER_ID();
         Log.i("current user", userObjectID.toString());
         Log.i("user email", userEmail);
+        currentUser = new BackendlessUser();
+        currentUser.setProperty("email", user.getEmail());
+        currentUser.setProperty("objectId", user.getUSER_ID());
+        Backendless.UserService.setCurrentUser(currentUser);
+        //currentUser.setProperty("ObjectId", user.getObjectId());
     }
 
     @Override
@@ -178,74 +183,78 @@ public class CreatePetProfileFragment extends Fragment
 
                     //create local database entry
                     DBHandler db = new DBHandler(getActivity());
-                    Pets pet = new Pets(mName.getText().toString(), species, isSpayed, gender, mBreed.getText().toString(), mAge.getText().toString(),
+                    pet = new Pets(mName.getText().toString(), species, isSpayed, gender, mBreed.getText().toString(), mAge.getText().toString(),
                             mDescription.getText().toString(),
                             addInfo, remoteURL, mID );
 
 
                     db.addPet(pet);
 
-                    //get current login info or if not logged in, send to login
-                    //String currentUserObjectId = Backendless.UserService.loggedInUser();
-                    Backendless.UserService.findById(userObjectID, new AsyncCallback<BackendlessUser>()
-                    {
-                        @Override
-                        public void handleResponse(BackendlessUser response)
-                        {
-                            Backendless.UserService.setCurrentUser(response);
-                        }
 
-                        @Override
-                        public void handleFault(BackendlessFault fault)
-                        {
-                            LoginFragment fragment;
-                            fragment = new LoginFragment();
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.replace(R.id.mainFrame, fragment);
-                            ft.commit();
-                        }
-                    });
-
-                    String userToken = UserTokenStorageFactory.instance().getStorage().get();
-
-                    if(userToken != null && !userToken.equals(""))
-                    {
-                        Backendless.UserService.isValidLogin(new AsyncCallback<Boolean>()
-                        {
-                            @Override
-                            public void handleResponse(Boolean response)
-                            {
-                                if (response)
-                                {
-                                    currentUser = Backendless.UserService.CurrentUser();
-                                }
-                            }
-
-                            @Override
-                            public void handleFault(BackendlessFault fault)
-                            {
-                                LoginFragment fragment;
-                                fragment = new LoginFragment();
-                                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                ft.replace(R.id.mainFrame, fragment);
-                                ft.commit();
-                            }
-                        });
-                    }
+//
+//                    //get current login info or if not logged in, send to login
+//                    //String currentUserObjectId = Backendless.UserService.loggedInUser();
+//                    Backendless.UserService.findById(userObjectID, new AsyncCallback<BackendlessUser>()
+//                    {
+//                        @Override
+//                        public void handleResponse(BackendlessUser response)
+//                        {
+//                            Backendless.UserService.setCurrentUser(response);
+//                            currentUser = new BackendlessUser();
+//                            currentUser = Backendless.UserService.CurrentUser();
+//                        }
+//
+//                        @Override
+//                        public void handleFault(BackendlessFault fault)
+//                        {
+//                            LoginFragment fragment;
+//                            fragment = new LoginFragment();
+//                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                            ft.replace(R.id.mainFrame, fragment);
+//                            ft.commit();
+//                        }
+//                    });
+//
+//                    String userToken = UserTokenStorageFactory.instance().getStorage().get();
+//
+//                    if(userToken != null && !userToken.equals(""))
+//                    {
+//                        Backendless.UserService.isValidLogin(new AsyncCallback<Boolean>()
+//                        {
+//                            @Override
+//                            public void handleResponse(Boolean response)
+//                            {
+//                                if (response)
+//                                {
+//                                    currentUser = Backendless.UserService.CurrentUser();
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void handleFault(BackendlessFault fault)
+//                            {
+//                                LoginFragment fragment;
+//                                fragment = new LoginFragment();
+//                                FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                                ft.replace(R.id.mainFrame, fragment);
+//                                ft.commit();
+//                            }
+//                        });
+//                }
 
                     //String userEmail = currentUser.getEmail().toString();
                     db.addUserPet(userEmail, mID);
                     //upload image
-                    try
-                    {
-                        uploadAsync(img, filePath);
-                        //Log.i("Image URL" , remoteURL.toString());
-                    } catch (Exception e)
-                    {
-                        e.printStackTrace();
-                        Log.i("Image Status", "Not uploaded");
-                    }
-                    Log.i("CurrentUser" ,currentUser.getObjectId().toString());
+//                    try
+//                    {
+//                        uploadAsync(img, filePath);
+//                        //Log.i("Image URL" , remoteURL.toString());
+//                    } catch (Exception e)
+//                    {
+//                        e.printStackTrace();
+//                        Log.i("Image Status", "Not uploaded");
+//                    }
+                    Log.i("CurrentUser" ,currentUser.getEmail().toString());
                     currentUser.setProperty(Constents.USERS_PET_ID, mID);
                     currentUser.setProperty(Constents.TABLE_PETS, pet);
                     Backendless.UserService.update(currentUser, new AsyncCallback<BackendlessUser>()
@@ -264,7 +273,9 @@ public class CreatePetProfileFragment extends Fragment
                         @Override
                         public void handleFault(BackendlessFault fault)
                         {
+                            String message = fault.getMessage();
                             Toast.makeText(getActivity(), "Pet profile was not added, please try again", Toast.LENGTH_SHORT).show();
+                            Log.i("BackendlessError", message);
                         }
                     });
 
@@ -382,17 +393,26 @@ public class CreatePetProfileFragment extends Fragment
             case Constents.SELECT_PHOTO:
                 if (resultCode == Activity.RESULT_OK)
                 {
-
+                    Uri selectedImage = imageReturnedIntent.getData();
+                    mImageView.setImageURI(selectedImage);
 
                     try
                     {
                         Bitmap yourSelectedImage = decodeUri(getActivity(), selectedImage);
+                        try
+                        {
+                            uploadAsync(img, filePath);
+                            //Log.i("Image URL" , remoteURL.toString());
+                        } catch (Exception e)
+                        {
+                            e.printStackTrace();
+                            Log.i("Image Status", "Not uploaded");
+                        }
                     } catch (FileNotFoundException e)
                     {
                         e.printStackTrace();
                     }
-                    Uri selectedImage = imageReturnedIntent.getData();
-                    mImageView.setImageURI(selectedImage);
+
                 }
         }
     }
@@ -436,7 +456,7 @@ public class CreatePetProfileFragment extends Fragment
         }
 
         img = new File(petShoutPictures, photoID);
-        FileOutputStream out = null;
+        FileOutputStream out;
         try
         {
             out = new FileOutputStream(img);
