@@ -69,6 +69,7 @@ public class CreatePetProfileFragment extends Fragment
     private String mID = "";
     private String userEmail = "";
     private String userObjectID;
+    private BackendlessUser bkuser;
 
 
 
@@ -99,7 +100,7 @@ public class CreatePetProfileFragment extends Fragment
         userObjectID = user.getUSER_ID();
         Log.i("current user", userObjectID.toString());
         Log.i("user email", userEmail);
-        BackendlessUser bkuser = new BackendlessUser();
+        bkuser = new BackendlessUser();
         bkuser.setProperty("objectId", userObjectID);
         bkuser.setProperty("email", userEmail);
 
@@ -196,10 +197,10 @@ public class CreatePetProfileFragment extends Fragment
                         e.printStackTrace();
                         Log.i("Image Status", "Not uploaded");
                     }
-                    Log.i("CurrentUser" ,currentUser.getObjectId().toString());
-                    currentUser.setProperty(Constents.USERS_PET_ID, mID);
-                    currentUser.setProperty(Constents.TABLE_PETS, pet);
-                    Backendless.UserService.update(currentUser, new AsyncCallback<BackendlessUser>()
+                    Log.i("CurrentUser" ,bkuser.getObjectId().toString());
+                    bkuser.setProperty(Constents.USERS_PET_ID, mID);
+                    bkuser.setProperty(Constents.TABLE_PETS, pet);
+                    Backendless.UserService.update(bkuser, new AsyncCallback<BackendlessUser>()
                     {
                         @Override
                         public void handleResponse(BackendlessUser response)
