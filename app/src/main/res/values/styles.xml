@@ -79,8 +79,9 @@
     </style>
 
     <style name="LoginFields">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:ems">10</item>
         <item name="android:textColor">@color/mainFontColor</item>
         <item name="android:background">@color/colorEditTextBackground</item>
@@ -93,7 +94,6 @@
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_image</item>
     </style>
-
 
 
 </resources>
