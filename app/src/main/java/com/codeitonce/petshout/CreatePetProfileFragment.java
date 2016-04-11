@@ -225,7 +225,6 @@ public class CreatePetProfileFragment extends Fragment
 
             });
 
-
         //populate spinner
         mSpecies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -405,7 +404,6 @@ public class CreatePetProfileFragment extends Fragment
                     {
                         e.printStackTrace();
                     }
-
 
                 }
         }
