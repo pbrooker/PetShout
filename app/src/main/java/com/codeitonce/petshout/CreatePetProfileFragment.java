@@ -37,6 +37,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.UUID;
 
 /**
@@ -59,21 +63,23 @@ public class CreatePetProfileFragment extends Fragment
     private ImageView mImageView;
     private Bitmap resizedImage;
     private Uri selectedImage;
-    private File img;
-    private String photoID;
     private String filePath;
-    private File petShoutPictures;
     private static String remoteURL;
+    private URL fileURL;
     private BackendlessUser currentUser;
     private String addInfo = "";
     private boolean isSpayed = false;
     private String mID = "";
     private Bitmap yourSelectedImage;
-    //private BackendlessUser user;
+    private static BackendlessFile bFile;
    // private Serializable userID;
     private String userEmail = "";
     private String userObjectID;
     private Pets pet;
+    private static File petShoutPictures;
+    private static String path;
+    private File img;
+    private static String photoID;
 
 
 
@@ -172,11 +178,11 @@ public class CreatePetProfileFragment extends Fragment
                 });
 
                 //check editable field status
-                if(!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender))
+                if (!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender))
                 {
 
                     mID = UUID.randomUUID().toString();
-                    if(!(isEmpty(mAdditionalInfo)))
+                    if (!(isEmpty(mAdditionalInfo)))
                     {
                         addInfo = mAdditionalInfo.getText().toString();
                     }
@@ -185,7 +191,7 @@ public class CreatePetProfileFragment extends Fragment
                     DBHandler db = new DBHandler(getActivity());
                     pet = new Pets(mName.getText().toString(), species, isSpayed, gender, mBreed.getText().toString(), mAge.getText().toString(),
                             mDescription.getText().toString(),
-                            addInfo, remoteURL, mID );
+                            addInfo, remoteURL, mID);
 
 
                     db.addPet(pet);
@@ -245,16 +251,16 @@ public class CreatePetProfileFragment extends Fragment
                     //String userEmail = currentUser.getEmail().toString();
                     db.addUserPet(userEmail, mID);
                     //upload image
-//                    try
-//                    {
-//                        uploadAsync(img, filePath);
-//                        //Log.i("Image URL" , remoteURL.toString());
-//                    } catch (Exception e)
-//                    {
-//                        e.printStackTrace();
-//                        Log.i("Image Status", "Not uploaded");
-//                    }
-                    Log.i("CurrentUser" ,currentUser.getEmail().toString());
+                    try
+                    {
+                        saveImage(remoteURL, photoID);
+                        //mImageView.setImageBitmap(mBitmap);
+                    } catch (IOException e)
+                    {
+                        Log.i("save Error", "File not saving");
+                    }
+
+                    Log.i("CurrentUser", currentUser.getEmail().toString());
                     currentUser.setProperty(Constents.USERS_PET_ID, mID);
                     currentUser.setProperty(Constents.TABLE_PETS, pet);
                     Backendless.UserService.update(currentUser, new AsyncCallback<BackendlessUser>()
@@ -279,10 +285,10 @@ public class CreatePetProfileFragment extends Fragment
                         }
                     });
 
-                    }
                 }
+            }
 
-            });
+        });
 
 
         //populate spinner
@@ -329,7 +335,6 @@ public class CreatePetProfileFragment extends Fragment
                     case 10:
                         species = getString(R.string.other);
                         break;
-
                 }
 
             }
@@ -394,7 +399,7 @@ public class CreatePetProfileFragment extends Fragment
                 if (resultCode == Activity.RESULT_OK)
                 {
                     Uri selectedImage = imageReturnedIntent.getData();
-                    mImageView.setImageURI(selectedImage);
+
 
                     try
                     {
@@ -403,6 +408,7 @@ public class CreatePetProfileFragment extends Fragment
                         {
                             uploadAsync(img, filePath);
                             //Log.i("Image URL" , remoteURL.toString());
+
                         } catch (Exception e)
                         {
                             e.printStackTrace();
@@ -476,16 +482,22 @@ public class CreatePetProfileFragment extends Fragment
         return resizedImage;
 
     }
-    private static void uploadAsync(File pic, String filePath ) throws Exception
+    private static void uploadAsync(File pic, String filePath) throws Exception
     {
 
         Backendless.Files.upload(pic, filePath, new AsyncCallback<BackendlessFile>()
         {
+            Bitmap mBitmap;
             @Override
             public void handleResponse(BackendlessFile response)
             {
-                remoteURL = response.getFileURL().toString();
-                Log.i("RemoteURL", remoteURL);
+
+                remoteURL = response.getFileURL();
+
+
+
+               //Log.i("RemoteURL", remoteURL);
+
             }
 
             @Override
@@ -494,5 +506,51 @@ public class CreatePetProfileFragment extends Fragment
                 Log.i("Server  error - ",  fault.getMessage());
             }
         });
+    }
+    public static void saveImage(String imageUrl, String destinationFile) throws IOException
+    {
+
+        URL url = new URL(imageUrl);
+        HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+        int responseCode = httpConn.getResponseCode();
+        InputStream is = url.openStream();
+
+        File img;
+        String MEDIA_MOUNTED = "mounted";
+        String diskState = Environment.getExternalStorageState();
+
+        if(responseCode == HttpURLConnection.HTTP_OK)
+        {
+
+            byte[] b = new byte[2048];
+            int length;
+
+            if (diskState.equals(MEDIA_MOUNTED))
+            {
+                petShoutPictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            }
+
+            img = new File(petShoutPictures, destinationFile);
+            OutputStream os = new FileOutputStream(img);
+            while ((length = is.read(b)) != -1)
+            {
+                os.write(b, 0, length);
+                os.close();
+            }
+            path = img.getPath() + destinationFile;
+            is.close();
+        }
+        else
+        {
+            Log.i("DownloadIssue", "File did not download");
+        }
+
+
+        httpConn.disconnect();
+
+
+
+
+
     }
 }
