@@ -21,7 +21,6 @@ import java.util.Iterator;
 public class DBHandler extends SQLiteOpenHelper
 {
 
-    private ArrayList<Post> mPostArray = new ArrayList<>();
 
     public DBHandler(Context c)
     {
@@ -123,27 +122,33 @@ public class DBHandler extends SQLiteOpenHelper
 
     public ArrayList<Post> getPostsArray()
     {
-        ArrayList<Post> list = null;
+        ArrayList<Post>list = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor curPost = db.rawQuery("SELECT * FROM " + Constents.TABLE_POSTS, null);
-        if (curPost != null && curPost.moveToFirst())
-        {
-            while (curPost.isAfterLast() == false)
+
+            try
             {
-                list = new ArrayList<>();
+                while (curPost.moveToNext())
+                {
 
-                Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
 
-                list.add(post);
-                curPost.moveToNext();
+                    Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
+                            curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
+                            curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
+                            curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
+                            curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
+
+                    list.add(post);
+                    curPost.moveToNext();
+                }
+            }
+            finally
+            {
+                curPost.close();
             }
 
-        }
-        curPost.close();
+
+        Log.i("getPostArraySize", list.toString());
         db.close();
         return list;
 
@@ -203,11 +208,8 @@ public class DBHandler extends SQLiteOpenHelper
         db.close();
     }
 
-    public ArrayList<Post> getPosts()
+    public void getPosts()
     {
-
-
-
 
         AsyncCallback<BackendlessCollection<Post>> callback = new AsyncCallback<BackendlessCollection<Post>>()
         {
@@ -221,14 +223,9 @@ public class DBHandler extends SQLiteOpenHelper
                 {
                     Post post = iterator.next();
                     addPost(post);
-                    mPostArray.add(post);
-                    for (int x = 0; x < mPostArray.size(); x++)
-                    {
-                        Post post1 = mPostArray.get(x);
+                    Log.i("added Post", post.toString());
 
-                    }
-
-                }Log.d("PostsList", mPostArray.toString());
+                }
             }
 
             @Override
@@ -240,8 +237,6 @@ public class DBHandler extends SQLiteOpenHelper
 
        Backendless.Data.of(Post.class).find(callback);
 
-
-        return mPostArray;
     }
 
 

@@ -1,8 +1,6 @@
 package com.codeitonce.petshout;
 
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
@@ -96,6 +94,7 @@ public class BrowsePetsFragment extends Fragment
             String imageID = UUID.randomUUID().toString();
             String imagePath = post.getPostImagePath();
             String destinationFile = imageID + ".jpg";
+            mPost = post;
 
             try
             {
@@ -155,6 +154,7 @@ public class BrowsePetsFragment extends Fragment
         @Override
         public int getItemCount()
         {
+            Log.d("mPosts Size", mPosts.toString());
             return mPosts.size();
         }
     }
@@ -192,12 +192,6 @@ public class BrowsePetsFragment extends Fragment
 
     }
 
-    private Bitmap getBitmap(String path)
-    {
-        Bitmap bitmap = BitmapFactory.decodeFile(path);
-
-        return bitmap;
-    }
 
 
 
