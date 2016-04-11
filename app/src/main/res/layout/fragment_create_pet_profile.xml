@@ -77,9 +77,8 @@
                     >
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="@string/select_species_title"
                             android:textColor="#ffffff"
@@ -89,7 +88,6 @@
                         <Spinner
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:id="@+id/species_spinner"
                             android:paddingLeft="5dp"
                         />
@@ -271,21 +269,6 @@
                     android:id="@+id/additional_information"
                     android:paddingLeft="5dp"
                 />
-
-            </TableRow>
-
-            <TableRow android:gravity="center"
-                      android:layout_marginTop="5dp"
-                      android:layout_marginBottom="5dp"
-                >
-
-                <Button
-                    style="@style/ActionButton"
-                    android:text="@string/image_button_text"
-                    android:id="@+id/image_button"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_span="2"
-                    />
 
             </TableRow>
 
