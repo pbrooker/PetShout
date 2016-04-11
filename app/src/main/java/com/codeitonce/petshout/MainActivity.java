@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity
 
         DBHandler dbHandler = new DBHandler(getApplicationContext());
         dbHandler.getPosts();
-        //dbHandler.getPets();
+        dbHandler.getPets();
         dbHandler.getUsers();
 
 

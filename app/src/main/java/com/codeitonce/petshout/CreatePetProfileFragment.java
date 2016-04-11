@@ -21,7 +21,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -31,14 +30,12 @@ import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
-import com.backendless.persistence.local.UserTokenStorageFactory;
 import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.UUID;
 
 /**
@@ -58,7 +55,7 @@ public class CreatePetProfileFragment extends Fragment
     private EditText mAdditionalInfo;
     private Button mSubmitButton;
     private String gender;
-    private ImageView mImageView;
+    private Button mSelectImage;
     private Bitmap resizedImage;
     private Uri selectedImage;
     private File img;
@@ -70,9 +67,6 @@ public class CreatePetProfileFragment extends Fragment
     private String addInfo = "";
     private boolean isSpayed = false;
     private String mID = "";
-    private Bitmap yourSelectedImage;
-    //private BackendlessUser user;
-   // private Serializable userID;
     private String userEmail = "";
     private String userObjectID;
 
@@ -105,6 +99,10 @@ public class CreatePetProfileFragment extends Fragment
         userObjectID = user.getUSER_ID();
         Log.i("current user", userObjectID.toString());
         Log.i("user email", userEmail);
+        BackendlessUser bkuser = new BackendlessUser();
+        bkuser.setProperty("objectId", userObjectID);
+        bkuser.setProperty("email", userEmail);
+
     }
 
     @Override
@@ -123,7 +121,7 @@ public class CreatePetProfileFragment extends Fragment
         mAdditionalInfo = (EditText) view.findViewById(R.id.additional_information);
         mSubmitButton = (Button) view.findViewById(R.id.submit_button);
         mSpecies = (Spinner) view.findViewById(R.id.species_spinner);
-        mImageView = (ImageView) view.findViewById(R.id.pet_image);
+        mSelectImage = (Button) view.findViewById(R.id.image_button);
 
 
 
@@ -185,53 +183,6 @@ public class CreatePetProfileFragment extends Fragment
 
                     db.addPet(pet);
 
-                    //get current login info or if not logged in, send to login
-                    //String currentUserObjectId = Backendless.UserService.loggedInUser();
-                    Backendless.UserService.findById(userObjectID, new AsyncCallback<BackendlessUser>()
-                    {
-                        @Override
-                        public void handleResponse(BackendlessUser response)
-                        {
-                            Backendless.UserService.setCurrentUser(response);
-                        }
-
-                        @Override
-                        public void handleFault(BackendlessFault fault)
-                        {
-                            LoginFragment fragment;
-                            fragment = new LoginFragment();
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.replace(R.id.mainFrame, fragment);
-                            ft.commit();
-                        }
-                    });
-
-                    String userToken = UserTokenStorageFactory.instance().getStorage().get();
-
-                    if(userToken != null && !userToken.equals(""))
-                    {
-                        Backendless.UserService.isValidLogin(new AsyncCallback<Boolean>()
-                        {
-                            @Override
-                            public void handleResponse(Boolean response)
-                            {
-                                if (response)
-                                {
-                                    currentUser = Backendless.UserService.CurrentUser();
-                                }
-                            }
-
-                            @Override
-                            public void handleFault(BackendlessFault fault)
-                            {
-                                LoginFragment fragment;
-                                fragment = new LoginFragment();
-                                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                ft.replace(R.id.mainFrame, fragment);
-                                ft.commit();
-                            }
-                        });
-                    }
 
                     //String userEmail = currentUser.getEmail().toString();
                     db.addUserPet(userEmail, mID);
@@ -330,7 +281,7 @@ public class CreatePetProfileFragment extends Fragment
             }
         });
 
-        mImageView.setOnClickListener(new View.OnClickListener()
+        mSelectImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -372,30 +323,6 @@ public class CreatePetProfileFragment extends Fragment
     }
 
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent)
-    {
-        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
-
-        switch (requestCode)
-        {
-            case Constents.SELECT_PHOTO:
-                if (resultCode == Activity.RESULT_OK)
-                {
-
-
-                    try
-                    {
-                        Bitmap yourSelectedImage = decodeUri(getActivity(), selectedImage);
-                    } catch (FileNotFoundException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    Uri selectedImage = imageReturnedIntent.getData();
-                    mImageView.setImageURI(selectedImage);
-                }
-        }
-    }
 
     private Bitmap decodeUri(Context c, Uri selectedImage) throws FileNotFoundException
     {
@@ -456,6 +383,33 @@ public class CreatePetProfileFragment extends Fragment
         return resizedImage;
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent)
+    {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+
+        switch (requestCode)
+        {
+            case Constents.SELECT_PHOTO:
+                if (resultCode == Activity.RESULT_OK)
+                {
+                    Uri selectedImage = imageReturnedIntent.getData();
+
+                    try
+                    {
+
+                        Bitmap yourSelectedImage = decodeUri(getActivity(), selectedImage);
+                    } catch (FileNotFoundException e)
+                    {
+                        e.printStackTrace();
+                    }
+
+
+                }
+        }
+    }
+
     private static void uploadAsync(File pic, String filePath ) throws Exception
     {
 
@@ -471,7 +425,7 @@ public class CreatePetProfileFragment extends Fragment
             @Override
             public void handleFault(BackendlessFault fault)
             {
-                Log.i("Server  error - ",  fault.getMessage());
+                Log.i("Server  error - ", fault.getMessage());
             }
         });
     }
