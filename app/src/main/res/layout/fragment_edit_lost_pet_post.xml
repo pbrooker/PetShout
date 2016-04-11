@@ -47,43 +47,24 @@
                 android:layout_marginBottom="16dp"
             >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/pet_image"
-                    android:src="@drawable/default_pet_picture"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_column="0"
-                    />
-
-                <TableLayout>
-
-                    <TableRow android:layout_marginTop="5dp"
-                              android:layout_marginBottom="5dp"
-                    >
 
                         <TextView
-                            style="@style/FormTitleText"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="@string/name"
-                        />
-
-                    </TableRow>
-
-                    <TableRow android:layout_marginTop="5dp"
-                              android:layout_marginBottom="5dp"
-                    >
-
+                            android:textColor="#ffffff"
+                            />
                         <EditText
                             style="@style/EditTextFields"
                             android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:inputType="textPersonName"
                             android:hint="@string/name"
                             android:id="@+id/pet_name"
-                        />
+                            />
 
                     </TableRow>
 
@@ -93,16 +74,11 @@
 
                         <TextView
                             style="@style/FormTitleText"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/select_species_title"
                         />
-
-                    </TableRow>
-
-                    <TableRow android:layout_marginTop="5dp"
-                              android:layout_marginBottom="5dp"
-                    >
 
                         <Spinner
                             android:layout_width="0dp"
@@ -112,13 +88,9 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
-                        />
+                            />
 
                     </TableRow>
-
-                </TableLayout>
-
-            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -287,6 +259,21 @@
                     android:hint="@string/additional_information"
                     android:id="@+id/additional_information"
                 />
+
+            </TableRow>
+
+            <TableRow android:gravity="center"
+                      android:layout_marginTop="5dp"
+                      android:layout_marginBottom="5dp"
+                >
+
+                <Button
+                    style="@style/ActionButton"
+                    android:text="@string/image_button_text"
+                    android:id="@+id/image_button"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_span="2"
+                    />
 
             </TableRow>
 
