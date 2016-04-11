@@ -43,8 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
             >
 
 
@@ -68,8 +68,8 @@
 
                     </TableRow>
 
-                    <TableRow android:layout_marginTop="5dp"
-                              android:layout_marginBottom="5dp"
+                    <TableRow android:layout_marginTop="8dp"
+                              android:layout_marginBottom="8dp"
                     >
 
                         <TextView
@@ -94,8 +94,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
             >
 
                 <TextView
@@ -118,8 +118,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
             >
 
                 <TextView
@@ -166,8 +166,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
             >
 
                 <TextView
@@ -188,8 +188,8 @@
 
             </TableRow>
 
-            <TableRow android:layout_marginTop="5dp"
-                      android:layout_marginBottom="5dp"
+            <TableRow android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp"
             >
 
                 <TextView
@@ -214,8 +214,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
             >
 
                 <TextView
@@ -239,8 +239,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
             >
 
                 <TextView
@@ -263,8 +263,8 @@
             </TableRow>
 
             <TableRow android:gravity="center"
-                      android:layout_marginTop="5dp"
-                      android:layout_marginBottom="5dp"
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp"
                 >
 
                 <Button
@@ -278,8 +278,8 @@
             </TableRow>
 
             <TableRow android:gravity="center_horizontal"
-                      android:layout_marginTop="5dp"
-                      android:layout_marginBottom="5dp"
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp"
             >
 
                 <LinearLayout
