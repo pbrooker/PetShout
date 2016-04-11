@@ -71,12 +71,15 @@
                     </TableRow>
 
 
-                    <TableRow android:layout_marginTop="8dp"
+                    <TableRow android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:gravity="center_vertical"
+                              android:layout_marginTop="8dp"
                               android:layout_marginBottom="8dp"
                     >
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -98,6 +101,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
             >
@@ -124,6 +129,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
             >
@@ -173,6 +180,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
             >
@@ -188,13 +197,19 @@
 
                 <EditText
                     style="@style/EditTextFields"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:hint="@string/age_header"
                     android:id="@+id/age_input"
                 />
 
             </TableRow>
 
-            <TableRow android:layout_marginTop="8dp"
+            <TableRow android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:gravity="center_vertical"
+                      android:layout_marginTop="8dp"
                       android:layout_marginBottom="8dp"
             >
 
@@ -220,6 +235,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
             >
@@ -235,6 +252,9 @@
 
                 <EditText
                     style="@style/EditTextFields"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:inputType="textMultiLine"
                     android:hint="@string/description_coloring"
                     android:id="@+id/descipriptionColoring"
@@ -245,6 +265,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
             >
@@ -274,8 +296,8 @@
             </TableRow>
 
             <TableRow android:gravity="center"
-                      android:layout_marginTop="5dp"
-                      android:layout_marginBottom="5dp"
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp"
                 >
 
                 <Button

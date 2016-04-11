@@ -25,7 +25,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp">
 
                 <TextView
                     style="@style/PageTitle"
@@ -37,7 +38,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,7 +56,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,7 +75,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -90,7 +94,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -108,7 +113,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -126,7 +132,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -144,7 +151,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -162,7 +170,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -180,8 +189,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     style="@style/PageTitle"
@@ -193,7 +202,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -211,7 +221,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -229,7 +240,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -247,7 +259,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -265,7 +278,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -283,7 +297,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -301,7 +316,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -319,7 +335,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -337,7 +354,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -355,7 +373,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -373,7 +392,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -391,7 +411,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -409,7 +430,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"

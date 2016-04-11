@@ -10,7 +10,7 @@
         style="@style/PageTitle"
         android:text="@string/main_welcome_header"
         android:layout_marginTop="16dp"
-    />
+        android:layout_marginBottom="16dp"/>
 
     <TableRow
         android:layout_width="match_parent"
@@ -21,8 +21,8 @@
         android:baselineAligned="false"
         android:clickable="true"
         android:gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-    >
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
 
         <ImageButton
             android:layout_width="match_parent"
@@ -43,8 +43,8 @@
         android:baselineAligned="false"
         android:clickable="true"
         android:gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-    >
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
 
         <ImageButton
             android:layout_width="match_parent"

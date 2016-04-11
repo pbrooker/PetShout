@@ -25,13 +25,13 @@
         >
 
            <TableRow android:layout_width="match_parent"
-               >
+                     android:layout_marginTop="16dp"
+                     android:layout_marginBottom="16dp">
 
                <TextView
                    style="@style/PageTitle"
                    android:text="@string/edit_account_title"
-                   android:layout_marginTop="16dp"
-                   android:layout_marginBottom="16dp"/>
+                   />
 
            </TableRow>
 

@@ -34,7 +34,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        >
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
             <TextView
                 style="@style/FormTitleText"
@@ -55,7 +56,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        >
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
             <TextView
                 style="@style/FormTitleText"
@@ -76,7 +78,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        >
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
             <TextView
                 style="@style/FormTitleText"
@@ -94,7 +97,8 @@
 
         </TableRow>
 
-            <TableRow>
+            <TableRow android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp">
 
                 <TextView
                     style="@style/FormTitleText"
@@ -113,7 +117,8 @@
             </TableRow>
 
             <TableRow android:layout_gravity="center_horizontal"
-            >
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -146,7 +151,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        >
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
             <TextView
                 style="@style/FormTitleText"
@@ -167,7 +173,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        >
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
             <TextView
                 style="@style/FormTitleText"
@@ -187,7 +194,8 @@
         </TableRow>
 
             <TableRow android:layout_gravity="center_horizontal"
-            >
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -219,7 +227,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        >
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
             <TextView
                 style="@style/FormTitleText"
@@ -240,7 +249,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        >
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
             <TextView
                 style="@style/FormTitleText"
@@ -262,7 +272,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/bottom_of_table"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -281,7 +292,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-            >
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                     <Button
                         style="@style/ActionButton"
