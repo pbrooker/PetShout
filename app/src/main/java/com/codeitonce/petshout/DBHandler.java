@@ -21,6 +21,7 @@ import java.util.Iterator;
 public class DBHandler extends SQLiteOpenHelper
 {
 
+    private ArrayList<Post> mPostArray = new ArrayList<>();
 
     public DBHandler(Context c)
     {
@@ -35,15 +36,15 @@ public class DBHandler extends SQLiteOpenHelper
         db.execSQL(createTable + Constents.TABLE_USERS + "(" + Constents.USERS_ID + " VARCHAR," + Constents.USERS_FNAME + " VARCHAR," + Constents.USERS_LNAME + " VARCHAR," +
                 Constents.USERS_PASSWORD + " BINARY," + Constents.USERS_PHONE + " INTEGER," + Constents.USERS_EMAIL + " VARCHAR," + Constents.USERS_CITY + " VARCHAR, " +
                 Constents.USERS_STATUS + " CHAR," + Constents.USERS_PET_ID + " INTEGER," + Constents.USERS_POST_ID + " INTEGER," + Constents.USERS_DATE_CREATED + " TIMESTAMP," + Constents.USERS_DATE_EXPIRES +
-                " DATE," + Constents.USERS_LAST_UPDATED + " TIMESTAMP," + Constents.USERS_POSTAL_CODE + " VARCHAR)");
+                " DATE," + Constents.USERS_LAST_UPDATED + " TIMESTAMP," + Constents.USERS_OBJECTID + " VARCHAR" + Constents.USERS_POSTAL_CODE + " VARCHAR)");
 
         db.execSQL(createTable + Constents.TABLE_PETS + "(" + Constents.PETS_ID + " VARCHAR," + Constents.PETS_NAME + " VARCHAR," + Constents.PETS_AGE + " INTEGER," +
                 Constents.PETS_GENDER + " CHAR," + Constents.PETS_NEUTERED + " BOOLEAN," + Constents.PETS_BREED + " VARCHAR," + Constents.PETS_IMAGEPATH + " LONGBLOB," + Constents.PETS_DESCRIPTION + " VARCHAR," +
-                Constents.PETS_SPECIES + " VARCHAR," + Constents.PETS_ADDINFO + " VARCHAR," + Constents.PETS_LAST_UPDATED + " TIMESTAMP)");
+                Constents.PETS_SPECIES + " VARCHAR," + Constents.PETS_ADDINFO + " VARCHAR," +  Constents.PETS_OBJECTID + " VARCHAR" + Constents.PETS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + Constents.TABLE_POSTS + "(" + Constents.POSTS_ID + " VARCHAR," + Constents.POSTS_DATE + " TIMESTAMP," + Constents.POSTS_LOCATION + " VARCHAR," +
                 Constents.POSTS_IMAGEPATH + " VARCHAR," + Constents.POSTS_GENDER + " CHAR," + Constents.POSTS_SPECIES + " VARCHAR," + Constents.POSTS_LOST_FOUND + " CHAR," + Constents.POSTS_BREED
-                + " VARCHAR," + Constents.POSTS_DESCRIPTION + " VARCHAR," + Constents.POSTS_EXPIRES + " DATE," + Constents.POSTS_LAST_UPDATED + " TIMESTAMP)");
+                + " VARCHAR," + Constents.POSTS_DESCRIPTION + " VARCHAR," + Constents.POSTS_EXPIRES + " DATE," + Constents.POSTS_OBJECTID + " VARCHAR" + Constents.POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
 
     @Override
@@ -69,7 +70,7 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.USERS_FNAME, user.getUSER_FNAME());
         values.put(Constents.USERS_CITY, user.getUSER_CITY());
         values.put(Constents.USERS_EMAIL, user.getEmail());
-        values.put(Constents.USERS_POSTAL_CODE, user.getUSER_POSTALCODE());
+        //values.put(Constents.USERS_POSTAL_CODE, user.getUSER_POSTALCODE());
         values.put(Constents.USERS_PHONE, user.getUSER_PHONE());
         values.put(Constents.USERS_PASSWORD, user.getPassword());
 
@@ -83,7 +84,6 @@ public class DBHandler extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Constents.USERS_POSTAL_CODE, user.getUSER_POSTALCODE());
         values.put(Constents.USERS_PASSWORD, user.getPassword());
         values.put(Constents.USERS_POST_ID, post.getPostId());
         values.put(Constents.USERS_ID, user.getPassword());
@@ -161,6 +161,7 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.PETS_DESCRIPTION, pets.getPetDescription());
         values.put(Constents.PETS_ADDINFO, pets.getAddInfo());
         values.put(Constents.PETS_IMAGEPATH, pets.getImagePath());
+        values.put(Constents.PETS_OBJECTID, pets.getObjectId());
 
         db.insert(Constents.TABLE_PETS, null, values);
 
@@ -181,6 +182,7 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.POSTS_BREED, post.getPostBreed());
         values.put(Constents.POSTS_DESCRIPTION, post.getPostDescription());
         values.put(Constents.POSTS_ID, post.getPostId());
+        values.put(Constents.POSTS_OBJECTID, post.getObjectId());
 
         db.insert(Constents.TABLE_POSTS, null, values);
         db.close();
@@ -204,7 +206,7 @@ public class DBHandler extends SQLiteOpenHelper
     public ArrayList<Post> getPosts()
     {
 
-        final ArrayList<Post> mPostArray = new ArrayList<>();
+
 
 
         AsyncCallback<BackendlessCollection<Post>> callback = new AsyncCallback<BackendlessCollection<Post>>()
@@ -223,11 +225,10 @@ public class DBHandler extends SQLiteOpenHelper
                     for (int x = 0; x < mPostArray.size(); x++)
                     {
                         Post post1 = mPostArray.get(x);
-                        //Log.i("PetInfo", post1.getObjectId().toString());
-                        //Log.i("PetInfo", post1.getPostImagePath().toString());
+
                     }
 
-                }
+                }Log.d("PostsList", mPostArray.toString());
             }
 
             @Override
@@ -237,7 +238,7 @@ public class DBHandler extends SQLiteOpenHelper
             }
         };
 
-        Backendless.Data.of(Post.class).find(callback);
+       Backendless.Data.of(Post.class).find(callback);
 
 
         return mPostArray;

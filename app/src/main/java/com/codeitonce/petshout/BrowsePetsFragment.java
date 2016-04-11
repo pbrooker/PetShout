@@ -3,13 +3,13 @@ package com.codeitonce.petshout;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +46,8 @@ public class BrowsePetsFragment extends Fragment
     private void updateUI()
     {
         DBHandler dbHandler = new DBHandler(getActivity());
-        List<Post> posts = dbHandler.getPosts();
+        List<Post> posts = dbHandler.getPostsArray();
+        Log.i("PostsList", posts.toString());
         if(mPostAdapter == null)
         {
             mPostAdapter = new PostAdapter(posts);
@@ -94,7 +95,7 @@ public class BrowsePetsFragment extends Fragment
         {
             String imageID = UUID.randomUUID().toString();
             String imagePath = post.getPostImagePath();
-            String destinationFile = imageID + ".bmp";
+            String destinationFile = imageID + ".jpg";
 
             try
             {
@@ -105,7 +106,7 @@ public class BrowsePetsFragment extends Fragment
                 e.printStackTrace();
             }
             mDescriptionTextView.setText(post.getPostDescription());
-            mImageView.setImageURI(Uri.parse(path));
+            //mImageView.setImageURI(Uri.parse(path));
 
         }
 

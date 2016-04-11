@@ -65,7 +65,7 @@ public class CreatePetProfileFragment extends Fragment
     private static String remoteURL;
     private BackendlessUser currentUser;
     private String addInfo = "";
-    private boolean isSpayed = false;
+    private boolean isSpayed;
     private String mID = "";
     private String userEmail = "";
     private String userObjectID;

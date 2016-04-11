@@ -33,6 +33,7 @@ public class Constents
     public static final String USERS_STATUS = "USER_STATUS";
     public static final String USERS_PET_ID = "PET_ID";
     public static final String USERS_POST_ID = "POST_ID";
+    public static final String USERS_OBJECTID = "objectId";
     public static final String USERS_DATE_CREATED = "DATE_CREATED";
     public static final String USERS_DATE_EXPIRES = "DATE_EXPIRES";
     public static final String USERS_LAST_UPDATED = "LAST_UPDATED";
@@ -49,6 +50,7 @@ public class Constents
     public static final String PETS_DESCRIPTION = "PET_DESCRIPTION";
     public static final String PETS_ADDINFO = "PET_ADDINFO";
     public static final String PETS_LAST_UPDATED = "LAST_UPDATED";
+    public static final String PETS_OBJECTID = "objectId";
 
     //Post table columns
     public static final String POSTS_ID = "POST_ID";
@@ -62,6 +64,7 @@ public class Constents
     public static final String POSTS_DESCRIPTION = "POST_DESCRIPTION";
     public static final String POSTS_EXPIRES = "POST_EXPIRES";
     public static final String POSTS_LAST_UPDATED = "LAST_UPDATED";
+    public static final String POSTS_OBJECTID = "objectId";
 
 
     public static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
