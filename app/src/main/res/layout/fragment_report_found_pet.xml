@@ -51,6 +51,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:id="@+id/found_pet_email_textview"
                     android:text="@string/email_title"
                 />
 
@@ -79,6 +80,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:id="@+id/found_pet_password_textview"
                     android:text="@string/password_input"
                 />
 

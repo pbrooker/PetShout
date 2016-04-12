@@ -82,9 +82,7 @@ public class CreatePetProfileFragment extends Fragment
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-//        Bundle b = this.getArguments();
-//        userID = b.getSerializable(Constents.SAVED_CURRENT_USER);
-//        Log.i("currentUser", userID.toString());
+
         String jsonMyObject = "";
         Bundle extras = getActivity().getIntent().getExtras();
         if(extras != null)
@@ -97,7 +95,7 @@ public class CreatePetProfileFragment extends Fragment
         }
         Users user = new Gson().fromJson(jsonMyObject, Users.class);
         userEmail = user.getEmail();
-        userObjectID = user.getUSER_ID();
+        userObjectID = user.getObjectId();
         Log.i("current user", userObjectID.toString());
         Log.i("user email", userEmail);
         bkuser = new BackendlessUser();
@@ -185,7 +183,7 @@ public class CreatePetProfileFragment extends Fragment
                     db.addPet(pet);
 
 
-                    //String userEmail = currentUser.getEmail().toString();
+
                     db.addUserPet(userEmail, mID);
                     //upload image
                     try
@@ -195,9 +193,9 @@ public class CreatePetProfileFragment extends Fragment
                     } catch (Exception e)
                     {
                         e.printStackTrace();
-                        Log.i("Image Status", "Not uploaded");
+                        //Log.i("Image Status", "Not uploaded");
                     }
-                    Log.i("CurrentUser" ,bkuser.getObjectId().toString());
+                    //Log.i("CurrentUser" ,bkuser.getObjectId().toString());
                     bkuser.setProperty(Constents.USERS_PET_ID, mID);
                     bkuser.setProperty(Constents.TABLE_PETS, pet);
                     Backendless.UserService.update(bkuser, new AsyncCallback<BackendlessUser>()

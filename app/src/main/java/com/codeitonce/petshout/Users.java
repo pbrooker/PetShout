@@ -22,11 +22,17 @@ public class Users
     }
 
 
-    public Users(String email, String phoneNumber, String userID)
+    public Users(String email, String password, String userID)
     {
         this.email = email;
-        this.USER_PHONE = phoneNumber;
+        this.password = password;
         this.USER_ID = userID;
+    }
+
+    public Users(String email, String objectId )
+    {
+        this.email = email;
+        this.objectId = objectId;
     }
 
 

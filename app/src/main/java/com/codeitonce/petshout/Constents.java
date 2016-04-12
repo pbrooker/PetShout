@@ -19,20 +19,20 @@ public class Constents
     //Table Names
     public static final String TABLE_USERS = "Users";
     public static final String TABLE_PETS = "Pets";
-    public static final String TABLE_POSTS = "Post";
+    public static final String TABLE_POSTS = "Posts";
 
     //Users table columns
     public static final String USERS_ID = "USER_ID";
     public static final String USERS_LNAME = "USER_LNAME";
     public static final String USERS_FNAME = "USER_FNAME";
-    public static final String USERS_PASSWORD = "USER_PASSWORD";
+    public static final String USERS_PASSWORD = "password";
     public static final String USERS_PHONE = "USER_PHONE";
     public static final String USERS_EMAIL = "USER_EMAIL";
     public static final String USERS_CITY = "USER_CITY";
     public static final String USERS_POSTAL_CODE = "USER_POSTALCODE";
     public static final String USERS_STATUS = "USER_STATUS";
-    public static final String USERS_PET_ID = "PET_ID";
-    public static final String USERS_POST_ID = "POST_ID";
+    public static final String USERS_PET_ID = "Pets";
+    public static final String USERS_POST_ID = "Posts";
     public static final String USERS_OBJECTID = "objectId";
     public static final String USERS_DATE_CREATED = "DATE_CREATED";
     public static final String USERS_DATE_EXPIRES = "DATE_EXPIRES";

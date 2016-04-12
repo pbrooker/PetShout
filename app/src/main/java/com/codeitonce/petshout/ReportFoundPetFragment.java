@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
@@ -32,6 +33,7 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessException;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -65,6 +67,17 @@ public class ReportFoundPetFragment extends Fragment
     private String filePath;
     private File petShoutPictures;
     private static String remoteURL;
+    private String userEmail;
+    private String userObjectID;
+    private BackendlessUser currentbkuser;
+    private Boolean isValidUser;
+    private TextView mEmailTextView;
+    private TextView mPasswordTextView;
+    private DBHandler db;
+    private String mUserID;
+    private String mID;
+    private Post post;
+    private BackendlessUser newUser;
 
 
 
@@ -74,6 +87,32 @@ public class ReportFoundPetFragment extends Fragment
     }
 
 
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+
+        String jsonMyObject = "";
+        Bundle extras = getActivity().getIntent().getExtras();
+        if(extras != null)
+        {
+            jsonMyObject = extras.getString("user");
+            isValidUser = extras.getBoolean("validUser");
+            Users user = new Gson().fromJson(jsonMyObject, Users.class);
+            userEmail = user.getEmail();
+            userObjectID = user.getObjectId();
+           //Log.i("current user", userObjectID.toString());
+           // Log.i("user email", userEmail);
+            currentbkuser = new BackendlessUser();
+
+        }
+        else
+        {
+            isValidUser = false;
+        }
+
+
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,19 +128,27 @@ public class ReportFoundPetFragment extends Fragment
         mGender = (RadioGroup) view.findViewById(R.id.gender_group);
         mAddImage = (Button) view.findViewById(R.id.image_button);
         mSubmit = (Button) view.findViewById(R.id.submit_button);
+        mEmailTextView = (TextView)view.findViewById(R.id.found_pet_email_textview);
+        mPasswordTextView = (TextView) view.findViewById(R.id.found_pet_password_textview);
+
+        if(isValidUser)
+        {
+            mPasswordTextView.setVisibility(View.INVISIBLE);
+            mEmailTextView.setVisibility(View.INVISIBLE);
+            mEmail.setVisibility(View.INVISIBLE);
+            mPassword.setVisibility(View.INVISIBLE);
+
+        }
 
         final RadioButton selection = (RadioButton) view.findViewById(mGender.getCheckedRadioButtonId());
-
 
 
         ArrayAdapter<CharSequence> mArrayAdapter;
         mArrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.spinner_data, R.layout.spinner_item);
 
-
-
         mSpecies.setAdapter(mArrayAdapter);
 
-        //mArrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+
 
         mSubmit.setOnClickListener(new View.OnClickListener()
         {
@@ -124,128 +171,139 @@ public class ReportFoundPetFragment extends Fragment
 
                 }
 
-                if(!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (isEmail(mEmail.getText().toString())) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription))))
+                try
                 {
+                    uploadAsync(img, filePath);
 
-                    String mID = UUID.randomUUID().toString();
-                    String mUserID = UUID.randomUUID().toString();
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                    Log.i("Image Status", "Not uploaded");
+                }
 
-                    DBHandler db = new DBHandler(getActivity());
-                    Post post = new Post(mLocation.getText().toString(), "F", gender, species,  mBreed.getText().toString(),
-                            mPetDescription.getText().toString(), remoteURL,  mID);
-
-                    db.addPost(post);
-
-                    db.addUserSmall(new Users(mEmail.getText().toString(), mPassword.getText().toString(), mUserID), post);
-
-
-                    try
+//                //check if logged in user - if not, proceed this way
+//                if((!isValidUser) &&!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (isEmail(mEmail.getText().toString())) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription))))
+//                {
+//
+//                    mID = UUID.randomUUID().toString();
+//                    mUserID = UUID.randomUUID().toString();
+//
+//                    db = new DBHandler(getActivity());
+//                    post = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
+//                            mPetDescription.getText().toString(), remoteURL, mID);
+//                    db.addUserSmall(new Users(mEmail.getText().toString(), mPassword.getText().toString(), mUserID), post);
+//
+//                    db.addPost(post);
+//
+//                    addBackendlessUser();
+//
+//                }
+//                else if(isValidUser)  //if logged in, do it this way
+//                {
+                    if(!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription))))
                     {
-                        uploadAsync(img, filePath);
-                        //Log.i("Image URL" , remoteURL.toString());
-                    } catch (Exception e)
-                    {
-                        e.printStackTrace();
-                        Log.i("Image Status", "Not uploaded");
+                        db = new DBHandler(getActivity());
+                        Post post2 = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
+                                mPetDescription.getText().toString(), remoteURL, mID);
+
+                        db.addPost(post2);
+                        currentbkuser.setProperty(Constents.TABLE_POSTS, post2);
+                        currentbkuser.setProperty("objectId", userObjectID);
                     }
 
-                    try
-                    {
-                        BackendlessUser bkUser = new BackendlessUser();
-                        bkUser.setEmail(mEmail.getText().toString());
-                        bkUser.setPassword("Reset#me1");
-                        bkUser.setProperty(Constents.USERS_PASSWORD, mPassword.getText().toString());
-                        bkUser.setProperty(Constents.USERS_ID, mUserID);
-                        bkUser.setProperty(Constents.TABLE_POSTS, post);
-
-                        try
-                        {
-
-                            Backendless.UserService.register(bkUser, new DefaultCallback<BackendlessUser>(getActivity())
-                            {
-                                @Override
-                                public void handleResponse(BackendlessUser backendlessUser)
-                                {
-                                    super.handleResponse(backendlessUser);
-                                    //Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
-
-                                    ThankYouFragment fragment;
-                                    fragment = new ThankYouFragment();
-                                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                    ft.replace(R.id.mainFrame, fragment);
-                                    ft.commit();
-
-
-
-                                }
-
-
-                            });
-                        }
-                        catch(BackendlessException e)
-                        {
-                            Toast.makeText(getActivity(), "Error - user already exists, please login", Toast.LENGTH_SHORT).show();
-                        }
-                    }catch(Exception e)
-                    {
-                        Toast.makeText(getActivity(), "Post failed - please try again", Toast.LENGTH_SHORT).show();
-                    }
-
-                } else
+                //}
+                    else
                 {
                     Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
+                }
+//
+//                if(!isValidUser)
+//                {
+//                    currentbkuser.setProperty("objectId", newUser.getObjectId());
+//                }
+//
+//                else if (isValidUser)
+//                {
+
+               // }
+
+
+                try
+                {
+
+                    Backendless.UserService.update(currentbkuser, new DefaultCallback<BackendlessUser>(getActivity())
+                    {
+                        @Override
+                        public void handleResponse(BackendlessUser backendlessUser)
+                        {
+                            super.handleResponse(backendlessUser);
+                            //Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
+
+                            ThankYouFragment fragment;
+                            fragment = new ThankYouFragment();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.replace(R.id.mainFrame, fragment);
+                            ft.commit();
+
+                        }
+
+                    });
+                }
+                catch (BackendlessException e)
+                {
+                    Toast.makeText(getActivity(), "Error - record not added, please try again", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
 
         mSpecies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+                int num = position;
+                species = "";
+
+                switch (num)
                 {
-                    int num = position;
-                    species = "";
-
-                    switch (num)
-                    {
-                        case 0:
-                            species = getString(R.string.dog);
-                            break;
-                        case 1:
-                            species = getString(R.string.cat);
-                            break;
-                        case 2:
-                            species = getString(R.string.bird);
-                            break;
-                        case 3:
-                            species = getString(R.string.rat);
-                            break;
-                        case 4:
-                            species = getString(R.string.hedgehog);
-                            break;
-                        case 5:
-                            species = getString(R.string.pig);
-                            break;
-                        case 6:
-                            species = getString(R.string.horse);
-                            break;
-                        case 7:
-                            species = getString(R.string.reptile);
-                            break;
-                        case 8:
-                            species = getString(R.string.guinea_pig);
-                            break;
-                        case 9:
-                            species = getString(R.string.rabbit);
-                            break;
-                        case 10:
-                            species = getString(R.string.other);
-                            break;
-
-                    }
+                    case 0:
+                        species = getString(R.string.dog);
+                        break;
+                    case 1:
+                        species = getString(R.string.cat);
+                        break;
+                    case 2:
+                        species = getString(R.string.bird);
+                        break;
+                    case 3:
+                        species = getString(R.string.rat);
+                        break;
+                    case 4:
+                        species = getString(R.string.hedgehog);
+                        break;
+                    case 5:
+                        species = getString(R.string.pig);
+                        break;
+                    case 6:
+                        species = getString(R.string.horse);
+                        break;
+                    case 7:
+                        species = getString(R.string.reptile);
+                        break;
+                    case 8:
+                        species = getString(R.string.guinea_pig);
+                        break;
+                    case 9:
+                        species = getString(R.string.rabbit);
+                        break;
+                    case 10:
+                        species = getString(R.string.other);
+                        break;
 
                 }
+
+            }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent)
@@ -405,5 +463,40 @@ public class ReportFoundPetFragment extends Fragment
             }
         });
     }
+
+
+//    private void addBackendlessUser()
+//    {
+//
+//        BackendlessUser bkUser = new BackendlessUser();
+//        bkUser.setEmail(mEmail.getText().toString());
+//        bkUser.setPassword("Reset#me1");
+//        bkUser.setProperty(Constents.USERS_PASSWORD, mPassword.getText().toString());
+//        bkUser.setProperty(Constents.USERS_ID, mUserID);
+//
+//        try
+//        {
+//
+//            Backendless.UserService.register(bkUser, new DefaultCallback<BackendlessUser>(getActivity())
+//            {
+//                @Override
+//                public void handleResponse(BackendlessUser backendlessUser)
+//                {
+//                    super.handleResponse(backendlessUser);
+//                    //Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
+//                    newUser = new BackendlessUser();
+//                    newUser.setProperty("objectId", backendlessUser.getObjectId());
+//
+//                Toast.makeText(getActivity(), "User registered", Toast.LENGTH_SHORT).show();
+//
+//                }
+//
+//            });
+//        } catch (BackendlessException e)
+//        {
+//            Toast.makeText(getActivity(), "Error - user already exists, please login", Toast.LENGTH_SHORT).show();
+//        }
+//
+//    }
 
 }
