@@ -394,7 +394,7 @@ public class ReportFoundPetFragment extends Fragment
             @Override
             public void handleResponse(BackendlessFile response)
             {
-                remoteURL = response.getFileURL().toString();
+                remoteURL = response.getFileURL();
                 Log.i("RemoteURL", remoteURL);
             }
 

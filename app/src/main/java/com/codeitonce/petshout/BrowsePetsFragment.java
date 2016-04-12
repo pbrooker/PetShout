@@ -2,7 +2,6 @@ package com.codeitonce.petshout;
 
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,13 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
 import java.util.List;
 import java.util.UUID;
+
+import it.sephiroth.android.library.picasso.Picasso;
 
 
 /**
@@ -85,6 +81,7 @@ public class BrowsePetsFragment extends Fragment
         {
             super(itemView);
             itemView.setOnClickListener(this);
+
             mImageView = (ImageView)itemView.findViewById(R.id.pet_image);
             mDescriptionTextView = (TextView)itemView.findViewById(R.id.pet_description);
         }
@@ -93,19 +90,21 @@ public class BrowsePetsFragment extends Fragment
         {
             String imageID = UUID.randomUUID().toString();
             String imagePath = post.getPostImagePath();
-            String destinationFile = imageID + ".jpg";
+            //String destinationFile = imageID + ".jpg";
             mPost = post;
-
-            try
-            {
-                saveImage(imagePath, destinationFile);
-
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
+//
+//            try
+//            {
+//                saveImage(imagePath, destinationFile);
+//
+//            } catch (IOException e)
+//            {
+//                e.printStackTrace();
+//            }
+            Picasso.with(getActivity()).load(imagePath).placeholder(R.drawable.catanddog).resize(200, 200).into(mImageView);
             mDescriptionTextView.setText(post.getPostDescription());
-            //mImageView.setImageURI(Uri.parse(path));
+            //mImageView.setImageBitmap();
+
 
         }
 
@@ -158,40 +157,6 @@ public class BrowsePetsFragment extends Fragment
             return mPosts.size();
         }
     }
-
-    public static void saveImage(String imagePath, String destinationFile) throws IOException
-    {
-
-        URL url = new URL (imagePath);
-        InputStream is = url.openStream();
-
-        File img;
-        String MEDIA_MOUNTED = "mounted";
-        String diskState = Environment.getExternalStorageState();
-
-        byte[]b = new byte[2048];
-        int length;
-
-        if (diskState.equals(MEDIA_MOUNTED) )
-        {
-            petShoutPictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        }
-
-        img = new File(petShoutPictures, destinationFile);
-        OutputStream os = new FileOutputStream(img);
-        while ((length = is.read(b)) != -1)
-        {
-            os.write(b, 0, length);
-        }
-
-
-        is.close();
-        os.close();
-
-        path = img.getPath() + destinationFile;
-
-    }
-
 
 
 

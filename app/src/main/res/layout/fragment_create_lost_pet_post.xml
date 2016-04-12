@@ -99,6 +99,7 @@
                     android:layout_span="2"
                     android:textColor="#ffffff"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
                 />
 
             </TableRow>

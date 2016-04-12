@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.backendless.Backendless;
 
@@ -29,9 +30,19 @@ public class MainActivity extends AppCompatActivity
 
 
         DBHandler dbHandler = new DBHandler(getApplicationContext());
-        dbHandler.getPosts();
-        dbHandler.getPets();
-        dbHandler.getUsers();
+
+        //rebuild tables until issue of comparing data in sqlite solved
+       dbHandler.rebuildTables();
+
+        try
+        {
+            dbHandler.getPosts();
+            dbHandler.getPets();
+            //dbHandler.getUsers();
+        }catch (Exception e)
+        {
+            Toast.makeText(this, "Error loading Databases - please try again", Toast.LENGTH_SHORT).show();
+        }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

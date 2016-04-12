@@ -32,18 +32,18 @@ public class DBHandler extends SQLiteOpenHelper
     {
         String createTable = "CREATE TABLE IF NOT EXISTS ";
 
-        db.execSQL(createTable + Constents.TABLE_USERS + "(" + Constents.USERS_ID + " VARCHAR," + Constents.USERS_FNAME + " VARCHAR," + Constents.USERS_LNAME + " VARCHAR," +
-                Constents.USERS_PASSWORD + " BINARY," + Constents.USERS_PHONE + " INTEGER," + Constents.USERS_EMAIL + " VARCHAR," + Constents.USERS_CITY + " VARCHAR, " +
-                Constents.USERS_STATUS + " CHAR," + Constents.USERS_PET_ID + " INTEGER," + Constents.USERS_POST_ID + " INTEGER," + Constents.USERS_DATE_CREATED + " TIMESTAMP," + Constents.USERS_DATE_EXPIRES +
-                " DATE," + Constents.USERS_LAST_UPDATED + " TIMESTAMP," + Constents.USERS_OBJECTID + " VARCHAR" + Constents.USERS_POSTAL_CODE + " VARCHAR)");
+        db.execSQL(createTable + Constents.TABLE_USERS + "(" + Constents.USERS_ID + " BLOB," + Constents.USERS_FNAME + " BLOB," + Constents.USERS_LNAME + " BLOB," +
+                Constents.USERS_PASSWORD + " BINARY," + Constents.USERS_PHONE + " BLOB," + Constents.USERS_EMAIL + " BLOB," + Constents.USERS_CITY + " BLOB, " +
+                Constents.USERS_STATUS + " CHAR," + Constents.USERS_PET_ID + " BLOB," + Constents.USERS_POST_ID + " BLOB," + Constents.USERS_DATE_CREATED + " TIMESTAMP," + Constents.USERS_DATE_EXPIRES +
+                " DATE," + Constents.USERS_LAST_UPDATED + " TIMESTAMP," + Constents.USERS_OBJECTID + " BLOB" + Constents.USERS_POSTAL_CODE + " BLOB)");
 
-        db.execSQL(createTable + Constents.TABLE_PETS + "(" + Constents.PETS_ID + " VARCHAR," + Constents.PETS_NAME + " VARCHAR," + Constents.PETS_AGE + " INTEGER," +
-                Constents.PETS_GENDER + " CHAR," + Constents.PETS_NEUTERED + " BOOLEAN," + Constents.PETS_BREED + " VARCHAR," + Constents.PETS_IMAGEPATH + " LONGBLOB," + Constents.PETS_DESCRIPTION + " VARCHAR," +
-                Constents.PETS_SPECIES + " VARCHAR," + Constents.PETS_ADDINFO + " VARCHAR," +  Constents.PETS_OBJECTID + " VARCHAR" + Constents.PETS_LAST_UPDATED + " TIMESTAMP)");
+        db.execSQL(createTable + Constents.TABLE_PETS + "(" + Constents.PETS_ID + " BLOB," + Constents.PETS_NAME + " BLOB," + Constents.PETS_AGE + " BLOB," +
+                Constents.PETS_GENDER + " CHAR," + Constents.PETS_NEUTERED + " BOOLEAN," + Constents.PETS_BREED + " BLOB," + Constents.PETS_IMAGEPATH + " BLOB," + Constents.PETS_DESCRIPTION + " BLOB," +
+                Constents.PETS_SPECIES + " BLOB," + Constents.PETS_ADDINFO + " BLOB," + Constents.PETS_OBJECTID + " BLOB" + Constents.PETS_LAST_UPDATED + " TIMESTAMP)");
 
-        db.execSQL(createTable + Constents.TABLE_POSTS + "(" + Constents.POSTS_ID + " VARCHAR," + Constents.POSTS_DATE + " TIMESTAMP," + Constents.POSTS_LOCATION + " VARCHAR," +
-                Constents.POSTS_IMAGEPATH + " VARCHAR," + Constents.POSTS_GENDER + " CHAR," + Constents.POSTS_SPECIES + " VARCHAR," + Constents.POSTS_LOST_FOUND + " CHAR," + Constents.POSTS_BREED
-                + " VARCHAR," + Constents.POSTS_DESCRIPTION + " VARCHAR," + Constents.POSTS_EXPIRES + " DATE," + Constents.POSTS_OBJECTID + " VARCHAR" + Constents.POSTS_LAST_UPDATED + " TIMESTAMP)");
+        db.execSQL(createTable + Constents.TABLE_POSTS + "(" + Constents.POSTS_ID + " BLOB," + Constents.POSTS_DATE + " TIMESTAMP," + Constents.POSTS_LOCATION + " BLOB," +
+                Constents.POSTS_IMAGEPATH + " BLOB," + Constents.POSTS_GENDER + " CHAR," + Constents.POSTS_SPECIES + " BLOB," + Constents.POSTS_LOST_FOUND + " CHAR," + Constents.POSTS_BREED
+                + " BLOB," + Constents.POSTS_DESCRIPTION + " BLOB," + Constents.POSTS_EXPIRES + " DATE," + Constents.POSTS_OBJECTID + " BLOB" + Constents.POSTS_LAST_UPDATED + " TIMESTAMP)");
     }
 
     @Override
@@ -60,6 +60,20 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
+
+    public void rebuildTables()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String drop = "DROP TABLE IF EXISTS ";
+        //Drop older table if exists
+        db.execSQL(drop + Constents.TABLE_USERS);
+        db.execSQL(drop + Constents.TABLE_PETS);
+        db.execSQL(drop + Constents.TABLE_POSTS);
+
+        //Create tables again
+        onCreate(db);
+
+    }
     public void addUser(Users user)
     {
 
@@ -126,26 +140,24 @@ public class DBHandler extends SQLiteOpenHelper
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor curPost = db.rawQuery("SELECT * FROM " + Constents.TABLE_POSTS, null);
 
-            try
+        if (curPost.getCount() > 0)
+        {
+            curPost.moveToPosition(-1);
+            while (curPost.moveToNext())
             {
-                while (curPost.moveToNext())
-                {
+                Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
 
-
-                    Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
-                            curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
-                            curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
-                            curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
-                            curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
-
-                    list.add(post);
-                    curPost.moveToNext();
-                }
+                list.add(post);
             }
-            finally
-            {
+
+
+        }
                 curPost.close();
-            }
+
 
 
         Log.i("getPostArraySize", list.toString());
@@ -180,7 +192,7 @@ public class DBHandler extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(Constents.POSTS_LOCATION, post.getPostLocation());
+        values.put(Constents.POSTS_LOCATION, post.getPostLocation()) ;
         values.put(Constents.POSTS_LOST_FOUND, "F");
         values.put(Constents.POSTS_GENDER, post.getPostGender());
         values.put(Constents.POSTS_SPECIES, post.getPostSpecies());
@@ -222,8 +234,11 @@ public class DBHandler extends SQLiteOpenHelper
                 while (iterator.hasNext())
                 {
                     Post post = iterator.next();
-                    addPost(post);
-                    Log.i("added Post", post.toString());
+                    //if(!(checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_OBJECTID, post.getObjectId())))
+                   // {
+                        addPost(post);
+                        Log.d("PostAdded", post.toString());
+                   // }
 
                 }
             }
@@ -257,15 +272,10 @@ public class DBHandler extends SQLiteOpenHelper
                 while (iterator.hasNext())
                 {
                     Pets pet = iterator.next();
-                    addPet(pet);
-                    mPetsArray.add(pet);
-
-                    for (int x = 0; x < mPetsArray.size(); x++)
-                    {
-                        Pets pet1 = mPetsArray.get(x);
-                        //Log.i("PetInfo", pet1.getObjectId().toString());
-                       // Log.i("PetInfo", pet1.getImagePath().toString());
-                    }
+                   // if(!(checkForRecord(Constents.TABLE_PETS, Constents.PETS_OBJECTID, pet.getObjectId())))
+                   // {
+                        addPet(pet);
+                   // }
 
                 }
             }
@@ -300,16 +310,11 @@ public class DBHandler extends SQLiteOpenHelper
                 while (iterator.hasNext())
                 {
                     Users user = iterator.next();
-                    addUser(user);
-
-                    mUserArray.add(user);
-
-                    for (int x = 0; x < mUserArray.size(); x++)
+                    if(!(checkForRecord(Constents.TABLE_USERS, Constents.USERS_EMAIL, user.getEmail())))
                     {
-                        Users user1 = mUserArray.get(x);
-                        //Log.i("UserInfo", user1.getUSER_ID().toString());
-                       // Log.i("UserEmail", user1.getEmail().toString());
+                        addUser(user);
                     }
+
                 }
             }
 
@@ -334,5 +339,17 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.USERS_PET_ID, petId);
        // db.execSQL("UPDATE 'Constents.TABLE_USERS' SET 'Constents.USERS_PET_ID' = 'petId' WHERE 'Constents.USERS_EMAIL'='email' ");
 
+    }
+
+    public boolean checkForRecord(String TableName, String dbfield, String fieldValue) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
+        Cursor cursor = db.rawQuery(Query, null);
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
     }
 }
