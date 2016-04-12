@@ -15,6 +15,11 @@
             android:title="@string/nav_found_pet"/>
 
         <item
+            android:id="@+id/nav_browse1"
+            android:icon="@drawable/ic_menu_browse"
+            android:title="@string/nav_browse"/>
+
+        <item
             android:id="@+id/nav_edit_pp"
             android:icon="@drawable/ic_menu_edit"
             android:title="@string/nav_edit_pp"/>

@@ -69,12 +69,22 @@ public class MainActivity extends AppCompatActivity
         {
             navigationView.getMenu().setGroupVisible(R.id.logged_in, true);
             navigationView.getMenu().setGroupVisible(R.id.not_logged_in, false);
+            MainActivityLoggedInFragment fragment;
+            fragment = new MainActivityLoggedInFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
+        }
+        else if(!(isValidUser))
+        {
+            MainActivityNotLoggedInFragment fragment;
+            fragment = new MainActivityNotLoggedInFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
         }
 
-
-
     }
-
 
 
     @Override
@@ -156,7 +166,15 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.mainFrame, fragment);
             ft.commit();
 
-        } else if (id == R.id.nav_steps)
+        } else if (id == R.id.nav_browse1)
+        {
+            BrowsePetsFragment fragment;
+            fragment = new BrowsePetsFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
+
+        }else if (id == R.id.nav_steps)
         {
             LostFoundPetFragment fragment;
             fragment = new LostFoundPetFragment();
