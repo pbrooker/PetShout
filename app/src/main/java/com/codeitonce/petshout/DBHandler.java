@@ -177,8 +177,9 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.PETS_GENDER, pets.getPetGender());
         values.put(Constents.PETS_DESCRIPTION, pets.getPetDescription());
         values.put(Constents.PETS_ADDINFO, pets.getAddInfo());
-        values.put(Constents.PETS_IMAGEPATH, pets.getImagePath());
-        values.put(Constents.PETS_OBJECTID, pets.getObjectId());
+        values.put(Constents.PETS_IMAGEPATH, "'" + pets.getImagePath()+ "'");
+        values.put(Constents.PETS_OBJECTID, "'" + pets.getObjectId()+ "'");
+        values.put(Constents.PETS_ID, "'" + pets.getPetId()+ "'");
 
         db.insert(Constents.TABLE_PETS, null, values);
 
@@ -198,9 +199,9 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.POSTS_SPECIES, post.getPostSpecies());
         values.put(Constents.POSTS_BREED, post.getPostBreed());
         values.put(Constents.POSTS_DESCRIPTION, post.getPostDescription());
-        values.put(Constents.POSTS_ID, post.getPostId());
-        values.put(Constents.POSTS_OBJECTID, post.getObjectId());
-        values.put(Constents.POSTS_IMAGEPATH, post.getPostImagePath());
+        values.put(Constents.POSTS_ID, "'" +post.getPostId()+ "'");
+        values.put(Constents.POSTS_OBJECTID, '"' + post.getObjectId()+'"');
+        values.put(Constents.POSTS_IMAGEPATH, "'" +post.getPostImagePath()+ "'");
 
         db.insert(Constents.TABLE_POSTS, null, values);
         db.close();
@@ -236,10 +237,10 @@ public class DBHandler extends SQLiteOpenHelper
                 {
                     Post post = iterator.next();
                     //if(!(checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_OBJECTID, post.getObjectId())))
-                   // {
+                   //{
                         addPost(post);
-                        Log.d("PostAdded", post.toString());
-                   // }
+                       // Log.d("PostAdded", post.toString());
+                    //}
 
                 }
             }
@@ -273,7 +274,7 @@ public class DBHandler extends SQLiteOpenHelper
                 while (iterator.hasNext())
                 {
                     Pets pet = iterator.next();
-                   // if(!(checkForRecord(Constents.TABLE_PETS, Constents.PETS_OBJECTID, pet.getObjectId())))
+                   //if(!(checkForRecord(Constents.TABLE_PETS, Constents.PETS_OBJECTID, pet.getObjectId())))
                    // {
                         addPet(pet);
                    // }
@@ -311,10 +312,10 @@ public class DBHandler extends SQLiteOpenHelper
                 while (iterator.hasNext())
                 {
                     Users user = iterator.next();
-                    if(!(checkForRecord(Constents.TABLE_USERS, Constents.USERS_EMAIL, user.getEmail())))
-                    {
+                    //if(!(checkForRecord(Constents.TABLE_USERS, Constents.USERS_EMAIL, user.getEmail())))
+                   // {
                         addUser(user);
-                    }
+                    //}
 
                 }
             }
