@@ -32,16 +32,17 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        DBHandler dbHandler = new DBHandler(getApplicationContext());
 
+        DBHandler dbHandler = new DBHandler(getApplicationContext());
         //rebuild tables until issue of comparing data in sqlite solved
-       dbHandler.rebuildTables();
+        //dbHandler.rebuildTables();
 
         try
         {
             dbHandler.getPosts();
             dbHandler.getPets();
             //dbHandler.getUsers();
+
         }catch (Exception e)
         {
             Toast.makeText(this, "Error loading Databases - please try again", Toast.LENGTH_SHORT).show();
@@ -261,10 +262,4 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-//    {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//    }
 }

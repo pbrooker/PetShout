@@ -65,7 +65,6 @@ public class BrowsePetsFragment extends Fragment
         mRecyclerView = (RecyclerView) view.findViewById(R.id.pet_post_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
         updateUI();
 
 
@@ -91,8 +90,8 @@ public class BrowsePetsFragment extends Fragment
         {
             mPost = post;
             String imageID = UUID.randomUUID().toString();
-            String imagePath = mPost.getPostImagePath().toString();
-            Log.d("Imagepath", imagePath);
+            String imagePath = mPost.getPostImagePath();
+            //Log.d("Imagepath", imagePath);
             //String destinationFile = imageID + ".jpg";
 
 //
@@ -114,8 +113,12 @@ public class BrowsePetsFragment extends Fragment
         @Override
         public void onClick(View v)
         {
+
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("objectId", mPost.getObjectId().toString());
             ClaimLostPetFragment fragment;
             fragment = new ClaimLostPetFragment();
+            fragment.setArguments(bundle);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.mainFrame, fragment);
             ft.commit();

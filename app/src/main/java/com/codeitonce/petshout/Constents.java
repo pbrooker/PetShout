@@ -56,7 +56,7 @@ public class Constents
     public static final String POSTS_ID = "POST_ID";
     public static final String POSTS_DATE = "POST_DATE";
     public static final String POSTS_LOCATION = "POST_LOCATION";
-    public static final String POSTS_IMAGEPATH = "POST_IMAGEPATH";
+    public static final String POSTS_IMAGEPATH = "postImagePath";
     public static final String POSTS_LOST_FOUND = "POST_LOSTFOUND";
     public static final String POSTS_GENDER = "POST_GENDER";
     public static final String POSTS_SPECIES = "POST_SPECIES";

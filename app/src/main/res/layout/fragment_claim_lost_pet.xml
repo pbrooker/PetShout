@@ -8,12 +8,13 @@
 
     <ImageView
         style="@style/HeaderImage"
-        android:id="@+id/cat_dog_profile"
+        android:id="@+id/claim_pet_image"
      />
 
     <ScrollView
         style="@style/ScrollViewStyle"
         android:id="@+id/scroll_view"
+        android:layout_below="@id/claim_pet_image"
     >
 
         <TableLayout
@@ -50,22 +51,10 @@
                     android:layout_weight="1"
                     android:text="@string/email_title"
                 />
-
                 <TextView
-                    style="@style/FormTitleText"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:inputType="textEmailAddress"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:ems="10"
-                    android:background="#5a4e3f"
-                    android:hint="@string/email_address_input"
-                    android:id="@+id/email_address_input"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingLeft="5dp"
-                />
+                    android:id="@+id/claim_pet_email" style="@style/FormTitleText"/>
 
             </TableRow>
 
@@ -79,18 +68,10 @@
                     android:layout_weight="1"
                     android:text="@string/breed_title"
                     />
-
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/breed_input"
-                    android:hint="@string/breed_title"
-                    android:textColor="#ffffff"
-                    android:background="#5a4e3f"
-                    android:paddingLeft="5dp"
-                    />
+                    android:id="@+id/claim_pet_breed" style="@style/FormTitleText"/>
 
             </TableRow>
 
@@ -108,18 +89,10 @@
                     android:layout_weight="1"
                     android:text="@string/gender_header"
                 />
-
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/gender"
-                    android:hint="@string/gender_header"
-                    android:textColor="#ffffff"
-                    android:background="#5a4e3f"
-                    android:paddingLeft="5dp"
-                />
+                    android:id="@+id/claim_pet_gender" style="@style/FormTitleText"/>
 
             </TableRow>
 
@@ -137,20 +110,10 @@
                     android:layout_weight="1"
                     android:text="@string/description_title"
                 />
-
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:inputType="textMultiLine"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:ems="10"
-                    android:hint="@string/pet_description"
-                    android:textColor="#ffffff"
-                    android:id="@+id/pet_description"
-                    android:background="#5a4e3f"
-                    android:paddingLeft="5dp"
-                />
+                    android:id="@+id/claim_pet_description" style="@style/FormTitleText"/>
 
             </TableRow>
 
@@ -169,18 +132,31 @@
                     android:text="@string/location_header"
                     android:id="@+id/text_view_three"
                 />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/claim_pet_location" style="@style/FormTitleText"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                >
 
                 <TextView
+                    style="@style/FormTitleText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/location_input"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#ffffff"
-                    android:hint="@string/location_header"
-                    android:background="#5a4e3f"
-                    android:paddingLeft="5dp"
-                />
+                    android:text="@string/found_pet_additional_info"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/claim_pet_addinfo" style="@style/FormTitleText"/>
 
             </TableRow>
 
