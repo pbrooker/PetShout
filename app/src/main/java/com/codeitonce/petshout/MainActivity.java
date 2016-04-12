@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
 
+    private boolean isValidUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Backendless.initApp(getApplicationContext(), Constents.APP_ID, Constents.APP_KEY, Constents.APP_VERSION);
+
 
 
         DBHandler dbHandler = new DBHandler(getApplicationContext());
@@ -44,6 +47,14 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "Error loading Databases - please try again", Toast.LENGTH_SHORT).show();
         }
 
+        Bundle extras = getIntent().getExtras();
+        if(extras != null)
+        {
+            isValidUser = extras.getBoolean("validUser");
+        }
+
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,6 +64,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if(isValidUser)
+        {
+            navigationView.getMenu().setGroupVisible(R.id.logged_in, true);
+            navigationView.getMenu().setGroupVisible(R.id.not_logged_in, false);
+        }
 
 
 
@@ -108,6 +125,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home)
         {
+
             MainActivityNotLoggedInFragment fragment;
             fragment = new MainActivityNotLoggedInFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

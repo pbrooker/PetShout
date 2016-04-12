@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_home"
-            android:title="@string/nav_home"
-            />
+    <group android:checkableBehavior="single"
+        android:id="@+id/logged_in"
+        android:visible="false">
+
         <item
             android:id="@+id/nav_home_logged"
             android:icon="@drawable/ic_menu_home"
@@ -15,14 +13,7 @@
             android:id="@+id/nav_found_pet"
             android:icon="@drawable/ic_menu_found_a_pet"
             android:title="@string/nav_found_pet"/>
-        <item
-            android:id="@+id/nav_browse"
-            android:icon="@drawable/ic_menu_browse"
-            android:title="@string/nav_browse"/>
-        <item
-            android:id="@+id/nav_steps"
-            android:icon="@drawable/ic_menu_info"
-            android:title="@string/nav_steps"/>
+
         <item
             android:id="@+id/nav_edit_pp"
             android:icon="@drawable/ic_menu_edit"
@@ -49,19 +40,34 @@
             android:title="@string/nav_edit_lpp"/>
     </group>
 
-    <item android:title="@string/admin_title">
-        <menu>
-            <item
-                android:id="@+id/nav_login"
-                android:icon="@drawable/ic_menu_login"
-                android:title="@string/nav_login"
-                />
-            <item
-                android:id="@+id/nav_register"
-                android:icon="@drawable/ic_menu_logout"
-                android:title="@string/nav_register"/>
-        </menu>
-    </item>
+    <group android:checkableBehavior="single"
+           android:id="@+id/not_logged_in"
+           android:visible="true">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/nav_home"
+            />
+        <item
+            android:id="@+id/nav_browse"
+            android:icon="@drawable/ic_menu_browse"
+            android:title="@string/nav_browse"/>
+        <item
+            android:id="@+id/nav_steps"
+            android:icon="@drawable/ic_menu_info"
+            android:title="@string/nav_steps"/>
+
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_menu_login"
+            android:title="@string/nav_login"
+            />
+        <item
+            android:id="@+id/nav_register"
+            android:icon="@drawable/ic_menu_logout"
+            android:title="@string/nav_register"/>
+
+    </group>
 
 
 </menu>
