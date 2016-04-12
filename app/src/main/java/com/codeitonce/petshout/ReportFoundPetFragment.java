@@ -74,10 +74,8 @@ public class ReportFoundPetFragment extends Fragment
     private TextView mEmailTextView;
     private TextView mPasswordTextView;
     private DBHandler db;
-    private String mUserID;
     private String mID;
-    private Post post;
-    private BackendlessUser newUser;
+
 
 
 
@@ -166,7 +164,8 @@ public class ReportFoundPetFragment extends Fragment
                             gender = "F";
                             break;
                     }
-                } catch (NullPointerException n)
+                }
+                catch (NullPointerException n)
                 {
 
                 }
@@ -181,27 +180,9 @@ public class ReportFoundPetFragment extends Fragment
                     Log.i("Image Status", "Not uploaded");
                 }
 
-//                //check if logged in user - if not, proceed this way
-//                if((!isValidUser) &&!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (isEmail(mEmail.getText().toString())) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription))))
-//                {
-//
-//                    mID = UUID.randomUUID().toString();
-//                    mUserID = UUID.randomUUID().toString();
-//
-//                    db = new DBHandler(getActivity());
-//                    post = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
-//                            mPetDescription.getText().toString(), remoteURL, mID);
-//                    db.addUserSmall(new Users(mEmail.getText().toString(), mPassword.getText().toString(), mUserID), post);
-//
-//                    db.addPost(post);
-//
-//                    addBackendlessUser();
-//
-//                }
-//                else if(isValidUser)  //if logged in, do it this way
-//                {
                     if(!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription))))
                     {
+                        mID = UUID.randomUUID().toString();
                         db = new DBHandler(getActivity());
                         Post post2 = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
                                 mPetDescription.getText().toString(), remoteURL, mID);
@@ -211,22 +192,10 @@ public class ReportFoundPetFragment extends Fragment
                         currentbkuser.setProperty("objectId", userObjectID);
                     }
 
-                //}
                     else
-                {
-                    Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
-                }
-//
-//                if(!isValidUser)
-//                {
-//                    currentbkuser.setProperty("objectId", newUser.getObjectId());
-//                }
-//
-//                else if (isValidUser)
-//                {
-
-               // }
-
+                    {
+                        Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
+                    }
 
                 try
                 {
@@ -463,40 +432,5 @@ public class ReportFoundPetFragment extends Fragment
             }
         });
     }
-
-
-//    private void addBackendlessUser()
-//    {
-//
-//        BackendlessUser bkUser = new BackendlessUser();
-//        bkUser.setEmail(mEmail.getText().toString());
-//        bkUser.setPassword("Reset#me1");
-//        bkUser.setProperty(Constents.USERS_PASSWORD, mPassword.getText().toString());
-//        bkUser.setProperty(Constents.USERS_ID, mUserID);
-//
-//        try
-//        {
-//
-//            Backendless.UserService.register(bkUser, new DefaultCallback<BackendlessUser>(getActivity())
-//            {
-//                @Override
-//                public void handleResponse(BackendlessUser backendlessUser)
-//                {
-//                    super.handleResponse(backendlessUser);
-//                    //Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
-//                    newUser = new BackendlessUser();
-//                    newUser.setProperty("objectId", backendlessUser.getObjectId());
-//
-//                Toast.makeText(getActivity(), "User registered", Toast.LENGTH_SHORT).show();
-//
-//                }
-//
-//            });
-//        } catch (BackendlessException e)
-//        {
-//            Toast.makeText(getActivity(), "Error - user already exists, please login", Toast.LENGTH_SHORT).show();
-//        }
-//
-//    }
 
 }
