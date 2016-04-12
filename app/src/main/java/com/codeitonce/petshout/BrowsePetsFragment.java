@@ -30,6 +30,7 @@ public class BrowsePetsFragment extends Fragment
     private PostAdapter mPostAdapter;
     private static File petShoutPictures;
     private static String path;
+    private List<Post> posts;
 
 
 
@@ -40,7 +41,7 @@ public class BrowsePetsFragment extends Fragment
     private void updateUI()
     {
         DBHandler dbHandler = new DBHandler(getActivity());
-        List<Post> posts = dbHandler.getPostsArray();
+        posts = dbHandler.getPostsArray();
         Log.i("PostsList", posts.toString());
         if(mPostAdapter == null)
         {
@@ -88,10 +89,12 @@ public class BrowsePetsFragment extends Fragment
 
         public void bindPost (Post post)
         {
-            String imageID = UUID.randomUUID().toString();
-            String imagePath = post.getPostImagePath();
-            //String destinationFile = imageID + ".jpg";
             mPost = post;
+            String imageID = UUID.randomUUID().toString();
+            String imagePath = mPost.getPostImagePath().toString();
+            Log.d("Imagepath", imagePath);
+            //String destinationFile = imageID + ".jpg";
+
 //
 //            try
 //            {
@@ -101,7 +104,7 @@ public class BrowsePetsFragment extends Fragment
 //            {
 //                e.printStackTrace();
 //            }
-            Picasso.with(getActivity()).load(imagePath).placeholder(R.drawable.catanddog).resize(200, 200).into(mImageView);
+            Picasso.with(getActivity()).load(imagePath).placeholder(R.drawable.catanddog).resize(200, 200).centerCrop().into(mImageView);
             mDescriptionTextView.setText(post.getPostDescription());
             //mImageView.setImageBitmap();
 
@@ -144,7 +147,6 @@ public class BrowsePetsFragment extends Fragment
         public void onBindViewHolder(PostHolder holder, int position)
         {
             Post post = mPosts.get(position);
-
 
             holder.bindPost(post);
 

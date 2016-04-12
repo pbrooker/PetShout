@@ -200,6 +200,7 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.POSTS_DESCRIPTION, post.getPostDescription());
         values.put(Constents.POSTS_ID, post.getPostId());
         values.put(Constents.POSTS_OBJECTID, post.getObjectId());
+        values.put(Constents.POSTS_IMAGEPATH, post.getPostImagePath());
 
         db.insert(Constents.TABLE_POSTS, null, values);
         db.close();
