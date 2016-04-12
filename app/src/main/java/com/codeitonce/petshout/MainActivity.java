@@ -182,6 +182,14 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.mainFrame, fragment);
             ft.commit();
 
+        } else if (id == R.id.nav_steps1)
+        {
+            LostFoundPetFragment fragment;
+            fragment = new LostFoundPetFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
+
         } else if (id == R.id.nav_edit_pp)
         {
             EditPetProfileFragment fragment;

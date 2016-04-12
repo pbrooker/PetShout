@@ -59,6 +59,16 @@ public class LoginFragment extends Fragment
         mRestoreLogin = (TextView) view.findViewById(R.id.restore_password_button);
 
 
+        mRestoreLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RestorePasswordFragment fragment;
+                fragment = new RestorePasswordFragment();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainFrame, fragment);
+                ft.commit();
+            }
+        });
 
 
         mSubmit.setOnClickListener(new View.OnClickListener()
@@ -107,15 +117,15 @@ public class LoginFragment extends Fragment
                 });
 
 
-                Backendless.UserService.login(identity, password, new DefaultCallback<BackendlessUser>(getActivity()) {
+                Backendless.UserService.login(identity, password, new DefaultCallback<BackendlessUser>(getActivity())
+                {
 
-                    public void handleResponse(BackendlessUser backendlessUser) {
+                    public void handleResponse(BackendlessUser backendlessUser)
+                    {
                         super.handleResponse(backendlessUser);
 
 
-
                         user = new Users(backendlessUser.getEmail().toString(), backendlessUser.getObjectId().toString());
-
 
 
                         //Bundle args = new Bundle();
@@ -132,35 +142,26 @@ public class LoginFragment extends Fragment
                         ft.replace(R.id.mainFrame, fragment);
                         ft.commit();
                     }
-                } //rememberLogin
-                );
+                }); //rememberLogin
 
-                mRegister.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        RegistrationFragment fragment;
-                        fragment = new RegistrationFragment();
-                        FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        ft.replace(R.id.mainFrame, fragment);
-                        ft.commit();
-                    }
-                });
 
             }
 
         });
 
-
-        mRestoreLogin.setOnClickListener(new View.OnClickListener() {
+        mRegister.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                RestorePasswordFragment fragment;
-                fragment = new RestorePasswordFragment();
+            public void onClick(View v)
+            {
+                RegistrationFragment fragment;
+                fragment = new RegistrationFragment();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.mainFrame, fragment);
                 ft.commit();
             }
         });
+
 
 
 

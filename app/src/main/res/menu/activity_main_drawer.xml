@@ -43,6 +43,11 @@
             android:id="@+id/nav_edit_lpp"
             android:icon="@drawable/ic_menu_edit"
             android:title="@string/nav_edit_lpp"/>
+
+        <item
+            android:id="@+id/nav_steps1"
+            android:icon="@drawable/ic_menu_info"
+            android:title="@string/nav_steps"/>
     </group>
 
     <group android:checkableBehavior="single"
