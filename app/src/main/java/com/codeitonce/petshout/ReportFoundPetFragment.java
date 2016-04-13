@@ -152,57 +152,67 @@ public class ReportFoundPetFragment extends Fragment
                             gender = "F";
                             break;
                     }
-                }
-                catch (NullPointerException n)
+                } catch (NullPointerException n)
                 {
 
                 }
-
-
-
-                    if(!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription)) && (filePath != null)))
-                    {
-                        //testing data flow
-                        //Log.i("Add post", "user email is " + userEmail);
-                        mID = UUID.randomUUID().toString();
-                        db = new DBHandler(getActivity());
-                        Post post = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
-                                mPetDescription.getText().toString(), remoteURL, mID, userEmail);
-
-                        db.addPost(post);
-                        currentbkuser.setProperty(Constents.TABLE_POSTS, post);
-                        currentbkuser.setProperty("objectId", userObjectID);
-                    }
-
-                    else
-                    {
-                        Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
-                    }
 
                 try
                 {
+                    uploadAsync(img, filePath);
 
-                    Backendless.UserService.update(currentbkuser, new DefaultCallback<BackendlessUser>(getActivity())
-                    {
-                        @Override
-                        public void handleResponse(BackendlessUser backendlessUser)
-                        {
-                            super.handleResponse(backendlessUser);
-                            //Log.i("Registration", backendlessUser.getEmail() + " successfully registered");
-
-                            ThankYouFragment fragment;
-                            fragment = new ThankYouFragment();
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.replace(R.id.mainFrame, fragment);
-                            ft.commit();
-
-                        }
-
-                    });
-                }
-                catch (BackendlessException e)
+                } catch (Exception e)
                 {
-                    Toast.makeText(getActivity(), "Error - record not added, please try again", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), "Image not uploaded, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
+                if (!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription)) && (remoteURL != null)))
+                {
+
+                    //testing data flow
+                    //Log.i("Add post", "user email is " + userEmail);
+                    mID = UUID.randomUUID().toString();
+                    //db = new DBHandler(getActivity());
+                    Post post = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
+                            mPetDescription.getText().toString(), remoteURL, mID, userEmail);
+
+                    //db.addPost(post);
+                    currentbkuser.setProperty(Constents.TABLE_POSTS, post);
+                    currentbkuser.setProperty("objectId", userObjectID);
+
+
+                    try
+                    {
+
+                        Backendless.UserService.update(currentbkuser, new DefaultCallback<BackendlessUser>(getActivity())
+                        {
+                            @Override
+                            public void handleResponse(BackendlessUser backendlessUser)
+                            {
+                                super.handleResponse(backendlessUser);
+
+
+                                ThankYouFragment fragment;
+                                fragment = new ThankYouFragment();
+                                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                ft.replace(R.id.mainFrame, fragment);
+                                ft.commit();
+
+                            }
+
+                        });
+                    } catch (BackendlessException e)
+                    {
+                        Toast.makeText(getActivity(), "Error - record not added, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -263,7 +273,7 @@ public class ReportFoundPetFragment extends Fragment
             }
         });
 
-        //get image from gallery (take photo as option will be a future upgrade
+        //get image from gallery (take photo as option will be a future upgrade)
         mAddImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -273,19 +283,12 @@ public class ReportFoundPetFragment extends Fragment
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, Constents.SELECT_PHOTO);
+
             }
+
         });
 
 
-        try
-        {
-            uploadAsync(img, filePath);
-
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-            Toast.makeText(getActivity(), "Image not uploaded, please try again", Toast.LENGTH_SHORT).show();
-        }
 
         return  view;
     }
@@ -362,7 +365,6 @@ public class ReportFoundPetFragment extends Fragment
                     Uri selectedImage = imageReturnedIntent.getData();
 
                     //InputStream imageStream = null;
-
                     try
                     {
                         Bitmap yourSelectedImage = decodeUri(getActivity(), selectedImage);
