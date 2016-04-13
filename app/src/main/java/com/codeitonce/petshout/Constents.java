@@ -51,6 +51,7 @@ public class Constents
     public static final String PETS_ADDINFO = "PET_ADDINFO";
     public static final String PETS_LAST_UPDATED = "LAST_UPDATED";
     public static final String PETS_OBJECTID = "objectId";
+    public static final String PETS_USERID = "Users.Pets";
 
     //Post table columns
     public static final String POSTS_ID = "POST_ID";

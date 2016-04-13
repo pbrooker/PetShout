@@ -59,6 +59,7 @@ public class DBHandler extends SQLiteOpenHelper
                 + Constents.PETS_DESCRIPTION + " BLOB,"
                 + Constents.PETS_SPECIES + " BLOB,"
                 + Constents.PETS_ADDINFO + " BLOB,"
+                + Constents.PETS_USERID + " BLOB,"
                 + Constents.PETS_OBJECTID + " BLOB)");
 
         db.execSQL(createTable + Constents.TABLE_POSTS
@@ -207,6 +208,7 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.PETS_OBJECTID, pets.getObjectId());
         values.put(Constents.PETS_ID, pets.getPetId());
         values.put(Constents.PETS_NEUTERED, pets.isPetNeutered());
+        values.put(Constents.PETS_USERID, pets.getUserId());
 
                 db.insert(Constents.TABLE_PETS, null, values);
 
@@ -214,6 +216,8 @@ public class DBHandler extends SQLiteOpenHelper
 
 
     }
+
+
 
     public void addPost(Post post)
     {
@@ -332,7 +336,7 @@ public class DBHandler extends SQLiteOpenHelper
     }
 
 
-    public ArrayList<Pets> getPets()
+    public ArrayList<Pets> getPets(String objectId)
     {
 
         final ArrayList<Pets> mPetsArray = new ArrayList<>();
@@ -349,7 +353,7 @@ public class DBHandler extends SQLiteOpenHelper
                 while (iterator.hasNext())
                 {
                     Pets pet = iterator.next();
-                    if(!(checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_OBJECTID, new  String []{ pet.getObjectId()})))
+                    if(!(checkForRecord(Constents.TABLE_PETS, "Users.Pets", new  String []{ pet.getUserId()})))
                     {
                         addPet(pet);
                    }

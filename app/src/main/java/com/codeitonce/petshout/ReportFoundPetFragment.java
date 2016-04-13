@@ -47,8 +47,6 @@ import java.util.UUID;
 public class ReportFoundPetFragment extends Fragment
 {
 
-    private EditText mEmail;
-    private EditText mPassword;
     private EditText mBreed;
     private EditText mLocation;
     private EditText mPetDescription;
@@ -106,7 +104,6 @@ public class ReportFoundPetFragment extends Fragment
             isValidUser = false;
         }
 
-
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -114,8 +111,6 @@ public class ReportFoundPetFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_report_found_pet, container, false);
 
-        mEmail = (EditText) view.findViewById(R.id.email_address_input);
-        mPassword = (EditText) view.findViewById(R.id.password_input);
         mBreed = (EditText) view.findViewById(R.id.breed_input);
         mLocation = (EditText) view.findViewById(R.id.location_input);
         mPetDescription = (EditText) view.findViewById(R.id.pet_description);
@@ -287,6 +282,8 @@ public class ReportFoundPetFragment extends Fragment
             }
 
         });
+
+        db.getPosts();
 
 
 
