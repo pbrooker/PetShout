@@ -210,5 +210,6 @@
     <string name="edit_lost_pet_post">Edit Lost Pet Post</string>
     <string name="create_pet_profile">Create Pet Profile</string>
     <string name="found_pet_additional_info">Additional Info</string>
+    <string name="claim_pet_instructions">Is this your pet? If so, click the Claim Lost Pet button to show the email address of the person who found this pet so you can claim it.</string>
 
 </resources>
