@@ -63,7 +63,8 @@
 
     <!-- strings for what to do if you have found a pet -->
     <string name="found_a_pet">Found a Pet?</string>
-    <string name="found_first_paragraph">Being lost can be a very stressful event for both a pets and
+    <string name="found_first_paragraph">Being lost can be a very stressful event for both a pets
+        and
         their guardians. If you have found an animal that you feel has been lost,
         trying to find the animal\'s home before the local SPCA or Animal Control is called. Most
         pets are found within the neighborhood where they are lost, and guardians are more than
@@ -122,7 +123,9 @@
     <string name="register_account_header">Register</string>
     <string name="main_welcome_header">Welcome to Pet Shout</string>
     <string name="welcome_account_header">Welcome</string>
-    <string name="account_home_welcome_text">Please chose an option from the side menu or choose below.</string>
+    <string name="account_home_welcome_text">Please chose an option from the side menu or choose
+        below.
+    </string>
     <string name="edit_pet_profile_button">Edit Pet Profile</string>
     <string name="delete_pet_profile_button">Delete Pet Profile</string>
     <string name="add_pet_profile_button">Add Pet Profile</string>
@@ -138,17 +141,23 @@
     <string name="update_lost_pet_post_header">Update Lost Pet Post for</string>
     <string name="existing_pet_post_text_to_update">Existing Text to Update</string>
     <string name="submit_button">Submit</string>
-    <string name="submit_disclaimer">By clicking Submit you acknowledge that you are publishing your contact information, which may result in you receiving unwanted messages.</string>
+    <string name="submit_disclaimer">By clicking Submit you acknowledge that you are publishing your
+        contact information, which may result in you receiving unwanted messages.
+    </string>
     <string name="create_lost_pet_post_header">Create Lost Pet Post for</string>
-    <string name="update_lost_pet_post">Update Lost Pet Post for </string>
-    <string name="update_disclaimer">By clicking Update you acknowledge that you are publishing your contact information, which may result in you receiving unwanted messages.</string>
+    <string name="update_lost_pet_post">Update Lost Pet Post for</string>
+    <string name="update_disclaimer">By clicking Update you acknowledge that you are publishing your
+        contact information, which may result in you receiving unwanted messages.
+    </string>
     <string name="claim_lost_pet_header">Claim Lost Pet</string>
     <string name="claim_pet_button">This is my pets!</string>
     <string name="pet_description">Pet Description</string>
     <string name="additional_information">Additional Information</string>
     <string name="pet_found_in">Pet found in</string>
     <string name="region_area">region and area</string>
-    <string name="contact_information_person_found_pet">Contact info for person that found pets revealed after claim pets pushed</string>
+    <string name="contact_information_person_found_pet">Contact info for person that found pets
+        revealed after claim pets pushed
+    </string>
     <string name="this_is_my_pet_button">This is my pets</string>
     <string name="report_found_pet_header">Report a Found Pet</string>
     <string name="email_title">Email</string>
@@ -187,7 +196,9 @@
     <string name="incorrect_login">Email or Password incorrect</string>
     <string name="complete_all_fields">Please complete all fields</string>
     <string name="reg_successful">Registration successful</string>
-    <string name="pass_length">Password must be at least 8 characters and have at least 1 uppercase, 1 lowercase, and one of @#$%</string>
+    <string name="pass_length">Password must be at least 8 characters and have at least 1 uppercase,
+        1 lowercase, and one of @#$%
+    </string>
     <string name="email_verify">Please enter a valid email address</string>
     <string name="description_title">Description</string>
     <string name="create_pet_profile_header">Create Pet Profile</string>

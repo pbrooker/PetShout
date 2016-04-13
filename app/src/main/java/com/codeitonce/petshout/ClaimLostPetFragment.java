@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import it.sephiroth.android.library.picasso.Picasso;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,14 +25,25 @@ public class ClaimLostPetFragment extends Fragment {
     private TextView mGender;
     private TextView mDescription;
     private TextView mLocation;
-    private TextView mAddinfo;
     private Button mClaimButton;
     private ImageView mPetImageView;
     private Post mPost;
+    private static final String ARG_POST_ID = "post_id";
+    private String mID;
+    private String userEmail;
 
 
     public ClaimLostPetFragment() {
         // Required empty public constructor
+    }
+
+    public static ClaimLostPetFragment newInstance(String postObjectId)
+    {
+        Bundle args = new Bundle();
+        args.putString(ARG_POST_ID, postObjectId);
+        ClaimLostPetFragment fragment = new ClaimLostPetFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -38,15 +51,19 @@ public class ClaimLostPetFragment extends Fragment {
     {
         super.onCreate(savedInstanceState);
         Bundle extras = getActivity().getIntent().getExtras();
-
         if(extras != null)
         {
-            postObjectId = extras.getString("objectId");
+            String postID = extras.getString(postViewActivity.EXTRA_POST_ID);
+            String altpostID = extras.getString(ARG_POST_ID);
+
+            Log.d("ClaimFrag", "post object id is " + altpostID);
+            DBHandler dbHandler = new DBHandler(getActivity());
+
+            mPost = new Post();
+            mPost = dbHandler.getPost(postID);
+            mID = postID;
         }
-        else
-        {
-            Log.d("PostIdString", "post id string is null");
-        }
+
 
     }
 
@@ -61,29 +78,44 @@ public class ClaimLostPetFragment extends Fragment {
         mGender = (TextView) view.findViewById(R.id.claim_pet_gender);
         mDescription = (TextView) view.findViewById(R.id.claim_pet_description);
         mLocation = (TextView) view.findViewById(R.id.claim_pet_location);
-        mAddinfo = (TextView) view.findViewById(R.id.claim_pet_addinfo);
         mClaimButton = (Button) view.findViewById(R.id.claim_lost_pet);
         mPetImageView = (ImageView) view.findViewById(R.id.claim_pet_image);
 
-//        if(postObjectId != null)
+//        BackendlessDataQuery query = new BackendlessDataQuery();
+//        Log.d("mID", "mID = " + mID);
+//        query.setWhereClause("objectId = " + "'" + mID + "'");
+//        BackendlessCollection<Users> user = Backendless.Data.of(Users.class ).find( query );
+//
+//        Iterator<Users> iterator = user.getCurrentPage().iterator();
+//
+//        while (iterator.hasNext())
 //        {
-//            AsyncCallback<BackendlessCollection<Post>> callback = new AsyncCallback<BackendlessCollection<Post>>()
-//            {
-//                @Override
-//                public void handleResponse(BackendlessCollection<Post> response)
-//                {
-//                    Iterator
-//                }
+//            Users u = iterator.next();
+//            userEmail = u.getObjectId();
 //
-//                @Override
-//                public void handleFault(BackendlessFault fault)
-//                {
-//
-//                }
-//            };
 //        }
+//        query.setWhereClause("User.objectId = " + mID);
+//        BackendlessCollection<Users> user = Backendless.Data.of(Users.class ).find( query );
 //
-//        Picasso.with(getActivity()).load(imagePath).placeholder(R.drawable.catanddog).resize(300, 300).centerCrop().into(mPetImageView);
+//        Iterator<Users> iterator2 = user.getCurrentPage().iterator();
+//
+//        while (iterator2.hasNext())
+//        {
+//            Users user2 = iterator2.next();
+//            userEmail = user2.getEmail();
+//
+//        }
+
+
+
+        Picasso.with(getActivity()).load(mPost.getPostImagePath()).placeholder(R.drawable.catanddog).resize(500, 500).centerCrop().into(mPetImageView);
+
+        //mEmail.setText(userEmail);
+        mBreed.setText(mPost.getPostBreed().toString());
+        mGender.setText(mPost.getPostGender().toString());
+        mDescription.setText(mPost.getPostDescription().toString());
+        mLocation.setText(mPost.getPostLocation().toString());
+
 
 
 
@@ -94,5 +126,7 @@ public class ClaimLostPetFragment extends Fragment {
 
         return view;
     }
+
+
 
 }

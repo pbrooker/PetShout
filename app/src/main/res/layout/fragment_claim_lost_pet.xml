@@ -54,7 +54,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/claim_pet_email" style="@style/FormTitleText"/>
+                    android:id="@+id/claim_pet_email"
+                    android:visibility="invisible"
+                    style="@style/FormTitleText"/>
 
             </TableRow>
 
@@ -136,27 +138,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/claim_pet_location" style="@style/FormTitleText"/>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                >
-
-                <TextView
-                    style="@style/FormTitleText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/found_pet_additional_info"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/claim_pet_addinfo" style="@style/FormTitleText"/>
 
             </TableRow>
 

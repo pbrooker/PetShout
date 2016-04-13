@@ -65,7 +65,7 @@ public class CreatePetProfileFragment extends Fragment
     private static String remoteURL;
     private BackendlessUser currentUser;
     private String addInfo = "";
-    private boolean isSpayed;
+    private String isSpayed = "no";
     private String mID = "";
     private String userEmail = "";
     private String userObjectID;
@@ -159,7 +159,8 @@ public class CreatePetProfileFragment extends Fragment
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
                     {
-                        isSpayed = true;
+                        isSpayed = "yes";
+
                     }
                 });
 

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         {
             dbHandler.getPosts();
             dbHandler.getPets();
-            //dbHandler.getUsers();
+            dbHandler.getUsers();
 
         }catch (Exception e)
         {

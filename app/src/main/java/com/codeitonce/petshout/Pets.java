@@ -7,7 +7,7 @@ public class Pets
 {
     private String petName;
     private String petSpecies;
-    private boolean petNeutered;
+    private String petNeutered;
     private String petGender;
     private String petBreed;
     private String petAge;
@@ -24,7 +24,7 @@ public class Pets
 
 
 
-    public Pets(String petName, String petSpecies, boolean petNeutered, String petGender, String petBreed, String petAge, String petDescription, String addInfo, String imagePath, String petId)
+    public Pets(String petName, String petSpecies, String petNeutered, String petGender, String petBreed, String petAge, String petDescription, String addInfo, String imagePath, String petId)
     {
         this.petName = petName;
         this.petSpecies = petSpecies;
@@ -58,12 +58,12 @@ public class Pets
         this.petSpecies = petSpecies;
     }
 
-    public boolean isPetNeutered()
+    public String isPetNeutered()
     {
         return petNeutered;
     }
 
-    public void setPetNeutered(boolean petNeutered)
+    public void setPetNeutered(String petNeutered)
     {
         this.petNeutered = petNeutered;
     }

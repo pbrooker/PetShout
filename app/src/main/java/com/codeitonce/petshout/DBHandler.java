@@ -38,7 +38,7 @@ public class DBHandler extends SQLiteOpenHelper
                 " DATE," + Constents.USERS_LAST_UPDATED + " TIMESTAMP," + Constents.USERS_OBJECTID + " BLOB" + Constents.USERS_POSTAL_CODE + " BLOB)");
 
         db.execSQL(createTable + Constents.TABLE_PETS + "(" + Constents.PETS_ID + " BLOB," + Constents.PETS_NAME + " BLOB," + Constents.PETS_AGE + " BLOB," +
-                Constents.PETS_GENDER + " CHAR," + Constents.PETS_NEUTERED + " BOOLEAN," + Constents.PETS_BREED + " BLOB," + Constents.PETS_IMAGEPATH + " BLOB," + Constents.PETS_DESCRIPTION + " BLOB," +
+                Constents.PETS_GENDER + " CHAR," + Constents.PETS_NEUTERED + " TEXT," + Constents.PETS_BREED + " BLOB," + Constents.PETS_IMAGEPATH + " BLOB," + Constents.PETS_DESCRIPTION + " BLOB," +
                 Constents.PETS_SPECIES + " BLOB," + Constents.PETS_ADDINFO + " BLOB," + Constents.PETS_OBJECTID + " BLOB" + Constents.PETS_LAST_UPDATED + " TIMESTAMP)");
 
         db.execSQL(createTable + Constents.TABLE_POSTS + "(" + Constents.POSTS_ID + " BLOB," + Constents.POSTS_DATE + " TIMESTAMP," + Constents.POSTS_LOCATION + " BLOB," +
@@ -149,19 +149,16 @@ public class DBHandler extends SQLiteOpenHelper
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)));
 
                 list.add(post);
                 Log.d("Post Added", "new post added");
             }
 
-
         }
                 curPost.close();
 
-
-
-        Log.i("getPostArraySize", list.toString());
+        //Log.i("getPostArraySize", list.toString());
         db.close();
         return list;
 
@@ -180,9 +177,10 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.PETS_ADDINFO, pets.getAddInfo());
         values.put(Constents.PETS_IMAGEPATH,pets.getImagePath());
         values.put(Constents.PETS_OBJECTID, pets.getObjectId());
-        values.put(Constents.PETS_ID,  pets.getPetId() );
+        values.put(Constents.PETS_ID, pets.getPetId());
+        values.put(Constents.PETS_NEUTERED, pets.isPetNeutered());
 
-        db.insert(Constents.TABLE_PETS, null, values);
+                db.insert(Constents.TABLE_PETS, null, values);
 
         db.close();
 
@@ -209,18 +207,60 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
-    public void deletePost()
+    public void deletePost(Post post)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.delete(TABLE_PETS, POSTS_ID + " = ?", new String[] {String.valueOf(post.getId())} );
+        db.delete(Constents.TABLE_PETS, Constents.POSTS_OBJECTID + " = ?", new String[]{String.valueOf(post.getObjectId())});
     }
 
-    public void deletePet()
+    public void deletePet(Pets pet)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        // db.delete(TABLE_PETS, PETS_ID + " = ?", new String[] {String.valueOf(pet.getId())} );
+        db.delete(Constents.TABLE_PETS, Constents.PETS_OBJECTID + " = ?", new String[] {String.valueOf(pet.getObjectId())} );
 
         db.close();
+    }
+    public Users getEmailFromPostId(String postID)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor curPost = db.query( Constents.TABLE_USERS , null, Constents.USERS_POST_ID + "=?",
+                new String[] { String.valueOf(postID) }, null, null, null, null);
+        if (curPost.getCount() == 0)
+        {
+            return null;
+        }
+        curPost.moveToFirst();
+        Users user = new Users(curPost.getString(curPost.getColumnIndex(Constents.USERS_EMAIL)),
+                curPost.getString(curPost.getColumnIndex(Constents.USERS_OBJECTID)));
+        // return post
+
+        curPost.close();
+        db.close();
+        return user;
+
+    }
+
+    public Post getPost(String postID)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor curPost = db.query( Constents.TABLE_POSTS , null, Constents.POSTS_OBJECTID + "=?",
+                new String[] { String.valueOf(postID) }, null, null, null, null);
+        if (curPost.getCount() == 0)
+        {
+            return null;
+        }
+        curPost.moveToFirst();
+        Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
+        // return post
+
+        curPost.close();
+        db.close();
+        return post;
     }
 
     public void getPosts()
@@ -355,4 +395,6 @@ public class DBHandler extends SQLiteOpenHelper
         cursor.close();
         return true;
     }
+
+
 }

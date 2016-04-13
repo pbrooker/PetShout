@@ -23,7 +23,7 @@ public class Post
     }
 
 
-    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed, String postDescription, String postImagePath, String postId)
+    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed, String postDescription, String postImagePath, String objectId)
     {
         this.post_location = postLocation;
         this.post_lostfound = post_lostfound;
@@ -32,7 +32,7 @@ public class Post
         this.postBreed = postBreed;
         this.postDescription = postDescription;
         this.postImagePath = postImagePath;
-        this.postId = postId;
+        this.postId = objectId;
     }
 
     public String getPostLocation()

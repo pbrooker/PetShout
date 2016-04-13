@@ -1,21 +1,18 @@
 package com.codeitonce.petshout;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.File;
 import java.util.List;
-import java.util.UUID;
 
 import it.sephiroth.android.library.picasso.Picasso;
 
@@ -28,9 +25,8 @@ public class BrowsePetsFragment extends Fragment
 
     private RecyclerView mRecyclerView;
     private PostAdapter mPostAdapter;
-    private static File petShoutPictures;
-    private static String path;
     private List<Post> posts;
+    private String mObjectId;
 
 
 
@@ -42,7 +38,7 @@ public class BrowsePetsFragment extends Fragment
     {
         DBHandler dbHandler = new DBHandler(getActivity());
         posts = dbHandler.getPostsArray();
-        Log.i("PostsList", posts.toString());
+        //Log.i("PostsList", posts.toString());
         if(mPostAdapter == null)
         {
             mPostAdapter = new PostAdapter(posts);
@@ -53,6 +49,12 @@ public class BrowsePetsFragment extends Fragment
             mPostAdapter.notifyDataSetChanged();  // if you are changing only one item, you usually use notifyItemChanged
         }
 
+    }
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        updateUI();
     }
 
 
@@ -76,6 +78,7 @@ public class BrowsePetsFragment extends Fragment
         private Post mPost;
         private ImageView mImageView;
         private TextView mDescriptionTextView;
+        private String objectId;
 
         public PostHolder(View itemView)
         {
@@ -89,23 +92,13 @@ public class BrowsePetsFragment extends Fragment
         public void bindPost (Post post)
         {
             mPost = post;
-            String imageID = UUID.randomUUID().toString();
             String imagePath = mPost.getPostImagePath();
-            //Log.d("Imagepath", imagePath);
-            //String destinationFile = imageID + ".jpg";
+            objectId = mPost.getPostId();
 
-//
-//            try
-//            {
-//                saveImage(imagePath, destinationFile);
-//
-//            } catch (IOException e)
-//            {
-//                e.printStackTrace();
-//            }
-            Picasso.with(getActivity()).load(imagePath).placeholder(R.drawable.catanddog).resize(200, 200).centerCrop().into(mImageView);
+            Picasso.with(getActivity()).load(imagePath).placeholder(R.drawable.catanddog).resize(300, 300).centerCrop().into(mImageView);
             mDescriptionTextView.setText(post.getPostDescription());
-            //mImageView.setImageBitmap();
+
+
 
 
         }
@@ -114,14 +107,9 @@ public class BrowsePetsFragment extends Fragment
         public void onClick(View v)
         {
 
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("objectId", mPost.getObjectId().toString());
-            ClaimLostPetFragment fragment;
-            fragment = new ClaimLostPetFragment();
-            fragment.setArguments(bundle);
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.mainFrame, fragment);
-            ft.commit();
+            Intent i = postViewActivity.newIntent(getActivity(),objectId );
+            startActivity(i);
+
         }
     }
 
@@ -158,7 +146,7 @@ public class BrowsePetsFragment extends Fragment
         @Override
         public int getItemCount()
         {
-            Log.d("mPosts Size", mPosts.toString());
+            //Log.d("mPosts Size", mPosts.toString());
             return mPosts.size();
         }
     }
