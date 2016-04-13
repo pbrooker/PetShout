@@ -8,7 +8,6 @@ public class Users
     private String USER_FNAME;
     private String USER_LNAME;
     private String USER_CITY;
-    private String USER_POSTALCODE;
     private String email;
     private String USER_PHONE;
     private String password;
@@ -36,13 +35,12 @@ public class Users
     }
 
 
-    public Users(String id, String fName, String lName, String city, String postalCode, String email, String phoneNumber, String password)
+    public Users(String id, String fName, String lName, String city, String email, String phoneNumber, String password)
     {
         this.USER_ID = id;
         this.USER_FNAME = fName;
         this.USER_LNAME = lName;
         this.USER_CITY = city;
-        this.USER_POSTALCODE = postalCode;
         this.email = email;
         this.USER_PHONE = phoneNumber;
         this.password = password;
@@ -76,16 +74,6 @@ public class Users
     public void setUSER_CITY(String USER_CITY)
     {
         this.USER_CITY = USER_CITY;
-    }
-
-    public String getUSER_POSTALCODE()
-    {
-        return USER_POSTALCODE;
-    }
-
-    public void setUSER_POSTALCODE(String USER_POSTALCODE)
-    {
-        this.USER_POSTALCODE = USER_POSTALCODE;
     }
 
     public String getEmail()

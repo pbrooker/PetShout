@@ -184,11 +184,11 @@ public class ReportFoundPetFragment extends Fragment
                     {
                         mID = UUID.randomUUID().toString();
                         db = new DBHandler(getActivity());
-                        Post post2 = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
-                                mPetDescription.getText().toString(), remoteURL, mID);
+                        Post post = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
+                                mPetDescription.getText().toString(), remoteURL, mID, currentbkuser.getEmail().toString());
 
-                        db.addPost(post2);
-                        currentbkuser.setProperty(Constents.TABLE_POSTS, post2);
+                        db.addPost(post);
+                        currentbkuser.setProperty(Constents.TABLE_POSTS, post);
                         currentbkuser.setProperty("objectId", userObjectID);
                     }
 

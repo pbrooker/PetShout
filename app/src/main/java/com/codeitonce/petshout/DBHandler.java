@@ -32,18 +32,48 @@ public class DBHandler extends SQLiteOpenHelper
     {
         String createTable = "CREATE TABLE IF NOT EXISTS ";
 
-        db.execSQL(createTable + Constents.TABLE_USERS + "(" + Constents.USERS_ID + " BLOB," + Constents.USERS_FNAME + " BLOB," + Constents.USERS_LNAME + " BLOB," +
-                Constents.USERS_PASSWORD + " BINARY," + Constents.USERS_PHONE + " BLOB," + Constents.USERS_EMAIL + " BLOB," + Constents.USERS_CITY + " BLOB, " +
-                Constents.USERS_STATUS + " CHAR," + Constents.USERS_PET_ID + " BLOB," + Constents.USERS_POST_ID + " BLOB," + Constents.USERS_DATE_CREATED + " TIMESTAMP," + Constents.USERS_DATE_EXPIRES +
-                " DATE," + Constents.USERS_LAST_UPDATED + " TIMESTAMP," + Constents.USERS_OBJECTID + " BLOB" + Constents.USERS_POSTAL_CODE + " BLOB)");
+        db.execSQL(createTable + Constents.TABLE_USERS + "("
+                + Constents.USERS_ID + " BLOB,"
+                + Constents.USERS_FNAME + " BLOB,"
+                + Constents.USERS_LNAME + " BLOB,"
+                + Constents.USERS_PASSWORD + " BINARY,"
+                + Constents.USERS_PHONE + " BLOB,"
+                + Constents.USERS_EMAIL + " BLOB,"
+                + Constents.USERS_CITY + " BLOB, "
+                + Constents.USERS_STATUS + " CHAR,"
+                + Constents.USERS_PET_ID + " BLOB,"
+                + Constents.USERS_POST_ID + " BLOB,"
+                + Constents.USERS_DATE_CREATED + " TIMESTAMP,"
+                + Constents.USERS_DATE_EXPIRES + " DATE,"
+                + Constents.USERS_LAST_UPDATED + " TIMESTAMP,"
+                + Constents.USERS_OBJECTID + " BLOB)");
 
-        db.execSQL(createTable + Constents.TABLE_PETS + "(" + Constents.PETS_ID + " BLOB," + Constents.PETS_NAME + " BLOB," + Constents.PETS_AGE + " BLOB," +
-                Constents.PETS_GENDER + " CHAR," + Constents.PETS_NEUTERED + " TEXT," + Constents.PETS_BREED + " BLOB," + Constents.PETS_IMAGEPATH + " BLOB," + Constents.PETS_DESCRIPTION + " BLOB," +
-                Constents.PETS_SPECIES + " BLOB," + Constents.PETS_ADDINFO + " BLOB," + Constents.PETS_OBJECTID + " BLOB" + Constents.PETS_LAST_UPDATED + " TIMESTAMP)");
+        db.execSQL(createTable + Constents.TABLE_PETS
+                + "(" + Constents.PETS_ID + " BLOB,"
+                + Constents.PETS_NAME + " BLOB,"
+                + Constents.PETS_AGE + " BLOB,"
+                + Constents.PETS_GENDER + " CHAR,"
+                + Constents.PETS_NEUTERED + " TEXT,"
+                + Constents.PETS_BREED + " BLOB,"
+                + Constents.PETS_IMAGEPATH + " BLOB,"
+                + Constents.PETS_DESCRIPTION + " BLOB," +
+                Constents.PETS_SPECIES + " BLOB,"
+                + Constents.PETS_ADDINFO + " BLOB,"
+                + Constents.PETS_OBJECTID + " BLOB)");
 
-        db.execSQL(createTable + Constents.TABLE_POSTS + "(" + Constents.POSTS_ID + " BLOB," + Constents.POSTS_DATE + " TIMESTAMP," + Constents.POSTS_LOCATION + " BLOB," +
-                Constents.POSTS_IMAGEPATH + " BLOB," + Constents.POSTS_GENDER + " CHAR," + Constents.POSTS_SPECIES + " BLOB," + Constents.POSTS_LOST_FOUND + " CHAR," + Constents.POSTS_BREED
-                + " BLOB," + Constents.POSTS_DESCRIPTION + " BLOB," + Constents.POSTS_EXPIRES + " DATE," + Constents.POSTS_OBJECTID + " BLOB" + Constents.POSTS_LAST_UPDATED + " TIMESTAMP)");
+        db.execSQL(createTable + Constents.TABLE_POSTS
+                + "(" + Constents.POSTS_ID + " BLOB,"
+                + Constents.POSTS_DATE + " TIMESTAMP,"
+                + Constents.POSTS_LOCATION + " BLOB,"
+                + Constents.POSTS_IMAGEPATH + " BLOB,"
+                + Constents.POSTS_GENDER + " CHAR,"
+                + Constents.POSTS_SPECIES + " BLOB,"
+                + Constents.POSTS_LOST_FOUND + " CHAR,"
+                + Constents.POSTS_BREED + " BLOB,"
+                + Constents.POSTS_DESCRIPTION + " BLOB,"
+                + Constents.POSTS_EXPIRES + " DATE,"
+                + Constents.POSTS_OBJECTID + " BLOB,"
+                + Constents.POST_USEREMAIL + " BLOB)");
     }
 
     @Override
@@ -83,7 +113,6 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.USERS_FNAME, user.getUSER_FNAME());
         values.put(Constents.USERS_CITY, user.getUSER_CITY());
         values.put(Constents.USERS_EMAIL, user.getEmail());
-        //values.put(Constents.USERS_POSTAL_CODE, user.getUSER_POSTALCODE());
         values.put(Constents.USERS_PHONE, user.getUSER_PHONE());
         values.put(Constents.USERS_PASSWORD, user.getPassword());
 
@@ -123,7 +152,6 @@ public class DBHandler extends SQLiteOpenHelper
                 user.setUSER_LNAME(curUser.getString(curUser.getColumnIndex(Constents.USERS_LNAME)));
                 user.setUSER_CITY(curUser.getString(curUser.getColumnIndex(Constents.USERS_CITY)));
                 user.setPassword(curUser.getString(curUser.getColumnIndex(Constents.USERS_PASSWORD)));
-                user.setUSER_POSTALCODE(curUser.getString(curUser.getColumnIndex(Constents.USERS_POSTAL_CODE)));
 
                 list.add(user);
                 curUser.moveToNext();
@@ -152,7 +180,7 @@ public class DBHandler extends SQLiteOpenHelper
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)));
 
                 list.add(post);
-                Log.d("Post Added", "new post added");
+                //Log.d("Post Added", "new post added");
             }
 
         }
@@ -201,6 +229,7 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.POSTS_ID, post.getPostId());
         values.put(Constents.POSTS_OBJECTID,post.getObjectId());
         values.put(Constents.POSTS_IMAGEPATH, post.getPostImagePath());
+        values.put(Constents.POST_USEREMAIL, post.getUserEmail());
 
         db.insert(Constents.TABLE_POSTS, null, values);
         db.close();

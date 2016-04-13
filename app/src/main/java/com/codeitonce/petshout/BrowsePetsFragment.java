@@ -25,19 +25,17 @@ public class BrowsePetsFragment extends Fragment
 
     private RecyclerView mRecyclerView;
     private PostAdapter mPostAdapter;
-    private List<Post> posts;
-    private String mObjectId;
 
 
 
-//    public BrowsePetsFragment() {
-//        // Required empty public constructor
-//    }
+    public BrowsePetsFragment() {
+        // Required empty public constructor
+    }
 
     private void updateUI()
     {
         DBHandler dbHandler = new DBHandler(getActivity());
-        posts = dbHandler.getPostsArray();
+        List<Post> posts = dbHandler.getPostsArray();
         //Log.i("PostsList", posts.toString());
         if(mPostAdapter == null)
         {

@@ -36,7 +36,6 @@ public class RegistrationFragment extends Fragment {
     private EditText mFirstName;
     private EditText mLastName;
     private EditText mCity;
-    private EditText mPostalCode;
     private EditText mEmail;
     private EditText mPhoneNumber;
     private EditText mPassword;
@@ -72,7 +71,6 @@ public class RegistrationFragment extends Fragment {
         mFirstName = (EditText) v.findViewById(R.id.first_name_input);
         mLastName = (EditText) v.findViewById(R.id.last_name_input);
         mCity = (EditText) v.findViewById(R.id.city_input);
-        mPostalCode = (EditText) v.findViewById(R.id.postal_code);
         mEmail = (EditText) v.findViewById(R.id.email_address_input);
         mPhoneNumber = (EditText) v.findViewById(R.id.phone_number_input);
         mPassword = (EditText) v.findViewById(R.id.password_input);
@@ -196,14 +194,14 @@ public class RegistrationFragment extends Fragment {
             {
 
 
-                if (!(isEmpty(mFirstName)) && !(isEmpty(mLastName)) && !(isEmpty(mCity)) && !(isEmpty(mPostalCode)) &&
+                if (!(isEmpty(mFirstName)) && !(isEmpty(mLastName)) && !(isEmpty(mCity))  &&
                         (isEmail(mEmail.getText().toString())) && !(isEmpty(mPhoneNumber)) && (mPassword.getText().toString()
                         .matches(Constents.PASSWORD_PATTERN)))
                 {
                     mID = UUID.randomUUID().toString();
                     DBHandler db = new DBHandler(getActivity());
                     db.addUser(new Users(mID ,mFirstName.getText().toString(), mLastName.getText().toString(),
-                            mCity.getText().toString(), mPostalCode.getText().toString(), mEmail.getText().toString(),
+                            mCity.getText().toString(), mEmail.getText().toString(),
                             mPhoneNumber.getText().toString(), mPassword.getText().toString()));
 
                     Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
@@ -216,7 +214,6 @@ public class RegistrationFragment extends Fragment {
                     bkUser.setProperty(Constents.USERS_ID, mID.toString());
                     bkUser.setProperty(Constents.USERS_CITY, mCity.getText().toString());
                     bkUser.setProperty(Constents.USERS_PHONE, mPhoneNumber.getText().toString());
-                    bkUser.setProperty(Constents.USERS_POSTAL_CODE, mPostalCode.getText().toString());
 
 
                     Backendless.UserService.register(bkUser, new BackendlessCallback<BackendlessUser>()

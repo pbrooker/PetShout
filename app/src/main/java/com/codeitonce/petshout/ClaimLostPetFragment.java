@@ -40,7 +40,8 @@ public class ClaimLostPetFragment extends Fragment {
     public static ClaimLostPetFragment newInstance(String postObjectId)
     {
         Bundle args = new Bundle();
-        args.putString(ARG_POST_ID, postObjectId);
+        args.putSerializable(ARG_POST_ID, postObjectId);
+        Log.i("newInstance", "string is " + postObjectId);
         ClaimLostPetFragment fragment = new ClaimLostPetFragment();
         fragment.setArguments(args);
         return fragment;
@@ -50,19 +51,15 @@ public class ClaimLostPetFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        Bundle extras = getActivity().getIntent().getExtras();
-        if(extras != null)
-        {
-            String postID = extras.getString(postViewActivity.EXTRA_POST_ID);
-            String altpostID = extras.getString(ARG_POST_ID);
 
-            Log.d("ClaimFrag", "post object id is " + altpostID);
+            String postID = (String) getArguments().getSerializable(ARG_POST_ID);
+            Log.d("ClaimFrag", "post object id is " + postID);
             DBHandler dbHandler = new DBHandler(getActivity());
 
             mPost = new Post();
             mPost = dbHandler.getPost(postID);
             mID = postID;
-        }
+
 
 
     }

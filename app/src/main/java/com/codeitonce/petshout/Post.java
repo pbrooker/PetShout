@@ -14,6 +14,8 @@ public class Post
     private String postImagePath;
     private String postId;
     private String objectId;
+    private String userEmail;
+
 
 
 
@@ -33,6 +35,20 @@ public class Post
         this.postDescription = postDescription;
         this.postImagePath = postImagePath;
         this.postId = objectId;
+    }
+
+    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed, String postDescription, String postImagePath, String objectId, String userEmail)
+    {
+        this.post_location = postLocation;
+        this.post_lostfound = post_lostfound;
+        this.postGender = postGender;
+        this.postSpecies = postSpecies;
+        this.postBreed = postBreed;
+        this.postDescription = postDescription;
+        this.postImagePath = postImagePath;
+        this.postId = objectId;
+        this.userEmail = userEmail;
+
     }
 
     public String getPostLocation()
@@ -137,4 +153,15 @@ public class Post
     {
         this.postId = postId;
     }
+
+    public String getUserEmail()
+    {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail)
+    {
+        this.userEmail = userEmail;
+    }
+
 }
