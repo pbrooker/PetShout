@@ -154,6 +154,16 @@ public class CreatePetProfileFragment extends Fragment
 
                 }
 
+                try
+                {
+                    uploadAsync(img, filePath);
+                    //Log.i("Image URL" , remoteURL.toString());
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                    //Log.i("Image Status", "Not uploaded");
+                }
+
                 mSpayedNeutered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
                 {
                     @Override
@@ -165,7 +175,7 @@ public class CreatePetProfileFragment extends Fragment
                 });
 
                 //check editable field status
-                if(!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender))
+                if(!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender) && (remoteURL != null))
                 {
 
                     mID = UUID.randomUUID().toString();
@@ -175,27 +185,19 @@ public class CreatePetProfileFragment extends Fragment
                     }
 
                     //create local database entry
-                    DBHandler db = new DBHandler(getActivity());
+                    //DBHandler db = new DBHandler(getActivity());
                     Pets pet = new Pets(mName.getText().toString(), species, isSpayed, gender, mBreed.getText().toString(), mAge.getText().toString(),
                             mDescription.getText().toString(),
                             addInfo, remoteURL, mID );
 
 
-                    db.addPet(pet);
+                    //db.addPet(pet);
 
 
 
-                    db.addUserPet(userEmail, mID);
+                    //db.addUserPet(userEmail, mID);
                     //upload image
-                    try
-                    {
-                        uploadAsync(img, filePath);
-                        //Log.i("Image URL" , remoteURL.toString());
-                    } catch (Exception e)
-                    {
-                        e.printStackTrace();
-                        //Log.i("Image Status", "Not uploaded");
-                    }
+
                     //Log.i("CurrentUser" ,bkuser.getObjectId().toString());
                     bkuser.setProperty(Constents.USERS_PET_ID, mID);
                     bkuser.setProperty(Constents.TABLE_PETS, pet);
@@ -215,7 +217,7 @@ public class CreatePetProfileFragment extends Fragment
                         @Override
                         public void handleFault(BackendlessFault fault)
                         {
-                            Toast.makeText(getActivity(), "Pet profile was not added, please try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
                         }
                     });
 
