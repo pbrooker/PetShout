@@ -256,6 +256,15 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
 
         }
+        else if (id == R.id.nav_logout)
+        {
+            MainActivityNotLoggedInFragment fragment;
+            fragment = new MainActivityNotLoggedInFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

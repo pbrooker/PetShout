@@ -74,8 +74,13 @@
             />
         <item
             android:id="@+id/nav_register"
-            android:icon="@drawable/ic_menu_logout"
+            android:icon="@drawable/ic_menu_newregister"
             android:title="@string/nav_register"/>
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_menu_logout"
+            android:title="@string/nav_logout"/>
 
     </group>
 
