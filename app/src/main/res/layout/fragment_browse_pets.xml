@@ -19,6 +19,8 @@
             android:shrinkColumns="0"
             android:layout_below="@id/cat_dog_profile"
             android:id="@+id/browse_table_layout"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             >
 
             <TableRow
