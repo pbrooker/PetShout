@@ -13,7 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.backendless.BackendlessUser;
 import com.google.gson.Gson;
@@ -34,8 +37,11 @@ public class EditAccountFragment extends Fragment {
     private String userEmail;
     private String userObjectID;
     private BackendlessUser currentbkuser;
+    private TableRow mTableRow;
     private List<Pets> pets;
     private Button mUpdate;
+    private ImageView mImageView;
+    private TextView mEmailVerify;
 
 
     @Override
@@ -80,6 +86,10 @@ public class EditAccountFragment extends Fragment {
         mPhoneNumber =(EditText) view.findViewById(R.id.phone_number_input);
         mPetSpinner = (Spinner) view.findViewById(R.id.pet_spinner);
         mUpdate = (Button) view.findViewById(R.id.update_button);
+        mTableRow = (TableRow) view.findViewById(R.id.email_verify_row);
+        mImageView = (ImageView) view.findViewById(R.id.cat_dog_profile);
+        mEmailVerify = (TextView) view.findViewById(R.id.email_verify_textview);
+
 
         DBHandler db = new DBHandler(getActivity());
 
@@ -109,15 +119,15 @@ public class EditAccountFragment extends Fragment {
 
                 if(!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches())
                 {
+                    mTableRow.setVisibility(View.GONE);
                     mEmailVerify.setVisibility(View.GONE);
-                    mLogo.setVisibility(View.VISIBLE);
+                    mImageView.setVisibility(View.VISIBLE);
                 }else
                 {
                     mEmailVerify.setVisibility(View.VISIBLE);
                     mEmailVerify.setTextColor(Color.RED);
                     mEmailVerify.setText(R.string.email_verify);
-                    mScrollView.scrollTo(0, mTableRow.getScrollY());
-                    mLogo.setVisibility(View.GONE);
+                    mImageView.setVisibility(View.GONE);
                 }
             }
         });
