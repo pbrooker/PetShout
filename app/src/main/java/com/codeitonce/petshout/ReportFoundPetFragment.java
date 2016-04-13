@@ -281,7 +281,7 @@ public class ReportFoundPetFragment extends Fragment
                 } catch (Exception e)
                 {
                     e.printStackTrace();
-                    Log.i("Image Status", "Not uploaded");
+                    Toast.makeText(getActivity(), "Image not uploaded, please try again", Toast.LENGTH_SHORT).show();
                 }
 
             }
