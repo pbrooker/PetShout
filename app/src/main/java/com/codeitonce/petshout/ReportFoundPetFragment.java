@@ -273,19 +273,19 @@ public class ReportFoundPetFragment extends Fragment
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, Constents.SELECT_PHOTO);
-
-                try
-                {
-                    uploadAsync(img, filePath);
-
-                } catch (Exception e)
-                {
-                    e.printStackTrace();
-                    Toast.makeText(getActivity(), "Image not uploaded, please try again", Toast.LENGTH_SHORT).show();
-                }
-
             }
         });
+
+
+        try
+        {
+            uploadAsync(img, filePath);
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            Toast.makeText(getActivity(), "Image not uploaded, please try again", Toast.LENGTH_SHORT).show();
+        }
 
         return  view;
     }
