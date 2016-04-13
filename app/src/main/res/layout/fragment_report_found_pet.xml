@@ -37,64 +37,10 @@
                     android:text="@string/report_found_pet_header"
                 />
 
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-           >
-
-                <TextView
-                    style="@style/FormTitleText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/found_pet_email_textview"
-                    android:text="@string/email_title"
-                />
-
-                <EditText
-                    style="@style/EditTextFields"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:inputType="textEmailAddress"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:hint="@string/email_address_input"
-                    android:id="@+id/email_address_input"
-                />
 
             </TableRow>
 
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-            >
 
-                <TextView
-                    style="@style/FormTitleText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/found_pet_password_textview"
-                    android:text="@string/password_input"
-                />
-
-                <EditText
-                    style="@style/EditTextFields"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:hint="@string/password_input"
-                    android:id="@+id/password_input"
-                    android:inputType="textPassword"/>
-
-            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -303,6 +249,42 @@
                     android:textColor="#ffffff"
                     android:layout_marginTop="10dp"
                 />
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </TableRow>
+            <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </TableRow>
+            <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </TableRow>
+            <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:textSize="20sp"
+
+                    />
 
             </TableRow>
 

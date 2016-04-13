@@ -24,7 +24,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
@@ -71,8 +70,6 @@ public class ReportFoundPetFragment extends Fragment
     private String userObjectID;
     private BackendlessUser currentbkuser;
     private Boolean isValidUser;
-    private TextView mEmailTextView;
-    private TextView mPasswordTextView;
     private DBHandler db;
     private String mID;
 
@@ -100,7 +97,7 @@ public class ReportFoundPetFragment extends Fragment
             userEmail = user.getEmail();
             userObjectID = user.getObjectId();
            //Log.i("current user", userObjectID.toString());
-           // Log.i("user email", userEmail);
+            Log.i("user email", userEmail);
             currentbkuser = new BackendlessUser();
 
         }
@@ -126,17 +123,8 @@ public class ReportFoundPetFragment extends Fragment
         mGender = (RadioGroup) view.findViewById(R.id.gender_group);
         mAddImage = (Button) view.findViewById(R.id.image_button);
         mSubmit = (Button) view.findViewById(R.id.submit_button);
-        mEmailTextView = (TextView)view.findViewById(R.id.found_pet_email_textview);
-        mPasswordTextView = (TextView) view.findViewById(R.id.found_pet_password_textview);
 
-        if(isValidUser)
-        {
-            mPasswordTextView.setVisibility(View.INVISIBLE);
-            mEmailTextView.setVisibility(View.INVISIBLE);
-            mEmail.setVisibility(View.INVISIBLE);
-            mPassword.setVisibility(View.INVISIBLE);
 
-        }
 
         final RadioButton selection = (RadioButton) view.findViewById(mGender.getCheckedRadioButtonId());
 
@@ -185,7 +173,7 @@ public class ReportFoundPetFragment extends Fragment
                         mID = UUID.randomUUID().toString();
                         db = new DBHandler(getActivity());
                         Post post = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
-                                mPetDescription.getText().toString(), remoteURL, mID, currentbkuser.getEmail().toString());
+                                mPetDescription.getText().toString(), remoteURL, mID, userEmail);
 
                         db.addPost(post);
                         currentbkuser.setProperty(Constents.TABLE_POSTS, post);

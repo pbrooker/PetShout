@@ -70,7 +70,7 @@ public class ClaimLostPetFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_claim_lost_pet, container, false);
 
-        mEmail = (TextView) view.findViewById(R.id.found_pet_email_textview);
+
         mBreed = (TextView) view.findViewById(R.id.claim_pet_breed);
         mGender = (TextView) view.findViewById(R.id.claim_pet_gender);
         mDescription = (TextView) view.findViewById(R.id.claim_pet_description);

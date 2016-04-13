@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
 
         DBHandler dbHandler = new DBHandler(getApplicationContext());
         //rebuild tables until issue of comparing data in sqlite solved
-        dbHandler.rebuildTables();
+        //dbHandler.rebuildTables();
 
         try
         {
