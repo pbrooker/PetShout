@@ -93,7 +93,14 @@ public class BrowsePetsFragment extends Fragment
             String imagePath = mPost.getPostImagePath();
             objectId = mPost.getPostId();
 
-            Picasso.with(getActivity()).load(imagePath).placeholder(R.drawable.catanddog).resize(300, 300).centerCrop().into(mImageView);
+            try
+            {
+                Picasso.with(getActivity()).load(imagePath).placeholder(R.drawable.catanddog).resize(300, 300).centerCrop().into(mImageView);
+            }
+            catch (NullPointerException n)
+            {
+
+            }
             mDescriptionTextView.setText(post.getPostDescription());
 
 

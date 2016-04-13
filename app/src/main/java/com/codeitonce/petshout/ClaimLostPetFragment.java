@@ -103,14 +103,6 @@ public class ClaimLostPetFragment extends Fragment {
             }
         });
 
-
-
-
-
-
-
-
-
         return view;
     }
 
