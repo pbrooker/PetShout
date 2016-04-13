@@ -71,6 +71,7 @@ public class ClaimLostPetFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_claim_lost_pet, container, false);
 
 
+        mEmail = (TextView) view.findViewById(R.id.claim_pet_email);
         mBreed = (TextView) view.findViewById(R.id.claim_pet_breed);
         mGender = (TextView) view.findViewById(R.id.claim_pet_gender);
         mDescription = (TextView) view.findViewById(R.id.claim_pet_description);
@@ -78,40 +79,29 @@ public class ClaimLostPetFragment extends Fragment {
         mClaimButton = (Button) view.findViewById(R.id.claim_lost_pet);
         mPetImageView = (ImageView) view.findViewById(R.id.claim_pet_image);
 
-//        BackendlessDataQuery query = new BackendlessDataQuery();
-//        Log.d("mID", "mID = " + mID);
-//        query.setWhereClause("objectId = " + "'" + mID + "'");
-//        BackendlessCollection<Users> user = Backendless.Data.of(Users.class ).find( query );
-//
-//        Iterator<Users> iterator = user.getCurrentPage().iterator();
-//
-//        while (iterator.hasNext())
-//        {
-//            Users u = iterator.next();
-//            userEmail = u.getObjectId();
-//
-//        }
-//        query.setWhereClause("User.objectId = " + mID);
-//        BackendlessCollection<Users> user = Backendless.Data.of(Users.class ).find( query );
-//
-//        Iterator<Users> iterator2 = user.getCurrentPage().iterator();
-//
-//        while (iterator2.hasNext())
-//        {
-//            Users user2 = iterator2.next();
-//            userEmail = user2.getEmail();
-//
-//        }
 
+        try
+        {
+            Picasso.with(getActivity()).load(mPost.getPostImagePath()).placeholder(R.drawable.catanddog).resize(500, 500).centerCrop().into(mPetImageView);
+        }
+        catch(NullPointerException n)
+        {
 
-
-        Picasso.with(getActivity()).load(mPost.getPostImagePath()).placeholder(R.drawable.catanddog).resize(500, 500).centerCrop().into(mPetImageView);
-
-        //mEmail.setText(userEmail);
+        }
+        mEmail.setText(mPost.getUserEmail().toString());
         mBreed.setText(mPost.getPostBreed().toString());
         mGender.setText(mPost.getPostGender().toString());
         mDescription.setText(mPost.getPostDescription().toString());
         mLocation.setText(mPost.getPostLocation().toString());
+
+        mClaimButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                mEmail.setVisibility(View.VISIBLE);
+            }
+        });
 
 
 

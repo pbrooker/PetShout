@@ -67,6 +67,8 @@ public class Constents
     public static final String POSTS_OBJECTID = "objectId";
     public static final String POST_USEREMAIL = "userEmail";
 
+    public static final String UPDATED = "updated";
+
 
 
     public static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";

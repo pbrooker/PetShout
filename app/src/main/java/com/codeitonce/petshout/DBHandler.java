@@ -56,8 +56,8 @@ public class DBHandler extends SQLiteOpenHelper
                 + Constents.PETS_NEUTERED + " TEXT,"
                 + Constents.PETS_BREED + " BLOB,"
                 + Constents.PETS_IMAGEPATH + " BLOB,"
-                + Constents.PETS_DESCRIPTION + " BLOB," +
-                Constents.PETS_SPECIES + " BLOB,"
+                + Constents.PETS_DESCRIPTION + " BLOB,"
+                + Constents.PETS_SPECIES + " BLOB,"
                 + Constents.PETS_ADDINFO + " BLOB,"
                 + Constents.PETS_OBJECTID + " BLOB)");
 
@@ -281,10 +281,15 @@ public class DBHandler extends SQLiteOpenHelper
         }
         curPost.moveToFirst();
         Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
+                curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)),
+                curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)));
+        Log.i("getPostEmail", post.getUserEmail().toString());
         // return post
 
         curPost.close();

@@ -158,18 +158,12 @@ public class ReportFoundPetFragment extends Fragment
 
                 }
 
-                try
-                {
-                    uploadAsync(img, filePath);
 
-                } catch (Exception e)
-                {
-                    e.printStackTrace();
-                    Log.i("Image Status", "Not uploaded");
-                }
 
-                    if(!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription))))
+                    if(!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription)) && (filePath != null)))
                     {
+                        //testing data flow
+                        //Log.i("Add post", "user email is " + userEmail);
                         mID = UUID.randomUUID().toString();
                         db = new DBHandler(getActivity());
                         Post post = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
@@ -279,6 +273,16 @@ public class ReportFoundPetFragment extends Fragment
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, Constents.SELECT_PHOTO);
+
+                try
+                {
+                    uploadAsync(img, filePath);
+
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                    Log.i("Image Status", "Not uploaded");
+                }
 
             }
         });
