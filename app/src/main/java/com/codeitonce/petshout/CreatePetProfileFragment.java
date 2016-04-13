@@ -175,11 +175,11 @@ public class CreatePetProfileFragment extends Fragment
                 });
 
                 //check editable field status
-                if(!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender) && (remoteURL != null))
+                if (!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender) && (remoteURL != null))
                 {
 
                     mID = UUID.randomUUID().toString();
-                    if(!(isEmpty(mAdditionalInfo)))
+                    if (!(isEmpty(mAdditionalInfo)))
                     {
                         addInfo = mAdditionalInfo.getText().toString();
                     }
@@ -188,11 +188,10 @@ public class CreatePetProfileFragment extends Fragment
                     //DBHandler db = new DBHandler(getActivity());
                     Pets pet = new Pets(mName.getText().toString(), species, isSpayed, gender, mBreed.getText().toString(), mAge.getText().toString(),
                             mDescription.getText().toString(),
-                            addInfo, remoteURL, mID );
+                            addInfo, remoteURL, mID);
 
 
                     //db.addPet(pet);
-
 
 
                     //db.addUserPet(userEmail, mID);
@@ -221,10 +220,10 @@ public class CreatePetProfileFragment extends Fragment
                         }
                     });
 
-                    }
                 }
+            }
 
-            });
+        });
 
         //populate spinner
         mSpecies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
@@ -293,6 +292,9 @@ public class CreatePetProfileFragment extends Fragment
 
             }
         });
+
+        DBHandler db = new DBHandler(getActivity());
+        db.getPets(userObjectID);
 
         return view;
     }

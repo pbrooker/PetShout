@@ -16,6 +16,7 @@ public class Pets
     private String imagePath;
     private String objectId;
     private String petId;
+    private String userId;
 
     public Pets()
     {
@@ -36,6 +37,21 @@ public class Pets
         this.addInfo = addInfo;
         this.imagePath = imagePath;
         this.petId = petId;
+    }
+
+    public Pets(String petName, String petSpecies, String petNeutered, String petGender, String petBreed, String petAge, String petDescription, String addInfo, String imagePath, String petId, String userId)
+    {
+        this.petName = petName;
+        this.petSpecies = petSpecies;
+        this.petNeutered = petNeutered;
+        this.petGender = petGender;
+        this.petBreed = petBreed;
+        this.petAge = petAge;
+        this.petDescription = petDescription;
+        this.addInfo = addInfo;
+        this.imagePath = imagePath;
+        this.petId = petId;
+        this.userId = userId;
     }
 
     public String getPetName()
@@ -145,5 +161,20 @@ public class Pets
     public void setPetId(String petId)
     {
         this.petId = petId;
+    }
+
+    public String getPetNeutered()
+    {
+        return petNeutered;
+    }
+
+    public String getUserId()
+    {
+        return userId;
+    }
+
+    public void setUserId(String userId)
+    {
+        this.userId = userId;
     }
 }
