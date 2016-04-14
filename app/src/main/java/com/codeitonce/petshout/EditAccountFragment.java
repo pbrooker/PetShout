@@ -12,11 +12,9 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,9 +24,6 @@ import com.backendless.BackendlessUser;
 import com.backendless.exceptions.BackendlessException;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class EditAccountFragment extends Fragment {
 
@@ -37,19 +32,15 @@ public class EditAccountFragment extends Fragment {
     private EditText mCity;
     private EditText mEmail;
     private EditText mPhoneNumber;
-    private Spinner mPetSpinner;
     private Boolean isValidUser;
     private String userEmail;
     private String userObjectID;
     private BackendlessUser currentbkuser;
     private TableRow mTableRow;
-    private List<Pets> pets;
     private Button mUpdate;
     private ImageView mImageView;
     private TextView mEmailVerify;
-    private Button mDeletePetButton;
-    private TableRow mPetSpinnerRow;
-    private TableRow mPetDeleteRow;
+
 
 
     @Override
@@ -92,50 +83,12 @@ public class EditAccountFragment extends Fragment {
         mCity = (EditText) view.findViewById(R.id.city_input);
         mEmail = (EditText) view.findViewById(R.id.email_address_input);
         mPhoneNumber =(EditText) view.findViewById(R.id.phone_number_input);
-        mPetSpinner = (Spinner) view.findViewById(R.id.pet_spinner);
         mUpdate = (Button) view.findViewById(R.id.update_button);
         mTableRow = (TableRow) view.findViewById(R.id.email_verify_row);
         mImageView = (ImageView) view.findViewById(R.id.cat_dog_profile);
         mEmailVerify = (TextView) view.findViewById(R.id.email_verify_textview);
-        mPetSpinnerRow = (TableRow) view.findViewById(R.id.select_pet_profile_row);
-        mPetDeleteRow = (TableRow) view.findViewById(R.id.delete_pet_profile_row);
-        mDeletePetButton = (Button) view.findViewById(R.id.delete_pet_profile_button);
 
 
-        DBHandler db = new DBHandler(getActivity());
-
-        pets = new ArrayList<>();
-
-        pets = db.getPets(userObjectID);
-
-        try
-        {
-            if (pets.size() == 0)
-            {
-                mPetSpinnerRow.setVisibility(View.GONE);
-                mPetDeleteRow.setVisibility(View.GONE);
-            } else if (pets.size() > 0)
-            {
-                mPetSpinnerRow.setVisibility(View.VISIBLE);
-                mPetDeleteRow.setVisibility(View.VISIBLE);
-
-                ArrayList<String> names = new ArrayList<>();
-
-                for (int x = 0; x < pets.size(); x++)
-                {
-                    Pets pet = pets.get(x);
-                    names.add(pet.getPetName());
-
-                }
-                ArrayAdapter<String> mArrayAdapter;
-                mArrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, names);
-                mPetSpinner.setAdapter(mArrayAdapter);
-            }
-        }
-        catch(Exception e)
-        {
-
-        }
 
 
         mEmail.addTextChangedListener(new TextWatcher()
