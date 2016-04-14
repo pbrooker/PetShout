@@ -305,7 +305,7 @@
 
                 <Button
                     style="@style/ActionButton"
-                    android:text="@string/image_button_text"
+                    android:text="@string/save_image_button"
                     android:id="@+id/image_button"
                     android:layout_gravity="center_horizontal"
                     android:layout_span="2"
