@@ -36,6 +36,7 @@ public class BrowsePetsFragment extends Fragment
     {
         DBHandler dbHandler = new DBHandler(getActivity());
         List<Post> posts = dbHandler.getPostsArray();
+        dbHandler.close();
         //Log.i("PostsList", posts.toString());
         if(mPostAdapter == null)
         {
@@ -46,6 +47,7 @@ public class BrowsePetsFragment extends Fragment
         {
             mPostAdapter.notifyDataSetChanged();  // if you are changing only one item, you usually use notifyItemChanged
         }
+
 
     }
     @Override
