@@ -30,6 +30,7 @@
             android:id="@+id/image_button"
             android:src="@drawable/lost_pet_button"
             android:background="#00ffffff"
+            android:contentDescription="@string/i_lost_a_pet_button_decription"
         />
 
     </TableRow>

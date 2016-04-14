@@ -213,5 +213,7 @@
     <string name="claim_pet_instructions">Is this your pet? If so, click the Claim Lost Pet button to show the email address of the person who found this pet so you can claim it.</string>
     <string name="nav_logout">Logout</string>
     <string name="save_image_button">Save Image</string>
+    <string name="i_lost_a_pet_button_decription">I lost a pet button</string>
+    <string name="i_found_a_pet_button_description">I found a pet button</string>
 
 </resources>
