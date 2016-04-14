@@ -15,6 +15,7 @@ public class Post
     private String postId;
     private String objectId;
     private String userEmail;
+    private String userId;
 
 
 
@@ -25,7 +26,8 @@ public class Post
     }
 
 
-    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed, String postDescription, String postImagePath, String objectId)
+    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed,
+                String postDescription, String postImagePath, String objectId, String userId)
     {
         this.post_location = postLocation;
         this.post_lostfound = post_lostfound;
@@ -35,9 +37,11 @@ public class Post
         this.postDescription = postDescription;
         this.postImagePath = postImagePath;
         this.postId = objectId;
+        this.userId = userId;
     }
 
-    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed, String postDescription, String postImagePath, String objectId, String userEmail)
+    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed,
+                String postDescription, String postImagePath, String objectId, String userEmail, String userId)
     {
         this.post_location = postLocation;
         this.post_lostfound = post_lostfound;
@@ -48,6 +52,7 @@ public class Post
         this.postImagePath = postImagePath;
         this.postId = objectId;
         this.userEmail = userEmail;
+        this.userId = userId;
 
     }
 
@@ -164,4 +169,13 @@ public class Post
         this.userEmail = userEmail;
     }
 
+    public String getUserId()
+    {
+        return userId;
+    }
+
+    public void setUserId(String userId)
+    {
+        this.userId = userId;
+    }
 }

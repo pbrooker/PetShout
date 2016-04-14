@@ -67,6 +67,7 @@ public class Constents
     public static final String POSTS_LAST_UPDATED = "LAST_UPDATED";
     public static final String POSTS_OBJECTID = "objectId";
     public static final String POST_USEREMAIL = "userEmail";
+    public static final String POST_USERID = "userId";
 
     public static final String UPDATED = "updated";
 

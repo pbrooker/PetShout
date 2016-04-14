@@ -110,12 +110,12 @@ public class EditAccountFragment extends Fragment {
             {
                 String target = mEmail.getText().toString();
 
-                if(!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches())
+                if (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches())
                 {
                     mTableRow.setVisibility(View.GONE);
                     mEmailVerify.setVisibility(View.GONE);
                     mImageView.setVisibility(View.VISIBLE);
-                }else
+                } else
                 {
                     mTableRow.setVisibility(View.VISIBLE);
                     mEmailVerify.setVisibility(View.VISIBLE);
@@ -131,19 +131,19 @@ public class EditAccountFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                if (mFirstName.getText().toString() != null)
+                if (!(isEmpty(mFirstName)))
                 {
                     currentbkuser.setProperty(Constents.USERS_FNAME, mFirstName.getText().toString());
                 }
-                if (mLastName.getText().toString() != null)
+                if (!(isEmpty(mLastName)))
                 {
                     currentbkuser.setProperty(Constents.USERS_LNAME, mLastName.getText().toString());
                 }
-                if (mCity.getText().toString() != null)
+                if ((!(isEmpty(mCity))))
                 {
                     currentbkuser.setProperty(Constents.USERS_CITY, mCity.getText().toString());
                 }
-                if (mEmail.getText().toString() != null && isEmail(mEmail.getText().toString()))
+                if (!(isEmpty(mEmail)) && isEmail(mEmail.getText().toString()))
                 {
                     currentbkuser.setProperty(Constents.USERS_EMAIL, mEmail.getText().toString());
                 }
@@ -183,5 +183,13 @@ public class EditAccountFragment extends Fragment {
     private boolean isEmail(CharSequence target)
     {
         return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches();
+    }
+
+    private boolean isEmpty(EditText etText) {
+        if (etText.getText().toString().trim().length() > 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
