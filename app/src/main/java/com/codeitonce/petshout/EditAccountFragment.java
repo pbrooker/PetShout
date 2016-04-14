@@ -60,7 +60,7 @@ public class EditAccountFragment extends Fragment {
             Log.i("edit account user", userObjectID.toString());
             //Log.i("user email", userEmail);
             currentbkuser = new BackendlessUser();
-            currentbkuser.setProperty("objectID", userObjectID);
+            currentbkuser.setProperty("objectId", userObjectID);
 
         }
         else
@@ -147,34 +147,34 @@ public class EditAccountFragment extends Fragment {
                     currentbkuser.setProperty(Constents.USERS_EMAIL, mEmail.getText().toString());
                 }
 
-            }
-        });
 
-        try
-        {
 
-            Backendless.UserService.update(currentbkuser, new DefaultCallback<BackendlessUser>(getActivity())
-            {
-                @Override
-                public void handleResponse(BackendlessUser backendlessUser)
+                try
                 {
-                    super.handleResponse(backendlessUser);
 
-                    MainActivityLoggedInFragment fragment;
-                    fragment = new MainActivityLoggedInFragment();
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.mainFrame, fragment);
-                    ft.commit();
+                    Backendless.UserService.update(currentbkuser, new DefaultCallback<BackendlessUser>(getActivity())
+                    {
+                        @Override
+                        public void handleResponse(BackendlessUser backendlessUser)
+                        {
+                            super.handleResponse(backendlessUser);
 
+                            MainActivityLoggedInFragment fragment;
+                            fragment = new MainActivityLoggedInFragment();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.replace(R.id.mainFrame, fragment);
+                            ft.commit();
+
+                        }
+
+                    });
+                } catch (BackendlessException e)
+                {
+                    Toast.makeText(getActivity(), "Error - record not added, please try again", Toast.LENGTH_SHORT).show();
                 }
 
-            });
-        } catch (BackendlessException e)
-        {
-            Toast.makeText(getActivity(), "Error - record not added, please try again", Toast.LENGTH_SHORT).show();
-        }
-
-
+            }
+        });
         return view;
     }
 
