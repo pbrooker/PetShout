@@ -380,6 +380,51 @@ public class DBHandler extends SQLiteOpenHelper
         return mPostArray;
     }
 
+    public ArrayList<Pets> getUserPets(String objectID)
+    {
+        final ArrayList<Pets> mPetArray = new ArrayList<>();
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor curPost = db.query( Constents.TABLE_PETS , null, Constents.PETS_USERID + "=?",
+                new String[] { String.valueOf(objectID) }, null, null, null, null);
+        if (curPost.getCount() == 0)
+        {
+            return null;
+        }
+
+        if (curPost.getCount() > 0)
+        {
+            curPost.moveToPosition(-1);
+            while (curPost.moveToNext())
+            {
+                Pets pet = new Pets(curPost.getString(curPost.getColumnIndex(Constents.PETS_NAME)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_SPECIES)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_NEUTERED)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_GENDER)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_BREED)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_AGE)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_DESCRIPTION)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_ADDINFO)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_IMAGEPATH)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_ID)),
+                        curPost.getString(curPost.getColumnIndex(Constents.PETS_USERID)));
+                //Log.i("getPostEmail", post.getUserEmail().toString());
+
+                mPetArray.add(pet);
+            }
+
+        }
+
+
+        curPost.close();
+        db.close();
+
+
+
+        return mPetArray;
+    }
+
     public void getPets()
     {
 
