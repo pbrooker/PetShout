@@ -117,6 +117,7 @@ public class EditAccountFragment extends Fragment {
                     mImageView.setVisibility(View.VISIBLE);
                 }else
                 {
+                    mTableRow.setVisibility(View.VISIBLE);
                     mEmailVerify.setVisibility(View.VISIBLE);
                     mEmailVerify.setTextColor(Color.RED);
                     mEmailVerify.setText(R.string.email_verify);
