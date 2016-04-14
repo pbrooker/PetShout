@@ -11,11 +11,24 @@
         android:id="@+id/scroll_view"
         >
 
-    <TextView
-        style="@style/PageTitle"
-        android:text="@string/main_welcome_header"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="0,1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            >
+            <TableRow>
+                <TextView
+                    style="@style/PageTitle"
+                    android:text="@string/main_welcome_header"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"/>
+
+            </TableRow>
+
+
+
 
     <TableRow
         android:layout_width="match_parent"
@@ -133,6 +146,7 @@
         </LinearLayout>
 
     </TableRow>
+        </TableLayout>
     </ScrollView>
 
 </RelativeLayout>
