@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity
         try
         {
             dbHandler.getPosts();
+            dbHandler.getPets();
             //dbHandler.getUsers();
 
         }catch (Exception e)

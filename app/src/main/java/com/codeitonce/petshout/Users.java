@@ -13,6 +13,7 @@ public class Users
     private String password;
     private String USER_ID;
     private String objectId;
+    private Post post;
 
 
     public Users()
@@ -20,6 +21,10 @@ public class Users
 
     }
 
+    public Users(Post post)
+    {
+
+    }
 
     public Users(String email, String password, String userID)
     {
@@ -126,4 +131,13 @@ public class Users
         this.objectId = objectId;
     }
 
+    public Post getPost()
+    {
+        return post;
+    }
+
+    public void setPost(Post post)
+    {
+        this.post = post;
+    }
 }
