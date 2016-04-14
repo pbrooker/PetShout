@@ -39,36 +39,7 @@
 
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-            >
-
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/name"
-                            android:textColor="#ffffff"
-                            />
-                        <EditText
-                            style="@style/EditTextFields"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:inputType="textPersonName"
-                            android:hint="@string/name"
-                            android:id="@+id/pet_name"
-                            />
-
-                    </TableRow>
-
-                    <TableRow android:layout_marginTop="8dp"
+            <TableRow android:layout_marginTop="8dp"
                               android:layout_marginBottom="8dp"
                     >
 
@@ -77,14 +48,14 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/select_species_title"
+                            android:text="@string/select_lost_pet_post_spinner_title"
                         />
 
                         <Spinner
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:id="@+id/species_spinner"
+                            android:id="@+id/lost_pet_spinner"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
@@ -132,10 +103,10 @@
 
                 <RadioGroup
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:id="@+id/gender_group"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:textColor="#ffffff"
                     android:paddingLeft="5dp"
                 >
@@ -161,54 +132,6 @@
                     />
 
                 </RadioGroup>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-            >
-
-                <TextView
-                    style="@style/FormTitleText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/age_header"
-                />
-
-                <EditText
-                    style="@style/EditTextFields"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:hint="@string/age_header"
-                    android:id="@+id/age_input"
-                />
-
-            </TableRow>
-
-            <TableRow android:layout_marginTop="8dp"
-                      android:layout_marginBottom="8dp"
-            >
-
-                <TextView
-                    style="@style/FormTitleText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/spayed_neutered"
-                />
-
-                <CheckBox
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/spayedNeuteredCheckBox"
-                    android:textColor="#ffffff"
-                    android:buttonTint="@color/colorAccent"
-                    android:paddingLeft="5dp"
-                />
 
             </TableRow>
 
@@ -312,7 +235,7 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingTop="16dp"
+
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
                     android:layout_span="2"
