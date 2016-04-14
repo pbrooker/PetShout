@@ -160,18 +160,6 @@ public class CreatePetProfileFragment extends Fragment
 
                 }
 
-
-                mSpayedNeutered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-                {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-                    {
-                        isSpayed = "yes";
-
-                    }
-                });
-
-
                 //check editable field status
                 if (!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender))
                 {
@@ -305,6 +293,16 @@ public class CreatePetProfileFragment extends Fragment
                     e.printStackTrace();
                     Toast.makeText(getActivity(), R.string.image_upload_delayed, Toast.LENGTH_SHORT).show();
                 }
+
+            }
+        });
+
+        mSpayedNeutered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                isSpayed = "yes";
 
             }
         });

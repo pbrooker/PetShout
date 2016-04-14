@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -40,6 +41,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 
+import it.sephiroth.android.library.picasso.Picasso;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,8 +55,8 @@ public class ReportFoundPetFragment extends Fragment
     private EditText mPetDescription;
     private Spinner mSpecies;
     private RadioGroup mGender;
-    private Button mAddImage;
-    private Button mSubmit;
+    private Button mSaveImage;
+    private Button mSubmitButton;
     private String species;
     private String gender = "";
     private String imagePath;
@@ -68,7 +71,7 @@ public class ReportFoundPetFragment extends Fragment
     private String userObjectID;
     private BackendlessUser currentbkuser;
     private Boolean isValidUser;
-    private DBHandler db;
+    private ImageButton mSelectedImage;
     private String mID;
 
 
@@ -85,7 +88,7 @@ public class ReportFoundPetFragment extends Fragment
     {
         super.onCreate(savedInstanceState);
 
-        String jsonMyObject = "";
+        String jsonMyObject;
         Bundle extras = getActivity().getIntent().getExtras();
         if(extras != null)
         {
@@ -94,8 +97,10 @@ public class ReportFoundPetFragment extends Fragment
             Users user = new Gson().fromJson(jsonMyObject, Users.class);
             userEmail = user.getEmail();
             userObjectID = user.getObjectId();
-           //Log.i("current user", userObjectID.toString());
-            Log.i("user email", userEmail);
+
+            //for testing
+            //Log.i("current user", userObjectID.toString());
+            //Log.i("user email", userEmail);
             currentbkuser = new BackendlessUser();
 
         }
@@ -116,8 +121,9 @@ public class ReportFoundPetFragment extends Fragment
         mPetDescription = (EditText) view.findViewById(R.id.pet_description);
         mSpecies = (Spinner) view.findViewById(R.id.species_spinner);
         mGender = (RadioGroup) view.findViewById(R.id.gender_group);
-        mAddImage = (Button) view.findViewById(R.id.image_button);
-        mSubmit = (Button) view.findViewById(R.id.submit_button);
+        mSaveImage = (Button) view.findViewById(R.id.image_button);
+        mSubmitButton = (Button) view.findViewById(R.id.submit_button);
+        mSelectedImage = (ImageButton) view.findViewById(R.id.selected_image_button);
 
 
 
@@ -131,7 +137,7 @@ public class ReportFoundPetFragment extends Fragment
 
 
 
-        mSubmit.setOnClickListener(new View.OnClickListener()
+        mSubmitButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -161,8 +167,6 @@ public class ReportFoundPetFragment extends Fragment
                     e.printStackTrace();
                     Toast.makeText(getActivity(), "Image not uploaded, please try again", Toast.LENGTH_SHORT).show();
                 }
-
-
 
 
                 if (!(isEmpty(mLocation)) && isRadioButtonChecked(mGender) && (!(isEmpty(mBreed))) && (!(isEmpty(mPetDescription)) && (remoteURL != null)))
@@ -204,8 +208,7 @@ public class ReportFoundPetFragment extends Fragment
                     {
                         Toast.makeText(getActivity(), "Error - record not added, please try again", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else
+                } else
                 {
                     Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
                 }
@@ -269,7 +272,7 @@ public class ReportFoundPetFragment extends Fragment
         });
 
         //get image from gallery (take photo as option will be a future upgrade)
-        mAddImage.setOnClickListener(new View.OnClickListener()
+        mSelectedImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -281,6 +284,25 @@ public class ReportFoundPetFragment extends Fragment
 
             }
 
+        });
+
+        mSaveImage.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                try
+                {
+                    uploadAsync(img, filePath);
+
+
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), R.string.image_upload_delayed, Toast.LENGTH_SHORT).show();
+                }
+
+            }
         });
 
 
@@ -366,7 +388,7 @@ public class ReportFoundPetFragment extends Fragment
                     {
                         e.printStackTrace();
                     }
-
+                    Picasso.with(getActivity()).load(selectedImage).placeholder(R.drawable.default_pet_picture).resize(225,225).centerCrop().into(mSelectedImage);
                 }
         }
     }
@@ -401,7 +423,7 @@ public class ReportFoundPetFragment extends Fragment
 
     }
 
-    private static void uploadAsync(File pic, String filePath ) throws Exception
+    private void uploadAsync(File pic, String filePath ) throws Exception
     {
 
         Backendless.Files.upload(pic, filePath, new AsyncCallback<BackendlessFile>()
@@ -411,6 +433,7 @@ public class ReportFoundPetFragment extends Fragment
             {
                 remoteURL = response.getFileURL();
                 Log.i("RemoteURL", remoteURL);
+                mSubmitButton.setVisibility(View.VISIBLE);
             }
 
             @Override

@@ -221,7 +221,7 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageButton"
+                        android:id="@+id/selected_image_button"
                         android:contentDescription="Selected Image"
                         android:src="@drawable/default_pet_picture"/>
                 </LinearLayout>
@@ -251,6 +251,7 @@
                         style="@style/ActionButton"
                         android:text="@string/submit_button"
                         android:id="@+id/submit_button"
+                        android:visibility="gone"
                         android:layout_gravity="center_horizontal"
                         android:layout_span="2"
                     />
