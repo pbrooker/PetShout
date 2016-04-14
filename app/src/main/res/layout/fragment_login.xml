@@ -6,13 +6,18 @@
              style="@style/Layouts"
 >
 
+    <ImageView
+        style="@style/HeaderImage"
+        android:id="@+id/cat_dog_profile"
+        />
+
     <TextView
         style="@style/PageTitle"
         android:text="@string/login_button"
         android:id="@+id/text_view"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/cat_dog_profile"
     />
 
     <EditText
@@ -33,7 +38,7 @@
         android:layout_below="@+id/email_address_input"
         android:layout_alignLeft="@+id/email_address_input"
         android:layout_alignStart="@+id/email_address_input"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -55,8 +60,8 @@
         android:text="@string/or_text"
         android:id="@+id/or_text"
         android:textColor="#ffffff"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_below="@+id/submit_button"
         android:layout_centerHorizontal="true"
     />
@@ -67,7 +72,7 @@
         android:id="@+id/register_button"
         android:layout_below="@+id/or_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
     />
 
     <TextView
@@ -78,7 +83,7 @@
         android:textColor="@color/colorAccent"
         android:layout_below="@+id/register_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
     />
 
 </RelativeLayout>
