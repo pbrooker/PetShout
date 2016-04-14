@@ -194,23 +194,7 @@
                     />
                 </LinearLayout>
             </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
 
-                <Button
-                    style="@style/ActionButton"
-                    android:text="@string/register_button"
-                    android:id="@+id/register_button"
-                    android:layout_gravity="center"
-                    android:layout_centerHorizontal="true"
-                    />
-
-            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
