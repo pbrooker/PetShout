@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="fill_parent"
+             android:layout_height="match_parent"
              tools:context="com.codeitonce.petshout.LoginFragment"
              style="@style/Layouts"
 >
@@ -11,79 +11,190 @@
         android:id="@+id/cat_dog_profile"
         />
 
-    <TextView
-        style="@style/PageTitle"
-        android:text="@string/login_button"
-        android:id="@+id/text_view"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/cat_dog_profile"
-    />
+    <ScrollView
+        style="@style/ScrollViewStyle"
+        android:id="@+id/scroll_view"
+        >
 
-    <EditText
-        style="@style/LoginFields"
-        android:inputType="textEmailAddress"
-        android:hint="@string/email_address_input"
-        android:id="@+id/email_address_input"
-        android:layout_below="@+id/text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="0,1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            >
 
-    <EditText
-        style="@style/LoginFields"
-        android:inputType="textPassword"
-        android:hint="@string/password_input"
-        android:id="@+id/password_input"
-        android:paddingLeft="5dp"
-        android:layout_below="@+id/email_address_input"
-        android:layout_alignLeft="@+id/email_address_input"
-        android:layout_alignStart="@+id/email_address_input"
-        android:layout_marginBottom="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
-    <Button
-        style="@style/ActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:id="@+id/submit_button"
-        android:layout_below="@+id/password_input"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-    />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/or_text"
-        android:id="@+id/or_text"
-        android:textColor="#ffffff"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_below="@+id/submit_button"
-        android:layout_centerHorizontal="true"
-    />
+                    <TextView
+                        style="@style/PageTitle"
+                        android:text="@string/login_button"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                    />
+            </TableRow>
 
-    <Button
-        style="@style/ActionButton"
-        android:text="@string/register_button"
-        android:id="@+id/register_button"
-        android:layout_below="@+id/or_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-    />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/restore_password_header"
-        android:id="@+id/restore_password_button"
-        android:textColor="@color/colorAccent"
-        android:layout_below="@+id/register_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-    />
+                <TextView
+                    style="@style/FormTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_address_input"
+                    android:layout_weight="1"
+
+                    />
+
+                <EditText
+                    style="@style/EditTextFields"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/email_address_input"
+                    android:id="@+id/email_address_input"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_input"
+                    android:layout_weight="1"
+                    />
+
+                <EditText
+                    style="@style/EditTextFields"
+                    android:inputType="textPassword"
+                    android:hint="@string/password_input"
+                    android:id="@+id/password_input"
+                    android:paddingLeft="5dp"
+
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:layout_span="2"
+                    android:layout_column="0"
+                    >
+
+                    <Button
+                        style="@style/ActionButton"
+                        android:text="Submit"
+                        android:id="@+id/submit_button"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                    />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:layout_span="2"
+                    android:layout_column="0"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/or_text"
+                        android:id="@+id/or_text"
+                        android:textColor="#ffffff"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                    />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:layout_span="2"
+                    android:layout_column="0"
+                    >
+
+                    <Button
+                        style="@style/ActionButton"
+                        android:text="@string/register_button"
+                        android:id="@+id/register_button"
+                        android:layout_centerHorizontal="true"
+                        />
+            </LinearLayout>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:layout_span="2"
+                    android:layout_column="0"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="@string/restore_password_header"
+                        android:id="@+id/restore_password_button"
+                        android:textColor="@color/colorAccent"
+                        android:layout_marginTop="16dp"
+                    />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 
 </RelativeLayout>

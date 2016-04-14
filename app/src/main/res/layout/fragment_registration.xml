@@ -281,7 +281,6 @@
                         android:text="@string/register_button"
                         android:id="@+id/register_button"
                         android:layout_gravity="center"
-                        android:layout_below="@+id/scroll_view_registration"
                         android:layout_centerHorizontal="true"
                     />
 
