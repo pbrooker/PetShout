@@ -28,7 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/image_button"
-            android:src="@drawable/lost_pet_button"
             android:background="#00ffffff"
             android:contentDescription="@string/i_lost_a_pet_button_decription"
         />
@@ -51,7 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/found_pet_button"
-            android:src="@drawable/found_pet_button"
             android:background="#00ffffff"
         />
 

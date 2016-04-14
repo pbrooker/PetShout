@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import it.sephiroth.android.library.picasso.Picasso;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,7 +40,8 @@ public class MainActivityLoggedInFragment extends Fragment {
 
         mLostAPet = (ImageButton) view.findViewById(R.id.image_button);
         mFoundAPet = (ImageButton) view.findViewById(R.id.found_pet_button);
-
+        Picasso.with(getActivity()).load(R.drawable.found_pet_button).resize(600,451).centerCrop().into(mFoundAPet);
+        Picasso.with(getActivity()).load(R.drawable.lost_pet_button).resize(600,451).centerCrop().into(mLostAPet);
         mLostAPet.setOnClickListener(new View.OnClickListener()
         {
             @Override

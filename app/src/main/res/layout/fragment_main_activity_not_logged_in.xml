@@ -46,7 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/image_button"
-            android:src="@drawable/lost_pet_button"
             android:background="#00ffffff"
             android:contentDescription="@string/i_lost_a_pet_button_decription"
         />
@@ -69,7 +68,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/found_pet_button"
-            android:src="@drawable/found_pet_button"
             android:background="#00ffffff"
             android:contentDescription="@string/i_found_a_pet_button_description"
         />
@@ -104,7 +102,7 @@
     <TableRow android:gravity="center_horizontal"
               android:layout_gravity="center_horizontal"
               android:layout_marginTop="8dp"
-              android:layout_marginBottom="8dp">
+              android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="wrap_content"
