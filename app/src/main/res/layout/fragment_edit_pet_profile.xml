@@ -340,7 +340,7 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageButton3"
+                        android:id="@+id/selected_image_button"
                         android:contentDescription="@string/selected_image_button_content_description"
                         android:src="@drawable/default_pet_picture"/>
                 </LinearLayout>
@@ -380,6 +380,7 @@
                         style="@style/ActionButton"
                         android:text="@string/submit_button"
                         android:id="@+id/submit_button"
+                        android:visibility="gone"
                         android:layout_gravity="center_horizontal"
                         />
                 </LinearLayout>

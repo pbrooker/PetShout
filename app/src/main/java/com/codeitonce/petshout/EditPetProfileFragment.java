@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessException;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
 import com.google.gson.Gson;
@@ -124,7 +126,7 @@ public class EditPetProfileFragment extends Fragment
         mAge = (EditText) view.findViewById(R.id.age_input);
         mAdditionalInfo = (EditText) view.findViewById(R.id.additional_information);
         mSpayedNeutered = (CheckBox) view.findViewById(R.id.spayedNeuteredCheckBox);
-
+        mSpecies = (Spinner) view.findViewById(R.id.species_spinner);
 
 
         final ArrayList<String> userPet = new ArrayList<>();
@@ -147,8 +149,8 @@ public class EditPetProfileFragment extends Fragment
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
                 mSelectedPet = pets.get(position);
-                mPetID = mSelectedPet.getUserId();
-                Log.i("selectedPost", "selected post id is " + mPetID);
+                mPetID = mSelectedPet.getPetId();
+                //Log.i("selectedPost", "selected post id is " + mPetID);
             }
 
             @Override
@@ -163,14 +165,85 @@ public class EditPetProfileFragment extends Fragment
         mPet.setAdapter(mPostArrayAdapter);
 
 
-
-
         ArrayAdapter<CharSequence> mArrayAdapter;
         mArrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.spinner_data, R.layout.spinner_item);
 
         mSpecies.setAdapter(mArrayAdapter);
 
-        mSpecies = (Spinner) view.findViewById(R.id.species_spinner);
+        mSubmitButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                try
+                {
+                    switch (mGender.getCheckedRadioButtonId())
+                    {
+                        case R.id.male_radio:
+                            gender = "M";
+                            break;
+                        case R.id.female_radio:
+                            gender = "F";
+                            break;
+                    }
+                } catch (NullPointerException n)
+                {
+
+                }
+
+                BackendlessUser bkuser = new BackendlessUser();
+
+                bkuser.setProperty("objectId", userObjectID);
+
+                Users user = new Users();
+
+                user.setObjectId(userObjectID);
+
+                if (!(isEmpty(mBreed)))
+                {
+                    mSelectedPet.setPetBreed(mBreed.getText().toString());
+                }
+                if (!(isEmpty(mDescription)))
+                {
+                    mSelectedPet.setPetDescription(mDescription.getText().toString());
+                }
+                if (isRadioButtonChecked(mGender))
+                {
+                    mSelectedPet.setPetGender(gender);
+                }
+                mSelectedPet.setImagePath(remoteURL);
+                mSelectedPet.setPetNeutered(isSpayed);
+                mSelectedPet.setPetSpecies(species);
+
+
+                bkuser.setProperty(Constents.TABLE_USERS, mSelectedPet);
+
+                try
+                {
+
+                    Backendless.UserService.update(bkuser, new DefaultCallback<BackendlessUser>(getActivity())
+                    {
+                        @Override
+                        public void handleResponse(BackendlessUser backendlessUser)
+                        {
+                            super.handleResponse(backendlessUser);
+
+                            ThankYouFragment fragment;
+                            fragment = new ThankYouFragment();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.replace(R.id.mainFrame, fragment);
+                            ft.commit();
+
+                        }
+
+                    });
+                } catch (BackendlessException e)
+                {
+                    Toast.makeText(getActivity(), "Error - record not added, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
         mSpecies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -227,6 +300,20 @@ public class EditPetProfileFragment extends Fragment
             }
         });
 
+        mSelectedImage.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, Constents.SELECT_PHOTO);
+
+            }
+
+
+        });
+
         mSaveImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -257,10 +344,10 @@ public class EditPetProfileFragment extends Fragment
         });
 
 
-
-
         return  view;
     }
+
+
 
     private boolean isRadioButtonChecked(RadioGroup radioGroup)
     {

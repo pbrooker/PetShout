@@ -140,7 +140,7 @@ public class EditLostPetPostFragment extends Fragment
             {
                 mSelectedPost = posts.get(position);
                 mPostID = mSelectedPost.getPostId();
-                Log.i("selectedPost", "selected post id is " + mPostID);
+                //Log.i("selectedPost", "selected post id is " + mPostID);
             }
 
             @Override
