@@ -212,46 +212,7 @@
 
            </TableRow>
 
-           <TableRow
-               android:layout_width="match_parent"
-               android:layout_marginTop="8dp"
-               android:layout_marginBottom="8dp">
 
-               <TextView
-                   style="@style/FormTitleText"
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:text="@string/select_pet_profile_title"
-               />
-
-               <Spinner
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:id="@+id/pet_spinner"
-                   android:textAppearance="?android:attr/textAppearanceMedium"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginBottom="5dp"
-                   android:paddingLeft="5dp"
-               />
-
-           </TableRow>
-
-           <TableRow android:layout_width="match_parent"
-                     android:layout_gravity="center_horizontal"
-                     android:gravity="center_horizontal"
-                     android:layout_marginTop="8dp"
-                     android:layout_marginBottom="8dp">
-
-               <Button
-                   style="@style/ActionButton"
-                   android:text="@string/delete_pet_profile_button"
-                   android:id="@+id/delete_pet_profile_button"
-                   android:layout_gravity="center"
-                   android:layout_span="2"
-               />
-           </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
