@@ -353,7 +353,7 @@ public class DBHandler extends SQLiteOpenHelper
                 while (iterator.hasNext())
                 {
                     Pets pet = iterator.next();
-                    if(!(checkForRecord(Constents.TABLE_PETS, "Users.Pets", new  String []{ pet.getUserId()})))
+                    if(checkForRecord(Constents.TABLE_PETS, Constents.PETS_USERID, new  String []{ pet.getUserId()}))
                     {
                         addPet(pet);
                    }

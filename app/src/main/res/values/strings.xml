@@ -215,5 +215,7 @@
     <string name="save_image_button">Save Image</string>
     <string name="i_lost_a_pet_button_decription">I lost a pet button</string>
     <string name="i_found_a_pet_button_description">I found a pet button</string>
+    <string name="pet_profile_added">Pet profile successfully Added</string>
+    <string name="image_upload_delayed">Image upload delayed, please try again in a moment</string>
 
 </resources>

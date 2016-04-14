@@ -171,7 +171,7 @@ public class ReportFoundPetFragment extends Fragment
                     //testing data flow
                     //Log.i("Add post", "user email is " + userEmail);
                     mID = UUID.randomUUID().toString();
-                    //db = new DBHandler(getActivity());
+
                     Post post = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
                             mPetDescription.getText().toString(), remoteURL, mID, userEmail);
 
@@ -282,9 +282,6 @@ public class ReportFoundPetFragment extends Fragment
             }
 
         });
-
-        db.getPosts();
-
 
 
         return  view;

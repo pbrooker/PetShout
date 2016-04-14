@@ -3,6 +3,7 @@ package com.codeitonce.petshout;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -11,14 +12,18 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
+import com.backendless.exceptions.BackendlessException;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -42,6 +47,9 @@ public class EditAccountFragment extends Fragment {
     private Button mUpdate;
     private ImageView mImageView;
     private TextView mEmailVerify;
+    private Button mDeletePetButton;
+    private TableRow mPetSpinnerRow;
+    private TableRow mPetDeleteRow;
 
 
     @Override
@@ -58,8 +66,8 @@ public class EditAccountFragment extends Fragment {
             Users user = new Gson().fromJson(jsonMyObject, Users.class);
             userEmail = user.getEmail();
             userObjectID = user.getObjectId();
-            //Log.i("current user", userObjectID.toString());
-            Log.i("user email", userEmail);
+            Log.i("edit account user", userObjectID.toString());
+            //Log.i("user email", userEmail);
             currentbkuser = new BackendlessUser();
             currentbkuser.setProperty("objectID", userObjectID);
 
@@ -89,6 +97,9 @@ public class EditAccountFragment extends Fragment {
         mTableRow = (TableRow) view.findViewById(R.id.email_verify_row);
         mImageView = (ImageView) view.findViewById(R.id.cat_dog_profile);
         mEmailVerify = (TextView) view.findViewById(R.id.email_verify_textview);
+        mPetSpinnerRow = (TableRow) view.findViewById(R.id.select_pet_profile_row);
+        mPetDeleteRow = (TableRow) view.findViewById(R.id.delete_pet_profile_row);
+        mDeletePetButton = (Button) view.findViewById(R.id.delete_pet_profile_button);
 
 
         DBHandler db = new DBHandler(getActivity());
@@ -96,6 +107,35 @@ public class EditAccountFragment extends Fragment {
         pets = new ArrayList<>();
 
         pets = db.getPets(userObjectID);
+
+        try
+        {
+            if (pets.size() == 0)
+            {
+                mPetSpinnerRow.setVisibility(View.GONE);
+                mPetDeleteRow.setVisibility(View.GONE);
+            } else if (pets.size() > 0)
+            {
+                mPetSpinnerRow.setVisibility(View.VISIBLE);
+                mPetDeleteRow.setVisibility(View.VISIBLE);
+
+                ArrayList<String> names = new ArrayList<>();
+
+                for (int x = 0; x < pets.size(); x++)
+                {
+                    Pets pet = pets.get(x);
+                    names.add(pet.getPetName());
+
+                }
+                ArrayAdapter<String> mArrayAdapter;
+                mArrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, names);
+                mPetSpinner.setAdapter(mArrayAdapter);
+            }
+        }
+        catch(Exception e)
+        {
+
+        }
 
 
         mEmail.addTextChangedListener(new TextWatcher()
@@ -157,12 +197,29 @@ public class EditAccountFragment extends Fragment {
             }
         });
 
+        try
+        {
 
+            Backendless.UserService.update(currentbkuser, new DefaultCallback<BackendlessUser>(getActivity())
+            {
+                @Override
+                public void handleResponse(BackendlessUser backendlessUser)
+                {
+                    super.handleResponse(backendlessUser);
 
+                    MainActivityLoggedInFragment fragment;
+                    fragment = new MainActivityLoggedInFragment();
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.mainFrame, fragment);
+                    ft.commit();
 
+                }
 
-
-
+            });
+        } catch (BackendlessException e)
+        {
+            Toast.makeText(getActivity(), "Error - record not added, please try again", Toast.LENGTH_SHORT).show();
+        }
 
 
         return view;

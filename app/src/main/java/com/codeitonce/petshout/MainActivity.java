@@ -40,12 +40,13 @@ public class MainActivity extends AppCompatActivity
         try
         {
             dbHandler.getPosts();
-            dbHandler.getUsers();
+            //dbHandler.getUsers();
 
         }catch (Exception e)
         {
             Toast.makeText(this, "Error loading Databases - please try again", Toast.LENGTH_SHORT).show();
         }
+        dbHandler.close();
 
         Bundle extras = getIntent().getExtras();
         if(extras != null)

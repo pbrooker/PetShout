@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -37,6 +38,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.UUID;
+
+import it.sephiroth.android.library.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,7 +58,7 @@ public class CreatePetProfileFragment extends Fragment
     private EditText mAdditionalInfo;
     private Button mSubmitButton;
     private String gender;
-    private Button mSelectImage;
+    private Button mSaveImage;
     private Bitmap resizedImage;
     private Uri selectedImage;
     private File img;
@@ -70,6 +73,8 @@ public class CreatePetProfileFragment extends Fragment
     private String userEmail = "";
     private String userObjectID;
     private BackendlessUser bkuser;
+    private ImageButton mSelectedImage;
+    private boolean pathReturned = false;
 
 
 
@@ -120,7 +125,8 @@ public class CreatePetProfileFragment extends Fragment
         mAdditionalInfo = (EditText) view.findViewById(R.id.additional_information);
         mSubmitButton = (Button) view.findViewById(R.id.submit_button);
         mSpecies = (Spinner) view.findViewById(R.id.species_spinner);
-        mSelectImage = (Button) view.findViewById(R.id.image_button);
+        mSaveImage = (Button) view.findViewById(R.id.image_button);
+        mSelectedImage = (ImageButton) view.findViewById(R.id.selected_image_button);
 
 
 
@@ -154,15 +160,6 @@ public class CreatePetProfileFragment extends Fragment
 
                 }
 
-                try
-                {
-                    uploadAsync(img, filePath);
-                    //Log.i("Image URL" , remoteURL.toString());
-                } catch (Exception e)
-                {
-                    e.printStackTrace();
-                    //Log.i("Image Status", "Not uploaded");
-                }
 
                 mSpayedNeutered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
                 {
@@ -174,8 +171,9 @@ public class CreatePetProfileFragment extends Fragment
                     }
                 });
 
+
                 //check editable field status
-                if (!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender) && (remoteURL != null))
+                if (!(isEmpty(mName)) && !(isEmpty(mBreed)) && !(isEmpty(mAge)) && !(isEmpty(mDescription)) && isRadioButtonChecked(mGender))
                 {
 
                     mID = UUID.randomUUID().toString();
@@ -184,28 +182,21 @@ public class CreatePetProfileFragment extends Fragment
                         addInfo = mAdditionalInfo.getText().toString();
                     }
 
-                    //create local database entry
-                    //DBHandler db = new DBHandler(getActivity());
+
                     Pets pet = new Pets(mName.getText().toString(), species, isSpayed, gender, mBreed.getText().toString(), mAge.getText().toString(),
                             mDescription.getText().toString(),
-                            addInfo, remoteURL, mID);
+                            addInfo, remoteURL, mID, userObjectID);
 
-
-                    //db.addPet(pet);
-
-
-                    //db.addUserPet(userEmail, mID);
-                    //upload image
-
-                    //Log.i("CurrentUser" ,bkuser.getObjectId().toString());
                     bkuser.setProperty(Constents.USERS_PET_ID, mID);
                     bkuser.setProperty(Constents.TABLE_PETS, pet);
+
+
                     Backendless.UserService.update(bkuser, new AsyncCallback<BackendlessUser>()
                     {
                         @Override
                         public void handleResponse(BackendlessUser response)
                         {
-                            Toast.makeText(getActivity(), "Pet profile successfully Added", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), R.string.pet_profile_added, Toast.LENGTH_SHORT).show();
                             MainActivityLoggedInFragment fragment;
                             fragment = new MainActivityLoggedInFragment();
                             FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -219,8 +210,12 @@ public class CreatePetProfileFragment extends Fragment
                             Toast.makeText(getActivity(), R.string.complete_all_fields, Toast.LENGTH_SHORT).show();
                         }
                     });
-
+                } else
+                {
+                    Toast.makeText(getActivity(), R.string.image_upload_delayed, Toast.LENGTH_SHORT).show();
                 }
+
+
             }
 
         });
@@ -281,7 +276,7 @@ public class CreatePetProfileFragment extends Fragment
             }
         });
 
-        mSelectImage.setOnClickListener(new View.OnClickListener()
+        mSelectedImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -291,10 +286,29 @@ public class CreatePetProfileFragment extends Fragment
                 startActivityForResult(photoPickerIntent, Constents.SELECT_PHOTO);
 
             }
+
+
         });
 
-        DBHandler db = new DBHandler(getActivity());
-        db.getPets(userObjectID);
+        mSaveImage.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                try
+                {
+                    uploadAsync(img, filePath);
+
+
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), R.string.image_upload_delayed, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
 
         return view;
     }
@@ -398,7 +412,6 @@ public class CreatePetProfileFragment extends Fragment
                 if (resultCode == Activity.RESULT_OK)
                 {
                     Uri selectedImage = imageReturnedIntent.getData();
-
                     try
                     {
 
@@ -407,12 +420,12 @@ public class CreatePetProfileFragment extends Fragment
                     {
                         e.printStackTrace();
                     }
-
+                    Picasso.with(getActivity()).load(selectedImage).placeholder(R.drawable.default_pet_picture).resize(225,225).centerCrop().into(mSelectedImage);
                 }
         }
     }
 
-    private static void uploadAsync(File pic, String filePath ) throws Exception
+    private void uploadAsync(File pic, String filePath ) throws Exception
     {
 
         Backendless.Files.upload(pic, filePath, new AsyncCallback<BackendlessFile>()
@@ -422,6 +435,8 @@ public class CreatePetProfileFragment extends Fragment
             {
                 remoteURL = response.getFileURL().toString();
                 Log.i("RemoteURL", remoteURL);
+
+                mSubmitButton.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -429,6 +444,8 @@ public class CreatePetProfileFragment extends Fragment
             {
                 Log.i("Server  error - ", fault.getMessage());
             }
+
         });
+
     }
 }

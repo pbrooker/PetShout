@@ -358,6 +358,7 @@
                         style="@style/ActionButton"
                         android:text="@string/submit_button"
                         android:id="@+id/submit_button"
+                        android:visibility="gone"
                         android:layout_gravity="center_horizontal"
                     />
                 </LinearLayout>
