@@ -218,5 +218,6 @@
     <string name="pet_profile_added">Pet profile successfully Added</string>
     <string name="image_upload_delayed">Image upload delayed, please try again in a moment</string>
     <string name="select_lost_pet_post_spinner_title">Select Lost Pet Post</string>
+    <string name="selected_image_button_content_description">Selected Image</string>
 
 </resources>

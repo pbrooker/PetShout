@@ -72,7 +72,6 @@
 
             </TableRow>
 
-
             <TableRow android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:gravity="center_vertical"
@@ -318,7 +317,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/imageButton3"
-                        android:contentDescription="Selected Image"
+                        android:contentDescription="@string/selected_image_button_content_description"
                         android:src="@drawable/default_pet_picture"/>
                 </LinearLayout>
             </TableRow>
