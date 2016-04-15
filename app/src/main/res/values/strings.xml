@@ -219,5 +219,7 @@
     <string name="image_upload_delayed">Image upload delayed, please try again in a moment</string>
     <string name="select_lost_pet_post_spinner_title">Select Lost Pet Post</string>
     <string name="selected_image_button_content_description">Selected Image</string>
+    <string name="select_gender">Please select a gender</string>
+    <string name="record_not_added">Error - record not added, please try again</string>
 
 </resources>

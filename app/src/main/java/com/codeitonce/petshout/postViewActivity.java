@@ -19,12 +19,12 @@ public class postViewActivity extends AppCompatActivity
     private List<Post> mPosts;
     private String postId;
 
-    public static final String EXTRA_POST_ID = "com.codeitonce.petshout.post_id";
+
 
     public static Intent newIntent(Context c, String postId)
     {
         Intent intent = new Intent(c, postViewActivity.class);
-        intent.putExtra(EXTRA_POST_ID, postId);
+        intent.putExtra(Constents.EXTRA_POST_ID, postId);
         return intent;
     }
 
@@ -36,7 +36,7 @@ public class postViewActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_view);
 
-        postId = (String)getIntent().getSerializableExtra(EXTRA_POST_ID);
+        postId = (String)getIntent().getSerializableExtra(Constents.POSTS_ID);
         Log.i("postView", "postId = " + postId);
         mViewPager = (ViewPager) findViewById(R.id.activity_post_view_pager);
 

@@ -29,7 +29,6 @@ import android.widget.Toast;
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
-import com.backendless.exceptions.BackendlessException;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.files.BackendlessFile;
 import com.google.gson.Gson;
@@ -78,6 +77,7 @@ public class EditPetProfileFragment extends Fragment
     private EditText mAdditionalInfo;
     private CheckBox mSpayedNeutered;
     private String isSpayed = "no";
+    private Pets mNewPet;
 
 
     public EditPetProfileFragment() {
@@ -150,7 +150,7 @@ public class EditPetProfileFragment extends Fragment
             {
                 mSelectedPet = pets.get(position);
                 mPetID = mSelectedPet.getPetId();
-                //Log.i("selectedPost", "selected post id is " + mPetID);
+                Log.i("selectedPet", "selected post id is " + mSelectedPet.getObjectId());
             }
 
             @Override
@@ -191,14 +191,6 @@ public class EditPetProfileFragment extends Fragment
 
                 }
 
-                BackendlessUser bkuser = new BackendlessUser();
-
-                bkuser.setProperty("objectId", userObjectID);
-
-                Users user = new Users();
-
-                user.setObjectId(userObjectID);
-
                 if (!(isEmpty(mBreed)))
                 {
                     mSelectedPet.setPetBreed(mBreed.getText().toString());
@@ -206,6 +198,14 @@ public class EditPetProfileFragment extends Fragment
                 if (!(isEmpty(mDescription)))
                 {
                     mSelectedPet.setPetDescription(mDescription.getText().toString());
+                }
+                if (!isEmpty(mAdditionalInfo))
+                {
+                    mSelectedPet.setAddInfo(mAdditionalInfo.getText().toString());
+                }
+                if (!(isEmpty(mAge)))
+                {
+                    mSelectedPet.setPetAge(mAge.getText().toString());
                 }
                 if (isRadioButtonChecked(mGender))
                 {
@@ -215,33 +215,43 @@ public class EditPetProfileFragment extends Fragment
                 mSelectedPet.setPetNeutered(isSpayed);
                 mSelectedPet.setPetSpecies(species);
 
+                BackendlessUser bkuser = new BackendlessUser();
 
-                bkuser.setProperty(Constents.TABLE_USERS, mSelectedPet);
+                bkuser.setProperty("objectId", userObjectID);
 
-                try
-                {
-
-                    Backendless.UserService.update(bkuser, new DefaultCallback<BackendlessUser>(getActivity())
+                //Users user1 = new Users();
+                Backendless.Persistence.save( mSelectedPet, new AsyncCallback<Pets>() {
+                    public void handleResponse( Pets targetPet )
                     {
-                        @Override
-                        public void handleResponse(BackendlessUser backendlessUser)
-                        {
-                            super.handleResponse(backendlessUser);
 
-                            ThankYouFragment fragment;
-                            fragment = new ThankYouFragment();
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.replace(R.id.mainFrame, fragment);
-                            ft.commit();
+                        targetPet = mSelectedPet;
 
-                        }
-
-                    });
-                } catch (BackendlessException e)
-                {
-                    Toast.makeText(getActivity(), "Error - record not added, please try again", Toast.LENGTH_SHORT).show();
-                }
-
+                        Backendless.Persistence.save( targetPet, new
+                                AsyncCallback<Pets>() {
+                                    @Override
+                                    public void handleResponse( Pets response )
+                                    {
+                                        ThankYouFragment fragment;
+                                        fragment = new ThankYouFragment();
+                                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                        ft.replace(R.id.mainFrame, fragment);
+                                        ft.commit();
+                                    }
+                                    @Override
+                                    public void handleFault( BackendlessFault fault )
+                                    {
+                                        // an error has occurred, the error code can be retrieved with
+                                        Log.i("BK Fault", "Fault is " + fault.getCode());
+                                    }
+                                } );
+                    }
+                    @Override
+                    public void handleFault( BackendlessFault fault )
+                    {
+                        // an error has occurred, the error code can be retrieved with fault.
+                        Log.i("BK Fault", "Fault is " + fault.getCode());
+                    }
+                });
             }
         });
 
@@ -300,6 +310,9 @@ public class EditPetProfileFragment extends Fragment
             }
         });
 
+
+
+
         mSelectedImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -355,7 +368,7 @@ public class EditPetProfileFragment extends Fragment
 
         if (radioGroup.getCheckedRadioButtonId() == -1)
         {
-            Toast.makeText(getActivity(), "Please select a gender", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), R.string.select_gender, Toast.LENGTH_SHORT).show();
             isChecked = false;
             //no radio buttons are checked
             return isChecked;

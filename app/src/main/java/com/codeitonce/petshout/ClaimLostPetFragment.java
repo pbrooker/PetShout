@@ -28,7 +28,6 @@ public class ClaimLostPetFragment extends Fragment {
     private Button mClaimButton;
     private ImageView mPetImageView;
     private Post mPost;
-    private static final String ARG_POST_ID = "post_id";
     private String mID;
     private String userEmail;
 
@@ -40,7 +39,7 @@ public class ClaimLostPetFragment extends Fragment {
     public static ClaimLostPetFragment newInstance(String postObjectId)
     {
         Bundle args = new Bundle();
-        args.putSerializable(ARG_POST_ID, postObjectId);
+        args.putSerializable(Constents.EXTRA_POST_ID, postObjectId);
         Log.i("newInstance", "string is " + postObjectId);
         ClaimLostPetFragment fragment = new ClaimLostPetFragment();
         fragment.setArguments(args);
@@ -52,13 +51,16 @@ public class ClaimLostPetFragment extends Fragment {
     {
         super.onCreate(savedInstanceState);
 
-            String postID = (String) getArguments().getSerializable(ARG_POST_ID);
+            String postID = (String) getArguments().getSerializable(Constents.EXTRA_POST_ID);
             Log.d("ClaimFrag", "post object id is " + postID);
             DBHandler dbHandler = new DBHandler(getActivity());
 
             mPost = new Post();
             mPost = dbHandler.getPost(postID);
             mID = postID;
+            Log.i("Post email", "post email is " + mPost.getUserEmail().toString());
+
+        dbHandler.close();
 
 
 

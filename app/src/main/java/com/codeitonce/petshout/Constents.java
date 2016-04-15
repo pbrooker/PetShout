@@ -29,7 +29,6 @@ public class Constents
     public static final String USERS_PHONE = "USER_PHONE";
     public static final String USERS_EMAIL = "USER_EMAIL";
     public static final String USERS_CITY = "USER_CITY";
-    public static final String USERS_POSTAL_CODE = "USER_POSTALCODE";
     public static final String USERS_STATUS = "USER_STATUS";
     public static final String USERS_PET_ID = "Pets";
     public static final String USERS_POST_ID = "Posts";
@@ -39,37 +38,32 @@ public class Constents
     public static final String USERS_LAST_UPDATED = "LAST_UPDATED";
 
     //Pets table columns
-    public static final String PETS_ID = "PET_ID";
-    public static final String PETS_NAME = "PET_NAME";
-    public static final String PETS_SPECIES = "PET_SPECIES";
-    public static final String PETS_IMAGEPATH = "PET_IMAGEPATH";
-    public static final String PETS_NEUTERED = "PET_NEUTERED";
-    public static final String PETS_GENDER = "PET_GENDER";
-    public static final String PETS_BREED = "PET_BREED";
-    public static final String PETS_AGE = "PET_AGE";
-    public static final String PETS_DESCRIPTION = "PET_DESCRIPTION";
-    public static final String PETS_ADDINFO = "PET_ADDINFO";
-    public static final String PETS_LAST_UPDATED = "LAST_UPDATED";
+    public static final String PETS_ID = "petId";
+    public static final String PETS_NAME = "petName";
+    public static final String PETS_SPECIES = "petSpecies";
+    public static final String PETS_IMAGEPATH = "imagePath";
+    public static final String PETS_NEUTERED = "petNeutered";
+    public static final String PETS_GENDER = "petGender";
+    public static final String PETS_BREED = "petBreed";
+    public static final String PETS_AGE = "petAge";
+    public static final String PETS_DESCRIPTION = "petDescription";
+    public static final String PETS_ADDINFO = "addInfo";
     public static final String PETS_OBJECTID = "objectId";
     public static final String PETS_USERID = "userId";
 
     //Post table columns
-    public static final String POSTS_ID = "POST_ID";
-    public static final String POSTS_DATE = "POST_DATE";
-    public static final String POSTS_LOCATION = "POST_LOCATION";
+    public static final String POSTS_ID = "postId";
+    public static final String POSTS_LOCATION = "post_location";
     public static final String POSTS_IMAGEPATH = "postImagePath";
-    public static final String POSTS_LOST_FOUND = "POST_LOSTFOUND";
-    public static final String POSTS_GENDER = "POST_GENDER";
-    public static final String POSTS_SPECIES = "POST_SPECIES";
-    public static final String POSTS_BREED = "POST_BREED";
-    public static final String POSTS_DESCRIPTION = "POST_DESCRIPTION";
-    public static final String POSTS_EXPIRES = "POST_EXPIRES";
-    public static final String POSTS_LAST_UPDATED = "LAST_UPDATED";
+    public static final String POSTS_LOST_FOUND = "post_lostfound";
+    public static final String POSTS_GENDER = "postGender";
+    public static final String POSTS_SPECIES = "postSpecies";
+    public static final String POSTS_BREED = "postBreed";
+    public static final String POSTS_DESCRIPTION = "postDescription";
     public static final String POSTS_OBJECTID = "objectId";
     public static final String POST_USEREMAIL = "userEmail";
     public static final String POST_USERID = "userId";
 
-    public static final String UPDATED = "updated";
 
 
 
@@ -77,4 +71,5 @@ public class Constents
     public static final int SELECT_PHOTO = 0;
     public static final String PREFS_LOGGED_IN = "LoggedInStatusFile";
     public static final String SAVED_CURRENT_USER = "saved_current_user";
+    public static final String EXTRA_POST_ID = "com.codeitonce.petshout.post_id";
 }

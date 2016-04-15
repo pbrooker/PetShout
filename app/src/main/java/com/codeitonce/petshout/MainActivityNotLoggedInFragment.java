@@ -37,8 +37,8 @@ public class MainActivityNotLoggedInFragment extends Fragment {
 
         mLostAPet = (ImageButton) view.findViewById(R.id.image_button);
         mFoundAPet = (ImageButton) view.findViewById(R.id.found_pet_button);
-        Picasso.with(getActivity()).load(R.drawable.found_pet_button).resize(600,451).centerCrop().into(mFoundAPet);
-        Picasso.with(getActivity()).load(R.drawable.lost_pet_button).resize(600,451).centerCrop().into(mLostAPet);
+        Picasso.with(getActivity()).load(R.drawable.found_pet_button).resize(600,470).centerCrop().into(mFoundAPet);
+        Picasso.with(getActivity()).load(R.drawable.lost_pet_button).resize(600,470).centerCrop().into(mLostAPet);
         mRegister = (Button) view.findViewById(R.id.register_button);
         mLogin = (Button) view.findViewById(R.id.login_button);
 

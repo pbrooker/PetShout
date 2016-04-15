@@ -64,7 +64,6 @@ public class DBHandler extends SQLiteOpenHelper
 
         db.execSQL(createTable + Constents.TABLE_POSTS
                 + "(" + Constents.POSTS_ID + " BLOB,"
-                + Constents.POSTS_DATE + " TIMESTAMP,"
                 + Constents.POSTS_LOCATION + " BLOB,"
                 + Constents.POSTS_IMAGEPATH + " BLOB,"
                 + Constents.POSTS_GENDER + " CHAR,"
@@ -72,7 +71,6 @@ public class DBHandler extends SQLiteOpenHelper
                 + Constents.POSTS_LOST_FOUND + " CHAR,"
                 + Constents.POSTS_BREED + " BLOB,"
                 + Constents.POSTS_DESCRIPTION + " BLOB,"
-                + Constents.POSTS_EXPIRES + " DATE,"
                 + Constents.POSTS_OBJECTID + " BLOB,"
                 + Constents.POST_USERID + " BLOB,"
                 + Constents.POST_USEREMAIL + " BLOB)");
@@ -172,14 +170,18 @@ public class DBHandler extends SQLiteOpenHelper
 
         if (curPost.getCount() > 0)
         {
-            curPost.moveToPosition(-1);
+
             while (curPost.moveToNext())
             {
                 Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)), curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)), curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)),
                         curPost.getString(curPost.getColumnIndex(Constents.POST_USERID)));
 
                 list.add(post);
@@ -232,10 +234,14 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.POSTS_SPECIES, post.getPostSpecies());
         values.put(Constents.POSTS_BREED, post.getPostBreed());
         values.put(Constents.POSTS_DESCRIPTION, post.getPostDescription());
-        values.put(Constents.POSTS_ID, post.getPostId());
-        values.put(Constents.POSTS_OBJECTID,post.getObjectId());
         values.put(Constents.POSTS_IMAGEPATH, post.getPostImagePath());
+        values.put(Constents.POSTS_OBJECTID,post.getObjectId());
         values.put(Constents.POST_USEREMAIL, post.getUserEmail());
+        values.put(Constents.POST_USERID, post.getPostId());
+        values.put(Constents.POSTS_ID, post.getPostId());
+
+
+
 
         db.insert(Constents.TABLE_POSTS, null, values);
         db.close();
@@ -251,7 +257,7 @@ public class DBHandler extends SQLiteOpenHelper
     public void deletePet(Pets pet)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(Constents.TABLE_PETS, Constents.PETS_OBJECTID + " = ?", new String[] {String.valueOf(pet.getObjectId())} );
+        db.delete(Constents.TABLE_PETS, Constents.PETS_OBJECTID + " = ?", new String[]{String.valueOf(pet.getObjectId())});
 
         db.close();
     }
@@ -279,24 +285,26 @@ public class DBHandler extends SQLiteOpenHelper
     public Post getPost(String postID)
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor curPost = db.query( Constents.TABLE_POSTS , null, Constents.POSTS_OBJECTID + "=?",
+        boolean result = checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_ID, new String[]{postID});
+        Log.i("post checking for", "post id is " + postID);
+        Log.i("is this post here?", "check for record result equals " + result);
+        Cursor curPost = db.query( Constents.TABLE_POSTS , null, Constents.POSTS_ID + "=?",
                 new String[] { String.valueOf(postID) }, null, null, null, null);
-        if (curPost.getCount() == 0)
-        {
-            return null;
-        }
-        curPost.moveToFirst();
-        Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
-                curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)),
-                curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)));
-        Log.i("getPostEmail", post.getUserEmail().toString());
-        // return post
+
+        if(curPost != null)
+            curPost.moveToFirst();
+            Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POSTS_SPECIES)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POSTS_BREED)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POST_USERID)));
+            Log.i("getPostEmail", post.getUserEmail().toString());
+            // return post
 
         curPost.close();
         db.close();
@@ -317,9 +325,10 @@ public class DBHandler extends SQLiteOpenHelper
                 while (iterator.hasNext())
                 {
                     Post post = iterator.next();
-                    if(!(checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_OBJECTID, new  String []{ post.getObjectId()})))
+                    if(!(checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_ID, new  String []{ post.getPostId()})))
                     {
                         addPost(post);
+                        Log.i("Post ID added", "Post id is "+ post.getPostId().toString());
                        // Log.d("PostAdded", post.toString());
                     }
 
@@ -427,8 +436,6 @@ public class DBHandler extends SQLiteOpenHelper
 
     public void getPets()
     {
-
-
 
         AsyncCallback<BackendlessCollection<Pets>> callback = new AsyncCallback<BackendlessCollection<Pets>>()
         {
