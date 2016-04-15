@@ -31,10 +31,10 @@
             <!--android:id="@+id/nav_create_lpp"-->
             <!--android:icon="@drawable/ic_menu_create"-->
             <!--android:title="@string/nav_create_lpp"/>-->
-        <item
-            android:id="@+id/nav_claim_pet"
-            android:icon="@drawable/ic_menu_claim_pet"
-            android:title="@string/nav_claim_pet"/>
+        <!--<item-->
+            <!--android:id="@+id/nav_claim_pet"-->
+            <!--android:icon="@drawable/ic_menu_claim_pet"-->
+            <!--android:title="@string/nav_claim_pet"/>-->
         <item
             android:id="@+id/nav_edit_account"
             android:icon="@drawable/ic_menu_edit"

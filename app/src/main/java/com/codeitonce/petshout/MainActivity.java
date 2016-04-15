@@ -209,15 +209,16 @@ public class MainActivity extends AppCompatActivity
 //            ft.commit();
 
         }
-        else if (id == R.id.nav_claim_pet)
-        {
-            ClaimLostPetFragment fragment;
-            fragment = new ClaimLostPetFragment();
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.mainFrame, fragment);
-            ft.commit();
-
-        }else if (id == R.id.nav_edit_account)
+//        else if (id == R.id.nav_claim_pet)
+//        {
+//            ClaimLostPetFragment fragment;
+//            fragment = new ClaimLostPetFragment();
+//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//            ft.replace(R.id.mainFrame, fragment);
+//            ft.commit();
+//
+//        }
+        else if (id == R.id.nav_edit_account)
         {
             EditAccountFragment fragment;
             fragment = new EditAccountFragment();
