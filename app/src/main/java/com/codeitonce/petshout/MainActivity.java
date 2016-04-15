@@ -200,13 +200,13 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.mainFrame, fragment);
             ft.commit();
 
-//        } else if (id == R.id.nav_create_lpp)
-//        {
-//            CreateLostPetPostFragment fragment;
-//            fragment = new CreateLostPetPostFragment();
-//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//            ft.replace(R.id.mainFrame, fragment);
-//            ft.commit();
+        } else if (id == R.id.nav_create_i_lost_my_pet)
+        {
+            ILostMyPetFragment fragment;
+            fragment = new ILostMyPetFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, fragment);
+            ft.commit();
 
         }
 //        else if (id == R.id.nav_claim_pet)
