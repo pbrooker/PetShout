@@ -13,12 +13,22 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
 
     private boolean isValidUser;
+    private BackendlessUser currentbkuser;
+    private String userEmail;
+    private String userObjectID;
+    private ArrayList<Pets> userPets;
+    private ArrayList<Post> userPosts;
+
 
 
     @Override
@@ -30,7 +40,26 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         Backendless.initApp(getApplicationContext(), Constents.APP_ID, Constents.APP_KEY, Constents.APP_VERSION);
 
+        String jsonMyObject;
+        Bundle extras = getIntent().getExtras();
+        if(extras != null)
+        {
+            jsonMyObject = extras.getString("user");
+            isValidUser = extras.getBoolean("validUser");
+            Users user = new Gson().fromJson(jsonMyObject, Users.class);
+            userEmail = user.getEmail();
+            userObjectID = user.getObjectId();
 
+            //for testing
+            //Log.i("current user", userObjectID.toString());
+            //Log.i("user email", userEmail);
+            currentbkuser = new BackendlessUser();
+
+        }
+        else
+        {
+            isValidUser = false;
+        }
 
 
         DBHandler dbHandler = new DBHandler(getApplicationContext());
@@ -41,6 +70,8 @@ public class MainActivity extends AppCompatActivity
         {
             dbHandler.getPosts();
             dbHandler.getPets();
+            userPosts = dbHandler.getUserPosts(userEmail);
+            userPets = dbHandler.getUserPets(userObjectID);
             //dbHandler.getUsers();
 
         }catch (Exception e)
@@ -48,13 +79,6 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "Error loading Databases - please try again", Toast.LENGTH_SHORT).show();
         }
         dbHandler.close();
-
-        Bundle extras = getIntent().getExtras();
-        if(extras != null)
-        {
-            isValidUser = extras.getBoolean("validUser");
-        }
-
 
 
 
@@ -67,10 +91,23 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
         if(isValidUser)
         {
             navigationView.getMenu().setGroupVisible(R.id.logged_in, true);
             navigationView.getMenu().setGroupVisible(R.id.not_logged_in, false);
+
+            if(userPets != null)
+            {
+                navigationView.getMenu().setGroupVisible(R.id.has_pets, true);
+
+            }
+            if(userPosts != null)
+            {
+                navigationView.getMenu().setGroupVisible(R.id.has_posts, true);
+            }
+
             MainActivityLoggedInFragment fragment;
             fragment = new MainActivityLoggedInFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

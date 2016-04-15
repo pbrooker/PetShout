@@ -19,30 +19,21 @@
             android:icon="@drawable/ic_menu_browse"
             android:title="@string/nav_browse"/>
 
-        <item
-            android:id="@+id/nav_edit_pp"
-            android:icon="@drawable/ic_menu_edit"
-            android:title="@string/nav_edit_pp"/>
+
         <item
             android:id="@+id/nav_create_pp"
             android:icon="@drawable/ic_menu_create"
             android:title="@string/create_pet_profile"/>
         <item
-        android:id="@+id/nav_create_i_lost_my_pet"
-        android:icon="@drawable/ic_menu_create"
-        android:title="@string/i_lost_my_pet_menu"/>
-        <!--<item-->
-            <!--android:id="@+id/nav_claim_pet"-->
-            <!--android:icon="@drawable/ic_menu_claim_pet"-->
-            <!--android:title="@string/nav_claim_pet"/>-->
+            android:id="@+id/nav_create_i_lost_my_pet"
+            android:icon="@drawable/ic_menu_create"
+            android:title="@string/i_lost_my_pet_menu"/>
+
         <item
             android:id="@+id/nav_edit_account"
             android:icon="@drawable/ic_menu_edit"
             android:title="@string/nav_edit_account"/>
-        <item
-            android:id="@+id/nav_edit_lpp"
-            android:icon="@drawable/ic_menu_edit"
-            android:title="@string/nav_edit_lpp"/>
+
 
         <item
             android:id="@+id/nav_steps1"
@@ -83,6 +74,24 @@
             android:icon="@drawable/ic_menu_newregister"
             android:title="@string/nav_register"/>
 
+
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/has_pets"
+        android:visible="false">
+        <item
+            android:id="@+id/nav_edit_pp"
+            android:icon="@drawable/ic_menu_edit"
+            android:title="@string/nav_edit_pp"/>
+
+        </group>
+    <group android:checkableBehavior="single"
+           android:id="@+id/has_posts"
+           android:visible="false">
+        <item
+            android:id="@+id/nav_edit_lpp"
+            android:icon="@drawable/ic_menu_edit"
+            android:title="@string/nav_edit_lpp"/>
 
     </group>
 

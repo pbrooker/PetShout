@@ -351,6 +351,7 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
+
     public ArrayList<Post> getUserPosts(String userEmail)
     {
         final ArrayList<Post> mPostArray = new ArrayList<>();
@@ -359,16 +360,9 @@ public class DBHandler extends SQLiteOpenHelper
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor curPost = db.query( Constents.TABLE_POSTS , null, Constents.POST_USEREMAIL + "=?",
                 new String[] { String.valueOf(userEmail) }, null, null, null, null);
-        if (curPost.getCount() == 0)
-        {
-            return null;
-        }
 
-        if (curPost.getCount() > 0)
-        {
-            curPost.moveToPosition(-1);
-            while (curPost.moveToNext())
-            {
+        if(curPost != null)
+            curPost.moveToFirst();
                 Post post = new Post(curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOCATION)),
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_LOST_FOUND)),
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_GENDER)),
@@ -382,14 +376,10 @@ public class DBHandler extends SQLiteOpenHelper
                 //Log.i("getPostEmail", post.getUserEmail().toString());
 
                 mPostArray.add(post);
-            }
-
-        }
 
 
         curPost.close();
         db.close();
-
 
 
         return mPostArray;
