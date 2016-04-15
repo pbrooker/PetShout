@@ -47,8 +47,8 @@ public class MainActivityLoggedInFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                CreateLostPetPostFragment fragment;
-                fragment = new CreateLostPetPostFragment();
+                ILostMyPetFragment fragment;
+                fragment = new ILostMyPetFragment();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.mainFrame, fragment);
                 ft.commit();

@@ -1,0 +1,321 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".ILostMyPetFragment"
+                style="@style/Layouts"
+    >
+
+
+    <ImageView
+        style="@style/HeaderImage"
+        android:id="@+id/cat_dog_profile"
+        />
+
+    <ScrollView
+        style="@style/ScrollViewStyle"
+        android:id="@+id/scroll_view"
+        >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="0,1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                >
+
+                <TextView
+                    style="@style/PageTitle"
+                    android:text="@string/i_lost_my_pet_header"
+                    />
+
+
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/select_species_title"
+                    />
+
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/species_spinner"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/breed_title"
+                    />
+
+                <EditText
+                    style="@style/EditTextFields"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/breed_input"
+                    android:hint="@string/breed_title"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/gender_header"
+
+                    />
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/gender_group"
+                    android:orientation="vertical"
+                    android:textColor="#ffffff"
+                    >
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/male_text"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/male_radio"
+                        android:buttonTint="#e89e1a"
+                        android:textColor="#ffffff"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/female_text"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/female_radio"
+                        android:buttonTint="#e89e1a"
+                        android:textColor="#ffffff"
+                        />
+
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/description_title"
+                    />
+
+                <EditText
+                    style="@style/EditTextFields"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textMultiLine"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:hint="@string/pet_description"
+                    android:id="@+id/pet_description"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/location_header"
+                    android:id="@+id/text_view_three"
+                    />
+
+                <EditText
+                    style="@style/EditTextFields"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/location_input"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:hint="@string/location_header"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:layout_span="2"
+                    android:layout_column="0">
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/selected_image_button"
+                        android:contentDescription="Selected Image"
+                        android:src="@drawable/default_pet_picture"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow android:gravity="center"
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp"
+                >
+
+                <Button
+                    style="@style/ActionButton"
+                    android:text="@string/save_image_button"
+                    android:id="@+id/image_button"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_span="2"
+                    />
+
+            </TableRow>
+
+            <TableRow android:gravity="center"
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp"
+                >
+
+                <Button
+                    style="@style/ActionButton"
+                    android:text="@string/submit_button"
+                    android:id="@+id/submit_button"
+                    android:visibility="gone"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_span="2"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/submit_disclaimer"
+                    android:id="@+id/text_view"
+                    android:layout_span="2"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="10dp"
+                    />
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:textSize="20sp"
+
+                    />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
