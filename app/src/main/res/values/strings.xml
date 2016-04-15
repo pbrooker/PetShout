@@ -223,5 +223,6 @@
     <string name="record_not_added">Error - record not added, please try again</string>
     <string name="i_lost_my_pet_header">I Lost My Pet</string>
     <string name="i_lost_my_pet_menu">I Lost My Pet</string>
+    <string name="edit_post_menu">Edit Post</string>
 
 </resources>
