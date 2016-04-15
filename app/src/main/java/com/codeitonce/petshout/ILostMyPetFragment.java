@@ -174,7 +174,7 @@ public class ILostMyPetFragment extends Fragment
                     mID = UUID.randomUUID().toString();
 
                     Post post = new Post(mLocation.getText().toString(), "L", gender, species, mBreed.getText().toString(),
-                            mPetDescription.getText().toString(), remoteURL, userEmail, userObjectID);
+                            mPetDescription.getText().toString(), remoteURL, userEmail, userObjectID, mID);
 
                     //db.addPost(post);
                     currentbkuser.setProperty(Constents.TABLE_POSTS, post);

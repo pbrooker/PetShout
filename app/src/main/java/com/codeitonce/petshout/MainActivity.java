@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity
 
         }catch (Exception e)
         {
+            Log.i("Exception message", "Exception Message: " + e.getMessage().toString());
             Toast.makeText(this, "Error loading Databases - please try again", Toast.LENGTH_SHORT).show();
         }
         dbHandler.close();

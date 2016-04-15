@@ -182,7 +182,8 @@ public class DBHandler extends SQLiteOpenHelper
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)),
                         curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POST_USERID)));
+                        curPost.getString(curPost.getColumnIndex(Constents.POST_USERID)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
 
                 list.add(post);
                 //Log.d("Post Added", "new post added");
@@ -302,7 +303,8 @@ public class DBHandler extends SQLiteOpenHelper
                     curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
                     curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)),
                     curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)),
-                    curPost.getString(curPost.getColumnIndex(Constents.POST_USERID)));
+                    curPost.getString(curPost.getColumnIndex(Constents.POST_USERID)),
+                    curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
 
         curPost.close();
         db.close();
@@ -371,8 +373,9 @@ public class DBHandler extends SQLiteOpenHelper
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_DESCRIPTION)),
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)),
-                        curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)));
-                        curPost.getString(curPost.getColumnIndex(Constents.POST_USERID));
+                        curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POST_USERID)),
+                        curPost.getString(curPost.getColumnIndex(Constents.POSTS_ID)));
                 //Log.i("getPostEmail", post.getUserEmail().toString());
 
                 mPostArray.add(post);

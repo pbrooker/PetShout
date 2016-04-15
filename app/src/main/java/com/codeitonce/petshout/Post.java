@@ -26,22 +26,22 @@ public class Post
     }
 
 
-    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed,
-                String postDescription, String postImagePath, String userEmail, String userId)
-    {
-        this.post_location = postLocation;
-        this.post_lostfound = post_lostfound;
-        this.postGender = postGender;
-        this.postSpecies = postSpecies;
-        this.postBreed = postBreed;
-        this.postDescription = postDescription;
-        this.postImagePath = postImagePath;
-        this.userEmail = userEmail;
-        this.userId = userId;
-    }
+//    public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed,
+//                String postDescription, String postImagePath, String userEmail, String userId)
+//    {
+//        this.post_location = postLocation;
+//        this.post_lostfound = post_lostfound;
+//        this.postGender = postGender;
+//        this.postSpecies = postSpecies;
+//        this.postBreed = postBreed;
+//        this.postDescription = postDescription;
+//        this.postImagePath = postImagePath;
+//        this.userEmail = userEmail;
+//        this.userId = userId;
+//    }
 
     public Post(String postLocation, String post_lostfound,String postGender, String postSpecies,  String postBreed,
-                String postDescription, String postImagePath, String objectId, String userEmail, String userId)
+                String postDescription, String postImagePath, String objectId, String userEmail, String userId, String postId)
     {
         this.post_location = postLocation;
         this.post_lostfound = post_lostfound;
@@ -53,6 +53,23 @@ public class Post
         this.objectId = objectId;
         this.userEmail = userEmail;
         this.userId = userId;
+        this.postId = postId;
+
+    }
+
+    public Post(String postLocation, String post_lostfound,String postGender, String postSpecies,  String postBreed,
+                String postDescription, String postImagePath,  String userEmail, String userId, String postId)
+    {
+        this.post_location = postLocation;
+        this.post_lostfound = post_lostfound;
+        this.postGender = postGender;
+        this.postSpecies = postSpecies;
+        this.postBreed = postBreed;
+        this.postDescription = postDescription;
+        this.postImagePath = postImagePath;
+        this.userEmail = userEmail;
+        this.userId = userId;
+        this.postId = postId;
 
     }
 
