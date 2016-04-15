@@ -265,8 +265,8 @@ public class DBHandler extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor curPost = db.query( Constents.TABLE_USERS , null, Constents.USERS_POST_ID + "=?",
-                new String[] { String.valueOf(postID) }, null, null, null, null);
+        Cursor curPost = db.query(Constents.TABLE_USERS, null, Constents.USERS_POST_ID + "=?",
+                new String[]{String.valueOf(postID)}, null, null, null, null);
         if (curPost.getCount() == 0)
         {
             return null;
@@ -320,17 +320,24 @@ public class DBHandler extends SQLiteOpenHelper
 
                 Iterator<Post> iterator = posts.getCurrentPage().iterator();
 
-                while (iterator.hasNext())
-                {
-                    Post post = iterator.next();
-                    if(!(checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_ID, new  String []{ post.getPostId()})))
+                    while (iterator.hasNext())
                     {
-                        addPost(post);
-                        Log.i("Post ID added", "Post id is "+ post.getPostId().toString());
-                       // Log.d("PostAdded", post.toString());
+                        Post post = iterator.next();
+                        try
+                        {
+                            if (!(checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_ID, new String[]{post.getPostId()})))
+                            {
+                                addPost(post);
+                                Log.i("Post ID added", "Post id is " + post.getPostId().toString());
+                                // Log.d("PostAdded", post.toString());
+                            }
+                        }
+                        catch(Exception e)
+                        {
+
+                        }
                     }
 
-                }
             }
 
             @Override

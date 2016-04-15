@@ -27,7 +27,7 @@ public class Post
 
 
     public Post(String postLocation, String post_lostfound, String postGender, String postSpecies,  String postBreed,
-                String postDescription, String postImagePath, String objectId, String userId)
+                String postDescription, String postImagePath, String userEmail, String userId)
     {
         this.post_location = postLocation;
         this.post_lostfound = post_lostfound;
@@ -36,7 +36,7 @@ public class Post
         this.postBreed = postBreed;
         this.postDescription = postDescription;
         this.postImagePath = postImagePath;
-        this.postId = objectId;
+        this.userEmail = userEmail;
         this.userId = userId;
     }
 

@@ -177,7 +177,7 @@ public class ReportFoundPetFragment extends Fragment
                     mID = UUID.randomUUID().toString();
 
                     Post post = new Post(mLocation.getText().toString(), "F", gender, species, mBreed.getText().toString(),
-                            mPetDescription.getText().toString(), remoteURL, mID, userEmail, userObjectID );
+                            mPetDescription.getText().toString(), remoteURL, userEmail, userObjectID );
 
                     //db.addPost(post);
                     currentbkuser.setProperty(Constents.TABLE_POSTS, post);
@@ -193,7 +193,9 @@ public class ReportFoundPetFragment extends Fragment
                             public void handleResponse(BackendlessUser backendlessUser)
                             {
                                 super.handleResponse(backendlessUser);
-
+                                DBHandler db = new DBHandler(getActivity());
+                                db.getPosts();
+                                db.close();
 
                                 ThankYouFragment fragment;
                                 fragment = new ThankYouFragment();

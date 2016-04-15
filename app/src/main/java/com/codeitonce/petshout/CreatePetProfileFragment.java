@@ -175,7 +175,6 @@ public class CreatePetProfileFragment extends Fragment
                             mDescription.getText().toString(),
                             addInfo, remoteURL, mID, userObjectID);
 
-                    bkuser.setProperty(Constents.USERS_PET_ID, mID);
                     bkuser.setProperty(Constents.TABLE_PETS, pet);
 
 
@@ -185,6 +184,9 @@ public class CreatePetProfileFragment extends Fragment
                         public void handleResponse(BackendlessUser response)
                         {
                             Toast.makeText(getActivity(), R.string.pet_profile_added, Toast.LENGTH_SHORT).show();
+                            DBHandler db = new DBHandler(getActivity());
+                            db.getPets();
+                            db.close();
                             MainActivityLoggedInFragment fragment;
                             fragment = new MainActivityLoggedInFragment();
                             FragmentTransaction ft = getFragmentManager().beginTransaction();
