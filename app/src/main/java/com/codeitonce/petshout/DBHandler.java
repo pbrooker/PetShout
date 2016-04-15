@@ -237,7 +237,7 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(Constents.POSTS_IMAGEPATH, post.getPostImagePath());
         values.put(Constents.POSTS_OBJECTID,post.getObjectId());
         values.put(Constents.POST_USEREMAIL, post.getUserEmail());
-        values.put(Constents.POST_USERID, post.getPostId());
+        values.put(Constents.POST_USERID, post.getUserId());
         values.put(Constents.POSTS_ID, post.getPostId());
 
 
@@ -282,14 +282,14 @@ public class DBHandler extends SQLiteOpenHelper
 
     }
 
-    public Post getPost(String postID)
+    public Post getPost(String postObjectId)
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        boolean result = checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_ID, new String[]{postID});
-        Log.i("post checking for", "post id is " + postID);
+        boolean result = checkForRecord(Constents.TABLE_POSTS, Constents.POSTS_OBJECTID, new String[]{postObjectId});
+        Log.i("post checking for", "post id is " + postObjectId);
         Log.i("is this post here?", "check for record result equals " + result);
-        Cursor curPost = db.query( Constents.TABLE_POSTS , null, Constents.POSTS_ID + "=?",
-                new String[] { String.valueOf(postID) }, null, null, null, null);
+        Cursor curPost = db.query( Constents.TABLE_POSTS , null, Constents.POSTS_OBJECTID + "=?",
+                new String[] { String.valueOf(postObjectId) }, null, null, null, null);
 
         if(curPost != null)
             curPost.moveToFirst();
@@ -303,8 +303,6 @@ public class DBHandler extends SQLiteOpenHelper
                     curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)),
                     curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)),
                     curPost.getString(curPost.getColumnIndex(Constents.POST_USERID)));
-            Log.i("getPostEmail", post.getUserEmail().toString());
-            // return post
 
         curPost.close();
         db.close();
@@ -373,6 +371,7 @@ public class DBHandler extends SQLiteOpenHelper
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_IMAGEPATH)),
                         curPost.getString(curPost.getColumnIndex(Constents.POSTS_OBJECTID)),
                         curPost.getString(curPost.getColumnIndex(Constents.POST_USEREMAIL)));
+                        curPost.getString(curPost.getColumnIndex(Constents.POST_USERID));
                 //Log.i("getPostEmail", post.getUserEmail().toString());
 
                 mPostArray.add(post);

@@ -40,7 +40,7 @@ public class Post
         this.userId = userId;
     }
 
-    public Post(String postLocation, String post_lostfound, String postSpecies,  String postBreed,String postGender,
+    public Post(String postLocation, String post_lostfound,String postGender, String postSpecies,  String postBreed,
                 String postDescription, String postImagePath, String objectId, String userEmail, String userId)
     {
         this.post_location = postLocation;
@@ -50,7 +50,7 @@ public class Post
         this.postBreed = postBreed;
         this.postDescription = postDescription;
         this.postImagePath = postImagePath;
-        this.postId = objectId;
+        this.objectId = objectId;
         this.userEmail = userEmail;
         this.userId = userId;
 

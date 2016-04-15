@@ -93,7 +93,8 @@ public class BrowsePetsFragment extends Fragment
         {
             mPost = post;
             String imagePath = mPost.getPostImagePath();
-            objectId = mPost.getPostId();
+            objectId = mPost.getObjectId();
+           // Log.i("Bind post objectid", "bindpost object id is " + objectId);
 
             try
             {
@@ -145,6 +146,8 @@ public class BrowsePetsFragment extends Fragment
         public void onBindViewHolder(PostHolder holder, int position)
         {
             Post post = mPosts.get(position);
+
+
 
             holder.bindPost(post);
 

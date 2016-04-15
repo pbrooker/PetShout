@@ -23,6 +23,7 @@ public class postViewActivity extends AppCompatActivity
 
     public static Intent newIntent(Context c, String postId)
     {
+        Log.i("Intent put extra", "Intent data is " + postId);
         Intent intent = new Intent(c, postViewActivity.class);
         intent.putExtra(Constents.EXTRA_POST_ID, postId);
         return intent;
@@ -36,12 +37,13 @@ public class postViewActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_view);
 
-        postId = (String)getIntent().getSerializableExtra(Constents.POSTS_ID);
+        postId = (String)getIntent().getSerializableExtra(Constents.EXTRA_POST_ID);
         Log.i("postView", "postId = " + postId);
         mViewPager = (ViewPager) findViewById(R.id.activity_post_view_pager);
 
         mPosts = db.getPostsArray();
         Log.i("mPost Size", mPosts.toString());
+        db.close();
         FragmentManager fm = getSupportFragmentManager();
 
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fm)
@@ -51,7 +53,7 @@ public class postViewActivity extends AppCompatActivity
             {
 
                 Post post = mPosts.get(position);
-                return ClaimLostPetFragment.newInstance(post.getPostId());
+                return ClaimLostPetFragment.newInstance(post.getObjectId());
             }
 
             @Override
@@ -63,7 +65,7 @@ public class postViewActivity extends AppCompatActivity
 
         for(int x = 0; x < mPosts.size(); x++)
         {
-            if(mPosts.get(x).getPostId().equals(postId))
+            if(mPosts.get(x).getObjectId().equals(postId))
             {
                 mViewPager.setCurrentItem(x);
                 break;

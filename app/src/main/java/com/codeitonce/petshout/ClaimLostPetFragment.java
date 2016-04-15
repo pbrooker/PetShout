@@ -51,14 +51,14 @@ public class ClaimLostPetFragment extends Fragment {
     {
         super.onCreate(savedInstanceState);
 
-            String postID = (String) getArguments().getSerializable(Constents.EXTRA_POST_ID);
-            Log.d("ClaimFrag", "post object id is " + postID);
+            String postObjectID = (String) getArguments().getSerializable(Constents.EXTRA_POST_ID);
+            Log.d("ClaimFrag", "post object id is " + postObjectID);
             DBHandler dbHandler = new DBHandler(getActivity());
 
             mPost = new Post();
-            mPost = dbHandler.getPost(postID);
-            mID = postID;
-            Log.i("Post email", "post email is " + mPost.getUserEmail().toString());
+            mPost = dbHandler.getPost(postObjectID);
+            mID = postObjectID;
+            //Log.i("Post email", "post email is " + mPost.getUserEmail().toString());
 
         dbHandler.close();
 
