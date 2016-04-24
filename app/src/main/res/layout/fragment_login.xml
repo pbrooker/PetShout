@@ -20,8 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="0,1"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             >
 
             <TableRow
@@ -52,7 +50,7 @@
                     android:text="@string/email_address_input"
                     android:layout_weight="1"
 
-                    />
+                    android:textSize="16sp"/>
 
                 <EditText
                     style="@style/EditTextFields"
@@ -74,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/password_input"
                     android:layout_weight="1"
-                    />
+                    android:textSize="16sp"/>
 
                 <EditText
                     style="@style/EditTextFields"
