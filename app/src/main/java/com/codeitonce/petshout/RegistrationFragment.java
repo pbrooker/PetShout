@@ -204,6 +204,8 @@ public class RegistrationFragment extends Fragment {
                             mCity.getText().toString(), mEmail.getText().toString(),
                             mPhoneNumber.getText().toString(), mPassword.getText().toString()));
 
+                    db.close();
+
                     Toast.makeText(getActivity(), R.string.reg_successful, Toast.LENGTH_SHORT).show();
 
                     BackendlessUser bkUser = new BackendlessUser();
